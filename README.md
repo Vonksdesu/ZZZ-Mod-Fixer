@@ -14,3 +14,7 @@ This project wasn’t entirely my own creation from the start. I simply continue
 3.  **Contributors**:
 	- HammyCate: https://gamebanana.com/members/3539653
 	- EnteleJiang: https://gamebanana.com/members/4064027
+
+### Project Origins
+
+- **GameBanana**: https://gamebanana.com/tools/21671
