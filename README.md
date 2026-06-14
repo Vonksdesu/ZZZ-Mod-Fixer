@@ -27,8 +27,8 @@ This project is built upon the amazing work of the original creators in the modd
 * **Contributors**:
   * [HammyCate](https://gamebanana.com/members/3539653)
   * [EnteleJiang](https://gamebanana.com/members/4064027)
-  * [leotorrez](https://gamebanana.com/members/5127033).
-  * [ConfoundedHermit](https://gamebanana.com/members/3335346).
+  * [leotorrez](https://gamebanana.com/members/5127033)
+  * [ConfoundedHermit](https://gamebanana.com/members/3335346)
 
 ---
 
