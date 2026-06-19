@@ -67,6 +67,20 @@ This is the most recommended method to prevent any hidden conflicts and ensure t
 3. Place and run my `zzz-mod-fixer-v3.0.exe` inside the `Mods` folder to automatically update them.
 4. Launch the game via **XXMI Launcher**.
 
+### ⚠️ Attention to users who have problems with Windows Security
+
+If you're having trouble running the `zzz-mod-fixer.exe` file due to Windows Security, you can run it using the `run-fixer.bat` file in the `Source Codes` folder.
+
+So, the first thing you need to do is download the `Source Codes` folder in `.zip` format (where you want to place it). Once downloaded, extract the folder. Then, you need to copy three things. But before copying these three things, create a special folder to store the three things you'll copy later (you can name it whatever you like).
+
+After creating the special folder, copy these three things:
+
+1. `Assets/PlayerCharacterPYData` folder
+2. `zzz-mod-fixer.py` file
+3. `run-fixer.bat` file
+
+After you've copied these three things, place them in your custom folder. Then you put the folder you created in the main `Mods` folder, not the ZZZ mods folder directly. Then, you can run the `run-fixer.bat` file.
+
 ---
 
 ## Troubleshooting & FAQs
