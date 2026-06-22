@@ -1,0 +1,331 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "992d149f",
+    "position_vb": "dbd537bb",
+    "texcoord_vb": "0f1d7b96",
+    "blend_vb": "2cf18f34",
+    "ib": "aa9ffb85",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1ce58567"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "7d562f53"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "34bdb036"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "HairShadow-头发阴影",
+    "ib": "403eace9",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Hat-帽子",
+    "draw_vb": "0a877d89",
+    "position_vb": "74d2da11",
+    "texcoord_vb": "801cd45d",
+    "blend_vb": "d5070379",
+    "ib": "0a843a8f",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8c0ea559"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dcb8ba2e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "57130f7c"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Earrings-耳环",
+    "draw_vb": "e2c8decf",
+    "position_vb": "29324995",
+    "texcoord_vb": "8da231b5",
+    "blend_vb": "611f1c52",
+    "ib": "62711f82",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8c0ea559"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dcb8ba2e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "57130f7c"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Tie-领带",
+    "draw_vb": "c0ee97be",
+    "position_vb": "6aa2848f",
+    "texcoord_vb": "88e81d00",
+    "blend_vb": "f83e837a",
+    "ib": "b946c37f",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8c0ea559"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dcb8ba2e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "57130f7c"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Player-播放器",
+    "draw_vb": "f6ed0e7b",
+    "position_vb": "d9087948",
+    "texcoord_vb": "1cfe1205",
+    "blend_vb": "82c81803",
+    "ib": "a318b3c6",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8c0ea559"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dcb8ba2e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "57130f7c"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "76ceb325",
+    "position_vb": "df17d505",
+    "texcoord_vb": "3e19f179",
+    "blend_vb": "987395ef",
+    "ib": "feb1c4cd",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "a292d07d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "42310c0e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "5724e531"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Neck-颈部",
+    "draw_vb": "0e72bdb7",
+    "position_vb": "d5c6a50f",
+    "texcoord_vb": "07a15f8e",
+    "blend_vb": "57192494",
+    "ib": "a6431856",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "a292d07d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "42310c0e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "5724e531"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Face-脸部",
+    "draw_vb": "04abceb5",
+    "position_vb": "3eb95df2",
+    "texcoord_vb": "d3000b22",
+    "blend_vb": "359e4502",
+    "ib": "9a9780a7",
+    "object_indexes": [
+      0,
+      8532
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "75ec3614"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "75ec3614"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "_note": "作者信息",
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make",
+    "_notice": "Please do not reprint without permission, otherwise no future updates will be uploaded. 请勿私自转载，否则后期不再上传。",
+    "_urls": [
+      "https://github.com/hefengchang",
+      "https://www.caimogu.cc/user/1761398.html"
+    ]
+  }
+]

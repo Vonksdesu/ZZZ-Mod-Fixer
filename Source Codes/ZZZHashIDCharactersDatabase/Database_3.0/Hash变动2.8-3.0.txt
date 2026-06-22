@@ -1,0 +1,110 @@
+哲Wise.json, IB: 8d6acf4e 身体
+  Diffuse2048: f2fb7a37 -> a9652fa4
+  Diffuse1024: dea7a8ca -> 53b3623f
+  Blend: 46462bd8 -> 03dadd2a
+
+哲Wise/哲-皮肤WiseSkin, IB: d5ca0411 头发
+  Blend: edfd1666 -> 68e4f572
+
+哲-皮肤WiseSkin, IB: 01c42a1d 颈部
+  Blend: 458bbde3 -> e0b1e734
+
+哲-皮肤WiseSkin, IB: 1eca2097 身体
+  Blend: 8612559a -> f28a6363
+  Diffuse2048: 81406abe -> 669191ec
+  Diffuse1024: 9fc3646e -> 23876240
+
+哲Wise/哲-皮肤WiseSkin/泳装WiseSwimwear, IB: 1fdaf388 脸
+  Blend: 757bc7cc -> 015fbf96
+
+哲-泳装WiseSwimwear.json, IB: cb272754 -> 0ec31440 头发(模型变化不可修复)
+
+哲-泳装WiseSwimwear.json, IB: 3f771e63 -> 8d08b190 头发阴影
+
+哲-泳装WiseSwimwear.json, IB: 4fe696c8 -> 19a3f02e 身体(模型变化不可修复)
+
+铃Belle.json, IB: bea4a483 -> 3acf9aea 头发(模型变化不可修复)
+
+铃Belle.json, IB: 1817f3ca -> c2b4ce3a 身体(模型变化不可修复)
+
+铃Belle, IB: 9a9780a7 脸
+  Texcoord 1de8fc08 -> d3000b22
+  Blend: 36138f65 -> 6ade3fdc
+
+铃皮肤BelleSkin, IB: aa9ffb85 头发
+  Blend: 39ac6700 -> 8f7ae834
+
+铃皮肤BelleSkin, IB: 20d3a340 头饰
+  Blend: db7add33 -> f18dd23f
+
+铃皮肤BelleSkin, IB: 62ed56cc -> d0627e1f 颈部(模型变化不可修复)
+
+铃皮肤BelleSkin, IB: d509bdd4 身体
+  Blend: f3dedb50 -> 4d74d5e9
+
+铃皮肤BelleSkin, IB: bcc9e4e1 腿部
+  Blend: f53b2eba -> 922a7db6
+
+铃皮肤BelleSkin/泳装BelleSwimwear, IB: 9a9780a7 脸
+  Blend: 0c9a075b -> 359e4502
+
+铃-泳装BelleSwimwear.json, IB: ea055cac -> a7683988 头发(模型变化不可修复)
+
+铃-泳装BelleSwimwear.json, IB: 43ed3c22 -> 619c5c94 身体(模型变化不可修复)
+
+铃-泳装BelleSwimwear.json, IB: 69148073 T恤
+  Texcoord 881514bf -> 325b4a1c
+  Blend: 0139f7e8 -> 0a00d846
+  LightMap2048: e0a86379 -> 60250d24
+  LightMap1024: a189eccd -> 5978a2ca
+
+星见雅-皮肤MiyabiSkin.json, IB: fbb18630 衣服
+  Diffuse2048: 66724f5a -> 4e6c90bd
+  MaterialMap2048: 1e1485e7 -> 30590865
+  Diffuse1024: 88e357af -> 7d80f565
+  MaterialMap1024: 85aad660 -> 2fbabf2e
+
+普罗米娅Promeia.json, IB: 36e794ea -> b386901d 身体(束缚状态)
+  VertexLimitRaise: 19ad87f6 -> dd86f5ae
+  Position: ffaa183a -> 68e2baef
+  Texcoord: 2a9842a1 -> 6fe5f8c1
+  Blend: dae4abd0 -> 112582ea
+
+普罗米娅Promeia.json, IB: 62a6b4bd -> 10c77d62 身体(正常状态)
+  Position: bf938187 -> 2dbfe8c9
+  Texcoord: d99d21e0 -> 1fc95f5b
+  Blend: 575d8b1b -> ee35cc06
+
+普罗米娅Promeia.json, IB: 93f1f568 -> 0ae14c24 衣服
+  Position: 1d63183b -> f6cc27b6
+  Texcoord: 826446a7 -> bf00cc95
+  Blend: 58f42be3 -> 4b0d6867
+  Diffuse2048: b9367016 -> e1492a53
+  LightMap2048: d743acd0 -> 9bf7f5cc
+  MaterialMap2048: 31d7cbad -> d37b40a9
+  Diffuse1024: 406b1373 -> 47d294f4
+  LightMap1024: 044d2d39 -> 562616d5
+  MaterialMap1024: 01a5ba27 -> 73aaae54
+
+普罗米娅Promeia.json, IB: fd054d1d -> ec003379 腿部
+  Position: 0b822797 -> 4c1d0a70
+  Texcoord: f5fd0e92 -> 03d6f933
+  Blend: 9839b071 -> 65bba179
+
+普罗米娅Promeia.json, IB: 8995db58 环刃
+  Position: d242b77a -> 35ecba91
+  Texcoord: f2f5bd28 -> 064658e2
+  Diffuse2048: d1399215 -> 328135c5
+  LightMap2048: 369f0efd -> 82f4146a
+  MaterialMap2048: a179a69c -> d672b87c
+  Diffuse1024: 138bcaa1 -> 7750fc88
+  LightMap1024: 5e59380e -> a1988612
+  MaterialMap1024: 09271c02 -> 7559d574
+
+
+--------------------
+作者: 踩蘑菇网绿小林子制作，Github-GreenLzz-Make
+声明: 请勿私自转载，否则后期不再上传。
+网址1: https://github.com/hefengchang
+网址2: https://www.caimogu.cc/user/1761398.html
+--------------------
