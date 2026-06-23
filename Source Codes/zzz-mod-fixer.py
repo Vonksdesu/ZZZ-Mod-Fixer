@@ -6,7 +6,6 @@
 # 1.7 Hashes updated by shaojiang
 
 # 2.5 update with dyanmic character data overhaul by ConfoundedHermit
-# 3.0 SlotFix integration with conflict resolution added
 
 # Last Updated: 2026-06-22
 # Game Version at time of update: 3.0
@@ -143,72 +142,6 @@ class Ini():
 
             self._done_hashes.add(hash)
 
-        # Apply automated SlotFix processing with conflict resolution
-        self.apply_slot_fix()
-
-        return self
-
-    def apply_slot_fix(self):
-        """
-        Parses the .ini file sections and automatically converts old ps-t3/4/5/6 slot
-        references to the standardized SlotFix format, while resolving legacy conflicts.
-        """
-        pattern = re.compile(
-            r'^([ \t]*\[TextureOverride[^\]]+\])(.*?)(?=(?:^[ \t]*\[|\Z))', 
-            flags=re.MULTILINE | re.DOTALL | re.IGNORECASE
-        )
-        
-        slot_converted_count = 0
-        
-        def repl(match):
-            nonlocal slot_converted_count
-            header = match.group(1)
-            body = match.group(2)
-            
-            # Check if this TextureOverride contains old direct texture slots
-            if any(slot in body.lower() for slot in ["ps-t3", "ps-t4", "ps-t5", "ps-t6"]):
-                # Convert old slots to dynamic XXMI SlotFix resources
-                body = re.sub(r'^[ \t]*ps-t3\s*=\s*([^\r\n]+)', r'Resource\\ZZMI\\Diffuse = ref \1', body, flags=re.IGNORECASE | re.MULTILINE)
-                body = re.sub(r'^[ \t]*ps-t4\s*=\s*([^\r\n]+)', r'Resource\\ZZMI\\NormalMap = ref \1', body, flags=re.IGNORECASE | re.MULTILINE)
-                body = re.sub(r'^[ \t]*ps-t5\s*=\s*([^\r\n]+)', r'Resource\\ZZMI\\LightMap = ref \1', body, flags=re.IGNORECASE | re.MULTILINE)
-                body = re.sub(r'^[ \t]*ps-t6\s*=\s*([^\r\n]+)', r'Resource\\ZZMI\\MaterialMap = ref \1', body, flags=re.IGNORECASE | re.MULTILINE)
-                
-                # Comment out run = CommandListSkinTexture to prevent conflicts with SlotFix
-                body = re.sub(r'^[ \t]*(run\s*=\s*CommandListSkinTexture)', r';\1', body, flags=re.IGNORECASE | re.MULTILINE)
-                
-                # Ensure the SlotFix executor is run at the end of the section (before draw/drawindexed)
-                if "commandlist\\zzmi\\settextures" not in body.lower():
-                    set_textures_cmd = "run = CommandList\\ZZMI\\SetTextures"
-                    lines = body.splitlines()
-                    insert_idx = -1
-                    for idx, line in enumerate(lines):
-                        if "drawindexed" in line.lower() or "draw" in line.lower():
-                            insert_idx = idx
-                            break
-                    
-                    if insert_idx != -1:
-                        lines.insert(insert_idx, set_textures_cmd)
-                    else:
-                        last_non_empty = len(lines)
-                        for idx in range(len(lines) - 1, -1, -1):
-                            if lines[idx].strip() and not lines[idx].strip().startswith(';'):
-                                last_non_empty = idx + 1
-                                break
-                        lines.insert(last_non_empty, set_textures_cmd)
-                    
-                    line_ending = "\r\n" if "\r\n" in body else "\n"
-                    body = line_ending.join(lines)
-                
-                slot_converted_count += 1
-                self._touched = True
-                
-            return header + body
-
-        self.content = pattern.sub(repl, self.content)
-        
-        if slot_converted_count > 0:
-            print(f'\t✓ Applied SlotFix to {slot_converted_count} section(s)')
-            
         return self
 
     def execute(self, commands, default_args):
@@ -1166,27 +1099,6 @@ class update_buffer_blend_indices():
         return ExecutionResult(
             touched=True
         )
-
-@dataclass
-class convert_to_slots():
-    hash        : str              # = IB HASH
-    slot_hashes : dict[int, tuple] # = {
-    #     SLOT: [list of texture hashes that go in this slot...],
-    #     ...
-    # }
-    '''
-    If a slot is already overriden in the ib section, then all discovered sections with texture hashes
-    corresponding to this slot will be commented out. If the ib section lacks an override for the slot,
-    then the first discovered section with texture hash corresponding to this slot will be converted to
-    a commandlist and have `this` replaced with `ps-t#`. A `run = CommandList` line will be added to the
-    ib override before any drawindexed lines. The remaining sections with texture hashes corresponding
-    to this slot will be commented out if they exist.
-    '''
-
-    def execute(self, default_args: DefaultArgs):
-        pass
-
-
 
 # MARK: Character Data Loader
 def load_character_modules():
