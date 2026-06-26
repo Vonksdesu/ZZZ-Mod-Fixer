@@ -32,6 +32,14 @@ This project is built upon the amazing work of the original creators in the modd
 
 ---
 
+## Character Hash Source
+
+I used a data source containing character hashes from other GitHub users, the result is not entirely my own work.
+
+* **Character hash data source**: [hefengchang (GreenLzz](https://github.com/hefengchang/ZZZ-Model-Hash)
+
+---
+
 ## Requirements
 
 Before using this tool, make sure you have the following installed:
