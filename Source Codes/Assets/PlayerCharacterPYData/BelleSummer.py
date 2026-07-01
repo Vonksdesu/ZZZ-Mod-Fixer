@@ -103,6 +103,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face VBs
 '359e4502': [(log, ('3.0: BelleSummer Face blend_vb',)),                (add_section_if_missing, ('9a9780a7', 'BelleSummer.Face.IB', 'match_priority = 0\n'))],
 
+# === Legacy Hash Updates ===
+'65481194': [(log, ('2.1 -> 2.2: BellesWimwear Tshirt Blend',)), (update_hash, ('0139f7e8',))],
+'6af00597': [(log, ('2.1 -> 2.2: BellesWimwear Body Blend',)), (update_hash, ('4f3ddd5c',))],
+
 # === Face Textures ===
 '75ec3614': [
         (log,                           ('2.8: BelleSummer FaceA Diffuse Hash (Shared)',)),
@@ -161,8 +165,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('60250d24',)),
     ],
 'a189eccd': [
-        (log,                           ('2.8 -> 3.0: BelleSummer Hair, Top, Hat LightMap Hash [Legacy]',)),
-        (update_hash,                   ('60250d24',)),
+        (log,                           ('2.8 -> 3.0: BelleSummer Hair, Top, Hat LightMap1024 Hash [Legacy]',)),
+        (update_hash,                   ('5978a2ca',)),
+    ],
+'5978a2ca': [
+        (log,                           ('3.0: BelleSummer Hair, Top, Hat LightMap1024 Hash',)),
+        (add_section_if_missing,        ('a7683988', 'BelleSummer.Hair.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('69148073', 'BelleSummer.Top.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('60250d24', 'e0a86379'), 'BelleSummer.HairA.LightMap.2048')),
     ],
 'fbaaeb92': [
         (log,                           ('2.8: BelleSummer Hair, Top, Hat MaterialMap Hash',)),
@@ -244,5 +254,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'BelleSummer',
-    'game_versions': ['2.8', '3.0'],
+    'game_versions': ['2.0', '2.1', '2.2', '2.8', '3.0'],
 }

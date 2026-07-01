@@ -43,6 +43,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face / Head
 '78e1fa18': [(log, ('2.8: Koleda Face VertexLimit Hash',)),              (add_section_if_missing, ('0e74656e', 'Koleda.Head.IB', 'match_priority = 0\n'))],
 '42f3695f': [(log, ('2.8: Koleda Face position_vb Hash',)),              (add_section_if_missing, ('0e74656e', 'Koleda.Head.IB', 'match_priority = 0\n'))],
+'a5539a26': [(log, ('1.2 -> 1.3: Koleda Head Texcoord Hash',)), (update_hash, ('f41b27e6',))],
+
 'f41b27e6': [(log, ('2.8: Koleda Face texcoord_vb Hash',)),              (add_section_if_missing, ('0e74656e', 'Koleda.Head.IB', 'match_priority = 0\n'))],
 'cd9babc2': [(log, ('2.8: Koleda Face blend_vb Hash',)),                 (add_section_if_missing, ('0e74656e', 'Koleda.Head.IB', 'match_priority = 0\n'))],
 

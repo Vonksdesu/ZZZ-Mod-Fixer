@@ -38,7 +38,7 @@ CHARACTERS = [
     'Harumasa',
     'Hugo',
     'JaneDoe',
-    'JaneDoeNocturneOfLight'
+    'JaneDoeNocturneOfLight',
     'JuFufu',
     'Koleda',
     'Lighter',
@@ -71,7 +71,7 @@ CHARACTERS = [
     'Soukaku',
     'StarlightBilly',
     'Sunna',
-    'SunnaAfternoonTeaBreak'
+    'SunnaAfternoonTeaBreak',
     'Trigger',
     'Velina',
     'VelinaShadeOfLeisure',
@@ -83,9 +83,9 @@ CHARACTERS = [
     'WiseTemple',
     'Yanagi',
     'YeShunguang',
-    'YeShunguangSkin',
     'YeShunguangSword',
     'YeShunguangSwordUlt',
+    'YeShunguangTouchOfDawnlight',
     'YeShunguangUlt',
     'Yidhari',
     'Yixuan',

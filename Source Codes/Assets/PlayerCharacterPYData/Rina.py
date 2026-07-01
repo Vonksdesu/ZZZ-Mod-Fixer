@@ -131,52 +131,52 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'a6bfc370': [(log, ('2.8: Rina BlondePuppetEye IB Hash',)), (add_ib_check_if_missing,)],
 
 # Hair VBs
-'8ca7dc4b': [(log, ('2.8: Rina Hair draw_vb',))],
-'06c78cb0': [(log, ('2.8: Rina Hair position_vb',))],
-'0dda44b1': [(log, ('2.8: Rina Hair texcoord_vb',))],
-'fef908be': [(log, ('2.8: Rina Hair blend_vb',))],
+'8ca7dc4b': [(log, ('2.8: Rina Hair draw_vb',)),                    (add_section_if_missing, ('cdb2cc7d', 'Rina.Hair.IB', 'match_priority = 0\n'))],
+'06c78cb0': [(log, ('2.8: Rina Hair position_vb',)),                (add_section_if_missing, ('cdb2cc7d', 'Rina.Hair.IB', 'match_priority = 0\n'))],
+'0dda44b1': [(log, ('2.8: Rina Hair texcoord_vb',)),                (add_section_if_missing, ('cdb2cc7d', 'Rina.Hair.IB', 'match_priority = 0\n'))],
+'fef908be': [(log, ('2.8: Rina Hair blend_vb',)),                   (add_section_if_missing, ('cdb2cc7d', 'Rina.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'8119483f': [(log, ('2.8: Rina HairShadow draw_vb',))],
-'112f8365': [(log, ('2.8: Rina HairShadow position_vb',))],
-'bd58eaab': [(log, ('2.8: Rina HairShadow texcoord_vb',))],
-'950dc06c': [(log, ('2.8: Rina HairShadow blend_vb',))],
+'8119483f': [(log, ('2.8: Rina HairShadow draw_vb',)),              (add_section_if_missing, ('5116f2cb', 'Rina.HairShadow.IB', 'match_priority = 0\n'))],
+'112f8365': [(log, ('2.8: Rina HairShadow position_vb',)),          (add_section_if_missing, ('5116f2cb', 'Rina.HairShadow.IB', 'match_priority = 0\n'))],
+'bd58eaab': [(log, ('2.8: Rina HairShadow texcoord_vb',)),          (add_section_if_missing, ('5116f2cb', 'Rina.HairShadow.IB', 'match_priority = 0\n'))],
+'950dc06c': [(log, ('2.8: Rina HairShadow blend_vb',)),             (add_section_if_missing, ('5116f2cb', 'Rina.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'03e8990d': [(log, ('2.8: Rina Body draw_vb',))],
-'41149c54': [(log, ('2.8: Rina Body position_vb',))],
-'4c259bf3': [(log, ('2.8: Rina Body texcoord_vb',))],
-'17471aea': [(log, ('2.8: Rina Body blend_vb',))],
+'03e8990d': [(log, ('2.8: Rina Body draw_vb',)),                    (add_section_if_missing, ('2825da1e', 'Rina.Body.IB', 'match_priority = 0\n'))],
+'41149c54': [(log, ('2.8: Rina Body position_vb',)),                (add_section_if_missing, ('2825da1e', 'Rina.Body.IB', 'match_priority = 0\n'))],
+'4c259bf3': [(log, ('2.8: Rina Body texcoord_vb',)),                (add_section_if_missing, ('2825da1e', 'Rina.Body.IB', 'match_priority = 0\n'))],
+'17471aea': [(log, ('2.8: Rina Body blend_vb',)),                   (add_section_if_missing, ('2825da1e', 'Rina.Body.IB', 'match_priority = 0\n'))],
 
 # Face VBs / Limits
-'c32482a8': [(log, ('2.8: Rina Face VertexLimit',))],
-'f93611ef': [(log, ('2.8: Rina Face Position',))],
-'1866cf6a': [(log, ('2.8: Rina Face Texcoord',))],
-'3124a1db': [(log, ('2.8: Rina Face Blend',))],
+'c32482a8': [(log, ('2.8: Rina Face VertexLimit',)),                (add_section_if_missing, ('9f90cfaa', 'Rina.Head.IB', 'match_priority = 0\n'))],
+'f93611ef': [(log, ('2.8: Rina Face Position',)),                   (add_section_if_missing, ('9f90cfaa', 'Rina.Head.IB', 'match_priority = 0\n'))],
+'1866cf6a': [(log, ('2.8: Rina Face Texcoord',)),                   (add_section_if_missing, ('9f90cfaa', 'Rina.Head.IB', 'match_priority = 0\n'))],
+'3124a1db': [(log, ('2.8: Rina Face Blend',)),                      (add_section_if_missing, ('9f90cfaa', 'Rina.Head.IB', 'match_priority = 0\n'))],
 
 # Weapon 1: Brown Hair Puppet (Anastasia) VBs
-'c9174fa5': [(log, ('2.8: Rina BrownPuppet VertexLimit',))],
-'e28891a4': [(log, ('2.8: Rina BrownPuppet Position',))],
-'9be6ba46': [(log, ('2.8: Rina BrownPuppet Texcoord',))],
-'bc04a8d9': [(log, ('2.8: Rina BrownPuppet Blend',))],
+'c9174fa5': [(log, ('2.8: Rina BrownPuppet VertexLimit',)),         (add_section_if_missing, ('4f795827', 'Rina.BrownPuppet.IB', 'match_priority = 0\n'))],
+'e28891a4': [(log, ('2.8: Rina BrownPuppet Position',)),            (add_section_if_missing, ('4f795827', 'Rina.BrownPuppet.IB', 'match_priority = 0\n'))],
+'9be6ba46': [(log, ('2.8: Rina BrownPuppet Texcoord',)),            (add_section_if_missing, ('4f795827', 'Rina.BrownPuppet.IB', 'match_priority = 0\n'))],
+'bc04a8d9': [(log, ('2.8: Rina BrownPuppet Blend',)),               (add_section_if_missing, ('4f795827', 'Rina.BrownPuppet.IB', 'match_priority = 0\n'))],
 
 # Weapon 1 Eyes (Anastasia Eyes) VBs
-'11d72670': [(log, ('2.8: Rina BrownPuppetEyes VertexLimit',))],
-'941f67ec': [(log, ('2.8: Rina BrownPuppetEyes Position',))],
-'34a3b201': [(log, ('2.8: Rina BrownPuppetEyes Texcoord',))],
-'6fecdfb7': [(log, ('2.8: Rina BrownPuppetEyes Blend',))],
+'11d72670': [(log, ('2.8: Rina BrownPuppetEyes VertexLimit',)),     (add_section_if_missing, ('8ebe259d', 'Rina.BrownPuppetEyes.IB', 'match_priority = 0\n'))],
+'941f67ec': [(log, ('2.8: Rina BrownPuppetEyes Position',)),        (add_section_if_missing, ('8ebe259d', 'Rina.BrownPuppetEyes.IB', 'match_priority = 0\n'))],
+'34a3b201': [(log, ('2.8: Rina BrownPuppetEyes Texcoord',)),        (add_section_if_missing, ('8ebe259d', 'Rina.BrownPuppetEyes.IB', 'match_priority = 0\n'))],
+'6fecdfb7': [(log, ('2.8: Rina BrownPuppetEyes Blend',)),           (add_section_if_missing, ('8ebe259d', 'Rina.BrownPuppetEyes.IB', 'match_priority = 0\n'))],
 
 # Weapon 2: Blonde Hair Puppet (Ursula) VBs
-'7a72d77f': [(log, ('2.8: Rina BlondePuppet VertexLimit',))],
-'d4492a43': [(log, ('2.8: Rina BlondePuppet Position',))],
-'8bcd9f92': [(log, ('2.8: Rina BlondePuppet Texcoord',))],
-'a59d40f4': [(log, ('2.8: Rina BlondePuppet Blend',))],
+'7a72d77f': [(log, ('2.8: Rina BlondePuppet VertexLimit',)),        (add_section_if_missing, ('4fba8b69', 'Rina.BlondePuppet.IB', 'match_priority = 0\n'))],
+'d4492a43': [(log, ('2.8: Rina BlondePuppet Position',)),           (add_section_if_missing, ('4fba8b69', 'Rina.BlondePuppet.IB', 'match_priority = 0\n'))],
+'8bcd9f92': [(log, ('2.8: Rina BlondePuppet Texcoord',)),           (add_section_if_missing, ('4fba8b69', 'Rina.BlondePuppet.IB', 'match_priority = 0\n'))],
+'a59d40f4': [(log, ('2.8: Rina BlondePuppet Blend',)),              (add_section_if_missing, ('4fba8b69', 'Rina.BlondePuppet.IB', 'match_priority = 0\n'))],
 
 # Weapon 2 Eye (Ursula Eye) VBs
-'16399986': [(log, ('2.8: Rina BlondePuppetEye VertexLimit',))],
-'187daa68': [(log, ('2.8: Rina BlondePuppetEye Position',))],
-'a1695dc5': [(log, ('2.8: Rina BlondePuppetEye Texcoord',))],
-'cc1203fa': [(log, ('2.8: Rina BlondePuppetEye Blend',))],
+'16399986': [(log, ('2.8: Rina BlondePuppetEye VertexLimit',)),     (add_section_if_missing, ('a6bfc370', 'Rina.BlondePuppetEye.IB', 'match_priority = 0\n'))],
+'187daa68': [(log, ('2.8: Rina BlondePuppetEye Position',)),        (add_section_if_missing, ('a6bfc370', 'Rina.BlondePuppetEye.IB', 'match_priority = 0\n'))],
+'a1695dc5': [(log, ('2.8: Rina BlondePuppetEye Texcoord',)),        (add_section_if_missing, ('a6bfc370', 'Rina.BlondePuppetEye.IB', 'match_priority = 0\n'))],
+'cc1203fa': [(log, ('2.8: Rina BlondePuppetEye Blend',)),           (add_section_if_missing, ('a6bfc370', 'Rina.BlondePuppetEye.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8)
 '798adba3': [

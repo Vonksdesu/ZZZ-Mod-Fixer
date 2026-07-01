@@ -104,6 +104,42 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('d5ca0411', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
     ],
 
+# === Legacy Hash Updates ===
+'05b25d35': [
+        (log,                           ('2.0: WiseSkin BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('dd79b44b', 'WiseSkin.BodyA.LightMap.1024')),
+    ],
+'177ad7e8': [(log, ('2.4 -> 2.5: Wise Body Blend Hash',)), (update_hash, ('8612559a',))],
+'1eca2097': [(log, ('2.0: WiseSkin Body IB Hash',)), (add_ib_check_if_missing,)],
+'23876240': [
+        (log,                           ('3.0: WiseSkin BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   (('81406abe','669191ec'), 'WiseSkin.BodyA.Diffuse.2048')),
+    ],
+'24af1f48': [
+        (log,                           ('2.0: WiseSkin BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('aa712fb9', 'WiseSkin.BodyA.MaterialMap.1024')),
+    ],
+'458bbde3': [(log, ('2.8 -> 3.0: Wise Neck Blend Hash',)), (update_hash, ('e0b1e734',))],
+'4fa228f9': [(log, ('2.4 -> 2.5: Wise Body Draw Hash',)),     (update_hash, ('ca02f614',))],
+'669191ec': [
+        (log,                           ('3.0: WiseSkin BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   (('9fc3646e','23876240'), 'WiseSkin.BodyA.Diffuse.1024')),
+    ],
+'6acc1eb8': [(log, ('2.4 -> 2.5: Wise Body IB Hash',)),       (update_hash, ('1eca2097',))],
+'81406abe': [(log, ('2.8 -> 3.0: WiseSkin BodyA Diffuse 2048p Hash',)), (update_hash, ('669191ec',))],
+'8612559a': [(log, ('2.8 -> 3.0: Wise Body Blend Hash',)), (update_hash, ('f28a6363',))],
+'9fc3646e': [(log, ('2.8 -> 3.0: WiseSkin BodyA Diffuse 1024p Hash',)), (update_hash, ('23876240',))],
+'a83ada4e': [(log, ('2.4 -> 2.5: Wise Body Texcoord Hash',)), (update_hash, ('b39870e1',))],
+'aa712fb9': [
+        (log,                           ('2.0: WiseSkin BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('24af1f48', 'WiseSkin.BodyA.MaterialMap.2048')),
+    ],
+'ae59eabb': [(log, ('2.4 -> 2.5: Wise Body Position Hash',)), (update_hash, ('a388eb6b',))],
+'dd79b44b': [
+        (log,                           ('2.0: WiseSkin BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('05b25d35', 'WiseSkin.BodyA.LightMap.2048')),
+    ],
+
 # === Shared Normal Map ===
 '798adba3': [
         (log,                           ('3.0: WiseOathOfSkies Shared NormalMap Hash (Target)',)),

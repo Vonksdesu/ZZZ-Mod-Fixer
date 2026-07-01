@@ -23,6 +23,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '999bff94': [(log, ('2.8: YeShunguang Hair IB Hash',)),         (add_ib_check_if_missing,)],
 'ae840e72': [(log, ('2.8: YeShunguang Antenna IB Hash',)),      (add_ib_check_if_missing,)],
 'c209c22b': [(log, ('2.8: YeShunguang Torso IB Hash',)),        (add_ib_check_if_missing,)],
+    '50f2ead2': [(log, ('2.5: YeShunguang FaceA Diffuse 1024p Hash',)), (add_section_if_missing, ('c28e6303', 'YeShunguang.Face.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('6ed0c951', 'YeShunguang.FaceA.Diffuse.2048'))],
 'c28e6303': [(log, ('2.8: YeShunguang Face IB Hash',)),         (add_ib_check_if_missing,)],
 'f9ce7b07': [(log, ('2.8: YeShunguang ArmTassels IB Hash',)),   (add_ib_check_if_missing,)],
 '0534b536': [(log, ('2.8: YeShunguang BackTassel IB Hash',)),   (add_ib_check_if_missing,)],
@@ -202,46 +203,56 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === Ears, Clips, Hair, Antenna Textures (Shared Set 1) ===
+    '3359b263': [(log, ('2.5: YeShunguang HairA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('79f6acd7', 'YeShunguang.HairA.Diffuse.2048'))],
 '79f6acd7': [
         (log,                           ('2.8: YeShunguang EarsA, ClipsA, HairA, AntennaA Diffuse Hash',)),
         (add_section_if_missing,        (('01ef4403', '8c8de427', '999bff94', 'ae840e72'), 'YeShunguang.EarsHairSet.IB', 'match_priority = 0\n')),
     ],
+    '3c140ab4': [(log, ('2.5: YeShunguang HairA LightMap 2048p Hash',)), (multiply_section_if_missing, ('88269532', 'YeShunguang.HairA.LightMap.2048'))],
 '88269532': [
         (log,                           ('2.8: YeShunguang EarsA, ClipsA, HairA, AntennaA LightMap Hash',)),
         (add_section_if_missing,        (('01ef4403', '8c8de427', '999bff94', 'ae840e72'), 'YeShunguang.EarsHairSet.IB', 'match_priority = 0\n')),
     ],
+    'c009d7c9': [(log, ('2.5: YeShunguang HairA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('825fbf26', 'YeShunguang.HairA.MaterialMap.2048'))],
 '825fbf26': [
         (log,                           ('2.8: YeShunguang EarsA, ClipsA, HairA, AntennaA MaterialMap Hash',)),
         (add_section_if_missing,        (('01ef4403', '8c8de427', '999bff94', 'ae840e72'), 'YeShunguang.EarsHairSet.IB', 'match_priority = 0\n')),
     ],
 
 # === Strip, Torso, ArmTassels Textures (Shared Set 2) ===
+    '9758a5db': [(log, ('2.5: YeShunguang BodyA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('5bd7d31b', 'YeShunguang.BodyA.Diffuse.2048'))],
 '5bd7d31b': [
         (log,                           ('2.8: YeShunguang StripA, TorsoA, ArmTasselsA Diffuse Hash',)),
         (add_section_if_missing,        (('3b1b73fe', 'c209c22b', 'f9ce7b07'), 'YeShunguang.TorsoSet.IB', 'match_priority = 0\n')),
     ],
+    '1fb42fdf': [(log, ('2.5: YeShunguangWrite BodyA LightMap 2048p Hash',)), (multiply_section_if_missing, ('369a2106', 'YeShunguangWrite.BodyA.LightMap.2048'))],
 '369a2106': [
         (log,                           ('2.8: YeShunguang StripA LightMap Hash',)),
         (add_section_if_missing,        ('3b1b73fe', 'YeShunguang.Strip.IB', 'match_priority = 0\n')),
     ],
+    'b35315ee': [(log, ('2.5: YeShunguang BodyA LightMap 2048p Hash',)), (multiply_section_if_missing, ('72c1cf72', 'YeShunguang.BodyA.LightMap.2048'))],
 '72c1cf72': [
         (log,                           ('2.8: YeShunguang TorsoA, ArmTasselsA LightMap Hash',)),
         (add_section_if_missing,        (('c209c22b', 'f9ce7b07'), 'YeShunguang.TorsoArmSet.IB', 'match_priority = 0\n')),
     ],
+    '96fc91f0': [(log, ('2.5: YeShunguang BodyA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('a5872c6e', 'YeShunguang.BodyA.MaterialMap.2048'))],
 'a5872c6e': [
         (log,                           ('2.8: YeShunguang StripA, TorsoA, ArmTasselsA MaterialMap Hash',)),
         (add_section_if_missing,        (('3b1b73fe', 'c209c22b', 'f9ce7b07'), 'YeShunguang.TorsoSet.IB', 'match_priority = 0\n')),
     ],
 
 # === Legs, Tail Textures (Shared Set 3) ===
+    '40985c98': [(log, ('2.5: YeShunguang LegA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('727d3454', 'YeShunguang.LegA.Diffuse.2048'))],
 '727d3454': [
         (log,                           ('2.8: YeShunguang LegsA, TailA Diffuse Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguang.LegsTail.IB', 'match_priority = 0\n')),
     ],
+    '7d5bc57f': [(log, ('2.5: YeShunguang LegA LightMap 2048p Hash',)), (multiply_section_if_missing, ('4eb5aae2', 'YeShunguang.LegA.LightMap.2048'))],
 '4eb5aae2': [
         (log,                           ('2.8: YeShunguang LegsA, TailA LightMap Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguang.LegsTail.IB', 'match_priority = 0\n')),
     ],
+    '1d6a9266': [(log, ('2.5: YeShunguang LegA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('7f5f0193', 'YeShunguang.LegA.MaterialMap.2048'))],
 '7f5f0193': [
         (log,                           ('2.8: YeShunguang LegsA, TailA MaterialMap Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguang.LegsTail.IB', 'match_priority = 0\n')),
@@ -290,18 +301,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === YeShunguangWrite Textures (v3.0 Target) ===
+    'b79da949': [(log, ('2.5: YeShunguangWrite HairA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('e8a8ac0b', 'YeShunguangWrite.HairA.Diffuse.2048'))],
 'e8a8ac0b': [
         (log,                           ('3.0: YeShunguangWrite Hair, FrontHair, ShortRibbon Diffuse Hash A',)),
         (add_section_if_missing,        (('01ef4403', 'be28e18b', 'ae840e72'), 'YeShunguangWrite.HairSet.IB', 'match_priority = 0\n')),
     ],
+    '22ad0434': [(log, ('2.5: YeShunguangWrite HairB Diffuse 2048p Hash',)), (multiply_section_if_missing, ('652e15a3', 'YeShunguangWrite.HairB.Diffuse.2048'))],
 '652e15a3': [
         (log,                           ('3.0: YeShunguangWrite Hair, FrontHair Diffuse Hash B',)),
         (add_section_if_missing,        (('01ef4403', 'be28e18b'), 'YeShunguangWrite.HairSet.IB', 'match_priority = 0\n')),
     ],
+    'd8ce86a1': [(log, ('2.5: YeShunguangWrite HairA LightMap 2048p Hash',)), (multiply_section_if_missing, ('9f7defbc', 'YeShunguangWrite.HairA.LightMap.2048'))],
 '9f7defbc': [
         (log,                           ('3.0: YeShunguangWrite Hair, FrontHair, ShortRibbon LightMap Hash',)),
         (add_section_if_missing,        (('01ef4403', 'be28e18b', 'ae840e72'), 'YeShunguangWrite.HairSet.IB', 'match_priority = 0\n')),
     ],
+    'd864cc64': [(log, ('2.5: YeShunguangWrite HairA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('c74f9710', 'YeShunguangWrite.HairA.MaterialMap.2048'))],
 'c74f9710': [
         (log,                           ('3.0: YeShunguangWrite Hair, FrontHair, ShortRibbon MaterialMap Hash',)),
         (add_section_if_missing,        (('01ef4403', 'be28e18b', 'ae840e72'), 'YeShunguangWrite.HairSet.IB', 'match_priority = 0\n')),
@@ -310,22 +325,27 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('3.0: YeShunguangWrite Eyebrow Diffuse Hash',)),
         (add_section_if_missing,        ('611df76d', 'YeShunguangWrite.Brows.IB', 'match_priority = 0\n')),
     ],
+    '34097193': [(log, ('2.5: YeShunguangWrite BodyA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('43ca3d50', 'YeShunguangWrite.BodyA.Diffuse.2048'))],
 '43ca3d50': [
         (log,                           ('3.0: YeShunguangWrite Body Diffuse Hash',)),
         (add_section_if_missing,        ('c209c22b', 'YeShunguangWrite.Torso.IB', 'match_priority = 0\n')),
     ],
+    '0e921a23': [(log, ('2.5: YeShunguangWrite BodyA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('e41b12be', 'YeShunguangWrite.BodyA.MaterialMap.2048'))],
 'e41b12be': [
         (log,                           ('3.0: YeShunguangWrite Body MaterialMap Hash',)),
         (add_section_if_missing,        ('c209c22b', 'YeShunguangWrite.Torso.IB', 'match_priority = 0\n')),
     ],
+    '60aa1cca': [(log, ('2.5: YeShunguangWrite LegA Diffuse 2048p Hash',)), (multiply_section_if_missing, ('0b7c1487', 'YeShunguangWrite.LegA.Diffuse.2048'))],
 '0b7c1487': [
         (log,                           ('3.0: YeShunguangWrite Legs, Tail Diffuse Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguangWrite.LegsTail.IB', 'match_priority = 0\n')),
     ],
+    '2cd88b0d': [(log, ('2.5: YeShunguangWrite LegA LightMap 2048p Hash',)), (multiply_section_if_missing, ('afbdd8a1', 'YeShunguangWrite.LegA.LightMap.2048'))],
 'afbdd8a1': [
         (log,                           ('3.0: YeShunguangWrite Legs, Tail LightMap Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguangWrite.LegsTail.IB', 'match_priority = 0\n')),
     ],
+    '6261eabc': [(log, ('2.5: YeShunguangWrite LegA MaterialMap 2048p Hash',)), (multiply_section_if_missing, ('263992f5', 'YeShunguangWrite.LegA.MaterialMap.2048'))],
 '263992f5': [
         (log,                           ('3.0: YeShunguangWrite Legs, Tail MaterialMap Hash',)),
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguangWrite.LegsTail.IB', 'match_priority = 0\n')),

@@ -130,34 +130,34 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '3a262de5': [(log, ('2.8: Soldier11 Weapon IB Hash',)),     (add_ib_check_if_missing,)],
 
 # Hair VBs
-'ba0c408b': [(log, ('2.8: Soldier11 Hair draw_vb',))],
-'cf814b3c': [(log, ('2.8: Soldier11 Hair position_vb',))],
-'a1305cc6': [(log, ('2.8: Soldier11 Hair texcoord_vb',))],
-'67fe929d': [(log, ('2.8: Soldier11 Hair blend_vb',))],
+'ba0c408b': [(log, ('2.8: Soldier11 Hair draw_vb',)),                    (add_section_if_missing, ('2fa74e2f', 'Soldier11.Hair.IB', 'match_priority = 0\n'))],
+'cf814b3c': [(log, ('2.8: Soldier11 Hair position_vb',)),                (add_section_if_missing, ('2fa74e2f', 'Soldier11.Hair.IB', 'match_priority = 0\n'))],
+'a1305cc6': [(log, ('2.8: Soldier11 Hair texcoord_vb',)),                (add_section_if_missing, ('2fa74e2f', 'Soldier11.Hair.IB', 'match_priority = 0\n'))],
+'67fe929d': [(log, ('2.8: Soldier11 Hair blend_vb',)),                   (add_section_if_missing, ('2fa74e2f', 'Soldier11.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'7c366c06': [(log, ('2.8: Soldier11 HairShadow draw_vb',))],
-'ede368aa': [(log, ('2.8: Soldier11 HairShadow position_vb',))],
-'93054dd8': [(log, ('2.8: Soldier11 HairShadow texcoord_vb',))],
-'b117ad1a': [(log, ('2.8: Soldier11 HairShadow blend_vb',))],
+'7c366c06': [(log, ('2.8: Soldier11 HairShadow draw_vb',)),              (add_section_if_missing, ('0fa08b01', 'Soldier11.HairShadow.IB', 'match_priority = 0\n'))],
+'ede368aa': [(log, ('2.8: Soldier11 HairShadow position_vb',)),          (add_section_if_missing, ('0fa08b01', 'Soldier11.HairShadow.IB', 'match_priority = 0\n'))],
+'93054dd8': [(log, ('2.8: Soldier11 HairShadow texcoord_vb',)),          (add_section_if_missing, ('0fa08b01', 'Soldier11.HairShadow.IB', 'match_priority = 0\n'))],
+'b117ad1a': [(log, ('2.8: Soldier11 HairShadow blend_vb',)),             (add_section_if_missing, ('0fa08b01', 'Soldier11.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'59b61855': [(log, ('2.8: Soldier11 Body draw_vb',))],
-'003ff258': [(log, ('2.8: Soldier11 Body position_vb',))],
-'29cd94d6': [(log, ('2.8: Soldier11 Body texcoord_vb',))],
-'2cb26d03': [(log, ('2.8: Soldier11 Body blend_vb',))],
+'59b61855': [(log, ('2.8: Soldier11 Body draw_vb',)),                    (add_section_if_missing, ('e3ee72d9', 'Soldier11.Body.IB', 'match_priority = 0\n'))],
+'003ff258': [(log, ('2.8: Soldier11 Body position_vb',)),                (add_section_if_missing, ('e3ee72d9', 'Soldier11.Body.IB', 'match_priority = 0\n'))],
+'29cd94d6': [(log, ('2.8: Soldier11 Body texcoord_vb',)),                (add_section_if_missing, ('e3ee72d9', 'Soldier11.Body.IB', 'match_priority = 0\n'))],
+'2cb26d03': [(log, ('2.8: Soldier11 Body blend_vb',)),                   (add_section_if_missing, ('e3ee72d9', 'Soldier11.Body.IB', 'match_priority = 0\n'))],
 
 # Face VBs
-'dc49f140': [(log, ('2.8: Soldier11 Face draw_vb',))],
-'e65b6207': [(log, ('2.8: Soldier11 Face position_vb',))],
-'39de00d5': [(log, ('2.8: Soldier11 Face texcoord_vb',))],
-'3ac13527': [(log, ('2.8: Soldier11 Face blend_vb',))],
+'dc49f140': [(log, ('2.8: Soldier11 Face draw_vb',)),                    (add_section_if_missing, ('bb315c43', 'Soldier11.Head.IB', 'match_priority = 0\n'))],
+'e65b6207': [(log, ('2.8: Soldier11 Face position_vb',)),                (add_section_if_missing, ('bb315c43', 'Soldier11.Head.IB', 'match_priority = 0\n'))],
+'39de00d5': [(log, ('2.8: Soldier11 Face texcoord_vb',)),                (add_section_if_missing, ('bb315c43', 'Soldier11.Head.IB', 'match_priority = 0\n'))],
+'3ac13527': [(log, ('2.8: Soldier11 Face blend_vb',)),                   (add_section_if_missing, ('bb315c43', 'Soldier11.Head.IB', 'match_priority = 0\n'))],
 
 # Weapon VBs & Limits
-'8524602e': [(log, ('2.8: Soldier11 Weapon VertexLimit',))],
-'2a474e15': [(log, ('2.8: Soldier11 Weapon Position',))],
-'84a49156': [(log, ('2.8: Soldier11 Weapon Texcoord',))],
-'d623cbf7': [(log, ('2.8: Soldier11 Weapon Blend',))],
+'8524602e': [(log, ('2.8: Soldier11 Weapon VertexLimit',)),              (add_section_if_missing, ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n'))],
+'2a474e15': [(log, ('2.8: Soldier11 Weapon Position',)),                 (add_section_if_missing, ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n'))],
+'84a49156': [(log, ('2.8: Soldier11 Weapon Texcoord',)),                 (add_section_if_missing, ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n'))],
+'d623cbf7': [(log, ('2.8: Soldier11 Weapon Blend',)),                    (add_section_if_missing, ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8)
 '17e75c76': [

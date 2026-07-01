@@ -35,6 +35,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'a4a705f6': [(log, ('2.8: MiyabiDignifiedBlossom Body draw_vb Hash',)),              (add_section_if_missing, ('a913e9a9', 'MiyabiDignifiedBlossom.Body.IB', 'match_priority = 0\n'))],
 '6567066b': [(log, ('2.8: MiyabiDignifiedBlossom Body position_vb Hash',)),          (add_section_if_missing, ('a913e9a9', 'MiyabiDignifiedBlossom.Body.IB', 'match_priority = 0\n'))],
 '01c36f40': [(log, ('2.8: MiyabiDignifiedBlossom Body texcoord_vb Hash',)),          (add_section_if_missing, ('a913e9a9', 'MiyabiDignifiedBlossom.Body.IB', 'match_priority = 0\n'))],
+'f2f19cb2': [(log, ('2.8 -> 2.81: MiyabiDignifiedBlossom Body Blend Hash',)),   (update_hash, ('5121459b',)),],
+
 '5121459b': [(log, ('2.8: MiyabiDignifiedBlossom Body blend_vb Hash',)),             (add_section_if_missing, ('a913e9a9', 'MiyabiDignifiedBlossom.Body.IB', 'match_priority = 0\n'))],
 
 # Clothes
@@ -139,8 +141,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('4e6c90bd',)),
     ],
 '88e357af': [
-        (log,                           ('2.8: MiyabiDignifiedBlossom ClothesA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8 -> 3.0: MiyabiDignifiedBlossom Clothes Diffuse1024 Hash [Legacy]',)),
+        (update_hash,                   ('7d80f565',)),
+    ],
+'7d80f565': [
+        (log,                           ('3.0: MiyabiDignifiedBlossom Clothes Diffuse1024 Hash',)),
         (add_section_if_missing,        ('fbb18630', 'MiyabiDignifiedBlossom.Clothes.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('4e6c90bd', '66724f5a'), 'MiyabiDignifiedBlossom.ClothesA.Diffuse.2048')),
     ],
 '7b8eb437': [
         (log,                           ('2.8: MiyabiDignifiedBlossom ClothesA LightMap Hash (Skins)',)),
@@ -159,8 +166,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('30590865',)),
     ],
 '85aad660': [
-        (log,                           ('2.8: MiyabiDignifiedBlossom ClothesA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8 -> 3.0: MiyabiDignifiedBlossom Clothes MaterialMap1024 Hash [Legacy]',)),
+        (update_hash,                   ('2fbabf2e',)),
+    ],
+'2fbabf2e': [
+        (log,                           ('3.0: MiyabiDignifiedBlossom Clothes MaterialMap1024 Hash',)),
         (add_section_if_missing,        ('fbb18630', 'MiyabiDignifiedBlossom.Clothes.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('30590865', '1e1485e7'), 'MiyabiDignifiedBlossom.ClothesA.MaterialMap.2048')),
     ],
 
 # === Sword, SwordSheath & SwordHandle Shared Textures ===

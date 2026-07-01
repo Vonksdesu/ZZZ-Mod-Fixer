@@ -30,69 +30,69 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT) ===
 # Hair VBs
-'cc070c66': [(log, ('2.8: Sunna Hair draw_vb',))],
-'5c030eea': [(log, ('2.8: Sunna Hair position_vb',))],
-'06bea24e': [(log, ('2.8: Sunna Hair texcoord_vb',))],
-'0c183c3f': [(log, ('2.8: Sunna Hair blend_vb',))],
+'cc070c66': [(log, ('2.8: Sunna Hair draw_vb',)),                       (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
+'5c030eea': [(log, ('2.8: Sunna Hair position_vb',)),                   (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
+'06bea24e': [(log, ('2.8: Sunna Hair texcoord_vb',)),                   (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
+'0c183c3f': [(log, ('2.8: Sunna Hair blend_vb',)),                      (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'8991360f': [(log, ('2.8: Sunna Body draw_vb',))],
-'6eb68b62': [(log, ('2.8: Sunna Body position_vb',))],
-'712eb020': [(log, ('2.8: Sunna Body texcoord_vb',))],
-'53661c9a': [(log, ('2.8: Sunna Body blend_vb',))],
+'8991360f': [(log, ('2.8: Sunna Body draw_vb',)),                       (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
+'6eb68b62': [(log, ('2.8: Sunna Body position_vb',)),                   (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
+'712eb020': [(log, ('2.8: Sunna Body texcoord_vb',)),                   (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
+'53661c9a': [(log, ('2.8: Sunna Body blend_vb',)),                      (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
 
 # Eyebrow VBs
-'9f0ab8cd': [(log, ('2.8: Sunna Eyebrow draw_vb',))],
-'a5182b8a': [(log, ('2.8: Sunna Eyebrow position_vb',))],
-'e3cc1981': [(log, ('2.8: Sunna Eyebrow texcoord_vb',))],
-'f5daa764': [(log, ('2.8: Sunna Eyebrow blend_vb',))],
+'9f0ab8cd': [(log, ('2.8: Sunna Eyebrow draw_vb',)),                    (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
+'a5182b8a': [(log, ('2.8: Sunna Eyebrow position_vb',)),                (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
+'e3cc1981': [(log, ('2.8: Sunna Eyebrow texcoord_vb',)),                (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
+'f5daa764': [(log, ('2.8: Sunna Eyebrow blend_vb',)),                   (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
 
 # Face VBs
-'9679c257': [(log, ('2.8: Sunna Face draw_vb',))],
-'ac6b5110': [(log, ('2.8: Sunna Face position_vb',))],
-'506dc9e1': [(log, ('2.8: Sunna Face texcoord_vb',))],
-'21299f88': [(log, ('2.8: Sunna Face blend_vb',))],
+'9679c257': [(log, ('2.8: Sunna Face draw_vb',)),                       (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
+'ac6b5110': [(log, ('2.8: Sunna Face position_vb',)),                   (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
+'506dc9e1': [(log, ('2.8: Sunna Face texcoord_vb',)),                   (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
+'21299f88': [(log, ('2.8: Sunna Face blend_vb',)),                      (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
 
 # DisplayScreen VBs
-'dd676093': [(log, ('2.8: Sunna DisplayScreen draw_vb',))],
-'6f7ae47c': [(log, ('2.8: Sunna DisplayScreen position_vb',))],
-'541d5b0f': [(log, ('2.8: Sunna DisplayScreen texcoord_vb',))],
-'2ef8be58': [(log, ('2.8: Sunna DisplayScreen blend_vb',))],
+'dd676093': [(log, ('2.8: Sunna DisplayScreen draw_vb',)),              (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
+'6f7ae47c': [(log, ('2.8: Sunna DisplayScreen position_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
+'541d5b0f': [(log, ('2.8: Sunna DisplayScreen texcoord_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
+'2ef8be58': [(log, ('2.8: Sunna DisplayScreen blend_vb',)),             (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
 
 # WeaponBackpack VBs
-'953975c0': [(log, ('2.8: Sunna WeaponBackpack draw_vb',))],
-'a28ba31c': [(log, ('2.8: Sunna WeaponBackpack position_vb',))],
-'b642db41': [(log, ('2.8: Sunna WeaponBackpack texcoord_vb',))],
-'16e2d8ea': [(log, ('2.8: Sunna WeaponBackpack blend_vb',))],
+'953975c0': [(log, ('2.8: Sunna WeaponBackpack draw_vb',)),             (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'a28ba31c': [(log, ('2.8: Sunna WeaponBackpack position_vb',)),         (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'b642db41': [(log, ('2.8: Sunna WeaponBackpack texcoord_vb',)),         (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'16e2d8ea': [(log, ('2.8: Sunna WeaponBackpack blend_vb',)),            (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
 
 # Paopao (Fight) VBs
-'ffe207d5': [(log, ('2.8: Sunna PaopaoFight draw_vb',))],
-'3a7143a6': [(log, ('2.8: Sunna PaopaoFight position_vb',))],
-'62519e38': [(log, ('2.8: Sunna PaopaoFight texcoord_vb',))],
-'38e2fe9f': [(log, ('2.8: Sunna PaopaoFight blend_vb',))],
+'ffe207d5': [(log, ('2.8: Sunna PaopaoFight draw_vb',)),                (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
+'3a7143a6': [(log, ('2.8: Sunna PaopaoFight position_vb',)),            (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
+'62519e38': [(log, ('2.8: Sunna PaopaoFight texcoord_vb',)),            (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
+'38e2fe9f': [(log, ('2.8: Sunna PaopaoFight blend_vb',)),               (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
 
 # Paopao (Idle) VBs
-'1a0cad46': [(log, ('2.8: Sunna PaopaoIdle position_vb',))],
-'df0f6142': [(log, ('2.8: Sunna PaopaoIdle texcoord_vb',))],
-'d4e13802': [(log, ('2.8: Sunna PaopaoIdle blend_vb',))],
+'1a0cad46': [(log, ('2.8: Sunna PaopaoIdle position_vb',)),             (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
+'df0f6142': [(log, ('2.8: Sunna PaopaoIdle texcoord_vb',)),             (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
+'d4e13802': [(log, ('2.8: Sunna PaopaoIdle blend_vb',)),                (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
 
 # Hammer VBs
-'6cbdb4d3': [(log, ('2.8: Sunna Weapon draw_vb',))],
-'9220fbd5': [(log, ('2.8: Sunna Weapon position_vb',))],
-'5d7fdc2e': [(log, ('2.8: Sunna Weapon texcoord_vb',))],
-'4b46dfdc': [(log, ('2.8: Sunna Weapon blend_vb',))],
+'6cbdb4d3': [(log, ('2.8: Sunna Weapon draw_vb',)),                     (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
+'9220fbd5': [(log, ('2.8: Sunna Weapon position_vb',)),                 (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
+'5d7fdc2e': [(log, ('2.8: Sunna Weapon texcoord_vb',)),                 (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
+'4b46dfdc': [(log, ('2.8: Sunna Weapon blend_vb',)),                    (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
 
 # HammerDeco1 VBs
-'dab9d122': [(log, ('2.8: Sunna WeaponDeco1 draw_vb',))],
-'0a41bae7': [(log, ('2.8: Sunna WeaponDeco1 position_vb',))],
-'34dc63b4': [(log, ('2.8: Sunna WeaponDeco1 texcoord_vb',))],
-'a5ecc7ea': [(log, ('2.8: Sunna WeaponDeco1 blend_vb',))],
+'dab9d122': [(log, ('2.8: Sunna WeaponDeco1 draw_vb',)),                (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
+'0a41bae7': [(log, ('2.8: Sunna WeaponDeco1 position_vb',)),            (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
+'34dc63b4': [(log, ('2.8: Sunna WeaponDeco1 texcoord_vb',)),            (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
+'a5ecc7ea': [(log, ('2.8: Sunna WeaponDeco1 blend_vb',)),               (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
 
 # HammerDeco2 VBs
-'84a9dfca': [(log, ('2.8: Sunna WeaponDeco2 draw_vb',))],
-'81321ee9': [(log, ('2.8: Sunna WeaponDeco2 position_vb',))],
-'33a66c47': [(log, ('2.8: Sunna WeaponDeco2 texcoord_vb',))],
-'0d2178c5': [(log, ('2.8: Sunna WeaponDeco2 blend_vb',))],
+'84a9dfca': [(log, ('2.8: Sunna WeaponDeco2 draw_vb',)),                (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
+'81321ee9': [(log, ('2.8: Sunna WeaponDeco2 position_vb',)),            (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
+'33a66c47': [(log, ('2.8: Sunna WeaponDeco2 texcoord_vb',)),            (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
+'0d2178c5': [(log, ('2.8: Sunna WeaponDeco2 blend_vb',)),               (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
 
 # === Shared NormalMap ===
 '798adba3': [

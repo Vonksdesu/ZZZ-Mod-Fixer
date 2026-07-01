@@ -71,6 +71,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '710bca71': [(log, ('1.3 -> 1.4: Lighter Body Texcoord Hash',)), (update_hash, ('25ad7289',))],
 '5e461440': [(log, ('1.5 -> 1.6: Lighter Body Position Hash',)), (update_hash, ('f6bbabb5',))],
 '25ad7289': [(log, ('1.5 -> 1.6: Lighter Body Texcoord Hash',)), (update_hash, ('e1ae7f38',))],
+'7bbe9c75': [(log, ('1.6 -> 2.0: Lighter Face Position Hash',)), (update_hash, ('90653c42',))],
+    '90653c42': [(log, ('2.0: Lighter Face Position Hash',)), (add_section_if_missing, ('dcc7bb78', 'Lighter.Face.IB', 'match_priority = 0\n'))],
+    'af2e48a6': [(log, ('1.3 -> 1.4: Lighter Arm Texcoord Hash',)), (update_hash, ('88aecee2',))],
 'ebac056e': [(log, ('2.8: Lighter Shared NormalMap Hash [Legacy]',)), (update_hash, ('798adba3',))],
 
 # === Pembaruan Sinkronisasi 2.8 ===

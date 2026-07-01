@@ -39,6 +39,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face
 '8057c562': [(log, ('2.8: Trigger Face VertexLimit Hash',)),              (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
 'dfc69ad0': [(log, ('2.8: Trigger Face Position Hash',)),                (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
+'b9f0d595': [(log, ('2.2 -> 2.3: Trigger Face Texcoord Hash',)), (update_hash, ('d4a12ab7',))],
+
 'd4a12ab7': [(log, ('2.8: Trigger Face Texcoord Hash',)),                (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
 '1a9a858c': [(log, ('2.8: Trigger Face Blend Hash',)),                   (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
 

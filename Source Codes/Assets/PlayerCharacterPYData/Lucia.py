@@ -21,27 +21,27 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # ==========================================
 # === Hair Component ===
 '340fc999': [(log, ('2.5: Lucia Hair IB Hash',)),           (add_ib_check_if_missing,)],
-'78043df0': [(log, ('2.5: Lucia Hair Position Hash',))],
-'97dde567': [(log, ('2.5: Lucia Hair Texcoord Hash',))],
-'bfd60db5': [(log, ('2.5: Lucia Hair Blend Hash',))],
+'78043df0': [(log, ('2.5: Lucia Hair Position Hash',)),      (add_section_if_missing, ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n'))],
+'97dde567': [(log, ('2.5: Lucia Hair Texcoord Hash',)),      (add_section_if_missing, ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n'))],
+'bfd60db5': [(log, ('2.5: Lucia Hair Blend Hash',)),         (add_section_if_missing, ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n'))],
 
 # === Body Component ===
 'd39c304d': [(log, ('2.5: Lucia Body IB Hash',)),           (add_ib_check_if_missing,)],
-'234c641a': [(log, ('2.5: Lucia Body Position Hash',))],
-'0400f04f': [(log, ('2.5: Lucia Body Texcoord Hash',))],
-'3f4f9fa9': [(log, ('2.5: Lucia Body Blend Hash',))],
+'234c641a': [(log, ('2.5: Lucia Body Position Hash',)),     (add_section_if_missing, ('d39c304d', 'Lucia.Body.IB', 'match_priority = 0\n'))],
+'0400f04f': [(log, ('2.5: Lucia Body Texcoord Hash',)),     (add_section_if_missing, ('d39c304d', 'Lucia.Body.IB', 'match_priority = 0\n'))],
+'3f4f9fa9': [(log, ('2.5: Lucia Body Blend Hash',)),        (add_section_if_missing, ('d39c304d', 'Lucia.Body.IB', 'match_priority = 0\n'))],
 
 # === Cape Component ===
 'cd80d116': [(log, ('2.5: Lucia Cape IB Hash',)),           (add_ib_check_if_missing,)],
-'08ae4b5d': [(log, ('2.5: Lucia Cape Position Hash',))],
-'dd0e570f': [(log, ('2.5: Lucia Cape Texcoord Hash',))],
-'b917fca5': [(log, ('2.5: Lucia Cape Blend Hash',))],
+'08ae4b5d': [(log, ('2.5: Lucia Cape Position Hash',)),     (add_section_if_missing, ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n'))],
+'dd0e570f': [(log, ('2.5: Lucia Cape Texcoord Hash',)),     (add_section_if_missing, ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n'))],
+'b917fca5': [(log, ('2.5: Lucia Cape Blend Hash',)),        (add_section_if_missing, ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n'))],
 
 # === CapeExtra Component ===
 '692a4e10': [(log, ('2.5: Lucia CapeExtra IB Hash',)),      (add_ib_check_if_missing,)],
-'c035f6bd': [(log, ('2.5: Lucia CapeExtra Position Hash',))],
-'90f30bc1': [(log, ('2.5: Lucia CapeExtra Texcoord Hash',))],
-'946dc2ff': [(log, ('2.5: Lucia CapeExtra Blend Hash',))],
+'c035f6bd': [(log, ('2.5: Lucia CapeExtra Position Hash',)),(add_section_if_missing, ('692a4e10', 'Lucia.CapeExtra.IB', 'match_priority = 0\n'))],
+'90f30bc1': [(log, ('2.5: Lucia CapeExtra Texcoord Hash',)),(add_section_if_missing, ('692a4e10', 'Lucia.CapeExtra.IB', 'match_priority = 0\n'))],
+'946dc2ff': [(log, ('2.5: Lucia CapeExtra Blend Hash',)),   (add_section_if_missing, ('692a4e10', 'Lucia.CapeExtra.IB', 'match_priority = 0\n'))],
 
 # === Face Component ===
 '6986f28e': [(log, ('2.5: Lucia Face IB Hash',)),           (add_ib_check_if_missing,)],
@@ -94,47 +94,47 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'ebc05d0c': [(log, ('2.8: Lucia Book IB Hash',)),       (add_ib_check_if_missing,)],
 
 # Hair draw_vb
-'fed6eef6': [(log, ('2.8: Lucia Hair draw_vb',))],
+'fed6eef6': [(log, ('2.8: Lucia Hair draw_vb',)),                          (add_section_if_missing, ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'0695fa38': [(log, ('2.8: Lucia HairShadow draw_vb',))],
-'82729474': [(log, ('2.8: Lucia HairShadow position_vb',))],
-'38f2daa7': [(log, ('2.8: Lucia HairShadow texcoord_vb',))],
-'9662cc92': [(log, ('2.8: Lucia HairShadow blend_vb',))],
+'0695fa38': [(log, ('2.8: Lucia HairShadow draw_vb',)),                    (add_section_if_missing, ('7be43e2b', 'Lucia.HairShadow.IB', 'match_priority = 0\n'))],
+'82729474': [(log, ('2.8: Lucia HairShadow position_vb',)),                (add_section_if_missing, ('7be43e2b', 'Lucia.HairShadow.IB', 'match_priority = 0\n'))],
+'38f2daa7': [(log, ('2.8: Lucia HairShadow texcoord_vb',)),                (add_section_if_missing, ('7be43e2b', 'Lucia.HairShadow.IB', 'match_priority = 0\n'))],
+'9662cc92': [(log, ('2.8: Lucia HairShadow blend_vb',)),                   (add_section_if_missing, ('7be43e2b', 'Lucia.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Cape VBs
-'6533c56a': [(log, ('2.8: Lucia Cape draw_vb',))],
-'5f21562d': [(log, ('2.8: Lucia Cape position_vb',))],
+'6533c56a': [(log, ('2.8: Lucia Cape draw_vb',)),                          (add_section_if_missing, ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n'))],
+'5f21562d': [(log, ('2.8: Lucia Cape position_vb',)),                      (add_section_if_missing, ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n'))],
 
 # CapeExtra VB
-'439208cc': [(log, ('2.8: Lucia CapeExtra draw_vb',))],
+'439208cc': [(log, ('2.8: Lucia CapeExtra draw_vb',)),                     (add_section_if_missing, ('692a4e10', 'Lucia.CapeExtra.IB', 'match_priority = 0\n'))],
 
 # Body draw_vb
-'b3a498b5': [(log, ('2.8: Lucia Body draw_vb',))],
+'b3a498b5': [(log, ('2.8: Lucia Body draw_vb',)),                          (add_section_if_missing, ('d39c304d', 'Lucia.Body.IB', 'match_priority = 0\n'))],
 
 # Eyebrow VBs
-'f917cafc': [(log, ('2.8: Lucia Eyebrow draw_vb',))],
-'c30559bb': [(log, ('2.8: Lucia Eyebrow position_vb',))],
-'05342ce9': [(log, ('2.8: Lucia Eyebrow texcoord_vb',))],
-'8893a84c': [(log, ('2.8: Lucia Eyebrow blend_vb',))],
+'f917cafc': [(log, ('2.8: Lucia Eyebrow draw_vb',)),                       (add_section_if_missing, ('84eaa4c6', 'Lucia.Eyebrow.IB', 'match_priority = 0\n'))],
+'c30559bb': [(log, ('2.8: Lucia Eyebrow position_vb',)),                   (add_section_if_missing, ('84eaa4c6', 'Lucia.Eyebrow.IB', 'match_priority = 0\n'))],
+'05342ce9': [(log, ('2.8: Lucia Eyebrow texcoord_vb',)),                   (add_section_if_missing, ('84eaa4c6', 'Lucia.Eyebrow.IB', 'match_priority = 0\n'))],
+'8893a84c': [(log, ('2.8: Lucia Eyebrow blend_vb',)),                      (add_section_if_missing, ('84eaa4c6', 'Lucia.Eyebrow.IB', 'match_priority = 0\n'))],
 
 # Face VBs & Limits
-'7915db83': [(log, ('2.8: Lucia Face VertexLimit',))],
-'430748c4': [(log, ('2.8: Face Position',))],
-'9648c6d3': [(log, ('2.8: Face Texcoord',))],
-'925947a7': [(log, ('2.8: Face Blend',))],
+'7915db83': [(log, ('2.8: Lucia Face VertexLimit',)),                      (add_section_if_missing, ('6986f28e', 'Lucia.Face.IB', 'match_priority = 0\n'))],
+'430748c4': [(log, ('2.8: Face Position',)),                               (add_section_if_missing, ('6986f28e', 'Lucia.Face.IB', 'match_priority = 0\n'))],
+'9648c6d3': [(log, ('2.8: Face Texcoord',)),                               (add_section_if_missing, ('6986f28e', 'Lucia.Face.IB', 'match_priority = 0\n'))],
+'925947a7': [(log, ('2.8: Face Blend',)),                                  (add_section_if_missing, ('6986f28e', 'Lucia.Face.IB', 'match_priority = 0\n'))],
 
 # Scepter VBs & Limits
-'73acb40f': [(log, ('2.8: Lucia Scepter VertexLimit',))],
-'adc940e0': [(log, ('2.8: Lucia Scepter Position',))],
-'9f2822c3': [(log, ('2.8: Lucia Scepter Texcoord',))],
-'7a83c0d2': [(log, ('2.8: Lucia Scepter Blend',))],
+'73acb40f': [(log, ('2.8: Lucia Scepter VertexLimit',)),                   (add_section_if_missing, ('5cca4239', 'Lucia.Scepter.IB', 'match_priority = 0\n'))],
+'adc940e0': [(log, ('2.8: Lucia Scepter Position',)),                      (add_section_if_missing, ('5cca4239', 'Lucia.Scepter.IB', 'match_priority = 0\n'))],
+'9f2822c3': [(log, ('2.8: Lucia Scepter Texcoord',)),                      (add_section_if_missing, ('5cca4239', 'Lucia.Scepter.IB', 'match_priority = 0\n'))],
+'7a83c0d2': [(log, ('2.8: Lucia Scepter Blend',)),                        (add_section_if_missing, ('5cca4239', 'Lucia.Scepter.IB', 'match_priority = 0\n'))],
 
 # Book VBs & Limits
-'08ecb686': [(log, ('2.8: Lucia Book VertexLimit',))],
-'0ee71df8': [(log, ('2.8: Lucia Book Position',))],
-'2d98213f': [(log, ('2.8: Lucia Book Texcoord',))],
-'b1ebb25d': [(log, ('2.8: Lucia Book Blend',))],
+'08ecb686': [(log, ('2.8: Lucia Book VertexLimit',)),                      (add_section_if_missing, ('ebc05d0c', 'Lucia.Book.IB', 'match_priority = 0\n'))],
+'0ee71df8': [(log, ('2.8: Lucia Book Position',)),                        (add_section_if_missing, ('ebc05d0c', 'Lucia.Book.IB', 'match_priority = 0\n'))],
+'2d98213f': [(log, ('2.8: Lucia Book Texcoord',)),                        (add_section_if_missing, ('ebc05d0c', 'Lucia.Book.IB', 'match_priority = 0\n'))],
+'b1ebb25d': [(log, ('2.8: Lucia Book Blend',)),                           (add_section_if_missing, ('ebc05d0c', 'Lucia.Book.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8)
 'ab461f68': [

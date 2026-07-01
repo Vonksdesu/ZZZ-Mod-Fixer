@@ -306,6 +306,59 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('3.0: WiseTemple Shared NormalMap Hash [Legacy]',)),
         (update_hash,                   ('798adba3',)),
     ],
+
+# === Legacy 3.0 Texture Hashes ===
+    '1024352b': [
+        (log,                           ('3.0: WiseSchoolUniform TieA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('dd08a467', 'WiseSchoolUniform.TieA.Diffuse.1024')),
+    ],
+    '22fe3236': [(log, ('3.0: WiseSchoolUniform Body IB Hash',)), (add_ib_check_if_missing,)],
+    '31707abe': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('4d7473b1', 'WiseSchoolUniform.BodyA.MaterialMap.2048')),
+    ],
+    '4d7473b1': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('31707abe', 'WiseSchoolUniform.BodyA.MaterialMap.1024')),
+    ],
+    '4f211318': [
+        (log,                           ('3.0: WiseSchoolUniform TieA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('e550cd81', 'WiseSchoolUniform.TieA.LightMap.2048')),
+    ],
+    '6649f407': [
+        (log,                           ('3.0: WiseSchoolUniform TieA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ba59a4d0', 'WiseSchoolUniform.TieA.MaterialMap.1024')),
+    ],
+    '8a1ec07e': [(log, ('3.0: WiseSchoolUniform Neck IB Hash',)), (add_ib_check_if_missing,)],
+    '8d09dc95': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('bd86c7c4', 'WiseSchoolUniform.BodyA.LightMap.1024')),
+    ],
+    'a0a4c84e': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('b9dcce2e', 'WiseSchoolUniform.BodyA.Diffuse.1024')),
+    ],
+    'b9dcce2e': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('a0a4c84e', 'WiseSchoolUniform.BodyA.Diffuse.1024')),
+    ],
+    'ba59a4d0': [
+        (log,                           ('3.0: WiseSchoolUniform TieA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('6649f407', 'WiseSchoolUniform.TieA.MaterialMap.2048')),
+    ],
+    'bd86c7c4': [
+        (log,                           ('3.0: WiseSchoolUniform BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('8d09dc95', 'WiseSchoolUniform.BodyA.LightMap.1024')),
+    ],
+    'dd08a467': [
+        (log,                           ('3.0: WiseSchoolUniform TieA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('1024352b', 'WiseSchoolUniform.TieA.Diffuse.2048')),
+    ],
+    'e550cd81': [
+        (log,                           ('3.0: WiseSchoolUniform TieA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('4f211318', 'WiseSchoolUniform.TieA.LightMap.1024')),
+    ],
+    'f21a2bac': [(log, ('3.0: WiseSchoolUniform Tie IB Hash',)), (add_ib_check_if_missing,)],
     }
 
 

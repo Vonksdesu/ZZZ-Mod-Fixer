@@ -76,6 +76,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'fd363c76': [(log, ('2.8: Yanagi Body blend [Legacy]',)),               (update_hash, ('b558d482',))],
 '2e92fc77': [(log, ('2.8: Yanagi Glasses ib [Legacy]',)),               (update_hash, ('44d9123b',))],
 'b558d482': [(log, ('2.8: Yanagi Body blend',)),                        (add_ib_check_if_missing,)],
+'08933e28': [(log, ('1.7 -> 2.0: Yanagi BodyA LightMap 2048p Hash',)), (update_hash, ('616200aa',))],
 
 # === Legacy Weapon Updates ===
 '9ab64737': [(log, ('2.0 -> 2.8: Yanagi Weapon Diffuse [Legacy]',)), (update_hash, ('b2aca818',))],

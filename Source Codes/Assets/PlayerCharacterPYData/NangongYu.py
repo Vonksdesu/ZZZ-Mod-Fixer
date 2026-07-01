@@ -91,34 +91,34 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
 # ==========================================
 # Hair VBs
-'536345c3': [(log, ('2.8: NangongYu Hair draw_vb',))],
-'d1a15d0e': [(log, ('2.8: NangongYu Hair position_vb',))],
-'e67f6a3c': [(log, ('2.8: NangongYu Hair texcoord_vb',))],
-'56699a62': [(log, ('2.8: NangongYu Hair blend_vb',))],
+'536345c3': [(log, ('2.8: NangongYu Hair draw_vb',)),                       (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
+'d1a15d0e': [(log, ('2.8: NangongYu Hair position_vb',)),                   (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
+'e67f6a3c': [(log, ('2.8: NangongYu Hair texcoord_vb',)),                   (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
+'56699a62': [(log, ('2.8: NangongYu Hair blend_vb',)),                      (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
 
 # Headband VBs
-'5aac7571': [(log, ('2.8: NangongYu Headband draw_vb',))],
-'74cbadea': [(log, ('2.8: NangongYu Headband position_vb',))],
-'00cbd7a8': [(log, ('2.8: NangongYu Headband texcoord_vb',))],
-'82509f4f': [(log, ('2.8: NangongYu Headband blend_vb',))],
+'5aac7571': [(log, ('2.8: NangongYu Headband draw_vb',)),                   (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
+'74cbadea': [(log, ('2.8: NangongYu Headband position_vb',)),               (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
+'00cbd7a8': [(log, ('2.8: NangongYu Headband texcoord_vb',)),               (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
+'82509f4f': [(log, ('2.8: NangongYu Headband blend_vb',)),                  (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
 
 # Wing VBs
-'6ab572d9': [(log, ('2.8: NangongYu Wing draw_vb',))],
-'b90d042a': [(log, ('2.8: NangongYu Wing position_vb',))],
-'e062b6fc': [(log, ('2.8: NangongYu Wing texcoord_vb',))],
-'4d677fbd': [(log, ('2.8: NangongYu Wing blend_vb',))],
+'6ab572d9': [(log, ('2.8: NangongYu Wing draw_vb',)),                       (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
+'b90d042a': [(log, ('2.8: NangongYu Wing position_vb',)),                   (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
+'e062b6fc': [(log, ('2.8: NangongYu Wing texcoord_vb',)),                   (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
+'4d677fbd': [(log, ('2.8: NangongYu Wing blend_vb',)),                      (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'5b0185fc': [(log, ('2.8: NangongYu Body draw_vb',))],
-'d4908293': [(log, ('2.8: NangongYu Body position_vb',))],
-'5ebf2446': [(log, ('2.8: NangongYu Body texcoord_vb',))],
-'f43a1dba': [(log, ('2.8: NangongYu Body blend_vb',))],
+'5b0185fc': [(log, ('2.8: NangongYu Body draw_vb',)),                       (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
+'d4908293': [(log, ('2.8: NangongYu Body position_vb',)),                   (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
+'5ebf2446': [(log, ('2.8: NangongYu Body texcoord_vb',)),                   (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
+'f43a1dba': [(log, ('2.8: NangongYu Body blend_vb',)),                      (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
 
 # Face VBs
-'d70f65c1': [(log, ('2.8: NangongYu Face draw_vb',))],
-'ed1df686': [(log, ('2.8: NangongYu Face position_vb',))],
-'45910aef': [(log, ('2.8: NangongYu Face texcoord_vb',))],
-'93c1ec0c': [(log, ('2.8: NangongYu Face blend_vb',))],
+'d70f65c1': [(log, ('2.8: NangongYu Face draw_vb',)),                       (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
+'ed1df686': [(log, ('2.8: NangongYu Face position_vb',)),                   (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
+'45910aef': [(log, ('2.8: NangongYu Face texcoord_vb',)),                   (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
+'93c1ec0c': [(log, ('2.8: NangongYu Face blend_vb',)),                      (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
 
 # Shared NormalMap
 '798adba3': [
@@ -127,6 +127,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n')),
     ],
+
+'2d290490': [(log,('2.7: -> 2.8: NanGongYu BodyA Diffuse 2048p Hash',)),(update_hash,('11254966',)),],
 
 # === New Database 2.8 Synced NangongYu hashes ===
 '11254966': [

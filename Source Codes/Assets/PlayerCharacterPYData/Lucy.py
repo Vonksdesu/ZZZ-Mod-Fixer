@@ -72,6 +72,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face / Head
 '2db957ac': [(log, ('2.8: Lucy Face VertexLimit Hash',)),                (add_section_if_missing, ('df3e3965', 'Lucy.Head.IB', 'match_priority = 0\n'))],
 '17abc4eb': [(log, ('2.8: Lucy Face position_vb Hash',)),                (add_section_if_missing, ('df3e3965', 'Lucy.Head.IB', 'match_priority = 0\n'))],
+'6275f052': [(log, ('1.2 -> 1.3: Lucy Head Texcoord Hash',)), (update_hash, ('1ca0ae1a',))],
+'80efa5cb': [(log, ('1.2 -> 1.3: Lucy Head Blend Hash',)),    (update_hash, ('a2054778',))],
+
 '1ca0ae1a': [(log, ('2.8: Lucy Face texcoord_vb Hash',)),                (add_section_if_missing, ('df3e3965', 'Lucy.Head.IB', 'match_priority = 0\n'))],
 'a2054778': [(log, ('2.8: Lucy Face blend_vb Hash',)),                   (add_section_if_missing, ('df3e3965', 'Lucy.Head.IB', 'match_priority = 0\n'))],
 

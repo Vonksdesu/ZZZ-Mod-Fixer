@@ -42,6 +42,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '18e704a8': [(log, ('2.8: WiseSummer Body draw_vb',)),                  (add_section_if_missing, ('4fe696c8', 'WiseSummer.Body.IB', 'match_priority = 0\n'))],
 'd6c86c1e': [(log, ('2.8: WiseSummer Body position_vb',)),              (add_section_if_missing, ('4fe696c8', 'WiseSummer.Body.IB', 'match_priority = 0\n'))],
 'acfe9fe4': [(log, ('2.8: WiseSummer Body texcoord_vb',)),              (add_section_if_missing, ('4fe696c8', 'WiseSummer.Body.IB', 'match_priority = 0\n'))],
+'9741e2f0': [(log, ('2.1 -> 2.2: WiseSummer Body Blend Hash',)), (update_hash, ('d4147320',))],
+
 'd4147320': [(log, ('2.8: WiseSummer Body blend_vb',)),                 (add_section_if_missing, ('4fe696c8', 'WiseSummer.Body.IB', 'match_priority = 0\n'))],
 
 # Face

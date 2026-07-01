@@ -62,6 +62,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Legacy Hash Updates ===
 '128c8f2e': [(log, ('2.0 -> 2.8: Pulchra Mask Diffuse [Legacy]',)), (update_hash, ('46bab365',))],
 'e522177c': [(log, ('2.0 -> 2.8: Pulchra Mask LightMap [Legacy]',)), (update_hash, ('03d28ecd',))],
+'320a1179': [(log, ('1.7 -> 2.0: Pulchra MaskA MaterialMap 2048p Hash',)), (update_hash, ('6b141146',))],
+'820ded20': [(log, ('1.7 -> 2.0: Pulchra MaskA MaterialMap 1024p Hash',)), (update_hash, ('f1ee6734',))],
 'ebac056e': [(log, ('2.8: Pulchra Shared NormalMap Hash [Legacy]',)), (update_hash, ('798adba3',))],
 
 # === Face Textures ===
@@ -148,6 +150,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '03d28ecd': [
         (log,                           ('2.8: Pulchra Mask LightMap Hash',)),
         (add_section_if_missing,        ('5b30f4da', 'Pulchra.Mask.IB', 'match_priority = 0\n')),
+    ],
+'f1ee6734': [
+        (log,                           ('1.6: Pulchra MaskA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('5b30f4da', 'Pulchra.Mask.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('320a1179', '6b141146'), 'Pulchra.MaskA.MaterialMap.2048')),
     ],
 '6b141146': [
         (log,                           ('2.8: Pulchra Mask MaterialMap Hash',)),

@@ -133,6 +133,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'fb432d20': [(log, ('2.0 -> 2.8: Soldier0 Weapon Diffuse Hash [Legacy]',)), (update_hash, ('c85b4097',))],
 '1a20e036': [(log, ('2.0 -> 2.8: Soldier0 Weapon LightMap Hash [Legacy]',)), (update_hash, ('8353de2a',))],
 '45f422c0': [(log, ('2.0 -> 2.8: Soldier0 Weapon MaterialMap Hash [Legacy]',)), (update_hash, ('88fe0e3c',))],
+'57c9f0a3': [(log, ('1.7 -> 2.0: Soldier0 Face Blend Hash',)), (update_hash, ('df6b6f84',))],
+'6a492df0': [(log, ('1.7 -> 2.0: Soldier0 Face Texcoord Hash',)), (update_hash, ('fc66ecd0',))],
 
 # ==========================================
 # 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
@@ -143,40 +145,40 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6df60902': [(log, ('2.8: Soldier0 LongDagger IB Hash',)),  (add_ib_check_if_missing,)],
 
 # Hair VBs
-'9a4ae9c7': [(log, ('2.8: Soldier0 Hair draw_vb',))],
-'7aa2035c': [(log, ('2.8: Soldier0 Hair position_vb',))],
-'c6b7b3b2': [(log, ('2.8: Soldier0 Hair texcoord_vb',))],
-'d13ddfe1': [(log, ('2.8: Soldier0 Hair blend_vb',))],
+'9a4ae9c7': [(log, ('2.8: Soldier0 Hair draw_vb',)),                    (add_section_if_missing, ('217ec790', 'Soldier0.Hair.IB', 'match_priority = 0\n'))],
+'7aa2035c': [(log, ('2.8: Soldier0 Hair position_vb',)),                (add_section_if_missing, ('217ec790', 'Soldier0.Hair.IB', 'match_priority = 0\n'))],
+'c6b7b3b2': [(log, ('2.8: Soldier0 Hair texcoord_vb',)),                (add_section_if_missing, ('217ec790', 'Soldier0.Hair.IB', 'match_priority = 0\n'))],
+'d13ddfe1': [(log, ('2.8: Soldier0 Hair blend_vb',)),                   (add_section_if_missing, ('217ec790', 'Soldier0.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'dd91b126': [(log, ('2.8: Soldier0 HairShadow draw_vb',))],
-'183df742': [(log, ('2.8: Soldier0 HairShadow position_vb',))],
-'2b4afe3c': [(log, ('2.8: Soldier0 HairShadow texcoord_vb',))],
-'376b601d': [(log, ('2.8: Soldier0 HairShadow blend_vb',))],
+'dd91b126': [(log, ('2.8: Soldier0 HairShadow draw_vb',)),              (add_section_if_missing, ('3431e8b4', 'Soldier0.HairShadow.IB', 'match_priority = 0\n'))],
+'183df742': [(log, ('2.8: Soldier0 HairShadow position_vb',)),          (add_section_if_missing, ('3431e8b4', 'Soldier0.HairShadow.IB', 'match_priority = 0\n'))],
+'2b4afe3c': [(log, ('2.8: Soldier0 HairShadow texcoord_vb',)),          (add_section_if_missing, ('3431e8b4', 'Soldier0.HairShadow.IB', 'match_priority = 0\n'))],
+'376b601d': [(log, ('2.8: Soldier0 HairShadow blend_vb',)),             (add_section_if_missing, ('3431e8b4', 'Soldier0.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'36089968': [(log, ('2.8: Soldier0 Body draw_vb',))],
-'f1c057e8': [(log, ('2.8: Soldier0 Body position_vb',))],
-'80d87313': [(log, ('2.8: Soldier0 Body texcoord_vb',))],
-'d4ff3f35': [(log, ('2.8: Soldier0 Body blend_vb',))],
+'36089968': [(log, ('2.8: Soldier0 Body draw_vb',)),                    (add_section_if_missing, ('53d3f4e5', 'Soldier0.Body.IB', 'match_priority = 0\n'))],
+'f1c057e8': [(log, ('2.8: Soldier0 Body position_vb',)),                (add_section_if_missing, ('53d3f4e5', 'Soldier0.Body.IB', 'match_priority = 0\n'))],
+'80d87313': [(log, ('2.8: Soldier0 Body texcoord_vb',)),                (add_section_if_missing, ('53d3f4e5', 'Soldier0.Body.IB', 'match_priority = 0\n'))],
+'d4ff3f35': [(log, ('2.8: Soldier0 Body blend_vb',)),                   (add_section_if_missing, ('53d3f4e5', 'Soldier0.Body.IB', 'match_priority = 0\n'))],
 
 # Face VBs & Limits
-'9f6aa443': [(log, ('2.8: Soldier0 Face VertexLimit',))],
-'a5783704': [(log, ('2.8: Face Position',))],
-'fc66ecd0': [(log, ('2.8: Face Texcoord',))],
-'df6b6f84': [(log, ('2.8: Face Blend',))],
+'9f6aa443': [(log, ('2.8: Soldier0 Face VertexLimit',)),                (add_section_if_missing, ('e30ca87f', 'Soldier0.Face.IB', 'match_priority = 0\n'))],
+'a5783704': [(log, ('2.8: Face Position',)),                             (add_section_if_missing, ('e30ca87f', 'Soldier0.Face.IB', 'match_priority = 0\n'))],
+'fc66ecd0': [(log, ('2.8: Face Texcoord',)),                             (add_section_if_missing, ('e30ca87f', 'Soldier0.Face.IB', 'match_priority = 0\n'))],
+'df6b6f84': [(log, ('2.8: Face Blend',)),                                (add_section_if_missing, ('e30ca87f', 'Soldier0.Face.IB', 'match_priority = 0\n'))],
 
 # Short Dagger VBs
-'771b3e9f': [(log, ('2.8: Soldier0 ShortDagger VertexLimit',))],
-'a7b673bb': [(log, ('2.8: Soldier0 ShortDagger Position',))],
-'37c582f3': [(log, ('2.8: Soldier0 ShortDagger Texcoord',))],
-'698ef481': [(log, ('2.8: Soldier0 ShortDagger Blend',))],
+'771b3e9f': [(log, ('2.8: Soldier0 ShortDagger VertexLimit',)),         (add_section_if_missing, ('4d5c8ade', 'Soldier0.ShortDagger.IB', 'match_priority = 0\n'))],
+'a7b673bb': [(log, ('2.8: Soldier0 ShortDagger Position',)),            (add_section_if_missing, ('4d5c8ade', 'Soldier0.ShortDagger.IB', 'match_priority = 0\n'))],
+'37c582f3': [(log, ('2.8: Soldier0 ShortDagger Texcoord',)),            (add_section_if_missing, ('4d5c8ade', 'Soldier0.ShortDagger.IB', 'match_priority = 0\n'))],
+'698ef481': [(log, ('2.8: Soldier0 ShortDagger Blend',)),               (add_section_if_missing, ('4d5c8ade', 'Soldier0.ShortDagger.IB', 'match_priority = 0\n'))],
 
 # Long Dagger VBs
-'037b48d9': [(log, ('2.8: Soldier0 LongDagger VertexLimit',))],
-'6f413f77': [(log, ('2.8: Soldier0 LongDagger Position',))],
-'e45c71f4': [(log, ('2.8: Soldier0 LongDagger Texcoord',))],
-'c68ee4ea': [(log, ('2.8: Soldier0 LongDagger Blend',))],
+'037b48d9': [(log, ('2.8: Soldier0 LongDagger VertexLimit',)),          (add_section_if_missing, ('6df60902', 'Soldier0.LongDagger.IB', 'match_priority = 0\n'))],
+'6f413f77': [(log, ('2.8: Soldier0 LongDagger Position',)),             (add_section_if_missing, ('6df60902', 'Soldier0.LongDagger.IB', 'match_priority = 0\n'))],
+'e45c71f4': [(log, ('2.8: Soldier0 LongDagger Texcoord',)),             (add_section_if_missing, ('6df60902', 'Soldier0.LongDagger.IB', 'match_priority = 0\n'))],
+'c68ee4ea': [(log, ('2.8: Soldier0 LongDagger Blend',)),                (add_section_if_missing, ('6df60902', 'Soldier0.LongDagger.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8 Target)
 'bb979f59': [

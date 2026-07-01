@@ -33,41 +33,41 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '0c6b95ca': [(log, ('2.6 -> 2.8: SunnaAfternoonTeaBreak Body Texcoord Hash',)),  (update_hash, ('7a31eb8b',))],
 
 # === Target Hashes (Penyelarasan Validasi) ===
-'74cc56df': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Draw Hash (Target)',))],
-'4b93d8eb': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Position Hash (Target)',))],
-'b9030f86': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Texcoord Hash (Target)',))],
-'4a795f2a': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Blend Hash (Target)',))],
-'25cf6bf7': [(log, ('2.8: SunnaAfternoonTeaBreak Body Position Hash (Target)',))],
-'7a31eb8b': [(log, ('2.8: SunnaAfternoonTeaBreak Body Texcoord Hash (Target)',))],
+'74cc56df': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Draw Hash (Target)',)),          (add_section_if_missing, ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n'))],
+'4b93d8eb': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Position Hash (Target)',)),      (add_section_if_missing, ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n'))],
+'b9030f86': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Texcoord Hash (Target)',)),      (add_section_if_missing, ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n'))],
+'4a795f2a': [(log, ('2.8: SunnaAfternoonTeaBreak Hair Blend Hash (Target)',)),         (add_section_if_missing, ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n'))],
+'25cf6bf7': [(log, ('2.8: SunnaAfternoonTeaBreak Body Position Hash (Target)',)),      (add_section_if_missing, ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n'))],
+'7a31eb8b': [(log, ('2.8: SunnaAfternoonTeaBreak Body Texcoord Hash (Target)',)),      (add_section_if_missing, ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n'))],
 
 # === PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT) ===
 # Body draw_vb & blend_vb
-'7353a665': [(log, ('2.8: SunnaAfternoonTeaBreak Body draw_vb',))],
-'9b65412a': [(log, ('2.8: SunnaAfternoonTeaBreak Body blend_vb',))],
+'7353a665': [(log, ('2.8: SunnaAfternoonTeaBreak Body draw_vb',)),                     (add_section_if_missing, ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n'))],
+'9b65412a': [(log, ('2.8: SunnaAfternoonTeaBreak Body blend_vb',)),                    (add_section_if_missing, ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n'))],
 
 # Eyebrow VBs
-'9f0ab8cd': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow draw_vb',))],
-'a5182b8a': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow position_vb',))],
-'e3cc1981': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow texcoord_vb',))],
-'f5daa764': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow blend_vb',))],
+'9f0ab8cd': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow draw_vb',)),                  (add_section_if_missing, ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n'))],
+'a5182b8a': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow position_vb',)),              (add_section_if_missing, ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n'))],
+'e3cc1981': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow texcoord_vb',)),              (add_section_if_missing, ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n'))],
+'f5daa764': [(log, ('2.8: SunnaAfternoonTeaBreak Eyebrow blend_vb',)),                 (add_section_if_missing, ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n'))],
 
 # Face VBs
-'9679c257': [(log, ('2.8: SunnaAfternoonTeaBreak Face draw_vb',))],
-'ac6b5110': [(log, ('2.8: SunnaAfternoonTeaBreak Face position_vb',))],
-'506dc9e1': [(log, ('2.8: SunnaAfternoonTeaBreak Face texcoord_vb',))],
-'21299f88': [(log, ('2.8: SunnaAfternoonTeaBreak Face blend_vb',))],
+'9679c257': [(log, ('2.8: SunnaAfternoonTeaBreak Face draw_vb',)),                      (add_section_if_missing, ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n'))],
+'ac6b5110': [(log, ('2.8: SunnaAfternoonTeaBreak Face position_vb',)),                  (add_section_if_missing, ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n'))],
+'506dc9e1': [(log, ('2.8: SunnaAfternoonTeaBreak Face texcoord_vb',)),                  (add_section_if_missing, ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n'))],
+'21299f88': [(log, ('2.8: SunnaAfternoonTeaBreak Face blend_vb',)),                     (add_section_if_missing, ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n'))],
 
 # WeaponBackpack VBs
-'953975c0': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack draw_vb',))],
-'a28ba31c': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack position_vb',))],
-'b642db41': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack texcoord_vb',))],
-'16e2d8ea': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack blend_vb',))],
+'953975c0': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack draw_vb',)),            (add_section_if_missing, ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'a28ba31c': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack position_vb',)),        (add_section_if_missing, ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'b642db41': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack texcoord_vb',)),        (add_section_if_missing, ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpack.IB', 'match_priority = 0\n'))],
+'16e2d8ea': [(log, ('2.8: SunnaAfternoonTeaBreak WeaponBackpack blend_vb',)),           (add_section_if_missing, ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpack.IB', 'match_priority = 0\n'))],
 
 # Paopao VBs
-'ffe207d5': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao draw_vb',))],
-'1a0cad46': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao position_vb',))],
-'df0f6142': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao texcoord_vb',))],
-'d4e13802': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao blend_vb',))],
+'ffe207d5': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao draw_vb',)),                    (add_section_if_missing, ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n'))],
+'1a0cad46': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao position_vb',)),                (add_section_if_missing, ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n'))],
+'df0f6142': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao texcoord_vb',)),                (add_section_if_missing, ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n'))],
+'d4e13802': [(log, ('2.8: SunnaAfternoonTeaBreak Paopao blend_vb',)),                   (add_section_if_missing, ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8)
 '798adba3': [

@@ -29,21 +29,21 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === VB Hashes (Vertex Buffers) ===
 # Hair VBs
-'7e7eee0d': [(log, ('2.5: Corin Hair Position VB Hash',))],
-'5fa50113': [(log, ('2.5: Corin Hair Blend VB Hash',))],
-'abc95b03': [(log, ('2.5: Corin Hair Texcoord VB Hash',))],
+'7e7eee0d': [(log, ('2.5: Corin Hair Position VB Hash',)),                (add_section_if_missing, ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n'))],
+'5fa50113': [(log, ('2.5: Corin Hair Blend VB Hash',)),                   (add_section_if_missing, ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n'))],
+'abc95b03': [(log, ('2.5: Corin Hair Texcoord VB Hash',)),                (add_section_if_missing, ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n'))],
 '8d999156': [(log, ('1.3 -> 1.4: Corin Hair Blend Hash (Old)',)), (update_hash, ('5fa50113',))],
 '2cf242f4': [(log, ('1.3 -> 1.4: Corin Hair Texcoord Hash (Old)',)), (update_hash, ('abc95b03',))],
 
 # Body VBs
-'5dc40184': [(log, ('2.5: Corin Body Position VB Hash',))],
-'aa71e514': [(log, ('2.5: Corin Body Blend VB Hash',))],
-'4c6b7bda': [(log, ('2.5: Corin Body Texcoord VB Hash',))],
+'5dc40184': [(log, ('2.5: Corin Body Position VB Hash',)),                (add_section_if_missing, ('e74620b5', 'Corin.Body.IB', 'match_priority = 0\n'))],
+'aa71e514': [(log, ('2.5: Corin Body Blend VB Hash',)),                   (add_section_if_missing, ('e74620b5', 'Corin.Body.IB', 'match_priority = 0\n'))],
+'4c6b7bda': [(log, ('2.5: Corin Body Texcoord VB Hash',)),                (add_section_if_missing, ('e74620b5', 'Corin.Body.IB', 'match_priority = 0\n'))],
 
 # Bear VBs
-'4e1c9e44': [(log, ('2.5: Corin Bear Position VB Hash',))],
-'6ffea6f6': [(log, ('2.5: Corin Bear Blend VB Hash',))],
-'21987873': [(log, ('2.5: Corin Bear Texcoord VB Hash',))],
+'4e1c9e44': [(log, ('2.5: Corin Bear Position VB Hash',)),                (add_section_if_missing, ('5f803336', 'Corin.Bear.IB', 'match_priority = 0\n'))],
+'6ffea6f6': [(log, ('2.5: Corin Bear Blend VB Hash',)),                   (add_section_if_missing, ('5f803336', 'Corin.Bear.IB', 'match_priority = 0\n'))],
+'21987873': [(log, ('2.5: Corin Bear Texcoord VB Hash',)),                (add_section_if_missing, ('5f803336', 'Corin.Bear.IB', 'match_priority = 0\n'))],
 
 # === Texture Hashes - Face ===
 '6d662824': [
@@ -91,6 +91,16 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'c6398bc8': [
         (log,                           ('2.5: Corin HairA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n')),
+    ],
+'1b88e01e': [
+        (log,                           ('1.0: Corin HairA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('23b4c60d', 'Corin.HairA.MaterialMap.2048')),
+    ],
+'23b4c60d': [
+        (log,                           ('1.0: Corin HairA MaterialMap 2048p Hash',)),
+        (add_section_if_missing,        ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('1b88e01e', 'Corin.HairA.MaterialMap.1024')),
     ],
 
 # NormalMap
@@ -167,20 +177,20 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6f2286a6': [(log, ('2.8: Corin Weapon IB Hash',)),     (add_ib_check_if_missing,)],
 
 # Hair draw_vb & LightMap
-'d345e472': [(log, ('2.8: Corin Hair draw_vb',))],
+'d345e472': [(log, ('2.8: Corin Hair draw_vb',)),                          (add_section_if_missing, ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n'))],
 '0f300531': [
         (log,                           ('2.8: Corin HairA LightMap Hash',)),
         (add_section_if_missing,        ('5a839fb2', 'Corin.Hair.IB', 'match_priority = 0\n')),
     ],
 
 # Hair Shadow VBs
-'16399986': [(log, ('2.8: Corin HairShadow draw_vb',))],
-'b3c22aee': [(log, ('2.8: Corin HairShadow position_vb',))],
-'e134a479': [(log, ('2.8: Corin HairShadow texcoord_vb',))],
-'81a22a15': [(log, ('2.8: Corin HairShadow blend_vb',))],
+'16399986': [(log, ('2.8: Corin HairShadow draw_vb',)),                    (add_section_if_missing, ('294af6bd', 'Corin.HairShadow.IB', 'match_priority = 0\n'))],
+'b3c22aee': [(log, ('2.8: Corin HairShadow position_vb',)),                (add_section_if_missing, ('294af6bd', 'Corin.HairShadow.IB', 'match_priority = 0\n'))],
+'e134a479': [(log, ('2.8: Corin HairShadow texcoord_vb',)),                (add_section_if_missing, ('294af6bd', 'Corin.HairShadow.IB', 'match_priority = 0\n'))],
+'81a22a15': [(log, ('2.8: Corin HairShadow blend_vb',)),                   (add_section_if_missing, ('294af6bd', 'Corin.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body draw_vb, LightMap, MaterialMap
-'2eb162ef': [(log, ('2.8: Corin Body draw_vb',))],
+'2eb162ef': [(log, ('2.8: Corin Body draw_vb',)),                          (add_section_if_missing, ('e74620b5', 'Corin.Body.IB', 'match_priority = 0\n'))],
 '068be251': [
         (log,                           ('2.8: Corin BodyA LightMap Hash',)),
         (add_section_if_missing,        ('e74620b5', 'Corin.Body.IB', 'match_priority = 0\n')),
@@ -191,19 +201,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # Bear draw_vb
-'1a7ee1b5': [(log, ('2.8: Corin Bear draw_vb',))],
+'1a7ee1b5': [(log, ('2.8: Corin Bear draw_vb',)),                          (add_section_if_missing, ('5f803336', 'Corin.Bear.IB', 'match_priority = 0\n'))],
 
 # Face VBs & Limits
-'eda4d773': [(log, ('2.8: Corin Face VertexLimit',))],
-'d7b64434': [(log, ('2.8: Corin Face Position',))],
-'1c0725e4': [(log, ('2.8: Corin Face Texcoord',))],
-'4892e6b4': [(log, ('2.8: Corin Face Blend',))],
+'eda4d773': [(log, ('2.8: Corin Face VertexLimit',)),                      (add_section_if_missing, ('a0c80593', 'Corin.Head.IB', 'match_priority = 0\n'))],
+'d7b64434': [(log, ('2.8: Corin Face Position',)),                         (add_section_if_missing, ('a0c80593', 'Corin.Head.IB', 'match_priority = 0\n'))],
+'1c0725e4': [(log, ('2.8: Corin Face Texcoord',)),                         (add_section_if_missing, ('a0c80593', 'Corin.Head.IB', 'match_priority = 0\n'))],
+'4892e6b4': [(log, ('2.8: Corin Face Blend',)),                            (add_section_if_missing, ('a0c80593', 'Corin.Head.IB', 'match_priority = 0\n'))],
 
 # Weapon VBs & Limits
-'6bf8f421': [(log, ('2.8: Corin Weapon VertexLimit',))],
-'17a67595': [(log, ('2.8: Corin Weapon Position',))],
-'f8da5b79': [(log, ('2.8: Corin Weapon Texcoord',))],
-'df7728c8': [(log, ('2.8: Corin Weapon Blend',))],
+'6bf8f421': [(log, ('2.8: Corin Weapon VertexLimit',)),                    (add_section_if_missing, ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n'))],
+'17a67595': [(log, ('2.8: Corin Weapon Position',)),                       (add_section_if_missing, ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n'))],
+'f8da5b79': [(log, ('2.8: Corin Weapon Texcoord',)),                       (add_section_if_missing, ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n'))],
+'df7728c8': [(log, ('2.8: Corin Weapon Blend',)),                          (add_section_if_missing, ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n'))],
 
 # Weapon Textures
 'be466746': [

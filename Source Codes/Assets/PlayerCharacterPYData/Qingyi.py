@@ -180,40 +180,40 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6b62986f': [(log, ('2.8: Qingyi Weapon IB Hash',)),     (add_ib_check_if_missing,)],
 
 # Hair VBs
-'7b43d317': [(log, ('2.8: Qingyi Hair draw_vb',))],
-'dd08951b': [(log, ('2.8: Qingyi Hair position_vb',))],
-'53a2b66e': [(log, ('2.8: Qingyi Hair texcoord_vb',))],
-'6e7650bc': [(log, ('2.8: Qingyi Hair blend_vb',))],
+'7b43d317': [(log, ('2.8: Qingyi Hair draw_vb',)),                    (add_section_if_missing, ('3cacba0a', 'Qingyi.Hair.IB', 'match_priority = 0\n'))],
+'dd08951b': [(log, ('2.8: Qingyi Hair position_vb',)),                (add_section_if_missing, ('3cacba0a', 'Qingyi.Hair.IB', 'match_priority = 0\n'))],
+'53a2b66e': [(log, ('2.8: Qingyi Hair texcoord_vb',)),                (add_section_if_missing, ('3cacba0a', 'Qingyi.Hair.IB', 'match_priority = 0\n'))],
+'6e7650bc': [(log, ('2.8: Qingyi Hair blend_vb',)),                   (add_section_if_missing, ('3cacba0a', 'Qingyi.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'472bb581': [(log, ('2.8: Qingyi HairShadow draw_vb',))],
-'0971a397': [(log, ('2.8: Qingyi HairShadow position_vb',))],
-'ee99ded9': [(log, ('2.8: Qingyi HairShadow texcoord_vb',))],
-'b7ce94d8': [(log, ('2.8: Qingyi HairShadow blend_vb',))],
+'472bb581': [(log, ('2.8: Qingyi HairShadow draw_vb',)),              (add_section_if_missing, ('0a94bfd8', 'Qingyi.HairShadow.IB', 'match_priority = 0\n'))],
+'0971a397': [(log, ('2.8: Qingyi HairShadow position_vb',)),          (add_section_if_missing, ('0a94bfd8', 'Qingyi.HairShadow.IB', 'match_priority = 0\n'))],
+'ee99ded9': [(log, ('2.8: Qingyi HairShadow texcoord_vb',)),          (add_section_if_missing, ('0a94bfd8', 'Qingyi.HairShadow.IB', 'match_priority = 0\n'))],
+'b7ce94d8': [(log, ('2.8: Qingyi HairShadow blend_vb',)),             (add_section_if_missing, ('0a94bfd8', 'Qingyi.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body VBs
-'7be61bce': [(log, ('2.8: Qingyi Body draw_vb',))],
-'ac54012f': [(log, ('2.8: Qingyi Body position_vb',))],
-'4cbe7fbe': [(log, ('2.8: Qingyi Body texcoord_vb',))],
-'88a6f633': [(log, ('2.8: Qingyi Body blend_vb',))],
+'7be61bce': [(log, ('2.8: Qingyi Body draw_vb',)),                    (add_section_if_missing, ('195857d8', 'Qingyi.Body.IB', 'match_priority = 0\n'))],
+'ac54012f': [(log, ('2.8: Qingyi Body position_vb',)),                (add_section_if_missing, ('195857d8', 'Qingyi.Body.IB', 'match_priority = 0\n'))],
+'4cbe7fbe': [(log, ('2.8: Qingyi Body texcoord_vb',)),                (add_section_if_missing, ('195857d8', 'Qingyi.Body.IB', 'match_priority = 0\n'))],
+'88a6f633': [(log, ('2.8: Qingyi Body blend_vb',)),                   (add_section_if_missing, ('195857d8', 'Qingyi.Body.IB', 'match_priority = 0\n'))],
 
 # Kettle VBs
-'fca2b042': [(log, ('2.8: Qingyi Kettle draw_vb',))],
-'24282218': [(log, ('2.8: Qingyi Kettle position_vb',))],
-'1707933f': [(log, ('2.8: Qingyi Kettle texcoord_vb',))],
-'807eb474': [(log, ('2.8: Qingyi Kettle blend_vb',))],
+'fca2b042': [(log, ('2.8: Qingyi Kettle draw_vb',)),                  (add_section_if_missing, ('8e8426df', 'Qingyi.Bottle.IB', 'match_priority = 0\n'))],
+'24282218': [(log, ('2.8: Qingyi Kettle position_vb',)),              (add_section_if_missing, ('8e8426df', 'Qingyi.Bottle.IB', 'match_priority = 0\n'))],
+'1707933f': [(log, ('2.8: Qingyi Kettle texcoord_vb',)),              (add_section_if_missing, ('8e8426df', 'Qingyi.Bottle.IB', 'match_priority = 0\n'))],
+'807eb474': [(log, ('2.8: Qingyi Kettle blend_vb',)),                 (add_section_if_missing, ('8e8426df', 'Qingyi.Bottle.IB', 'match_priority = 0\n'))],
 
 # Face VBs & Limits
-'9f6aa443': [(log, ('2.8: Qingyi Face VertexLimit',))],
-'a5783704': [(log, ('2.8: Face Position',))],
-'6a492df0': [(log, ('2.8: Face Texcoord',))],
-'57c9f0a3': [(log, ('2.8: Face Blend',))],
+'9f6aa443': [(log, ('2.8: Qingyi Face VertexLimit',)),                (add_section_if_missing, ('f6e96452', 'Qingyi.Head.IB', 'match_priority = 0\n'))],
+'a5783704': [(log, ('2.8: Face Position',)),                           (add_section_if_missing, ('f6e96452', 'Qingyi.Head.IB', 'match_priority = 0\n'))],
+'6a492df0': [(log, ('2.8: Face Texcoord',)),                           (add_section_if_missing, ('f6e96452', 'Qingyi.Head.IB', 'match_priority = 0\n'))],
+'57c9f0a3': [(log, ('2.8: Face Blend',)),                              (add_section_if_missing, ('f6e96452', 'Qingyi.Head.IB', 'match_priority = 0\n'))],
 
 # Weapon VBs & Limits
-'e5a4128b': [(log, ('2.8: Qingyi Weapon VertexLimit',))],
-'fb916456': [(log, ('2.8: Qingyi Weapon Position',))],
-'8658ef62': [(log, ('2.8: Qingyi Weapon Texcoord',))],
-'f75514db': [(log, ('2.8: Qingyi Weapon Blend',))],
+'e5a4128b': [(log, ('2.8: Qingyi Weapon VertexLimit',)),              (add_section_if_missing, ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n'))],
+'fb916456': [(log, ('2.8: Qingyi Weapon Position',)),                 (add_section_if_missing, ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n'))],
+'8658ef62': [(log, ('2.8: Qingyi Weapon Texcoord',)),                 (add_section_if_missing, ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n'))],
+'f75514db': [(log, ('2.8: Qingyi Weapon Blend',)),                    (add_section_if_missing, ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8 Target)
 '330dfe54': [

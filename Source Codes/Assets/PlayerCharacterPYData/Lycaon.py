@@ -94,12 +94,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '4a666a39': [(log, ('1.5 -> 1.6: Lycaon Head Position Hash',)), (update_hash, ('7e35ec22',))],
 'c862a611': [(log, ('1.5 -> 1.6: Lycaon Head Blend Hash',)),    (update_hash, ('e2d4c532',))],
 '690f441f': [(log, ('1.? -> 1.?: Lycaon Head Texcoord Hash',)), (update_hash, ('b1edaf35',))],
+'6902f441': [(log, ('1.? -> 1.?: Lycaon Head Texcoord Hash',)), (update_hash, ('b1edaf35',))],
 'b1edaf35': [(log, ('1.? -> 1.6: Lycaon Head Texcoord Hash',)), (update_hash, ('3adaebb3',))],
 '7341e07b': [(log, ('1.5 -> 1.6: Lycaon Head IB Hash',)),       (update_hash, ('6ffdfccb',))],
 '4f098897': [(log, ('1.5 -> 1.6: Lycaon Head Diffuse 1024p Hash',)), (update_hash, ('2cc208a7',))],
 
 # === Pembaruan Sinkronisasi Diffuse Bodi v2.8 ===
 '7169ec86': [(log, ('2.4 -> 2.5: Lycaon BodyA Diffuse [Legacy]',)), (update_hash, ('4cb6928e',))],
+'82ad0c28': [(log, ('2.4 -> 2.5: Lycaon BodyA Diffuse 1024p Hash',)), (update_hash, ('7a22ad61',))],
 
 # === Face Textures ===
 '2cc208a7': [

@@ -93,7 +93,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 '5724e531': [
         (log,                           ('3.0: BelleBrillianceOfStars Neck, Body MaterialMap Hash',)),
-        (add_section_if_missing,        ('a6431856', 'WiseTemple.TorsoAcc.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('a6431856', 'BelleBrillianceOfStars.Neck.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('feb1c4cd', 'BelleBrillianceOfStars.Body.IB', 'match_priority = 0\n')),
     ],
 
@@ -134,6 +134,44 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('62711f82', 'BelleBrillianceOfStars.Earrings.IB', 'match_priority = 0\n')),
     ],
 
+# === Legacy Hash Updates (Historical Chain v2.0 - v2.8) ===
+'02c9dc4b': [(log, ('2.4 -> 2.5: BelleSkin Body Draw Hash',)),     (update_hash, ('19e5f486',))],
+'0b3c5e7c': [(log, ('2.4 -> 2.5: BelleSkin Body Position Hash',)), (update_hash, ('8a4e97cd',))],
+'860e1558': [(log, ('2.4 -> 2.5: BelleSkin Body IB Hash',)),       (update_hash, ('d509bdd4',))],
+'862dc27a': [(log, ('2.4 -> 2.5: BelleSkin Body Texcoord Hash',)), (update_hash, ('d761e076',))],
+'59218fac': [(log, ('2.0 -> 2.1: BelleSkin BodyA Diffuse 1024p Hash',)), (update_hash, ('fdf0b49e',))],
+'cac9fd5d': [(log, ('2.0 -> 2.1: BelleSkin BodyA Diffuse 2048p Hash',)), (update_hash, ('da2bfe2f',))],
+'657402d0': [
+        (log,                           ('2.0: BelleSkin BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('b95c08fb', 'BelleSkin.BodyA.MaterialMap.1024')),
+    ],
+'b95c08fb': [
+        (log,                           ('2.0: BelleSkin BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('657402d0', 'BelleSkin.BodyA.MaterialMap.2048')),
+    ],
+'74f2fae3': [
+        (log,                           ('2.0: BelleSkin BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('93d94f22', 'BelleSkin.BodyA.LightMap.1024')),
+    ],
+'93d94f22': [
+        (log,                           ('2.0: BelleSkin BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('74f2fae3', 'BelleSkin.BodyA.LightMap.2048')),
+    ],
+'da2bfe2f': [
+        (log,                           ('2.0: BelleSkin BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   (('59218fac','fdf0b49e'), 'BelleSkin.BodyA.Diffuse.1024')),
+    ],
+'fdf0b49e': [
+        (log,                           ('2.0: BelleSkin BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   (('da2bfe2f','cac9fd5d'), 'BelleSkin.BodyA.Diffuse.2048')),
+    ],
+'39ac6700': [(log, ('2.8 -> 3.0: BelleSkin Hair Blend Hash',)),    (update_hash, ('8f7ae834',))],
+'db7add33': [(log, ('2.8 -> 3.0: BelleSkin Headwear Blend Hash',)),    (update_hash, ('f18dd23f',))],
+'f3dedb50': [(log, ('2.8 -> 3.0: BelleSkin Body Blend Hash',)),    (update_hash, ('4d74d5e9',))],
+'f53b2eba': [(log, ('2.8 -> 3.0: BelleSkin Leg Blend Hash',)),    (update_hash, ('922a7db6',))],
+'bcc9e4e1': [(log, ('2.0: BelleSkin Leg IB Hash',)), (add_ib_check_if_missing,)],
+'d509bdd4': [(log, ('2.0: BelleSkin Body IB Hash',)), (add_ib_check_if_missing,)],
+
 # === Shared Normal Map ===
 '798adba3': [
         (log,                           ('3.0: BelleBrillianceOfStars Shared NormalMap Hash (Target)',)),
@@ -161,5 +199,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'BelleBrillianceOfStars',
-    'game_versions': ['3.0'],
+    'game_versions': ['2.0', '2.1', '2.4', '2.5', '2.8', '3.0'],
 }

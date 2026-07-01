@@ -50,6 +50,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face / Head
 'd06e95fd': [(log, ('2.8: Soukaku Face VertexLimit Hash',)),              (add_section_if_missing, ('020f9ac6', 'Soukaku.Head.IB', 'match_priority = 0\n'))],
 'ea7c06ba': [(log, ('2.8: Soukaku Face position_vb Hash',)),              (add_section_if_missing, ('020f9ac6', 'Soukaku.Head.IB', 'match_priority = 0\n'))],
+'ad41e2f6': [(log, ('1.0 - 1.1: Soukaku Head Texcoord Hash',)), (update_hash, ('c2db08f0',))],
+
 'c2db08f0': [(log, ('2.8: Soukaku Face texcoord_vb Hash',)),              (add_section_if_missing, ('020f9ac6', 'Soukaku.Head.IB', 'match_priority = 0\n'))],
 '2d187d8f': [(log, ('2.8: Soukaku Face blend_vb Hash',)),                 (add_section_if_missing, ('020f9ac6', 'Soukaku.Head.IB', 'match_priority = 0\n'))],
 
@@ -105,7 +107,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('1315178e', 'Soukaku.Mask.IB', 'match_priority = 0\n')),
     ],
 '04654e94': [(log, ('1.0 - 1.7: Soukaku HairA LightMap 2048p Hash',)), (update_hash, ('a70e24a2',))],
-'7bbb3d02': [(log, ('1.0 - 1.7: Soukaku HairA LightMap 1024p Hash [Deprecated]',))],
+'7bbb3d02': [(log, ('1.7 -> 2.0: Soukaku HairA LightMap 1024p Hash',)), (update_hash, ('5966c5e3',))],
 'a70e24a2': [
         (log,                           ('2.8: Soukaku HairA/MaskA LightMap 2048p Hash (shared)',)),
         (add_section_if_missing,        ('fe70c7a3', 'Soukaku.Hair.IB', 'match_priority = 0\n')),
@@ -123,7 +125,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (multiply_section_if_missing,   ('d1444c52', 'Soukaku.HairA.MaterialMap.2048')),
     ],
 '8498ee4d': [(log, ('1.0 - 1.7: Soukaku HairA NormalMap 2048p Hash',)), (update_hash, ('ebac056e',))],
-'0003126a': [(log, ('1.0 - 1.7: Soukaku HairA NormalMap 1024p Hash [Deprecated]',))],
+'0003126a': [(log, ('1.0 - 1.7: Soukaku HairA NormalMap 1024p Hash [Deprecated]',)), (add_section_if_missing, ('fe70c7a3', 'Soukaku.Hair.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('8498ee4d', 'Soukaku.HairA.NormalMap.2048'))],
 
 # === Body Textures ===
 'ee31954b': [
@@ -157,7 +159,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (multiply_section_if_missing,   ('d638ddf9', 'Soukaku.BodyA.MaterialMap.2048')),
     ],
 '363e3d70': [(log, ('1.0 - 1.7: Soukaku BodyA NormalMap 2048p Hash',)), (update_hash, ('ebac056e',))],
-'77c48d32': [(log, ('1.0 - 1.7: Soukaku BodyA NormalMap 1024p Hash [Deprecated]',))],
+'77c48d32': [(log, ('1.0 - 1.7: Soukaku BodyA NormalMap 1024p Hash [Deprecated]',)), (add_section_if_missing, ('ced49ff8', 'Soukaku.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('363e3d70', 'Soukaku.BodyA.NormalMap.2048'))],
 
 # === Weapon Textures (v2.8 Target) ===
 '67177563': [

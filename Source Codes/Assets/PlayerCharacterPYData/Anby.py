@@ -66,6 +66,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log, ('+ Remapping texcoord buffer',)),
         (zzz_12_shrink_texcoord_color, ('1.2',))
     ],
+'2a23f612': [(log, ('1.5 -> 1.6: Anby HeadA Diffuse 2048p Hash',)), (update_hash, ('05d7b504',))],
+'ba016a6e': [(log, ('1.7 -> 2.0: Anby Head Texcoord Hash',)), (update_hash, ('f818271a',))],
 'cc114f4f': [(log, ('2.8: Anby HeadA Diffuse 1024p Hash [Legacy]',)),   (update_hash, ('692c6d2b',))],
 '2a29cb9b': [(log, ('2.8: Anby HeadA Diffuse 2048p Hash [Legacy]',)),   (update_hash, ('05d7b504',))],
 'b54f2a3d': [(log, ('2.8: Anby HairA LightMap 2048p Hash [Legacy]',)),  (update_hash, ('057f3c55',))],

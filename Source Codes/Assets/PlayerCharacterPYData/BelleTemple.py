@@ -367,6 +367,61 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('4dcc384f', 'BelleTemple.OrangeGreenBadge.IB', 'match_priority = 0\n')),
     ],
 
+# === BelleSchoolUniform Components (v3.0) ===
+'0a843a8f': [(log, ('3.0: BelleSchoolUniform Hat IB Hash',)), (add_ib_check_if_missing,)],
+'b946c37f': [(log, ('3.0: BelleSchoolUniform Tie IB Hash',)), (add_ib_check_if_missing,)],
+'62711f82': [(log, ('3.0: BelleSchoolUniform Earrings IB Hash',)), (add_ib_check_if_missing,)],
+'feb1c4cd': [(log, ('3.0: BelleSchoolUniform Body IB Hash',)), (add_ib_check_if_missing,)],
+'a318b3c6': [(log, ('3.0: BelleSchoolUniform Player IB Hash',)), (add_ib_check_if_missing,)],
+'08453671': [
+        (log,                           ('3.0: BelleSchoolUniform HatA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('57130f7c', 'BelleSchoolUniform.HatA.MaterialMap.2048')),
+    ],
+'57130f7c': [
+        (log,                           ('3.0: BelleSchoolUniform HatA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('08453671', 'BelleSchoolUniform.HatA.MaterialMap.1024')),
+    ],
+'269a82f9': [
+        (log,                           ('3.0: BelleSchoolUniform HatA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('8c0ea559', 'BelleSchoolUniform.HatA.Diffuse.2048')),
+    ],
+'8c0ea559': [
+        (log,                           ('3.0: BelleSchoolUniform HatA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('269a82f9', 'BelleSchoolUniform.HatA.Diffuse.1024')),
+    ],
+'a21dde78': [
+        (log,                           ('3.0: BelleSchoolUniform HatA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('dcb8ba2e', 'BelleSchoolUniform.HatA.LightMap.2048')),
+    ],
+'dcb8ba2e': [
+        (log,                           ('3.0: BelleSchoolUniform HatA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('a21dde78', 'BelleSchoolUniform.HatA.LightMap.1024')),
+    ],
+'639ad374': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('a292d07d', 'BelleSchoolUniform.BodyA.Diffuse.2048')),
+    ],
+'a292d07d': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('639ad374', 'BelleSchoolUniform.BodyA.Diffuse.1024')),
+    ],
+'e1f357ec': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('42310c0e', 'BelleSchoolUniform.BodyA.LightMap.2048')),
+    ],
+'42310c0e': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('e1f357ec', 'BelleSchoolUniform.BodyA.LightMap.1024')),
+    ],
+'7c1fb5f6': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('5724e531', 'BelleSchoolUniform.BodyA.MaterialMap.2048')),
+    ],
+'5724e531': [
+        (log,                           ('3.0: BelleSchoolUniform BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('7c1fb5f6', 'BelleSchoolUniform.BodyA.MaterialMap.1024')),
+    ],
+
 # === Shared Normal Map ===
 '798adba3': [
         (log,                           ('2.8 -> 3.0: BelleTemple Shared NormalMap Hash (Target)',)),

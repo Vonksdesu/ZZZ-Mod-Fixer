@@ -171,6 +171,48 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('8ac40392', 'Velina.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'Velina.Fan.IB', 'match_priority = 0\n')),
     ],
+
+# === Legacy 3.0 Texture Hashes ===
+    '531320a5': [
+        (log,                           ('3.0: Velina BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('531320a5', 'Velina.BodyA.MaterialMap.1024')),
+    ],
+    '54fc678e': [
+        (log,                           ('3.0: Velina HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('54fc678e', 'Velina.HairA.LightMap.1024')),
+    ],
+    '5562351c': [
+        (log,                           ('3.0: Velina BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('5562351c', 'Velina.BodyA.LightMap.1024')),
+    ],
+    '673e5da6': [
+        (log,                           ('3.0: Velina HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('673e5da6', 'Velina.HairA.Diffuse.1024')),
+    ],
+    'afa5c7de': [
+        (log,                           ('3.0: Velina LegA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('afa5c7de', 'Velina.LegA.Diffuse.1024')),
+    ],
+    'b9fb90ca': [
+        (log,                           ('3.0: Velina LegA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('b9fb90ca', 'Velina.LegA.LightMap.1024')),
+    ],
+    'ba191269': [
+        (log,                           ('3.0: Velina LegA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ba191269', 'Velina.LegA.MaterialMap.1024')),
+    ],
+    'ccbcd045': [
+        (log,                           ('3.0: Velina HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ccbcd045', 'Velina.HairA.MaterialMap.1024')),
+    ],
+    'e5409177': [
+        (log,                           ('3.0: Velina FaceA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('e5409177', 'Velina.FaceA.Diffuse.1024')),
+    ],
+    'f9a8e3ba': [
+        (log,                           ('3.0: Velina BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('f9a8e3ba', 'Velina.BodyA.Diffuse.1024')),
+    ],
     }
 
 

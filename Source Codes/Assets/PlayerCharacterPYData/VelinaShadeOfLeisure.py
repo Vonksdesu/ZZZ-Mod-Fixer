@@ -173,6 +173,56 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('5eb66b57', 'VelinaShadeOfLeisure.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('8ac40392', 'VelinaShadeOfLeisure.Weapon.IB', 'match_priority = 0\n')),
     ],
+
+# === Legacy 3.0 Texture Hashes ===
+    '03002967': [
+        (log,                           ('3.0: VelinaShadeOfLeisure HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('03002967', 'VelinaShadeOfLeisure.HairA.Diffuse.1024')),
+    ],
+    '05e20bdc': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyB MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('05e20bdc', 'VelinaShadeOfLeisure.BodyB.MaterialMap.1024')),
+    ],
+    '22b4f8ab': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('22b4f8ab', 'VelinaShadeOfLeisure.BodyA.LightMap.1024')),
+    ],
+    '301301ff': [
+        (log,                           ('3.0: VelinaShadeOfLeisure LegA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('301301ff', 'VelinaShadeOfLeisure.LegA.LightMap.1024')),
+    ],
+    '3f573933': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('3f573933', 'VelinaShadeOfLeisure.BodyA.Diffuse.1024')),
+    ],
+    '6eaed274': [
+        (log,                           ('3.0: VelinaShadeOfLeisure LegA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('6eaed274', 'VelinaShadeOfLeisure.LegA.Diffuse.1024')),
+    ],
+    '966cf15e': [
+        (log,                           ('3.0: VelinaShadeOfLeisure LegA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('966cf15e', 'VelinaShadeOfLeisure.LegA.MaterialMap.1024')),
+    ],
+    'a8072c81': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyB LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('a8072c81', 'VelinaShadeOfLeisure.BodyB.LightMap.1024')),
+    ],
+    'b3f5f0a6': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyB Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('b3f5f0a6', 'VelinaShadeOfLeisure.BodyB.Diffuse.1024')),
+    ],
+    'b9c5d317': [
+        (log,                           ('3.0: VelinaShadeOfLeisure HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('b9c5d317', 'VelinaShadeOfLeisure.HairA.LightMap.1024')),
+    ],
+    'ca53350a': [
+        (log,                           ('3.0: VelinaShadeOfLeisure BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ca53350a', 'VelinaShadeOfLeisure.BodyA.MaterialMap.1024')),
+    ],
+    'ccf82282': [
+        (log,                           ('3.0: VelinaShadeOfLeisure HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ccf82282', 'VelinaShadeOfLeisure.HairA.MaterialMap.1024')),
+    ],
     }
 
 

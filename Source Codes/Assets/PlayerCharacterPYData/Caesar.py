@@ -25,12 +25,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6caaeb53': [(log, ('1.2: Caesar Head IB Hash',)), (add_ib_check_if_missing,)],
 
 # === Position VB Hashes ===
-'6de24342': [(log, ('2.5: Caesar Hair Position Hash',))],
-'7b6d4dab': [(log, ('2.5: Caesar Body Position Hash',))],
+'6de24342': [(log, ('2.5: Caesar Hair Position Hash',)),                 (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
+'7b6d4dab': [(log, ('2.5: Caesar Body Position Hash',)),                 (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
 
 # === Blend VB Hashes ===
-'c2417533': [(log, ('2.5: Caesar Hair Blend Hash',))],
-'8a3da083': [(log, ('2.5: Caesar Body Blend Hash',))],
+'c2417533': [(log, ('2.5: Caesar Hair Blend Hash',)),                    (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
+'8a3da083': [(log, ('2.5: Caesar Body Blend Hash',)),                    (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
 
 # === Texcoord VB Hashes ===
 'af291513': [
@@ -43,7 +43,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             ('4B','2f','2f','2f')
         )),
     ],
-'72537fa3': [(log, ('1.3 -> 2.5: Caesar Hair Texcoord Hash',))],
+'72537fa3': [(log, ('1.3 -> 2.5: Caesar Hair Texcoord Hash',)),          (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
 
 '3b2a70a5': [
         (log,            ('1.2 -> 1.3: Caesar Body Texcoord Hash',)),
@@ -55,7 +55,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             ('4B','2f','2f','2f', '2f')
         )),
     ],
-'0ca81129': [(log, ('1.3 -> 2.5: Caesar Body Texcoord Hash',))],
+'0ca81129': [(log, ('1.3 -> 2.5: Caesar Body Texcoord Hash',)),          (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
 
 # === Face Textures ===
 '84d53514': [
@@ -170,34 +170,34 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'a9d32076': [(log, ('2.8: Caesar Sword IB Hash',)),      (add_ib_check_if_missing,)],
 
 # Hair draw_vb
-'bb723235': [(log, ('2.8: Caesar Hair draw_vb',))],
+'bb723235': [(log, ('2.8: Caesar Hair draw_vb',)),                       (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow VBs
-'394dedc6': [(log, ('2.8: Caesar HairShadow draw_vb',))],
-'51c22365': [(log, ('2.8: Caesar HairShadow position_vb',))],
-'25c45f17': [(log, ('2.8: Caesar HairShadow texcoord_vb',))],
-'6736df70': [(log, ('2.8: Caesar HairShadow blend_vb',))],
+'394dedc6': [(log, ('2.8: Caesar HairShadow draw_vb',)),                 (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
+'51c22365': [(log, ('2.8: Caesar HairShadow position_vb',)),             (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
+'25c45f17': [(log, ('2.8: Caesar HairShadow texcoord_vb',)),             (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
+'6736df70': [(log, ('2.8: Caesar HairShadow blend_vb',)),                (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body draw_vb
-'622b5a8d': [(log, ('2.8: Caesar Body draw_vb',))],
+'622b5a8d': [(log, ('2.8: Caesar Body draw_vb',)),                       (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
 
 # Face VBs & Limits
-'700350dc': [(log, ('2.8: Caesar Face VertexLimit',))],
-'4a11c39b': [(log, ('2.8: Caesar Face Position',))],
-'845ee2b0': [(log, ('2.8: Caesar Face Texcoord',))],
-'5af59912': [(log, ('2.8: Caesar Face Blend',))],
+'700350dc': [(log, ('2.8: Caesar Face VertexLimit',)),                   (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
+'4a11c39b': [(log, ('2.8: Caesar Face Position',)),                      (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
+'845ee2b0': [(log, ('2.8: Caesar Face Texcoord',)),                      (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
+'5af59912': [(log, ('2.8: Caesar Face Blend',)),                         (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
 
 # Shield VBs & Limits
-'b8d3109f': [(log, ('2.8: Caesar Shield VertexLimit',))],
-'189abd09': [(log, ('2.8: Caesar Shield Position',))],
-'3d6da969': [(log, ('2.8: Caesar Shield Texcoord',))],
-'e4d38c28': [(log, ('2.8: Caesar Shield Blend',))],
+'b8d3109f': [(log, ('2.8: Caesar Shield VertexLimit',)),                 (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
+'189abd09': [(log, ('2.8: Caesar Shield Position',)),                    (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
+'3d6da969': [(log, ('2.8: Caesar Shield Texcoord',)),                    (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
+'e4d38c28': [(log, ('2.8: Caesar Shield Blend',)),                       (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
 
 # Sword VBs & Limits
-'dc1c0ec2': [(log, ('2.8: Caesar Sword VertexLimit',))],
-'3c1f14b7': [(log, ('2.8: Caesar Sword Position',))],
-'b0fd2b2e': [(log, ('2.8: Caesar Sword Texcoord',))],
-'4b76e29f': [(log, ('2.8: Caesar Sword Blend',))],
+'dc1c0ec2': [(log, ('2.8: Caesar Sword VertexLimit',)),                  (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
+'3c1f14b7': [(log, ('2.8: Caesar Sword Position',)),                     (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
+'b0fd2b2e': [(log, ('2.8: Caesar Sword Texcoord',)),                     (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
+'4b76e29f': [(log, ('2.8: Caesar Sword Blend',)),                        (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
 
 # Texture Hashes (v2.8)
 '89b2d3b3': [

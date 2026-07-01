@@ -86,6 +86,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (6, 7, 3, 5, 4, 18, 9, 10, 11, 12, 13, 14, 15, 16, 17, 21, 25, 24, 20, 22, 23, 38, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 47, 48, 53, 56, 45, 46, 49, 50, 51, 52, 54, 55, 60, 61, 66, 58, 59, 62, 63, 64, 65, 104, 95, 96, 97, 98, 99, 100, 101, 102, 103, 127, 126),
         ))
     ],
+'73a1352f': [(log, ('1.7 -> 2.0: Belle Head LightMap Texcoord Hash',)), (update_hash, ('1de8fc08',))],
+'ccc76aea': [(log, ('1.7 -> 2.0: Belle Head LightMap Texcoord Hash [Alt]',)), (update_hash, ('1de8fc08',))],
 
 # === Face Textures ===
 '77eef7e8': [

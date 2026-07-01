@@ -105,6 +105,32 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('0a7c1023', 'Pyrois.Arm.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('585b0241', 'Pyrois.Sword.IB', 'match_priority = 0\n')),
     ],
+
+# === Legacy Body & Hair 1024p Textures ===
+    '1331e7ee': [
+        (log,                           ('3.0: Pyrois BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('1331e7ee', 'Pyrois.BodyA.Diffuse.1024')),
+    ],
+    '17c1a8e2': [
+        (log,                           ('3.0: Pyrois BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('17c1a8e2', 'Pyrois.BodyA.MaterialMap.1024')),
+    ],
+    '3ed5431d': [
+        (log,                           ('3.0: Pyrois BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('3ed5431d', 'Pyrois.BodyA.LightMap.1024')),
+    ],
+    '6bec1d56': [
+        (log,                           ('3.0: Pyrois HairA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('6bec1d56', 'Pyrois.HairA.LightMap.1024')),
+    ],
+    '7405e2d5': [
+        (log,                           ('3.0: Pyrois HairA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('7405e2d5', 'Pyrois.HairA.MaterialMap.1024')),
+    ],
+    'bee6766b': [
+        (log,                           ('3.0: Pyrois HairA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('bee6766b', 'Pyrois.HairA.Diffuse.1024')),
+    ],
     }
 
 

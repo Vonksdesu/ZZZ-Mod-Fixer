@@ -28,67 +28,67 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'fd2cbc71': [(log, ('2.8: Yixuan WeaponBird IB Hash (Combat)',)), (add_ib_check_if_missing,)],
 
 # === VERTEX LIMITS ===
-'ad3cd82a': [(log, ('2.8: Yixuan Face VertexLimitVB',))],
-'ccbbb7ea': [(log, ('2.8: Yixuan WeaponBird VertexLimit (Idle)',))],
-'5a016c9b': [(log, ('2.8: Yixuan WeaponBird VertexLimit (Combat)',))],
+'ad3cd82a': [(log, ('2.8: Yixuan Face VertexLimitVB',)),                  (add_section_if_missing, ('8b067f99', 'Yixuan.Face.IB', 'match_priority = 0\n'))],
+'ccbbb7ea': [(log, ('2.8: Yixuan WeaponBird VertexLimit (Idle)',)),        (add_section_if_missing, ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
+'5a016c9b': [(log, ('2.8: Yixuan WeaponBird VertexLimit (Combat)',)),      (add_section_if_missing, ('fd2cbc71', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
 
 # === VERTEX BUFFER (VB) HASHES ===
 # Hair (头发)
-'36a68b27': [(log, ('2.8: Yixuan Hair draw_vb',))],
-'cc898b44': [(log, ('2.8: Yixuan Hair position_vb',))],
-'d4841137': [(log, ('2.8: Yixuan Hair texcoord_vb',))],
-'d7eb400e': [(log, ('2.8: Yixuan Hair blend_vb',))],
+'36a68b27': [(log, ('2.8: Yixuan Hair draw_vb',)),                        (add_section_if_missing, ('ac8e9ee3', 'Yixuan.Hair.IB', 'match_priority = 0\n'))],
+'cc898b44': [(log, ('2.8: Yixuan Hair position_vb',)),                    (add_section_if_missing, ('ac8e9ee3', 'Yixuan.Hair.IB', 'match_priority = 0\n'))],
+'d4841137': [(log, ('2.8: Yixuan Hair texcoord_vb',)),                    (add_section_if_missing, ('ac8e9ee3', 'Yixuan.Hair.IB', 'match_priority = 0\n'))],
+'d7eb400e': [(log, ('2.8: Yixuan Hair blend_vb',)),                       (add_section_if_missing, ('ac8e9ee3', 'Yixuan.Hair.IB', 'match_priority = 0\n'))],
 
 # Hair Shadow (头发阴影)
-'7f5aba6c': [(log, ('2.8: Yixuan HairShadow draw_vb',))],
-'c7748cbd': [(log, ('2.8: Yixuan HairShadow position_vb',))],
-'a07eb5cf': [(log, ('2.8: Yixuan HairShadow texcoord_vb',))],
-'07c7e48f': [(log, ('2.8: Yixuan HairShadow blend_vb',))],
+'7f5aba6c': [(log, ('2.8: Yixuan HairShadow draw_vb',)),                  (add_section_if_missing, ('d28b9c82', 'Yixuan.HairShadow.IB', 'match_priority = 0\n'))],
+'c7748cbd': [(log, ('2.8: Yixuan HairShadow position_vb',)),              (add_section_if_missing, ('d28b9c82', 'Yixuan.HairShadow.IB', 'match_priority = 0\n'))],
+'a07eb5cf': [(log, ('2.8: Yixuan HairShadow texcoord_vb',)),              (add_section_if_missing, ('d28b9c82', 'Yixuan.HairShadow.IB', 'match_priority = 0\n'))],
+'07c7e48f': [(log, ('2.8: Yixuan HairShadow blend_vb',)),                 (add_section_if_missing, ('d28b9c82', 'Yixuan.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body (身体)
-'f922d854': [(log, ('2.8: Yixuan Body draw_vb',))],
-'155737d9': [(log, ('2.8: Yixuan Body position_vb',))],
-'7af146a0': [(log, ('2.8: Yixuan Body texcoord_vb',))],
-'3e629c05': [(log, ('2.8: Yixuan Body blend_vb',))],
+'f922d854': [(log, ('2.8: Yixuan Body draw_vb',)),                        (add_section_if_missing, ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n'))],
+'155737d9': [(log, ('2.8: Yixuan Body position_vb',)),                    (add_section_if_missing, ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n'))],
+'7af146a0': [(log, ('2.8: Yixuan Body texcoord_vb',)),                    (add_section_if_missing, ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n'))],
+'3e629c05': [(log, ('2.8: Yixuan Body blend_vb',)),                       (add_section_if_missing, ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n'))],
 
 # Bottle (葫芦 - v2.5 -> v2.8)
-'05466ddf': [(log, ('2.8: Yixuan Bottle draw_vb',))],
-'8555098d': [(log, ('2.8: Yixuan Bottle position_vb',))],
-'ff4b112b': [(log, ('2.8: Yixuan Bottle texcoord_vb',))],
-'d89da8eb': [(log, ('2.8: Yixuan Bottle blend_vb',))],
+'05466ddf': [(log, ('2.8: Yixuan Bottle draw_vb',)),                      (add_section_if_missing, ('1630f2d0', 'Yixuan.Bottle.IB', 'match_priority = 0\n'))],
+'8555098d': [(log, ('2.8: Yixuan Bottle position_vb',)),                  (add_section_if_missing, ('1630f2d0', 'Yixuan.Bottle.IB', 'match_priority = 0\n'))],
+'ff4b112b': [(log, ('2.8: Yixuan Bottle texcoord_vb',)),                  (add_section_if_missing, ('1630f2d0', 'Yixuan.Bottle.IB', 'match_priority = 0\n'))],
+'d89da8eb': [(log, ('2.8: Yixuan Bottle blend_vb',)),                     (add_section_if_missing, ('1630f2d0', 'Yixuan.Bottle.IB', 'match_priority = 0\n'))],
 
 # Coins (铜钱绳)
-'ddaf88bc': [(log, ('2.8: Yixuan Coins draw_vb',))],
-'eaf79039': [(log, ('2.8: Yixuan Coins position_vb',))],
-'9714e6e6': [(log, ('2.8: Yixuan Coins texcoord_vb',))],
-'ee9b9cfe': [(log, ('2.8: Yixuan Coins blend_vb',))],
+'ddaf88bc': [(log, ('2.8: Yixuan Coins draw_vb',)),                       (add_section_if_missing, ('67c61080', 'Yixuan.Coins.IB', 'match_priority = 0\n'))],
+'eaf79039': [(log, ('2.8: Yixuan Coins position_vb',)),                   (add_section_if_missing, ('67c61080', 'Yixuan.Coins.IB', 'match_priority = 0\n'))],
+'9714e6e6': [(log, ('2.8: Yixuan Coins texcoord_vb',)),                   (add_section_if_missing, ('67c61080', 'Yixuan.Coins.IB', 'match_priority = 0\n'))],
+'ee9b9cfe': [(log, ('2.8: Yixuan Coins blend_vb',)),                      (add_section_if_missing, ('67c61080', 'Yixuan.Coins.IB', 'match_priority = 0\n'))],
 
 # Hairpin (发簪)
-'ba017cf3': [(log, ('2.8: Yixuan Hairpin draw_vb',))],
-'3194141e': [(log, ('2.8: Yixuan Hairpin position_vb',))],
-'b3123168': [(log, ('2.8: Yixuan Hairpin texcoord_vb',))],
-'de9d3ab7': [(log, ('2.8: Yixuan Hairpin blend_vb',))],
+'ba017cf3': [(log, ('2.8: Yixuan Hairpin draw_vb',)),                     (add_section_if_missing, ('892858fd', 'Yixuan.Hairpin.IB', 'match_priority = 0\n'))],
+'3194141e': [(log, ('2.8: Yixuan Hairpin position_vb',)),                 (add_section_if_missing, ('892858fd', 'Yixuan.Hairpin.IB', 'match_priority = 0\n'))],
+'b3123168': [(log, ('2.8: Yixuan Hairpin texcoord_vb',)),                 (add_section_if_missing, ('892858fd', 'Yixuan.Hairpin.IB', 'match_priority = 0\n'))],
+'de9d3ab7': [(log, ('2.8: Yixuan Hairpin blend_vb',)),                    (add_section_if_missing, ('892858fd', 'Yixuan.Hairpin.IB', 'match_priority = 0\n'))],
 
 # Jacket (夹克)
-'73599fbb': [(log, ('2.8: Yixuan Jacket draw_vb',))],
-'9b67bc72': [(log, ('2.8: Yixuan Jacket position_vb',))],
-'9f95d565': [(log, ('2.8: Yixuan Jacket texcoord_vb',))],
-'0ff3af5a': [(log, ('2.8: Yixuan Jacket blend_vb',))],
+'73599fbb': [(log, ('2.8: Yixuan Jacket draw_vb',)),                      (add_section_if_missing, ('8c2fc05e', 'Yixuan.Jacket.IB', 'match_priority = 0\n'))],
+'9b67bc72': [(log, ('2.8: Yixuan Jacket position_vb',)),                  (add_section_if_missing, ('8c2fc05e', 'Yixuan.Jacket.IB', 'match_priority = 0\n'))],
+'9f95d565': [(log, ('2.8: Yixuan Jacket texcoord_vb',)),                  (add_section_if_missing, ('8c2fc05e', 'Yixuan.Jacket.IB', 'match_priority = 0\n'))],
+'0ff3af5a': [(log, ('2.8: Yixuan Jacket blend_vb',)),                     (add_section_if_missing, ('8c2fc05e', 'Yixuan.Jacket.IB', 'match_priority = 0\n'))],
 
 # Face (脸)
-'972e4b6d': [(log, ('2.8: Yixuan Face position_vb',))],
-'2e04aac2': [(log, ('2.8: Yixuan Face texcoord_vb',))],
-'4466e7ea': [(log, ('2.8: Yixuan Face blend_vb',))],
+'972e4b6d': [(log, ('2.8: Yixuan Face position_vb',)),                    (add_section_if_missing, ('8b067f99', 'Yixuan.Face.IB', 'match_priority = 0\n'))],
+'2e04aac2': [(log, ('2.8: Yixuan Face texcoord_vb',)),                    (add_section_if_missing, ('8b067f99', 'Yixuan.Face.IB', 'match_priority = 0\n'))],
+'4466e7ea': [(log, ('2.8: Yixuan Face blend_vb',)),                       (add_section_if_missing, ('8b067f99', 'Yixuan.Face.IB', 'match_priority = 0\n'))],
 
 # Weapon Bird (武器鸟 - non-combat)
-'9052084b': [(log, ('2.8: Yixuan WeaponBird position_vb (Idle)',))],
-'f45313a0': [(log, ('2.8: Yixuan WeaponBird texcoord_vb (Idle)',))],
-'3ac6dfc7': [(log, ('2.8: Yixuan WeaponBird blend_vb (Idle)',))],
+'9052084b': [(log, ('2.8: Yixuan WeaponBird position_vb (Idle)',)),       (add_section_if_missing, ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
+'f45313a0': [(log, ('2.8: Yixuan WeaponBird texcoord_vb (Idle)',)),       (add_section_if_missing, ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
+'3ac6dfc7': [(log, ('2.8: Yixuan WeaponBird blend_vb (Idle)',)),          (add_section_if_missing, ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
 
 # Weapon Bird (武器鸟 - combat)
-'1a201296': [(log, ('2.8: Yixuan WeaponBird position_vb (Combat)',))],
-'1a0934e4': [(log, ('2.8: Yixuan WeaponBird texcoord_vb (Combat)',))],
-'2ad5c986': [(log, ('2.8: Yixuan WeaponBird blend_vb (Combat)',))],
+'1a201296': [(log, ('2.8: Yixuan WeaponBird position_vb (Combat)',)),     (add_section_if_missing, ('fd2cbc71', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
+'1a0934e4': [(log, ('2.8: Yixuan WeaponBird texcoord_vb (Combat)',)),     (add_section_if_missing, ('fd2cbc71', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
+'2ad5c986': [(log, ('2.8: Yixuan WeaponBird blend_vb (Combat)',)),        (add_section_if_missing, ('fd2cbc71', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n'))],
 
 # === TEXTURE HASHES ===
 # Shared NormalMap

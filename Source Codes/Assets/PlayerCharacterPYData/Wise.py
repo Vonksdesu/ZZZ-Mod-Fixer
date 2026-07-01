@@ -72,6 +72,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '473f816d': [(log, ('2.8: Wise HairA, BagA MaterialMap 2048p Hash [Legacy]',)), (update_hash, ('f1b20f3d',))],
 '3b4f22ad': [(log, ('2.8: Wise HairA, BagA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('ebac056e',))],
 'f43c8025': [(log, ('2.8: Wise BodyA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('ebac056e',))],
+'2ae08ae7': [(log, ('2.0 -> 2.1: Wise Bag Texcoord Hash',)),    (update_hash, ('8d825ff1',))],
+'b300256d': [(log, ('1.7 -> 2.0: Wise Head Texcoord Hash',)), (update_hash, ('ebe9f31b',))],
+'ebe9f31b': [(log, ('2.0 -> 2.1: Wise Head Texcoord Hash',)), (update_hash, ('c83b6cbf',))],
+'6c4ae8ce': [(log, ('2.8: Wise HeadA Diffuse 1024p Hash [Legacy]',)),   (update_hash, ('588d7d2d',))],
+'1f21c633': [(log, ('2.8: Wise HairA, BagA LightMap 2048p Hash [Legacy]',)), (update_hash, ('8d8269f8',))],
+'473f816d': [(log, ('2.8: Wise HairA, BagA MaterialMap 2048p Hash [Legacy]',)), (update_hash, ('f1b20f3d',))],
+'3b4f22ad': [(log, ('2.8: Wise HairA, BagA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('ebac056e',))],
+'f43c8025': [(log, ('2.8: Wise BodyA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('ebac056e',))],
 
 # === Broken References Fix (v2.8) ===
 'f425bd04': [(log, ('2.8: Wise Body Texcoord Hash [Legacy] 2.0',)),     (update_hash, ('91fbd2fa',))],
@@ -163,8 +171,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (multiply_section_if_missing,   (('a9652fa4', '84529dab'), 'Wise.BodyA.Diffuse.2048')), # Update to a9652fa4
     ],
 'dea7a8ca': [
-        (log,                           ('2.8: Wise Body Diffuse Hash',)),
+        (log,                           ('2.8 -> 3.0: Wise Body Diffuse1024 Hash [Legacy]',)),
+        (update_hash,                   ('53b3623f',)),
+    ],
+'53b3623f': [
+        (log,                           ('3.0: Wise Body Diffuse1024 Hash',)),
         (add_section_if_missing,        ('8d6acf4e', 'Wise.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('a9652fa4', 'f2fb7a37'), 'Wise.BodyA.Diffuse.2048')),
     ],
 '088718a9': [
         (log,                           ('2.8: Wise BodyA LightMap 2048p Hash',)),

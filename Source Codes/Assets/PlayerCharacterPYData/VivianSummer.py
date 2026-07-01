@@ -40,6 +40,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'd96480bc': [(log, ('2.8: VivianSummer Body draw_vb',)),                 (add_section_if_missing, ('3060793b', 'VivianSummer.Body.IB', 'match_priority = 0\n'))],
 '5e46216b': [(log, ('2.8: VivianSummer Body position_vb',)),             (add_section_if_missing, ('3060793b', 'VivianSummer.Body.IB', 'match_priority = 0\n'))],
 'fb44f88a': [(log, ('2.8: VivianSummer Body texcoord_vb',)),             (add_section_if_missing, ('3060793b', 'VivianSummer.Body.IB', 'match_priority = 0\n'))],
+'f32eec8a': [(log, ('2.3 -> 2.4: VivianSummer Body Blend Hash',)), (update_hash, ('723bccec',))],
+
 '723bccec': [(log, ('2.8: VivianSummer Body blend_vb',)),                (add_section_if_missing, ('3060793b', 'VivianSummer.Body.IB', 'match_priority = 0\n'))],
 
 # Gem

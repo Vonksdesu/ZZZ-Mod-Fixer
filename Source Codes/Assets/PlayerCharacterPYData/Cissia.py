@@ -185,6 +185,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.8: Cissia Body MaterialMap Hash [New]',)),
         (add_section_if_missing,        ('ff2ec4d6', 'Cissia.Body.IB', 'match_priority = 0\n')),
     ],
+'f8739729': [(log,('2.7: -> 2.8: Cissia BodyC Diffuse 2048p Hash',)),(update_hash,('ec85e98d',)),],
+
 'ec85e98d': [
         (log,                           ('2.8: Cissia Body/Tail/Spear Diffuse Hash [New]',)),
         (add_section_if_missing,        ('ff2ec4d6', 'Cissia.Body.IB', 'match_priority = 0\n')),

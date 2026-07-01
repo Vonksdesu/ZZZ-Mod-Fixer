@@ -19,7 +19,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '52842f31': [(log, ('2.8: NicoleCutie Body IB Hash',)),                 (add_ib_check_if_missing,)],
 '262c96ff': [(log, ('2.8: NicoleCutie Phone IB Hash',)),                 (add_ib_check_if_missing,)],
 '40e64ae2': [(log, ('2.8: NicoleCutie Amillion IB Hash',)),              (add_ib_check_if_missing,)],
-'7435fc0e': [(log, ('2.8: NicoleCutie Face IB Hash',)),                 (add_ib_check_if_missing,)],
+'7435fc0e': [(log, ('2.8 -> 3.0: NicoleCutie Face IB Hash [Legacy]',)),  (update_hash, ('93b02078',))],
+'93b02078': [(log, ('3.0: NicoleCutie Face IB Hash',)),                 (add_ib_check_if_missing,)],
 '4ed9a81f': [(log, ('2.8: NicoleCutie Hair Shadow IB Hash',)),          (add_ib_check_if_missing,)],
 'f9befc51': [(log, ('2.8: NicoleCutie Weapon IB Hash',)),                (add_ib_check_if_missing,)],
 
@@ -45,15 +46,20 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Amillion
 'bb7fffe9': [(log, ('2.8: NicoleCutie Amillion draw_vb',)),              (add_section_if_missing, ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n'))],
 '176bf3d7': [(log, ('2.8: NicoleCutie Amillion position_vb',)),          (add_section_if_missing, ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n'))],
-'077c3500': [(log, ('2.8: NicoleCutie Amillion texcoord_vb',)),          (add_section_if_missing, ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n'))],
+'077c3500': [(log, ('2.8 -> 3.0: NicoleCutie Amillion texcoord_vb [Legacy]',)), (update_hash, ('f9f810ed',))],
+'f9f810ed': [(log, ('3.0: NicoleCutie Amillion texcoord_vb',)),          (add_section_if_missing, ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n'))],
 'e1d9c9a8': [(log, ('2.8: NicoleCutie Amillion blend_vb [Legacy]',)),    (update_hash, ('4e1d9c9a',))],
 '4e1d9c9a': [(log, ('2.8: NicoleCutie Amillion blend_vb',)),             (add_section_if_missing, ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n'))],
 
 # Face
-'9274e401': [(log, ('2.8: NicoleCutie Face draw_vb',)),                 (add_section_if_missing, ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
-'a8667746': [(log, ('2.8: NicoleCutie Face position_vb',)),             (add_section_if_missing, ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
-'5714e5e6': [(log, ('2.8: NicoleCutie Face texcoord_vb',)),             (add_section_if_missing, ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
-'b25ebcf6': [(log, ('2.8: NicoleCutie Face blend_vb',)),                (add_section_if_missing, ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
+'9274e401': [(log, ('2.8 -> 3.0: NicoleCutie Face draw_vb [Legacy]',)), (update_hash, ('967c2f1c',))],
+'967c2f1c': [(log, ('3.0: NicoleCutie Face draw_vb',)),                 (add_section_if_missing, ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
+'a8667746': [(log, ('2.8 -> 3.0: NicoleCutie Face position_vb [Legacy]',)), (update_hash, ('ac6ebc5b',))],
+'ac6ebc5b': [(log, ('3.0: NicoleCutie Face position_vb',)),             (add_section_if_missing, ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
+'5714e5e6': [(log, ('2.8 -> 3.0: NicoleCutie Face texcoord_vb [Legacy]',)), (update_hash, ('d5958556',))],
+'d5958556': [(log, ('3.0: NicoleCutie Face texcoord_vb',)),             (add_section_if_missing, ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
+'b25ebcf6': [(log, ('2.8 -> 3.0: NicoleCutie Face blend_vb [Legacy]',)), (update_hash, ('292d1b1f',))],
+'292d1b1f': [(log, ('3.0: NicoleCutie Face blend_vb',)),                (add_section_if_missing, ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n'))],
 
 # Weapon
 'f6325378': [(log, ('2.8: NicoleCutie Weapon draw_vb',)),               (add_section_if_missing, ('f9befc51', 'NicoleCutie.Weapon.IB', 'match_priority = 0\n'))],
@@ -69,12 +75,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Face Textures ===
 '33fdeb6d': [
-        (log,                           ('2.8: NicoleCutie Face Diffuse Hash',)),
+        (log,                           ('2.8 -> 3.0: NicoleCutie Face Diffuse Hash',)),
         (add_section_if_missing,        ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n')),
     ],
 'd1e84a34': [
         (log,                           ('2.8: NicoleCutie FaceA Diffuse Hash [Legacy]',)),
         (add_section_if_missing,        ('7435fc0e', 'NicoleCutie.Face.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n')),
     ],
 
 # === Hair Textures ===

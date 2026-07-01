@@ -49,6 +49,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '47bbe297': [(log, ('1.0->2.8: Billy HairA NormalMap 2048p Hash',)),      (update_hash, ('798adba3',))],
 '789b054e': [(log, ('1.0->2.8: Billy BodyA LightMap 2048p Hash',)),      (update_hash, ('6305a7f4',))],
 '56b5953e': [(log, ('1.0->2.8: Billy BodyA NormalMap 2048p Hash',)),      (update_hash, ('ebac056e',))],
+'f6749665': [(log, ('1.7 -> 2.0: Billy HairA LightMap 1024p Hash',)), (update_hash, ('2edbc842',))],
 
 # === Pembaruan Sinkronisasi Senjata v2.8 ===
 '3a1ee1d7': [(log, ('2.0 -> 2.8: Billy Weapon Diffuse Hash [Legacy]',)),   (update_hash, ('3541c183',))],

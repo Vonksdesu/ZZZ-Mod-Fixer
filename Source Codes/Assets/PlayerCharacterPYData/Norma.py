@@ -110,9 +110,39 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('a2150d3b', 'Norma.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('bcc7e369', 'Norma.Hat.IB', 'match_priority = 0\n')),
     ],
-'37da98f5': [
+    '37da98f5': [
         (log,                           ('3.0: Norma Body NormalMap Hash [Legacy]',)),
         (add_section_if_missing,        ('773f390c', 'Norma.Body.IB', 'match_priority = 0\n')),
+    ],
+
+# === Legacy 3.0 Texture Hashes ===
+    'a86b749d': [
+        (log,                           ('3.0: Norma HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('a86b749d', 'Norma.HairA.Diffuse.1024')),
+    ],
+    '541008f2': [
+        (log,                           ('3.0: Norma HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('541008f2', 'Norma.HairA.LightMap.1024')),
+    ],
+    '60152e0e': [
+        (log,                           ('3.0: Norma HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('60152e0e', 'Norma.HairA.MaterialMap.1024')),
+    ],
+    'ab235f8c': [
+        (log,                           ('3.0: Norma BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('ab235f8c', 'Norma.BodyA.Diffuse.1024')),
+    ],
+    'becdc27c': [
+        (log,                           ('3.0: Norma BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('becdc27c', 'Norma.BodyA.LightMap.1024')),
+    ],
+    '0e22ca8e': [
+        (log,                           ('3.0: Norma BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('0e22ca8e', 'Norma.BodyA.MaterialMap.1024')),
+    ],
+    'c18a1af1': [
+        (log,                           ('3.0: Norma FaceA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('c18a1af1', 'Norma.FaceA.Diffuse.1024')),
     ],
     }
 
