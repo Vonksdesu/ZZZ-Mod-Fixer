@@ -36,7 +36,7 @@ This project is built upon the amazing work of the original creators in the modd
 
 I used a data source containing character hashes from other GitHub users, the result is not entirely my own work.
 
-* **Character hash data source**: [hefengchang (GreenLzz](https://github.com/hefengchang/ZZZ-Model-Hash)
+* **Character hash data source**: [hefengchang (GreenLzz)](https://github.com/hefengchang/ZZZ-Model-Hash)
 
 ---
 
