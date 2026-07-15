@@ -14,7 +14,7 @@ Since the original creator is no longer releasing updates, I have taken the init
 * **Continuous Hash Updates**: The character hash database is regularly updated to support newer game versions. To see which exact game version is currently supported, please check the [Releases](../../releases) page (where all version-specific updates are posted).
 * **Backup File Conflict Fix**: In the original version, updated `.ini` mod files often conflicted with the backup (original) `.ini` files when left in the same folder. I have modified the code to automatically move the old/backup `.ini` files to a separate folder, preventing any conflicts and keeping your mod directory clean.
 
-*Note: This tool is exclusively designed to fix and update character skin mods. It is not intended for other types of mods.*
+*Note: This tool is exclusively designed to fix and update character hashes skin mods. It is not intended for other types of mods or fixing any complex broken mods.*
 
 ---
 
