@@ -22,6 +22,11 @@ import traceback
 from pathlib import Path
 from collections import defaultdict
 
+# Fix Windows console encoding
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+
 
 # ANSI color codes for terminal output
 class Colors:
@@ -43,7 +48,7 @@ def print_header(text):
 
 def print_success(text):
     """Print success message"""
-    print(f'{Colors.GREEN}✓ {text}{Colors.RESET}')
+    print(f'{Colors.GREEN}[V] {text}{Colors.RESET}')
 
 
 def print_warning(text):
@@ -345,7 +350,7 @@ def validate_all_modules():
     print_header("Validation Summary")
     
     print(f"Total Modules:        {stats['total_modules']}")
-    print(f"  {Colors.GREEN}✓ Loaded:          {stats['loaded_modules']}{Colors.RESET}")
+    print(f"  {Colors.GREEN}[V] Loaded:          {stats['loaded_modules']}{Colors.RESET}")
     if stats['failed_modules'] > 0:
         print(f"  {Colors.RED}✗ Failed:          {stats['failed_modules']}{Colors.RESET}")
     

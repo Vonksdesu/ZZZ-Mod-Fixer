@@ -89,7 +89,7 @@ def load_all_character_hashes():
                     for hash_value in char_commands.keys():
                         hash_to_characters[hash_value.lower()].append(char_name)
                     
-                    print(f"{Colors.GREEN}✓ Loaded {char_name}:{Colors.RESET} {len(char_commands)} {Colors.GREEN}hashes{Colors.RESET}")
+                    print(f"{Colors.GREEN}[V] Loaded {char_name}:{Colors.RESET} {len(char_commands)} {Colors.GREEN}hashes{Colors.RESET}")
                     
             except Exception as e:
                 print(f"{Colors.RED}✖ Failed to load {char_name}: {e}{Colors.RESET}")
@@ -178,7 +178,7 @@ def compare_hashes(ini_path, character_hashes):
     
     # Report found hashes
     if found_hashes:
-        print(f"{Colors.BOLD}{Colors.GREEN}✓ FOUND IN CHARACTER ASSETS ({Colors.RESET}{len(found_hashes)} {Colors.BOLD}{Colors.GREEN}hash(es)):{Colors.RESET}")
+        print(f"{Colors.BOLD}{Colors.GREEN}[V] FOUND IN CHARACTER ASSETS ({Colors.RESET}{len(found_hashes)} {Colors.BOLD}{Colors.GREEN}hash(es)):{Colors.RESET}")
         print(f"{Colors.BOLD}{Colors.GREEN}-{Colors.RESET}" * 80)
         for hash_val, lines, chars in found_hashes:
             print(f"{Colors.YELLOW}  {hash_val}  {Colors.RESET}{Colors.BOLD}{Colors.GREEN}|{Colors.RESET}  {lines:20s}  {Colors.BOLD}{Colors.GREEN}|{Colors.RESET}  Characters: {Colors.YELLOW}{chars}{Colors.RESET}")

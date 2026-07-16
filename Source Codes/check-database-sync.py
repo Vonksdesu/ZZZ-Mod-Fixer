@@ -7,8 +7,14 @@ import sys
 from pathlib import Path
 from collections import Counter
 
+# Fix Windows console encoding
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+
 # DATABASE VERSION CONFIGURATION (Change this for future versions)
 DATABASE_VERSION = "3.0"
+RESOLUTION = "2048p"  # Options: "2048p" or "1024p"
 
 # ANSI color codes for terminal output
 class Colors:
@@ -223,24 +229,55 @@ def find_associated_modules(json_filename, json_ib_hashes, json_all_hashes, hash
     # Automatically splits distinct outfits while keeping same-outfit split files grouped
     if len(associated) > 1:
         unique_ib_counts = {mod_name: 0 for mod_name in associated}
+        overlap_ib_counts = {mod_name: 0 for mod_name in associated}
         for h in json_ib_hashes:
             defining_mods = [mod for mod in associated if h in module_to_hashes[mod]]
             if len(defining_mods) == 1:
                 unique_ib_counts[defining_mods[0]] += 1
+            for mod in defining_mods:
+                overlap_ib_counts[mod] += 1
                 
         max_unique = max(unique_ib_counts.values()) if unique_ib_counts else 0
         if max_unique > 0:
             associated = {mod_name for mod_name, count in unique_ib_counts.items() if count == max_unique}
+        else:
+            max_overlap = max(overlap_ib_counts.values()) if overlap_ib_counts else 0
+            if max_overlap > 0:
+                top_overlap_mods = {mod_name for mod_name, count in overlap_ib_counts.items() if count == max_overlap}
+                any_full_coverage = any(
+                    sum(1 for h in json_ib_hashes if h in module_to_hashes.get(mod, set())) == len(json_ib_hashes)
+                    for mod in top_overlap_mods
+                )
+                if not any_full_coverage:
+                    all_overlap_mods = {mod_name for mod_name, count in overlap_ib_counts.items() if count > 0}
+                    associated = all_overlap_mods
+                else:
+                    associated = top_overlap_mods
+    
+    # Name-priority disambiguation: if the best candidate by name is clearly a better match
+    # than the IB-based candidates, prefer the name-based candidate. This handles cases like
+    # JaneSkin.json sharing IB hashes with JaneDoe.py / JaneDoeNocturneOfLight.py where
+    # the skin database should map to the base module that matches by name, not to a
+    # variant module that only coincidentally shares IB hashes.
+    if len(associated) > 1 and name_matches:
+        best_by_name = name_matches
+        only_ib_matches = associated - best_by_name
+        if best_by_name and only_ib_matches:
+            name_overlap = sum(1 for h in json_ib_hashes for mod in best_by_name if h in module_to_hashes.get(mod, set()))
+            ib_overlap = sum(1 for h in json_ib_hashes for mod in only_ib_matches if h in module_to_hashes.get(mod, set()))
+            if name_overlap >= ib_overlap:
+                associated = best_by_name
             
     return list(associated), " + ".join(methods) if methods else "Unidentified"
 
 def check_sync():
     base_path = Path('.')
     py_data_path = base_path / 'Assets' / 'PlayerCharacterPYData'
-    json_folder = base_path / 'ZZZHashIDCharactersDatabase' / f'Database_{DATABASE_VERSION}'
+    json_folder = base_path / 'ZZZHashIDCharactersDatabase' / RESOLUTION / f'Database_{DATABASE_VERSION}'
     
     if not json_folder.exists():
-        print(f"{Colors.RED}✖ Error: Database folder not found at: {json_folder.resolve()}{Colors.RESET}")
+        print(f"{Colors.RED}Error: Database folder not found at: {json_folder.resolve()}{Colors.RESET}")
+        print(f"{Colors.YELLOW}Make sure the folder structure is: ZZZHashIDCharactersDatabase/{RESOLUTION}/Database_{DATABASE_VERSION}/{Colors.RESET}")
         return
         
     def log(*args, **kwargs): pass
@@ -277,9 +314,9 @@ def check_sync():
         'update_buffer_blend_indices': update_buffer_blend_indices
     }
 
-    print(f"{Colors.BOLD}{Colors.CYAN}===================================================================={Colors.RESET}")
-    print(f"{Colors.BOLD}{Colors.CYAN} ZZZ Mod Fixer - Database Synchronization Analysis {DATABASE_VERSION} (FLEXIBLE){Colors.RESET}")
-    print(f"{Colors.BOLD}{Colors.CYAN}===================================================================={Colors.RESET}")
+    print(f"{Colors.BOLD}{Colors.CYAN}======================================================================================={Colors.RESET}")
+    print(f"{Colors.BOLD}{Colors.CYAN} ZZZ Mod Fixer - Database Synchronization Analysis {DATABASE_VERSION} with {RESOLUTION} Resolution (FLEXIBLE){Colors.RESET}")
+    print(f"{Colors.BOLD}{Colors.CYAN}======================================================================================={Colors.RESET}")
     
     hash_to_module, module_to_hashes, module_to_char_info = build_py_hash_index(py_data_path, command_classes)
     
@@ -346,6 +383,21 @@ def check_sync():
                 
         missing_hashes = all_json_hashes - combined_py_hashes
         if missing_hashes:
+            expanded_modules = set(safe_modules_in_group)
+            for h in missing_hashes:
+                if h in hash_to_module:
+                    for mod in hash_to_module[h]:
+                        char_info = module_to_char_info.get(mod, {})
+                        declared_name = char_info.get('name')
+                        if not declared_name or mod.lower() == declared_name.lower():
+                            expanded_modules.add(mod)
+            if expanded_modules != set(safe_modules_in_group):
+                safe_modules_in_group = [m for m in expanded_modules if m in module_to_hashes and module_to_hashes[m]]
+                combined_py_hashes = set()
+                for mod in safe_modules_in_group:
+                    combined_py_hashes.update(module_to_hashes[mod])
+                missing_hashes = all_json_hashes - combined_py_hashes
+        if missing_hashes:
             missing_hashes_count += 1
             modules_display = ", ".join([f"{m}.py" for m in sorted(safe_modules_in_group)])
             
@@ -362,14 +414,14 @@ def check_sync():
             print()
             
     if critical_errors == 0 and serious_errors == 0 and missing_hashes_count == 0:
-        print(f"{Colors.BOLD}{Colors.GREEN}[✓] JSON VERIFICATION SUCCESS: All model database .json files are synchronized and secure with your Python files!\n{Colors.RESET}")
+        print(f"{Colors.BOLD}{Colors.GREEN}[[V]] JSON VERIFICATION SUCCESS: All model database .json files are synchronized and secure with your Python files!\n{Colors.RESET}")
 
     print(f"\n{Colors.BOLD}{Colors.CYAN}===================================================================={Colors.RESET}")
     print(f"{Colors.BOLD}{Colors.CYAN} ZZZ Mod Fixer - Change Log Synchronization Analysis (.txt){Colors.RESET}")
     print(f"{Colors.BOLD}{Colors.CYAN}===================================================================={Colors.RESET}")
     
     txt_errors = 0
-    for txt_file in sorted(json_folder.parent.glob('*.txt')):
+    for txt_file in sorted(json_folder.glob('*.txt')):
         if "说明" in txt_file.name or "readme" in txt_file.name.lower():
             continue
             
@@ -445,11 +497,11 @@ def check_sync():
                     print(f"{Colors.RED}[✖] Failed to analyze module {character_name} for transition: {e}{Colors.RESET}")
                     
     if txt_errors == 0:
-        print(f"{Colors.BOLD}{Colors.GREEN}[✓] TXT VERIFICATION SUCCESS: All transition logs .txt are successfully validated in your Python files!\n{Colors.RESET}")
+        print(f"\n{Colors.BOLD}{Colors.GREEN}[[V]] TXT VERIFICATION SUCCESS: All transition logs .txt are successfully validated in your Python files!\n{Colors.RESET}")
 
     print(f"\n{Colors.BOLD}{Colors.CYAN}=========================== CONCLUSION ==========================={Colors.RESET}")
     if critical_errors == 0 and serious_errors == 0 and missing_hashes_count == 0 and txt_errors == 0:
-        print(f"{Colors.BOLD}{Colors.GREEN}[✓] SYNCHRONIZATION SUCCESS: All your Python modules are perfectly synchronized with the JSON & .txt logs!{Colors.RESET}")
+        print(f"{Colors.BOLD}{Colors.GREEN}[[V]] SYNCHRONIZATION SUCCESS: All your Python modules are perfectly synchronized with the JSON & .txt logs!{Colors.RESET}")
     else:
         print(f"{Colors.BOLD}{Colors.RED}[✖] SYNCHRONIZATION FAILED:{Colors.RESET}")
         if critical_errors > 0:

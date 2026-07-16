@@ -62,7 +62,7 @@ def check_registration():
             print(f"   - {Colors.RED}{char}{Colors.RESET}")
 
     if not has_issue:
-        print(f"\n{Colors.BOLD}{Colors.GREEN}✓ SYNCHRONIZATION SUCCESSFUL!{Colors.RESET}")
+        print(f"\n{Colors.BOLD}{Colors.GREEN}[V] SYNCHRONIZATION SUCCESSFUL!{Colors.RESET}")
         print(f"{Colors.GREEN}All physical Python files are correctly registered in __init__.py.{Colors.RESET}")
         print(f"{Colors.GREEN}There are no missing or redundantly registered files.{Colors.RESET}")
     else:
