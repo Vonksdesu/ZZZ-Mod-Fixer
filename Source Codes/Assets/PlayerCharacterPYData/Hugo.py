@@ -209,9 +209,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '46b26208': [
-        (log,                           ('2.8: Hugo Weapon Diffuse Hash',)),
+        (log,                           ('3.0: Hugo Weapon Diffuse Hash',)),
         (add_section_if_missing,        ('3876e8d9', 'Hugo.Scythe.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('c36d55cf', 'Hugo.Dagger.IB', 'match_priority = 0\n')),
+    ],
+    'effd8352': [
+        (log,                           ('3.0: Hugo Weapon Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('3876e8d9', 'Hugo.Scythe.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('c36d55cf', 'Hugo.Dagger.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('46b26208', 'Hugo.Weapon.Diffuse.2048')),
     ],
 'bc142031': [
         (log,                           ('2.8: Hugo Weapon LightMap Hash',)),

@@ -34,6 +34,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Eyebrows
 '2f828e6a': [(log, ('3.0: Velina Eyebrows draw_vb',)),                  (add_section_if_missing, ('1914d1e4', 'Velina.Eyebrows.IB', 'match_priority = 0\n'))],
+'db7add33': [(log, ('2.8 -> 3.0: Velina Eyebrows blend_vb [Legacy]',)), (update_hash, ('f18dd23f',))],
 '38d54a4d': [(log, ('3.0: Velina Eyebrows position_vb',)),              (add_section_if_missing, ('1914d1e4', 'Velina.Eyebrows.IB', 'match_priority = 0\n'))],
 '80e5ee4d': [(log, ('3.0: Velina Eyebrows texcoord_vb',)),              (add_section_if_missing, ('1914d1e4', 'Velina.Eyebrows.IB', 'match_priority = 0\n'))],
 'f18dd23f': [(log, ('3.0: Velina Eyebrows blend_vb',)),                 (add_section_if_missing, ('1914d1e4', 'Velina.Eyebrows.IB', 'match_priority = 0\n'))],
@@ -80,76 +81,27 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('3.0: Velina Face Diffuse Hash',)),
         (add_section_if_missing,        ('6cfb2498', 'Velina.Face.IB', 'match_priority = 0\n')),
     ],
-
-# === Body Textures ===
-'93c61891': [
-        (log,                           ('3.0: Velina Body Diffuse Hash',)),
-        (add_section_if_missing,        ('1300e048', 'Velina.Body.IB', 'match_priority = 0\n')),
+    'd5c55318': [
+        (log,                           ('3.0: Velina Weapon, Fan Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('185d733b', 'Velina.Weapon, Fan.Diffuse.2048')),
     ],
-'9a16d70e': [
-        (log,                           ('3.0: Velina Body LightMap Hash',)),
-        (add_section_if_missing,        ('1300e048', 'Velina.Body.IB', 'match_priority = 0\n')),
-    ],
-'bb1d0172': [
-        (log,                           ('3.0: Velina Body MaterialMap Hash',)),
-        (add_section_if_missing,        ('1300e048', 'Velina.Body.IB', 'match_priority = 0\n')),
-    ],
-
-# === Legs Textures ===
-'febbf3b1': [
-        (log,                           ('3.0: Velina Legs Diffuse Hash',)),
-        (add_section_if_missing,        ('6b25e6d8', 'Velina.Legs.IB', 'match_priority = 0\n')),
-    ],
-'5908c0bf': [
-        (log,                           ('3.0: Velina Legs LightMap Hash',)),
-        (add_section_if_missing,        ('6b25e6d8', 'Velina.Legs.IB', 'match_priority = 0\n')),
-    ],
-'6b291f4d': [
-        (log,                           ('3.0: Velina Legs MaterialMap Hash',)),
-        (add_section_if_missing,        ('6b25e6d8', 'Velina.Legs.IB', 'match_priority = 0\n')),
-    ],
-
-# === Head & Hair Textures ===
-'dc6853c3': [
-        (log,                           ('3.0: Velina Head, Hair Diffuse Hash',)),
-        (add_section_if_missing,        ('6c0b932e', 'Velina.Head.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('5eb66b57', 'Velina.Hair.IB', 'match_priority = 0\n')),
-    ],
-'f06d3a26': [
-        (log,                           ('3.0: Velina Head, Hair LightMap Hash',)),
-        (add_section_if_missing,        ('6c0b932e', 'Velina.Head.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('5eb66b57', 'Velina.Hair.IB', 'match_priority = 0\n')),
-    ],
-'4951b2a2': [
-        (log,                           ('3.0: Velina Head, Hair MaterialMap Hash',)),
-        (add_section_if_missing,        ('6c0b932e', 'Velina.Head.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('5eb66b57', 'Velina.Hair.IB', 'match_priority = 0\n')),
-    ],
-'f6aeef07': [
-        (log,                           ('3.0: Velina Head, Hair WengineFX Hash',)),
-        (add_section_if_missing,        ('6c0b932e', 'Velina.Head.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('5eb66b57', 'Velina.Hair.IB', 'match_priority = 0\n')),
-    ],
-'eacb90e9': [
-        (log,                           ('3.0: Velina Head GlowMap Hash',)),
-        (add_section_if_missing,        ('6c0b932e', 'Velina.Head.IB', 'match_priority = 0\n')),
-    ],
-
-# === Weapon & Fan Textures ===
-'185d733b': [
-        (log,                           ('3.0: Velina Weapon, Fan Diffuse Hash',)),
-        (add_section_if_missing,        ('8ac40392', 'Velina.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('9fbf4911', 'Velina.Fan.IB', 'match_priority = 0\n')),
-    ],
-'e0e44e38': [
+    'e0e44e38': [
         (log,                           ('3.0: Velina Weapon, Fan LightMap Hash',)),
         (add_section_if_missing,        ('8ac40392', 'Velina.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'Velina.Fan.IB', 'match_priority = 0\n')),
     ],
-'b45cdc1a': [
+    '5f7363aa': [
+        (log,                           ('3.0: Velina Weapon, Fan LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('e0e44e38', 'Velina.Weapon, Fan.LightMap.2048')),
+    ],
+    'b45cdc1a': [
         (log,                           ('3.0: Velina Weapon, Fan MaterialMap Hash',)),
         (add_section_if_missing,        ('8ac40392', 'Velina.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'Velina.Fan.IB', 'match_priority = 0\n')),
+    ],
+    'edb1276e': [
+        (log,                           ('3.0: Velina Weapon, Fan MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('b45cdc1a', 'Velina.Weapon, Fan.MaterialMap.2048')),
     ],
 
 # === Shared Normal Map ===
@@ -170,6 +122,48 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('5eb66b57', 'Velina.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('8ac40392', 'Velina.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'Velina.Fan.IB', 'match_priority = 0\n')),
+    ],
+
+# === Hair Textures ===
+    'dc6853c3': [
+        (log,                           ('3.0: Velina HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('673e5da6', 'Velina.HairA.Diffuse.1024')),
+    ],
+    'f06d3a26': [
+        (log,                           ('3.0: Velina HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('54fc678e', 'Velina.HairA.LightMap.1024')),
+    ],
+    '4951b2a2': [
+        (log,                           ('3.0: Velina HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ccbcd045', 'Velina.HairA.MaterialMap.1024')),
+    ],
+
+# === Body Textures ===
+    '93c61891': [
+        (log,                           ('3.0: Velina BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('f9a8e3ba', 'Velina.BodyA.Diffuse.1024')),
+    ],
+    '9a16d70e': [
+        (log,                           ('3.0: Velina BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('5562351c', 'Velina.BodyA.LightMap.1024')),
+    ],
+    'bb1d0172': [
+        (log,                           ('3.0: Velina BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('531320a5', 'Velina.BodyA.MaterialMap.1024')),
+    ],
+
+# === Leg Textures ===
+    'febbf3b1': [
+        (log,                           ('3.0: Velina LegA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('afa5c7de', 'Velina.LegA.Diffuse.1024')),
+    ],
+    '5908c0bf': [
+        (log,                           ('3.0: Velina LegA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('b9fb90ca', 'Velina.LegA.LightMap.1024')),
+    ],
+    '6b291f4d': [
+        (log,                           ('3.0: Velina LegA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ba191269', 'Velina.LegA.MaterialMap.1024')),
     ],
 
 # === Legacy 3.0 Texture Hashes ===

@@ -134,15 +134,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'd15c8cd9': [(log, ('2.8: YeShunguang SwordBox IB Hash',)),              (add_ib_check_if_missing,)],
 '5d842a9d': [(log, ('2.8: YeShunguang SwordBoxBall IB Hash',)),          (add_ib_check_if_missing,)],
 
-'d0bc0522': [(log, ('2.8: YeShunguang SwordBox draw_vb',)),             (add_section_if_missing, ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n'))],
-'b7b9a03a': [(log, ('2.8: YeShunguang SwordBox position_vb',)),         (add_section_if_missing, ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n'))],
-'5b63465a': [(log, ('2.8: YeShunguang SwordBox texcoord_vb',)),         (add_section_if_missing, ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n'))],
-'aff24453': [(log, ('2.8: YeShunguang SwordBox blend_vb',)),            (add_section_if_missing, ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n'))],
+'d0bc0522': [(log, ('2.8: YeShunguang SwordBox draw_vb',)),             (add_section_if_missing, ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'b7b9a03a': [(log, ('2.8: YeShunguang SwordBox position_vb',)),         (add_section_if_missing, ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'5b63465a': [(log, ('2.8: YeShunguang SwordBox texcoord_vb',)),         (add_section_if_missing, ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'aff24453': [(log, ('2.8: YeShunguang SwordBox blend_vb',)),            (add_section_if_missing, ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
 
-'0da4c71b': [(log, ('2.8: YeShunguang SwordBoxBall draw_vb',)),         (add_section_if_missing, ('5d842a9d', 'YeShunguang.SwordBoxBall.IB', 'match_priority = 0\n'))],
-'eaf14596': [(log, ('2.8: YeShunguang SwordBoxBall position_vb',)),     (add_section_if_missing, ('5d842a9d', 'YeShunguang.SwordBoxBall.IB', 'match_priority = 0\n'))],
-'eaa601b5': [(log, ('2.8: YeShunguang SwordBoxBall texcoord_vb',)),     (add_section_if_missing, ('5d842a9d', 'YeShunguang.SwordBoxBall.IB', 'match_priority = 0\n'))],
-'c1713762': [(log, ('2.8: YeShunguang SwordBoxBall blend_vb',)),        (add_section_if_missing, ('5d842a9d', 'YeShunguang.SwordBoxBall.IB', 'match_priority = 0\n'))],
+'0da4c71b': [(log, ('2.8: YeShunguang SwordBoxBall draw_vb',)),         (add_section_if_missing, ('5d842a9d', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'eaf14596': [(log, ('2.8: YeShunguang SwordBoxBall position_vb',)),     (add_section_if_missing, ('5d842a9d', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'eaa601b5': [(log, ('2.8: YeShunguang SwordBoxBall texcoord_vb',)),     (add_section_if_missing, ('5d842a9d', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
+'c1713762': [(log, ('2.8: YeShunguang SwordBoxBall blend_vb',)),        (add_section_if_missing, ('5d842a9d', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n'))],
 
 # === 3.0 Database Updates (Strict Sync) ===
 # Default Sword VBs
@@ -258,6 +258,43 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        (('4a178546', '869976a3'), 'YeShunguang.LegsTail.IB', 'match_priority = 0\n')),
     ],
 
+# === Legacy 3.0 1024p Texture Hashes ===
+    '6beec4cb': [
+        (log,                           ('3.0: YeShunguang BraidA, HeadwearLongRibbonA, BackDecorationA Diffuse 1024p Hash',)),
+        (update_hash,                   ('804099eb',)),
+        (multiply_section_if_missing,   (('804099eb', '6beec4cb'), 'YeShunguang.BraidA.Diffuse.2048')),
+    ],
+    'caa0726f': [
+        (log,                           ('3.0: YeShunguang BraidA, HeadwearLongRibbonA, BackDecorationA LightMap 1024p Hash',)),
+        (update_hash,                   ('5ca93726',)),
+        (multiply_section_if_missing,   (('5ca93726', 'caa0726f'), 'YeShunguang.BraidA.LightMap.2048')),
+    ],
+    '0031ac91': [
+        (log,                           ('3.0: YeShunguang BraidA, HeadwearLongRibbonA, BackDecorationA MaterialMap 1024p Hash',)),
+        (update_hash,                   ('1ba6bebf',)),
+        (multiply_section_if_missing,   (('1ba6bebf', '0031ac91'), 'YeShunguang.BraidA.MaterialMap.2048')),
+    ],
+    'f5e4bed0': [
+        (log,                           ('3.0: YeShunguang Sword Diffuse 1024p Hash',)),
+        (update_hash,                   ('7eb1ca38',)),
+        (multiply_section_if_missing,   (('7eb1ca38', 'f5e4bed0'), 'YeShunguang.Sword.Diffuse.2048')),
+    ],
+    '798adba3': [
+        (log,                           ('3.0: YeShunguang Shared NormalMap 1024p Hash',)),
+        (update_hash,                   ('ebac056e',)),
+        (add_section_if_missing,        (('01ef4403', '3b1b73fe', '4a178546', '869976a3', '8c8de427', '999bff94', 'ae840e72', 'c209c22b', 'f9ce7b07', '0534b536', '38b3bd13', '9258d5f8', 'd15c8cd9', '5d842a9d'), 'YeShunguang.Shared.NormalMap', 'match_priority = 0\n')),
+    ],
+    'c2c54664': [
+        (log,                           ('3.0: YeShunguang Sword LightMap 1024p Hash',)),
+        (update_hash,                   ('90250152',)),
+        (multiply_section_if_missing,   (('90250152', 'c2c54664'), 'YeShunguang.Sword.LightMap.2048')),
+    ],
+    'ef4c4385': [
+        (log,                           ('3.0: YeShunguang Sword MaterialMap 1024p Hash',)),
+        (update_hash,                   ('a355e13d',)),
+        (multiply_section_if_missing,   (('a355e13d', 'ef4c4385'), 'YeShunguang.Sword.MaterialMap.2048')),
+    ],
+
 # === BackTassel, BraidStrips, Bow Textures (Shared Set 4) ===
 '804099eb': [
         (log,                           ('2.8: YeShunguang BackTasselA, BraidStripsA, BowA Diffuse Hash',)),
@@ -275,28 +312,28 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === SwordBox Textures ===
 'f65635ed': [
         (log,                           ('2.8: YeShunguang SwordBox Diffuse Hash',)),
-        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n')),
     ],
 '426d4871': [
         (log,                           ('2.8: YeShunguang SwordBox LightMap Hash',)),
-        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n')),
     ],
 'ae41d045': [
         (log,                           ('2.8: YeShunguang SwordBox MaterialMap Hash',)),
-        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.SwordBox.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('d15c8cd9', 'YeShunguang.YeShunguang.IB', 'match_priority = 0\n')),
     ],
 
 # === Sword Textures (v3.0 Target) ===
 '7eb1ca38': [
-        (log,                           ('3.0: YeShunguang Sword Diffuse Hash',)),
+        (log,                           ('3.0: YeShunguang Sword Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('93c3c2b7', 'YeShunguang.Sword.IB', 'match_priority = 0\n')),
     ],
 '90250152': [
-        (log,                           ('3.0: YeShunguang Sword LightMap Hash',)),
+        (log,                           ('3.0: YeShunguang Sword LightMap 2048p Hash',)),
         (add_section_if_missing,        ('93c3c2b7', 'YeShunguang.Sword.IB', 'match_priority = 0\n')),
     ],
 'a355e13d': [
-        (log,                           ('3.0: YeShunguang Sword MaterialMap Hash',)),
+        (log,                           ('3.0: YeShunguang Sword MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('93c3c2b7', 'YeShunguang.Sword.IB', 'match_priority = 0\n')),
     ],
 
@@ -377,6 +414,48 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'ce96ea2f': [
         (log,                           ('3.0: YeShunguangWrite Sword MaterialMap Hash',)),
         (add_section_if_missing,        ('dd46b065', 'YeShunguangWrite.Sword.IB', 'match_priority = 0\n')),
+    ],
+
+# === Legacy 3.0 1024p Texture Hashes (YeShunguangWrite) ===
+    'f3d6be85': [
+        (log,                           ('3.0: YeShunguangWrite Eyebrow Diffuse 1024p Hash',)),
+        (update_hash,                   ('ac8c7ca2',)),
+        (multiply_section_if_missing,   (('ac8c7ca2', 'f3d6be85'), 'YeShunguangWrite.Eyebrow.Diffuse.2048')),
+    ],
+    'bb70b320': [
+        (log,                           ('3.0: YeShunguangWrite Sword Diffuse 1024p Hash',)),
+        (update_hash,                   ('512d9f71',)),
+        (multiply_section_if_missing,   (('512d9f71', 'bb70b320'), 'YeShunguangWrite.Sword.Diffuse.2048')),
+    ],
+    'ca8bd1e1': [
+        (log,                           ('3.0: YeShunguangWrite Sword NormalMap 1024p Hash',)),
+        (update_hash,                   ('8842671b',)),
+        (multiply_section_if_missing,   (('8842671b', 'ca8bd1e1'), 'YeShunguangWrite.Sword.NormalMap.2048')),
+    ],
+    '8182cc59': [
+        (log,                           ('3.0: YeShunguangWrite Sword LightMap 1024p Hash',)),
+        (update_hash,                   ('d87a1e13',)),
+        (multiply_section_if_missing,   (('d87a1e13', '8182cc59'), 'YeShunguangWrite.Sword.LightMap.2048')),
+    ],
+    '7b8275f5': [
+        (log,                           ('3.0: YeShunguangWrite Sword MaterialMap 1024p Hash',)),
+        (update_hash,                   ('ce96ea2f',)),
+        (multiply_section_if_missing,   (('ce96ea2f', '7b8275f5'), 'YeShunguangWrite.Sword.MaterialMap.2048')),
+    ],
+    'fc76ef5b': [
+        (log,                           ('3.0: YeShunguangWrite LongRibbon, BackTassel LightMap 1024p Hash',)),
+        (update_hash,                   ('0d70f7cd',)),
+        (multiply_section_if_missing,   (('0d70f7cd', 'fc76ef5b'), 'YeShunguangWrite.LongRibbon.BackTassel.LightMap.2048')),
+    ],
+    '0afd6ddf': [
+        (log,                           ('3.0: YeShunguangWrite LongRibbon, BackTassel MaterialMap 1024p Hash',)),
+        (update_hash,                   ('7bf83964',)),
+        (multiply_section_if_missing,   (('7bf83964', '0afd6ddf'), 'YeShunguangWrite.LongRibbon.BackTassel.MaterialMap.2048')),
+    ],
+    'b4a2abbc': [
+        (log,                           ('3.0: YeShunguangWrite TransparentCloth MaterialMap 1024p Hash',)),
+        (update_hash,                   ('dd1adbe8',)),
+        (multiply_section_if_missing,   (('dd1adbe8', 'b4a2abbc'), 'YeShunguangWrite.TransparentCloth.MaterialMap.2048')),
     ],
     }
 

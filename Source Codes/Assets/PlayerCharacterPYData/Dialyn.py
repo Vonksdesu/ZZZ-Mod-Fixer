@@ -118,7 +118,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.Diffuse', 'match_priority = 0\n')),
     ],
 '52ea588e': [
-        (log,                           ('2.8: Dialyn BodyA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: Dialyn BodyA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.Diffuse', 'match_priority = 0\n')),
     ],
 '8c2fea9f': [
@@ -126,7 +126,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.LightMap', 'match_priority = 0\n')),
     ],
 '5cc175fe': [
-        (log,                           ('2.8: Dialyn BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Dialyn BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.LightMap', 'match_priority = 0\n')),
     ],
 'a2425ea0': [
@@ -134,7 +134,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.MaterialMap', 'match_priority = 0\n')),
     ],
 '28a10401': [
-        (log,                           ('2.8: Dialyn BodyA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8: Dialyn BodyA MaterialMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('af39a873', 'Dialyn.BodyA.MaterialMap', 'match_priority = 0\n')),
     ],
 

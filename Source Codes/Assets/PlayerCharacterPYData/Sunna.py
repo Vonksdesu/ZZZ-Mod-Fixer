@@ -58,6 +58,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6f7ae47c': [(log, ('2.8: Sunna DisplayScreen position_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
 '541d5b0f': [(log, ('2.8: Sunna DisplayScreen texcoord_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
 '2ef8be58': [(log, ('2.8: Sunna DisplayScreen blend_vb',)),             (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
+'92e01314': [
+        (log,                           ('3.0: Sunna DisplayScreen Diffuse Hash',)),
+        (add_section_if_missing,        ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+    ],
 
 # WeaponBackpack VBs
 '953975c0': [(log, ('2.8: Sunna WeaponBackpack draw_vb',)),             (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],

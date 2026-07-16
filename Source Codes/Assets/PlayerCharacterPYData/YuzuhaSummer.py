@@ -198,11 +198,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === Legacy Body Hashes (2.1 -> 2.11) ===
-    'a3b56c9b': [(log, ('2.1 -> 2.11: YuzuhaSkin Body Position Hash',)), (update_hash, ('2a7b9144',))],
-    '3d3199c5': [(log, ('2.1 -> 2.11: YuzuhaSkin Body Texcoord Hash',)), (update_hash, ('0c9062c5',))],
-    'be70426a': [(log, ('2.1 -> 2.11: YuzuhaSkin Body Blend Hash',)), (update_hash, ('523cf99d',))],
-    'cf3319f6': [(log, ('2.1 -> 2.11: YuzuhaSkin Body Draw Hash',)), (update_hash, ('07437c27',))],
-    'f34fdc84': [(log, ('2.1 -> 2.11: YuzuhaSkin Body IB Hash',)),       (update_hash, ('b298482d',))],
+    'a3b56c9b': [(log, ('2.1 -> 2.11: YuzuhaSummer Body Position Hash',)), (update_hash, ('2a7b9144',))],
+    '3d3199c5': [(log, ('2.1 -> 2.11: YuzuhaSummer Body Texcoord Hash',)), (update_hash, ('0c9062c5',))],
+    'be70426a': [(log, ('2.1 -> 2.11: YuzuhaSummer Body Blend Hash',)), (update_hash, ('523cf99d',))],
+    'cf3319f6': [(log, ('2.1 -> 2.11: YuzuhaSummer Body Draw Hash',)), (update_hash, ('07437c27',))],
+    'f34fdc84': [(log, ('2.1 -> 2.11: YuzuhaSummer Body IB Hash',)),       (update_hash, ('b298482d',))],
     }
 
 

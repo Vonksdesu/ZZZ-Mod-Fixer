@@ -15,12 +15,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     """
     return {
 # === IB Hashes ===
-'22fe3236': [(log, ('3.0: WiseOathOfSkies Body IB Hash',)),                 (add_ib_check_if_missing,)],
-'8a1ec07e': [(log, ('3.0: WiseOathOfSkies Neck IB Hash',)),                 (add_ib_check_if_missing,)],
-'f21a2bac': [(log, ('3.0: WiseOathOfSkies Tie IB Hash',)),                  (add_ib_check_if_missing,)],
-'d5ca0411': [(log, ('3.0: WiseOathOfSkies Hair IB Hash',)),                 (add_ib_check_if_missing,)],
 '1fdaf388': [(log, ('3.0: WiseOathOfSkies Face IB Hash',)),                 (add_ib_check_if_missing,)],
-'8d08b190': [(log, ('3.0: WiseOathOfSkies HairShadow IB Hash',)),           (add_ib_check_if_missing,)],
+# === IB Hashes (Wiseswimwear v2.0 Historical) ===
 
 # === VB Hashes ===
 # Body
@@ -59,86 +55,37 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('1fdaf388', 'WiseOathOfSkies.Face.IB', 'match_priority = 0\n')),
     ],
 
-# === Body & Neck Textures ===
-'b9dcce2e': [
-        (log,                           ('3.0: WiseOathOfSkies Body, Neck Diffuse Hash',)),
-        (add_section_if_missing,        ('22fe3236', 'WiseOathOfSkies.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8a1ec07e', 'WiseOathOfSkies.Neck.IB', 'match_priority = 0\n')),
-    ],
-'bd86c7c4': [
-        (log,                           ('3.0: WiseOathOfSkies Body, Neck LightMap Hash',)),
-        (add_section_if_missing,        ('22fe3236', 'WiseOathOfSkies.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8a1ec07e', 'WiseOathOfSkies.Neck.IB', 'match_priority = 0\n')),
-    ],
-'4d7473b1': [
-        (log,                           ('3.0: WiseOathOfSkies Body, Neck MaterialMap Hash',)),
-        (add_section_if_missing,        ('22fe3236', 'WiseOathOfSkies.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8a1ec07e', 'WiseOathOfSkies.Neck.IB', 'match_priority = 0\n')),
-    ],
-
-# === Tie Textures ===
-'1024352b': [
-        (log,                           ('3.0: WiseOathOfSkies Tie Diffuse Hash',)),
-        (add_section_if_missing,        ('f21a2bac', 'WiseOathOfSkies.Tie.IB', 'match_priority = 0\n')),
-    ],
-'e550cd81': [
-        (log,                           ('3.0: WiseOathOfSkies Tie LightMap Hash',)),
-        (add_section_if_missing,        ('f21a2bac', 'WiseOathOfSkies.Tie.IB', 'match_priority = 0\n')),
-    ],
-'6649f407': [
-        (log,                           ('3.0: WiseOathOfSkies Tie MaterialMap Hash',)),
-        (add_section_if_missing,        ('f21a2bac', 'WiseOathOfSkies.Tie.IB', 'match_priority = 0\n')),
-    ],
 
 # === Hair Textures ===
 '28005a5b': [
-        (log,                           ('3.0: WiseOathOfSkies Hair Diffuse Hash',)),
+        (log,                           ('3.0: WiseOathOfSkies Hair Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('d5ca0411', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
     ],
 '8d8269f8': [
-        (log,                           ('3.0: WiseOathOfSkies Hair LightMap Hash',)),
+        (log,                           ('3.0: WiseOathOfSkies Hair LightMap 2048p Hash',)),
         (add_section_if_missing,        ('d5ca0411', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
     ],
 'f1b20f3d': [
-        (log,                           ('3.0: WiseOathOfSkies Hair MaterialMap Hash',)),
+        (log,                           ('3.0: WiseOathOfSkies Hair MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('d5ca0411', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
     ],
 
-# === Legacy Hash Updates ===
-'05b25d35': [
-        (log,                           ('2.0: WiseSkin BodyA LightMap 2048p Hash',)),
-        (multiply_section_if_missing,   ('dd79b44b', 'WiseSkin.BodyA.LightMap.1024')),
-    ],
-'177ad7e8': [(log, ('2.4 -> 2.5: Wise Body Blend Hash',)), (update_hash, ('8612559a',))],
-'1eca2097': [(log, ('2.0: WiseSkin Body IB Hash',)), (add_ib_check_if_missing,)],
-'23876240': [
-        (log,                           ('3.0: WiseSkin BodyA Diffuse 1024p Hash',)),
-        (multiply_section_if_missing,   (('81406abe','669191ec'), 'WiseSkin.BodyA.Diffuse.2048')),
-    ],
-'24af1f48': [
-        (log,                           ('2.0: WiseSkin BodyA MaterialMap 2048p Hash',)),
-        (multiply_section_if_missing,   ('aa712fb9', 'WiseSkin.BodyA.MaterialMap.1024')),
-    ],
-'458bbde3': [(log, ('2.8 -> 3.0: Wise Neck Blend Hash',)), (update_hash, ('e0b1e734',))],
-'4fa228f9': [(log, ('2.4 -> 2.5: Wise Body Draw Hash',)),     (update_hash, ('ca02f614',))],
-'669191ec': [
-        (log,                           ('3.0: WiseSkin BodyA Diffuse 2048p Hash',)),
-        (multiply_section_if_missing,   (('9fc3646e','23876240'), 'WiseSkin.BodyA.Diffuse.1024')),
-    ],
-'6acc1eb8': [(log, ('2.4 -> 2.5: Wise Body IB Hash',)),       (update_hash, ('1eca2097',))],
-'81406abe': [(log, ('2.8 -> 3.0: WiseSkin BodyA Diffuse 2048p Hash',)), (update_hash, ('669191ec',))],
-'8612559a': [(log, ('2.8 -> 3.0: Wise Body Blend Hash',)), (update_hash, ('f28a6363',))],
-'9fc3646e': [(log, ('2.8 -> 3.0: WiseSkin BodyA Diffuse 1024p Hash',)), (update_hash, ('23876240',))],
-'a83ada4e': [(log, ('2.4 -> 2.5: Wise Body Texcoord Hash',)), (update_hash, ('b39870e1',))],
-'aa712fb9': [
-        (log,                           ('2.0: WiseSkin BodyA MaterialMap 1024p Hash',)),
-        (multiply_section_if_missing,   ('24af1f48', 'WiseSkin.BodyA.MaterialMap.2048')),
-    ],
-'ae59eabb': [(log, ('2.4 -> 2.5: Wise Body Position Hash',)), (update_hash, ('a388eb6b',))],
-'dd79b44b': [
-        (log,                           ('2.0: WiseSkin BodyA LightMap 1024p Hash',)),
-        (multiply_section_if_missing,   ('05b25d35', 'WiseSkin.BodyA.LightMap.2048')),
-    ],
+
+# === Legacy 2.0-2.8 Hash Updates ===
+'f6cac296': [(log, ('2.0 -> 2.8: WiseOathOfSkies IB Hash [Legacy]',)), (update_hash, ('d5ca0411',))],
+'ba59bf09': [(log, ('2.0 -> 2.8: Wise Hair draw_vb Hash [Legacy]',)), (update_hash, ('ef9c0510',))],
+'6235fa7f': [(log, ('2.0 -> 2.8: Wise Hair position_vb Hash [Legacy]',)), (update_hash, ('e8df7ff3',))],
+'fe89498c': [(log, ('2.0 -> 2.8: Wise Hair texcoord_vb Hash [Legacy]',)), (update_hash, ('774071dd',))],
+'1273c7b0': [(log, ('2.0 -> 2.8: Wise Hair blend_vb Hash [Legacy]',)), (update_hash, ('edfd1666',))],
+'83e07a1b': [(log, ('2.7 -> 2.8: Wise HairShadow IB Hash [Legacy]',)), (update_hash, ('8d08b190',))],
+'af5fc216': [(log, ('2.7 -> 2.8: Wise HairShadow draw_vb Hash [Legacy]',)), (update_hash, ('681651f9',))],
+'1a438b0d': [(log, ('2.7 -> 2.8: Wise HairShadow position_vb Hash [Legacy]',)), (update_hash, ('4af493e5',))],
+'7b7957fa': [(log, ('2.7 -> 2.8: Wise HairShadow texcoord_vb Hash [Legacy]',)), (update_hash, ('ad7d7eca',))],
+'52bd07dd': [(log, ('2.7 -> 2.8: Wise HairShadow blend_vb Hash [Legacy]',)), (update_hash, ('795e9a7c',))],
+'edfd1666': [(log, ('2.7 -> 2.8: Wise Hair blend_vb Hash [Legacy]',)), (update_hash, ('68e4f572',))],
+'757bc7cc': [(log, ('2.7 -> 2.8: Wise Face blend_vb Hash [Legacy]',)), (update_hash, ('015fbf96',))],
+'3f771e63': [(log, ('2.8 -> 3.0: WiseSwimwear HairShadow IB Hash [Legacy]',)), (update_hash, ('8d08b190',))],
+'ebe9f31b': [(log, ('2.0 -> 2.1: Wise Head Texcoord Hash [Legacy]',)), (update_hash, ('c83b6cbf',))],
 
 # === Shared Normal Map ===
 '798adba3': [
@@ -157,6 +104,65 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('d5ca0411', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('8d08b190', 'WiseOathOfSkies.HairShadow.IB', 'match_priority = 0\n')),
     ],
+    '8d08b190': [(log, ('2.8: WiseTemple HairShadow IB Hash',)),            (add_ib_check_if_missing,)],
+'eeabff55': [(log, ('2.8: WiseTemple Torso Ribbon IB Hash',)),          (add_ib_check_if_missing,)],
+'ac3a0dec': [(log, ('2.8: WiseTemple Panda Headgear IB Hash',)),        (add_ib_check_if_missing,)],
+'e5f8b021': [(log, ('2.8: WiseTemple Black Orange Ribbon IB Hash',)),   (add_ib_check_if_missing,)],
+'e5f269f4': [(log, ('2.8: WiseTemple Orange Green Ribbon IB Hash',)),   (add_ib_check_if_missing,)],
+'bfce3c18': [(log, ('2.8: WiseTemple Glasses IB Hash',)),               (add_ib_check_if_missing,)],
+'b856d397': [(log, ('2.8: WiseTemple Earrings IB Hash',)),               (add_ib_check_if_missing,)],
+'d0e278fc': [(log, ('2.8: WiseTemple CatEar IB Hash',)),                 (add_ib_check_if_missing,)],
+'4e8b2454': [(log, ('2.8: WiseTemple TorsoAcc IB Hash',)),               (add_ib_check_if_missing,)],
+    'd5ca0411': [(log, ('2.8: WiseTemple Hair IB Hash',)),                  (add_ib_check_if_missing,)],
+'e7f527ea': [(log, ('2.8: WiseTemple DiskPlayer IB Hash',)),             (add_ib_check_if_missing,)],
+'8d08b190': [(log, ('2.8: WiseTemple HairShadow IB Hash',)),            (add_ib_check_if_missing,)],
+'eeabff55': [(log, ('2.8: WiseTemple Torso Ribbon IB Hash',)),          (add_ib_check_if_missing,)],
+'ac3a0dec': [(log, ('2.8: WiseTemple Panda Headgear IB Hash',)),        (add_ib_check_if_missing,)],
+'e5f8b021': [(log, ('2.8: WiseTemple Black Orange Ribbon IB Hash',)),   (add_ib_check_if_missing,)],
+'e5f269f4': [(log, ('2.8: WiseTemple Orange Green Ribbon IB Hash',)),   (add_ib_check_if_missing,)],
+'bfce3c18': [(log, ('2.8: WiseTemple Glasses IB Hash',)),               (add_ib_check_if_missing,)],
+'b856d397': [(log, ('2.8: WiseTemple Earrings IB Hash',)),               (add_ib_check_if_missing,)],
+'d0e278fc': [(log, ('2.8: WiseTemple CatEar IB Hash',)),                 (add_ib_check_if_missing,)],
+'4e8b2454': [(log, ('2.8: WiseTemple TorsoAcc IB Hash',)),               (add_ib_check_if_missing,)],
+    '1024352b': [(log,                           ('3.0: WiseOathOfSkies TieA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('dd08a467', 'WiseSchoolUniform.TieA.Diffuse.1024')),],
+    '22fe3236': [(log, ('3.0: WiseOathOfSkies Body IB Hash',)), (add_ib_check_if_missing,)],
+    '4d7473b1': [(log,                           ('3.0: WiseOathOfSkies BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('31707abe', 'WiseSchoolUniform.BodyA.MaterialMap.1024')),],
+    '6649f407': [(log,                           ('3.0: WiseOathOfSkies TieA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('ba59a4d0', 'WiseSchoolUniform.TieA.MaterialMap.1024')),],
+    '8a1ec07e': [(log, ('3.0: WiseOathOfSkies Neck IB Hash',)), (add_ib_check_if_missing,)],
+    'b9dcce2e': [(log,                           ('3.0: WiseOathOfSkies BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   ('a0a4c84e', 'WiseSchoolUniform.BodyA.Diffuse.1024')),],
+    'bd86c7c4': [(log,                           ('3.0: WiseOathOfSkies BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('8d09dc95', 'WiseSchoolUniform.BodyA.LightMap.1024')),],
+    'e550cd81': [(log,                           ('3.0: WiseOathOfSkies TieA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,   ('4f211318', 'WiseSchoolUniform.TieA.LightMap.1024')),],
+    'f21a2bac': [(log, ('3.0: WiseOathOfSkies Tie IB Hash',)), (add_ib_check_if_missing,)],
+    '31707abe': [(log,                           ('3.0: WiseOathOfSkies BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('4d7473b1', 'WiseSchoolUniform.BodyA.MaterialMap.2048')),],
+    '33368e12': [(log,                           ('2.0: Wise HairA, BagA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('8d8269f8', '1f21c633'), 'WiseOathOfSkies.HairA.LightMap.2048')),],
+    '4f211318': [(log,                           ('3.0: WiseOathOfSkies TieA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('e550cd81', 'WiseSchoolUniform.TieA.LightMap.2048')),],
+    '588d7d2d': [(log,                           ('1.1: Wise HeadA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('4894246e', 'WiseOathOfSkies.Head.IB', 'match_priority = 0\n')),],
+    '8d09dc95': [(log,                           ('3.0: WiseOathOfSkies BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('bd86c7c4', 'WiseSchoolUniform.BodyA.LightMap.2048')),],
+    'a0a4c84e': [(log,                           ('3.0: WiseOathOfSkies BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('b9dcce2e', 'WiseSchoolUniform.BodyA.Diffuse.2048')),],
+    'ba59a4d0': [(log,                           ('3.0: WiseOathOfSkies TieA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('6649f407', 'WiseSchoolUniform.TieA.MaterialMap.2048')),],
+    'cb0d0c22': [(log,                           ('1.0: Wise HairA, BagA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('b1df5d22', 'WiseOathOfSkies.Bag.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('28005a5b', 'WiseOathOfSkies.HairA.Diffuse.2048')),],
+    'd9383a15': [(log,                           ('2.0: Wise HairA, BagA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'WiseOathOfSkies.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('f1b20f3d', '473f816d'), 'WiseOathOfSkies.HairA.MaterialMap.2048')),],
+    'dd08a467': [(log,                           ('3.0: WiseOathOfSkies TieA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('1024352b', 'WiseSchoolUniform.TieA.Diffuse.2048')),],
     }
 
 

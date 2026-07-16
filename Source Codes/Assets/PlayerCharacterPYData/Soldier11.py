@@ -193,15 +193,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === New Database 2.8 Synced Weapon Texture Hashes ===
 '735b23b2': [
-        (log,                           ('2.8: Soldier11 Weapon Diffuse Hash [New]',)),
+        (log,                           ('2.8: Soldier11 Weapon Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n')),
     ],
 '81fe09dc': [
-        (log,                           ('2.8: Soldier11 Weapon LightMap Hash [New]',)),
+        (log,                           ('2.8: Soldier11 Weapon LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n')),
     ],
 'e2af379d': [
-        (log,                           ('2.8: Soldier11 Weapon MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Soldier11 Weapon MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('3a262de5', 'Soldier11.Weapon.IB', 'match_priority = 0\n')),
     ],
     }

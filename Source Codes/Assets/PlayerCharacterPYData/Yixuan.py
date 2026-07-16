@@ -211,15 +211,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('ac8e9ee3', 'Yixuan.Hair.IB', 'match_priority = 0\n')),
     ],
 '2a4f37a6': [
-        (log,                           ('2.8: Yixuan Body Diffuse Hash [New]',)),
+        (log,                           ('2.8: Yixuan Body Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n')),
     ],
 '5a291e85': [
-        (log,                           ('2.8: Yixuan Body LightMap Hash [New]',)),
+        (log,                           ('2.8: Yixuan Body LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n')),
     ],
 'd28370ec': [
-        (log,                           ('2.8: Yixuan Body MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Yixuan Body MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('029c1f5a', 'Yixuan.Body.IB', 'match_priority = 0\n')),
     ],
 'e6dca725': [
@@ -235,15 +235,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('8c2fc05e', 'Yixuan.Jacket.IB', 'match_priority = 0\n')),
     ],
 '920caf66': [
-        (log,                           ('2.8: Yixuan WeaponBird Idle Diffuse Hash [New]',)),
+        (log,                           ('2.8: Yixuan WeaponBird Idle Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n')),
     ],
 '771d52eb': [
-        (log,                           ('2.8: Yixuan WeaponBird Idle LightMap Hash [New]',)),
+        (log,                           ('2.8: Yixuan WeaponBird Idle LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n')),
     ],
 'dc3c5667': [
-        (log,                           ('2.8: Yixuan WeaponBird Idle MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Yixuan WeaponBird Idle MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('ce38ac3b', 'Yixuan.WeaponBird.IB', 'match_priority = 0\n')),
     ],
 '7f504f10': [

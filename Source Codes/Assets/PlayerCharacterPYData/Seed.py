@@ -162,7 +162,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Body Textures ===
 '7c7c2622': [
-        (log,                           ('2.8: Seed BodyA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: Seed BodyA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('634ac589', 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 '684d2bd5': [
@@ -170,7 +170,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('634ac589', 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 'b14c9c6f': [
-        (log,                           ('2.8: Seed BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Seed BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('634ac589', 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 '522ee460': [
@@ -178,7 +178,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('634ac589', 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 'da2deeaa': [
-        (log,                           ('2.8: Seed BodyA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8: Seed BodyA MaterialMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('634ac589', 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 'be9dd4c2': [
@@ -290,43 +290,43 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === New Database 2.8 Synced Seed hashes ===
 '0a4cecd8': [
-        (log,                           ('2.8: Seed Weapon Torso Diffuse Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Torso Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('b3f47664', 'Seed.WeaponTorso.IB', 'match_priority = 0\n')),
     ],
 '1962d85c': [
-        (log,                           ('2.8: Seed Weapon Torso LightMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Torso LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('b3f47664', 'Seed.WeaponTorso.IB', 'match_priority = 0\n')),
     ],
 '54a8ad89': [
-        (log,                           ('2.8: Seed Weapon Constant MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Constant MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('c7f4f4ec', 'Seed.WeaponConstant.IB', 'match_priority = 0\n')),
     ],
 '64bb6cb7': [
-        (log,                           ('2.8: Seed Weapon Torso MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Torso MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('b3f47664', 'Seed.WeaponTorso.IB', 'match_priority = 0\n')),
     ],
 '6f269065': [
-        (log,                           ('2.8: Seed Weapon Cockpit LightMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Cockpit LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('75e1ae0a', 'Seed.WeaponCockpit.IB', 'match_priority = 0\n')),
     ],
 '91d18cf9': [
-        (log,                           ('2.8: Seed Scooter Diffuse Hash [New]',)),
+        (log,                           ('2.8: Seed Scooter Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('651f4fd5', 'Seed.Scooter.IB', 'match_priority = 0\n')),
     ],
 '9896a7c2': [
-        (log,                           ('2.8: Seed Scooter MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Seed Scooter MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('651f4fd5', 'Seed.Scooter.IB', 'match_priority = 0\n')),
     ],
 'a065222f': [
-        (log,                           ('2.8: Seed Weapon Limbs Diffuse Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Limbs Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('126bd0a1', 'Seed.WeaponLimbs.IB', 'match_priority = 0\n')),
     ],
 'a06afdbc': [
-        (log,                           ('2.8: Seed Weapon Constant Diffuse Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Constant Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('c7f4f4ec', 'Seed.WeaponConstant.IB', 'match_priority = 0\n')),
     ],
 'a6726612': [
-        (log,                           ('2.8: Seed Scooter LightMap Hash [New]',)),
+        (log,                           ('2.8: Seed Scooter LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('651f4fd5', 'Seed.Scooter.IB', 'match_priority = 0\n')),
     ],
 'a9a40828': [
@@ -334,7 +334,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        (('71e8d07a', '8a995990'), 'Seed.WeaponDevice.IB', 'match_priority = 0\n')),
     ],
 'b2e81a28': [
-        (log,                           ('2.8: Seed Weapon Cockpit Diffuse Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Cockpit Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('75e1ae0a', 'Seed.WeaponCockpit.IB', 'match_priority = 0\n')),
     ],
 'bc0bd24c': [
@@ -342,11 +342,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        (('71e8d07a', '8a995990'), 'Seed.WeaponDevice.IB', 'match_priority = 0\n')),
     ],
 'caf87ff4': [
-        (log,                           ('2.8: Seed Weapon Limbs MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Limbs MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('126bd0a1', 'Seed.WeaponLimbs.IB', 'match_priority = 0\n')),
     ],
 'ceb90df0': [
-        (log,                           ('2.8: Seed Weapon Cockpit MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Cockpit MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('75e1ae0a', 'Seed.WeaponCockpit.IB', 'match_priority = 0\n')),
     ],
 'd6e62b3f': [
@@ -354,7 +354,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        (('71e8d07a', '8a995990'), 'Seed.WeaponDevice.IB', 'match_priority = 0\n')),
     ],
 'dd157642': [
-        (log,                           ('2.8: Seed Weapon Constant LightMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Constant LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('c7f4f4ec', 'Seed.WeaponConstant.IB', 'match_priority = 0\n')),
     ],
 'ebac056e': [
@@ -362,7 +362,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        (('6cb35165', '634ac589'), 'Seed.Body.IB', 'match_priority = 0\n')),
     ],
 'f56f3ac1': [
-        (log,                           ('2.8: Seed Weapon Limbs LightMap Hash [New]',)),
+        (log,                           ('2.8: Seed Weapon Limbs LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('126bd0a1', 'Seed.WeaponLimbs.IB', 'match_priority = 0\n')),
     ],
     }

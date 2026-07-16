@@ -163,15 +163,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '67177563': [
-        (log,                           ('2.8: Soukaku Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Soukaku Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('931476f6', 'Soukaku.Weapon.IB', 'match_priority = 0\n')),
     ],
 '7c4efb96': [
-        (log,                           ('2.8: Soukaku Weapon LightMap Hash',)),
+        (log,                           ('2.8: Soukaku Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('931476f6', 'Soukaku.Weapon.IB', 'match_priority = 0\n')),
     ],
 'd0796da7': [
-        (log,                           ('2.8: Soukaku Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Soukaku Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('931476f6', 'Soukaku.Weapon.IB', 'match_priority = 0\n')),
     ],
 

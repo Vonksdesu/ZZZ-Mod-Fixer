@@ -98,11 +98,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Hair & Cloak Textures (v2.8 Target) ===
 '1cd2d442': [
         (log,                           ('2.8: Lighter HairA Diffuse 1024p Hash (Old)',)),
-        (update_hash,                   ('4e088042',)),
+        (update_hash,                   ('0ee07935',)),
     ],
 '8687f7b8': [
         (log,                           ('2.8: Lighter HairA MaterialMap 1024p Hash (Old)',)),
-        (update_hash,                   ('d331b850',)),
+        (update_hash,                   ('99ad14f1',)),
     ],
 '4e088042': [
         (log,                           ('2.8: Lighter Hair/Cloak Diffuse 2048p Hash',)),
@@ -170,15 +170,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures ===
 '8b854866': [
-        (log,                           ('2.8: Lighter Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Lighter Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('018b03f0', 'Lighter.Weapon.IB', 'match_priority = 0\n')),
     ],
 '547cbcd8': [
-        (log,                           ('2.8: Lighter Weapon LightMap Hash',)),
+        (log,                           ('2.8: Lighter Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('018b03f0', 'Lighter.Weapon.IB', 'match_priority = 0\n')),
     ],
 '3617c303': [
-        (log,                           ('2.8: Lighter Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Lighter Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('018b03f0', 'Lighter.Weapon.IB', 'match_priority = 0\n')),
     ],
 

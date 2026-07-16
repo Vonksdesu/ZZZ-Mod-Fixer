@@ -135,6 +135,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('62cc8d20', 'AriaAgentDiscordantNote.Weapon.IB', 'match_priority = 0\n')),
     ],
 
+# === Eye Textures ===
+'9c4b3484': [
+        (log,                           ('2.8: AriaAgentDiscordantNote Eye Diffuse Hash',)),
+        (add_section_if_missing,        ('db7c8d25', 'AriaAgentDiscordantNote.Eye.IB', 'match_priority = 0\n')),
+    ],
+
 # === Shared Normal Map ===
 '798adba3': [
         (log,                           ('2.8: AriaAgentDiscordantNote Shared NormalMap Hash',)),

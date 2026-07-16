@@ -34,6 +34,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Eyebrows
 '2f828e6a': [(log, ('3.0: VelinaShadeOfLeisure Eyebrows draw_vb',)),      (add_section_if_missing, ('1914d1e4', 'VelinaShadeOfLeisure.Eyebrows.IB', 'match_priority = 0\n'))],
+'db7add33': [(log, ('2.8 -> 3.0: VelinaShadeOfLeisure Eyebrows blend_vb [Legacy]',)), (update_hash, ('f18dd23f',))],
 '38d54a4d': [(log, ('3.0: VelinaShadeOfLeisure Eyebrows position_vb',)),  (add_section_if_missing, ('1914d1e4', 'VelinaShadeOfLeisure.Eyebrows.IB', 'match_priority = 0\n'))],
 '80e5ee4d': [(log, ('3.0: VelinaShadeOfLeisure Eyebrows texcoord_vb',)),  (add_section_if_missing, ('1914d1e4', 'VelinaShadeOfLeisure.Eyebrows.IB', 'match_priority = 0\n'))],
 'f18dd23f': [(log, ('3.0: VelinaShadeOfLeisure Eyebrows blend_vb',)),     (add_section_if_missing, ('1914d1e4', 'VelinaShadeOfLeisure.Eyebrows.IB', 'match_priority = 0\n'))],
@@ -78,6 +79,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Face Textures ===
 '93ce2562': [
         (log,                           ('3.0: VelinaShadeOfLeisure Face Diffuse Hash',)),
+        (add_section_if_missing,        ('6cfb2498', 'VelinaShadeOfLeisure.Face.IB', 'match_priority = 0\n')),
+    ],
+    'e5409177': [
+        (log,                           ('3.0: VelinaShadeOfLeisure Eyebrow/Face Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('1914d1e4', 'VelinaShadeOfLeisure.Eyebrows.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('6cfb2498', 'VelinaShadeOfLeisure.Face.IB', 'match_priority = 0\n')),
     ],
 
@@ -144,15 +150,27 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('8ac40392', 'VelinaShadeOfLeisure.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'VelinaShadeOfLeisure.Fan.IB', 'match_priority = 0\n')),
     ],
-'e0e44e38': [
+    'd5c55318': [
+        (log,                           ('3.0: VelinaShadeOfLeisure Weapon, Fan Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('185d733b', 'VelinaShadeOfLeisure.Weapon, Fan.Diffuse.2048')),
+    ],
+    'e0e44e38': [
         (log,                           ('3.0: VelinaShadeOfLeisure Weapon, Fan LightMap Hash',)),
         (add_section_if_missing,        ('8ac40392', 'VelinaShadeOfLeisure.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'VelinaShadeOfLeisure.Fan.IB', 'match_priority = 0\n')),
     ],
-'b45cdc1a': [
+    '5f7363aa': [
+        (log,                           ('3.0: VelinaShadeOfLeisure Weapon, Fan LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('e0e44e38', 'VelinaShadeOfLeisure.Weapon, Fan.LightMap.2048')),
+    ],
+    'b45cdc1a': [
         (log,                           ('3.0: VelinaShadeOfLeisure Weapon, Fan MaterialMap Hash',)),
         (add_section_if_missing,        ('8ac40392', 'VelinaShadeOfLeisure.Weapon.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('9fbf4911', 'VelinaShadeOfLeisure.Fan.IB', 'match_priority = 0\n')),
+    ],
+    'edb1276e': [
+        (log,                           ('3.0: VelinaShadeOfLeisure Weapon, Fan MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('b45cdc1a', 'VelinaShadeOfLeisure.Weapon, Fan.MaterialMap.2048')),
     ],
 
 # === Shared Normal Map ===

@@ -147,15 +147,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 'ea7d80ff': [
-        (log,                           ('2.8: Manato Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Manato Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('c1f10814', 'Manato.Weapon.IB', 'match_priority = 0\n')),
     ],
 'c52d4279': [
-        (log,                           ('2.8: Manato Weapon LightMap Hash',)),
+        (log,                           ('2.8: Manato Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('c1f10814', 'Manato.Weapon.IB', 'match_priority = 0\n')),
     ],
 'aef57b5d': [
-        (log,                           ('2.8: Manato Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Manato Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('c1f10814', 'Manato.Weapon.IB', 'match_priority = 0\n')),
     ],
 

@@ -75,6 +75,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'bb487b00': [(log, ('2.8: Alice Weapon Sword blend_vb',)),                (add_section_if_missing, ('30205a68', 'Alice.WeaponSword.IB', 'match_priority = 0\n'))],
 
 # Weapon - Handguard
+'7d76d686': [(log, ('2.7 -> 2.8: Alice Weapon Handguard draw_vb [Legacy]',)), (update_hash, ('0a06059e',))],
 '0a06059e': [(log, ('2.8: Alice Weapon Handguard draw_vb',)),             (add_section_if_missing, ('323b1a95', 'Alice.WeaponHandguard.IB', 'match_priority = 0\n'))],
 'bd544be3': [(log, ('2.8: Alice Weapon Handguard position_vb',)),         (add_section_if_missing, ('323b1a95', 'Alice.WeaponHandguard.IB', 'match_priority = 0\n'))],
 '9a136061': [(log, ('2.8: Alice Weapon Handguard texcoord_vb',)),         (add_section_if_missing, ('323b1a95', 'Alice.WeaponHandguard.IB', 'match_priority = 0\n'))],
@@ -150,7 +151,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Sensor Textures ===
 'bf0e4dab': [
-        (log,                           ('2.8: Alice Sensor Diffuse Hash',)),
+        (log,                           ('2.8: Alice Sensor Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('993d2ddd', 'Alice.Sensor.IB', 'match_priority = 0\n')),
     ],
 

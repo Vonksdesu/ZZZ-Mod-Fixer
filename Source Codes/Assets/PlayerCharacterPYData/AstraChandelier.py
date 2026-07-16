@@ -63,10 +63,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'd652aa31': [(log, ('2.0 -> 2.8: AstraChandelier Weapon Diffuse [Legacy]',)), (update_hash, ('b5a20274',))],
 '91c63955': [(log, ('2.0 -> 2.8: AstraChandelier Weapon LightMap [Legacy]',)), (update_hash, ('57c44e60',))],
 '98e011bc': [(log, ('2.0 -> 2.8: AstraChandelier Weapon MaterialMap [Legacy]',)), (update_hash, ('fdb82c44',))],
-'43a4d256': [(log, ('1.6 -> 2.0: AstraSkin BodyA MaterialMap 2048p Hash',)), (update_hash, ('fa2f509f',))],
-'6989dc5a': [(log, ('1.5 -> 1.6: AstraSkin BodyA MaterialMap 1024p Hash',)), (update_hash, ('6da1b76a',))],
-'6da1b76a': [(log, ('1.6 -> 2.0: AstraSkin BodyA MaterialMap 1024p Hash',)), (update_hash, ('03df0be9',))],
-'83ede428': [(log, ('1.6 -> 2.0: AstraSkin BodyA LightMap 1024p Hash',)), (update_hash, ('cf8ecb3b',))],
+'43a4d256': [(log, ('1.6 -> 2.0: AstraChandelier BodyA MaterialMap 2048p Hash',)), (update_hash, ('fa2f509f',))],
+'6989dc5a': [(log, ('1.5 -> 1.6: AstraChandelier BodyA MaterialMap 1024p Hash',)), (update_hash, ('6da1b76a',))],
+'6da1b76a': [(log, ('1.6 -> 2.0: AstraChandelier BodyA MaterialMap 1024p Hash',)), (update_hash, ('03df0be9',))],
+'83ede428': [(log, ('1.6 -> 2.0: AstraChandelier BodyA LightMap 1024p Hash',)), (update_hash, ('cf8ecb3b',))],
 
 # === Hair Textures ===
 'e634238a': [

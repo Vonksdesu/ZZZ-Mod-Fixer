@@ -82,6 +82,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '9ab64737': [(log, ('2.0 -> 2.8: Yanagi Weapon Diffuse [Legacy]',)), (update_hash, ('b2aca818',))],
 'd9ac4e1e': [(log, ('2.0 -> 2.8: Yanagi Weapon LightMap [Legacy]',)), (update_hash, ('e4891108',))],
 'd18079e5': [(log, ('2.0 -> 2.8: Yanagi Weapon MaterialMap [Legacy]',)), (update_hash, ('240ee9dc',))],
+'aaccff06': [(log, ('1.3: Yanagi WeaponA, SheatheA Diffuse 1024p Hash [Legacy]',)), (update_hash, ('b2aca818',))],
+'8ef68839': [(log, ('1.3: Yanagi WeaponA, SheatheA LightMap 1024p Hash [Legacy]',)), (update_hash, ('e4891108',))],
+'ecd8605e': [(log, ('1.3: Yanagi WeaponA, SheatheA MaterialMap 1024p Hash [Legacy]',)), (update_hash, ('240ee9dc',))],
 'ebac056e': [(log, ('2.8: Yanagi Shared NormalMap Hash [Legacy]',)), (update_hash, ('798adba3',))],
 
 # === Face Textures ===

@@ -183,15 +183,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '9ccded50': [
-        (log,                           ('2.8: Koleda Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Koleda Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('2f2167a0', 'Koleda.Weapon.IB', 'match_priority = 0\n')),
     ],
 '0c993237': [
-        (log,                           ('2.8: Koleda Weapon LightMap Hash',)),
+        (log,                           ('2.8: Koleda Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('2f2167a0', 'Koleda.Weapon.IB', 'match_priority = 0\n')),
     ],
 'af1fbaa3': [
-        (log,                           ('2.8: Koleda Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Koleda Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('2f2167a0', 'Koleda.Weapon.IB', 'match_priority = 0\n')),
     ],
 

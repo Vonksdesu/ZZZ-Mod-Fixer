@@ -263,15 +263,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 'ba3ec8ff': [
-        (log,                           ('2.8: Grace Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Grace Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('d1a8c9de', 'Grace.Weapon.IB', 'match_priority = 0\n')),
     ],
 'a408585a': [
-        (log,                           ('2.8: Grace Weapon LightMap Hash',)),
+        (log,                           ('2.8: Grace Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('d1a8c9de', 'Grace.Weapon.IB', 'match_priority = 0\n')),
     ],
 'bc502577': [
-        (log,                           ('2.8: Grace Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Grace Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('d1a8c9de', 'Grace.Weapon.IB', 'match_priority = 0\n')),
     ],
 

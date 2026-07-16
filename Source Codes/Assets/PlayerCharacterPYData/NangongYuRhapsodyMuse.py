@@ -171,6 +171,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.8: NangongYuRhapsodyMuse Shared NormalMap [New]',)),
         (add_section_if_missing,        ('969152d4', 'NangongYuRhapsodyMuse.Hair.IB', 'match_priority = 0\n')),
     ],
+'9b3f2e02': [
+        (log,                           ('3.0: NangongYuRhapsodyMuse BodyA Diffuse Hash [New]',)),
+        (add_section_if_missing,        ('5f2741ff', 'NangongYuRhapsodyMuse.Body.IB', 'match_priority = 0\n')),
+    ],
     }
 
 # Character metadata

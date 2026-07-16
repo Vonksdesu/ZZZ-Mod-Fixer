@@ -15,11 +15,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     """
     return {
 # === IB Hashes ===
-'d5ca0411': [(log, ('2.8: Wise Hair IB Hash',)),                        (add_ib_check_if_missing,)],
 'b1df5d22': [(log, ('2.8: Wise Bag IB Hash',)),                         (add_ib_check_if_missing,)],
 '8d6acf4e': [(log, ('2.8: Wise Body IB Hash',)),                        (add_ib_check_if_missing,)],
-'1fdaf388': [(log, ('2.8: Wise Head IB Hash',)),                        (add_ib_check_if_missing,)],
-'8d08b190': [(log, ('2.8: Wise Hair Shadow IB Hash',)),                 (add_ib_check_if_missing,)],
 
 # === VB Hashes ===
 # Hair
@@ -75,6 +72,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '2ae08ae7': [(log, ('2.0 -> 2.1: Wise Bag Texcoord Hash',)),    (update_hash, ('8d825ff1',))],
 'b300256d': [(log, ('1.7 -> 2.0: Wise Head Texcoord Hash',)), (update_hash, ('ebe9f31b',))],
 'ebe9f31b': [(log, ('2.0 -> 2.1: Wise Head Texcoord Hash',)), (update_hash, ('c83b6cbf',))],
+'83e07a1b': [(log, ('2.7 -> 2.8: Wise HairShadow IB Hash [Legacy]',)), (update_hash, ('8d08b190',))],
+'af5fc216': [(log, ('2.7 -> 2.8: Wise HairShadow draw_vb Hash [Legacy]',)), (update_hash, ('681651f9',))],
+'1a438b0d': [(log, ('2.7 -> 2.8: Wise HairShadow position_vb Hash [Legacy]',)), (update_hash, ('4af493e5',))],
+'7b7957fa': [(log, ('2.7 -> 2.8: Wise HairShadow texcoord_vb Hash [Legacy]',)), (update_hash, ('ad7d7eca',))],
+'52bd07dd': [(log, ('2.7 -> 2.8: Wise HairShadow blend_vb Hash [Legacy]',)), (update_hash, ('795e9a7c',))],
+'3f771e63': [(log, ('2.8 -> 3.0: WiseSwimwear HairShadow IB Hash [Legacy]',)), (update_hash, ('8d08b190',))],
 '6c4ae8ce': [(log, ('2.8: Wise HeadA Diffuse 1024p Hash [Legacy]',)),   (update_hash, ('588d7d2d',))],
 '1f21c633': [(log, ('2.8: Wise HairA, BagA LightMap 2048p Hash [Legacy]',)), (update_hash, ('8d8269f8',))],
 '473f816d': [(log, ('2.8: Wise HairA, BagA MaterialMap 2048p Hash [Legacy]',)), (update_hash, ('f1b20f3d',))],
@@ -100,10 +103,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '015fbf96': [(log, ('3.0: Wise Face blend_vb Hash',)),                  (add_section_if_missing, ('1fdaf388', 'Wise.Head.IB', 'match_priority = 0\n'))],
 
 # === Face Textures ===
-'5d75fddc': [
-        (log,                           ('2.8: Wise FaceA Diffuse Hash',)),
-        (add_section_if_missing,        ('1fdaf388', 'Wise.Face.IB', 'match_priority = 0\n')),
-    ],
 '588d7d2d': [
         (log,                           ('2.8: Wise HeadA Diffuse 1024p Hash',)),
         (add_section_if_missing,        (('1fdaf388', '4894246e'), 'Wise.Head.IB', 'match_priority = 0\n')),
@@ -114,20 +113,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === Hair & Bag Textures ===
-'28005a5b': [
-        (log,                           ('2.8: Wise HairA, BagA Diffuse 2048p Hash',)),
-        (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('cb0d0c22', 'Wise.HairA.Diffuse.1024')),
-    ],
 'cb0d0c22': [
         (log,                           ('2.8: Wise HairA, BagA Diffuse 1024p Hash',)),
         (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('28005a5b', 'Wise.HairA.Diffuse.2048')),
-    ],
-'8d8269f8': [
-        (log,                           ('2.8: Wise HairA, BagA LightMap 2048p Hash',)),
-        (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('6fcc4ad4', 'Wise.HairA.LightMap.1024')),
     ],
 '6fcc4ad4': [
         (log,                           ('2.8: Wise HairA, BagA LightMap 1024p Hash',)),
@@ -138,11 +127,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.8: Wise Hair/Bag LightMap Hash',)),
         (add_section_if_missing,        ('d5ca0411', 'Wise.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('b1df5d22', 'Wise.Bag.IB', 'match_priority = 0\n')),
-    ],
-'f1b20f3d': [
-        (log,                           ('2.8: Wise HairA, BagA MaterialMap 2048p Hash',)),
-        (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('7c8b0713', 'Wise.HairA.MaterialMap.1024')),
     ],
 '7c8b0713': [
         (log,                           ('2.8: Wise HairA, BagA MaterialMap 1024p Hash',)),
@@ -157,7 +141,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Body Textures ===
 'a9652fa4': [
-        (log,                           ('3.0: Wise Body Diffuse Hash',)),
+        (log,                           ('3.0: Wise Body Diffuse 2048p Hash',)),
         (add_section_if_missing,        (('8d6acf4e', '054ea752'), 'Wise.Body.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('3d7a53b0', 'ef76b675'), 'Wise.BodyA.Diffuse.1024')),
     ],
@@ -167,8 +151,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 '3d7a53b0': [
         (log,                           ('2.8: Wise BodyA Diffuse 1024p Hash [Legacy]',)),
+        (update_hash,                   ('dea7a8ca',)),
         (add_section_if_missing,        (('8d6acf4e', '054ea752'), 'Wise.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   (('a9652fa4', '84529dab'), 'Wise.BodyA.Diffuse.2048')), # Update to a9652fa4
+        (multiply_section_if_missing,   (('a9652fa4', 'f2fb7a37'), 'Wise.BodyA.Diffuse.2048')),
     ],
 'dea7a8ca': [
         (log,                           ('2.8 -> 3.0: Wise Body Diffuse1024 Hash [Legacy]',)),
@@ -213,16 +198,46 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('8d6acf4e', 'Wise.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('8d08b190', 'Wise.HairShadow.IB', 'match_priority = 0\n')),
     ],
-'ebac056e': [
-        (log,                           ('2.8: Wise Shared NormalMap Hash [Legacy]',)),
-        (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('db08bb73', 'Wise.HairA.NormalMap.1024')),
-    ],
 'db08bb73': [
         (log,                           ('2.8: Wise Shared NormalMap 1024p Hash [Legacy]',)),
         (add_section_if_missing,        (('d5ca0411', 'f6cac296'), 'Wise.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('ebac056e', '3b4f22ad'), 'Wise.HairA.NormalMap.2048')),
     ],
+    '177ad7e8': [(log, ('2.4 -> 2.5: Wise Body Blend Hash',)), (update_hash, ('8612559a',))],
+    '23876240': [(log,                           ('3.0: Wise BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   (('81406abe','669191ec'), 'Wise.BodyA.Diffuse.2048')),],
+    '458bbde3': [(log, ('2.8 -> 3.0: Wise Neck Blend Hash',)), (update_hash, ('e0b1e734',))],
+
+    # Body
+    '81406abe': [(log, ('2.8 -> 3.0: Wise BodyA Diffuse 2048p Hash',)), (update_hash, ('669191ec',))],
+    '4fa228f9': [(log, ('2.4 -> 2.5: Wise Body Draw Hash',)),     (update_hash, ('ca02f614',))],
+    '6acc1eb8': [(log, ('2.4 -> 2.5: Wise Body IB Hash',)),       (update_hash, ('1eca2097',))],
+    '8612559a': [(log, ('2.8 -> 3.0: Wise Body Blend Hash',)), (update_hash, ('f28a6363',))],
+    '9fc3646e': [(log, ('2.8 -> 3.0: Wise BodyA Diffuse 1024p Hash',)), (update_hash, ('23876240',))],
+    'a83ada4e': [(log, ('2.4 -> 2.5: Wise Body Texcoord Hash',)), (update_hash, ('b39870e1',))],
+    'aa712fb9': [(log,                           ('2.0: Wise BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('24af1f48', 'Wise.BodyA.MaterialMap.2048')),],
+    'ae59eabb': [(log, ('2.4 -> 2.5: Wise Body Position Hash',)), (update_hash, ('a388eb6b',))],
+    'dd79b44b': [(log,                           ('2.0: Wise BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('05b25d35', 'Wise.BodyA.LightMap.2048')),],
+    '28005a5b': [(log,                           ('1.0: Wise HairA, BagA Diffuse 2048p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'Wise.Hair.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('b1df5d22', 'Wise.Bag.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('cb0d0c22', 'Wise.HairA.Diffuse.1024')),],
+    '5d75fddc': [(log,                           ('2.0: WiseSummer FaceA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,   (('6c4ae8ce', '588d7d2d'), 'WiseSummer.FaceA.Diffuse.1024')),],
+    '8d8269f8': [(log,                           ('1.0: Wise HairA, BagA LightMap 2048p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'Wise.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('6fcc4ad4', 'Wise.HairA.LightMap.1024')),],
+    'ebac056e': [(log,                           ('2.0: Wise BodyA LightMap 2048p Hash',)),
+        (add_section_if_missing,        ('de303163', 'Wise.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('9d1ab7c4', 'Wise.BodyA.LightMap.1024')),],
+    'f1b20f3d': [(log,                           ('1.0: Wise HairA, BagA MaterialMap 2048p Hash',)),
+        (add_section_if_missing,        ('f6cac296', 'Wise.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('7c8b0713', 'Wise.HairA.MaterialMap.1024')),],
+    '1fdaf388': [(log, ('1.6: Wise Head IB Hash',)), (add_ib_check_if_missing,)],
+    '8d08b190': [(log, ('3.0: Wise HairShadow IB Hash',)), (add_ib_check_if_missing,)],
+    'd5ca0411': [(log, ('2.1: Wise Hair IB Hash',)), (add_ib_check_if_missing,)],
     }
 
 

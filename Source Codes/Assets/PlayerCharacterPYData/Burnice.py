@@ -151,15 +151,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '5f6615b0': [
-        (log,                           ('2.8: Burnice Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Burnice Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('6b08674c', 'Burnice.Weapon.IB', 'match_priority = 0\n')),
     ],
 '5ef426d0': [
-        (log,                           ('2.8: Burnice Weapon LightMap Hash',)),
+        (log,                           ('2.8: Burnice Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('6b08674c', 'Burnice.Weapon.IB', 'match_priority = 0\n')),
     ],
 '9b7dfc16': [
-        (log,                           ('2.8: Burnice Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Burnice Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('6b08674c', 'Burnice.Weapon.IB', 'match_priority = 0\n')),
     ],
 

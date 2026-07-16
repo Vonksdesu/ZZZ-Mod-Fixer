@@ -99,7 +99,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 '77dc1746': [
-        (log,                           ('2.8: Zhao BodyA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: Zhao BodyA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 'dd6cfe48': [
@@ -107,7 +107,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 '5ed57658': [
-        (log,                           ('2.8: Zhao BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Zhao BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 '04383cb9': [
@@ -115,22 +115,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 'e98b7e9e': [
-        (log,                           ('2.8: Zhao Shared MaterialMap Hash (Face/Body) [Legacy]',)),
+        (log,                           ('2.8: Zhao Shared MaterialMap 2048p Hash (Face/Body) [Legacy]',)),
         (add_section_if_missing,        ('43c3c5a0', 'Zhao.Face.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('6a57d06b', 'Zhao.Body.IB', 'match_priority = 0\n')),
     ],
 
 # === Weapon Textures (v2.8 Target) ===
 'fa03bb15': [
-        (log,                           ('2.8: Zhao Weapon Knife Diffuse Hash',)),
+        (log,                           ('2.8: Zhao Weapon Knife Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('4141c5ee', 'Zhao.Weapon.IB', 'match_priority = 0\n')),
     ],
 'c8892598': [
-        (log,                           ('2.8: Zhao Weapon Knife LightMap Hash',)),
+        (log,                           ('2.8: Zhao Weapon Knife LightMap 2048p Hash',)),
         (add_section_if_missing,        ('4141c5ee', 'Zhao.Weapon.IB', 'match_priority = 0\n')),
     ],
 '36b0a2b1': [
-        (log,                           ('2.8: Zhao Weapon Knife MaterialMap Hash',)),
+        (log,                           ('2.8: Zhao Weapon Knife MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('4141c5ee', 'Zhao.Weapon.IB', 'match_priority = 0\n')),
     ],
 

@@ -166,7 +166,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === 3.0 Database Updates (Strict Sync) ===
 # CloakChest VBs (from BodyPinioned)
-'dd86f5ae': [(log, ('3.0: Promeia CloakChest draw_vb',)),            (add_section_if_missing, ('b386901d', 'Promeia.CloakChest.IB', 'match_priority = 0\n'))],
+'dd86f5ae': [
+        (log,                           ('3.0: Promeia CloakChest draw_vb',)),
+        (update_hash,                   ('19ad87f6',)),
+        (add_section_if_missing,        ('b386901d', 'Promeia.CloakChest.IB', 'match_priority = 0\n')),
+    ],
 '68e2baef': [(log, ('3.0: Promeia CloakChest position_vb',)),        (add_section_if_missing, ('b386901d', 'Promeia.CloakChest.IB', 'match_priority = 0\n'))],
 '6fe5f8c1': [(log, ('3.0: Promeia CloakChest texcoord_vb',)),        (add_section_if_missing, ('b386901d', 'Promeia.CloakChest.IB', 'match_priority = 0\n'))],
 '112582ea': [(log, ('3.0: Promeia CloakChest blend_vb',)),           (add_section_if_missing, ('b386901d', 'Promeia.CloakChest.IB', 'match_priority = 0\n'))],
@@ -238,15 +242,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Cloak Textures (v3.0 Target from Clothes 2048p) ===
 'e1492a53': [
-        (log,                           ('3.0: Promeia Cloak Diffuse Hash',)),
+        (log,                           ('3.0: Promeia Cloak Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('0ae14c24', 'Promeia.Cloak.IB', 'match_priority = 0\n')),
     ],
 '9bf7f5cc': [
-        (log,                           ('3.0: Promeia Cloak LightMap Hash',)),
+        (log,                           ('3.0: Promeia Cloak LightMap 2048p Hash',)),
         (add_section_if_missing,        ('0ae14c24', 'Promeia.Cloak.IB', 'match_priority = 0\n')),
     ],
 'd37b40a9': [
-        (log,                           ('3.0: Promeia Cloak MaterialMap Hash',)),
+        (log,                           ('3.0: Promeia Cloak MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('0ae14c24', 'Promeia.Cloak.IB', 'match_priority = 0\n')),
     ],
 
@@ -269,7 +273,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '328135c5': [
-        (log,                           ('3.0: Promeia Weapon Diffuse Hash',)),
+        (log,                           ('3.0: Promeia Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
     ],
 'd1399215': [
@@ -277,7 +281,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('328135c5',)),
     ],
 '82f4146a': [
-        (log,                           ('3.0: Promeia Weapon LightMap Hash',)),
+        (log,                           ('3.0: Promeia Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
     ],
 '369f0efd': [
@@ -285,7 +289,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('82f4146a',)),
     ],
 'd672b87c': [
-        (log,                           ('3.0: Promeia Weapon MaterialMap Hash',)),
+        (log,                           ('3.0: Promeia Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
     ],
 'a179a69c': [

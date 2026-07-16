@@ -113,7 +113,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 'c9bea5d7': [
-        (log,                           ('2.8: Orphie BodyA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie BodyA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 'c797a191': [
@@ -121,7 +121,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 '9a0406fe': [
-        (log,                           ('2.8: Orphie BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 '7f6aa298': [
@@ -129,7 +129,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 '1daf926d': [
-        (log,                           ('2.8: Orphie BodyA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie BodyA MaterialMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('a5eac582', 'Orphie.Body.IB', 'match_priority = 0\n')),
     ],
 
@@ -139,7 +139,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 'dd4120db': [
-        (log,                           ('2.8: Orphie LegsA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie LegsA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 'ec3855fa': [
@@ -147,7 +147,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 'a9ae84df': [
-        (log,                           ('2.8: Orphie LegsA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie LegsA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 '70ff1eca': [
@@ -155,7 +155,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 '867ceb5b': [
-        (log,                           ('2.8: Orphie LegsA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8: Orphie LegsA MaterialMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('80017921', 'Orphie.Legs.IB', 'match_priority = 0\n')),
     ],
 

@@ -70,6 +70,17 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n')),
     ],
 
+# === Shared 1024p Normal Map ===
+'798adba3': [
+        (log,                           ('3.0: Lucia Shared NormalMap 1024p Hash',)),
+        (add_section_if_missing,        ('340fc999', 'Lucia.Hair.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('cd80d116', 'Lucia.Cape.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('692a4e10', 'Lucia.CapeExtra.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('d39c304d', 'Lucia.Body.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('5cca4239', 'Lucia.Scepter.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('ebc05d0c', 'Lucia.Book.IB', 'match_priority = 0\n')),
+    ],
+
 # === Body Textures (Shared between BodyA and BodyB) ===
 '2ca45943': [
         (log,                           ('2.5: Lucia Body Diffuse Hash',)),

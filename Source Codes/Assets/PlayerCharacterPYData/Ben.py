@@ -27,6 +27,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Face
 '7e77201a': [(log, ('2.8: Ben Face VertexLimit Hash',)),                 (add_section_if_missing, ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n'))],
+'4465b35d': [(log, ('2.0 -> 2.1: Ben Face Position Hash [Legacy]',)), (update_hash, ('3e601b7c',))],
+'3e601b7c': [(log, ('2.8: Ben Face position_vb Hash',)),                 (add_section_if_missing, ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n'))],
 '18d26bd2': [(log, ('2.8: Ben Face blend_vb Hash',)),                    (add_section_if_missing, ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n'))],
 
 # Weapon
@@ -42,7 +44,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Face Textures ===
 '00002f2c': [
-        (log,                           ('2.8: Ben FaceA Diffuse Hash',)),
+        (log,                           ('2.8: Ben FaceA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n')),
     ],
 'cc195dc5': [
@@ -51,7 +53,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n')),
     ],
 '2fa5ffa7': [
-        (log,                           ('2.8: Ben FaceA LightMap Hash',)),
+        (log,                           ('2.8: Ben FaceA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n')),
     ],
 '9372e123': [
@@ -64,7 +66,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n')),
     ],
 '12e5120e': [
-        (log,                           ('2.8: Ben FaceA MaterialMap Hash',)),
+        (log,                           ('2.8: Ben FaceA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('9c4f1a9a', 'Ben.Face.IB', 'match_priority = 0\n')),
     ],
 'dd8c0b3a': [
@@ -74,7 +76,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Body Textures ===
 '0313ed95': [
-        (log,                           ('2.8: Ben BodyA Diffuse Hash',)),
+        (log,                           ('2.8: Ben BodyA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('94288cca', 'Ben.Body.IB', 'match_priority = 0\n')),
     ],
 'cb84ed5e': [
@@ -83,7 +85,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('94288cca', 'Ben.Body.IB', 'match_priority = 0\n')),
     ],
 'd27a8f6b': [
-        (log,                           ('2.8: Ben BodyA LightMap Hash',)),
+        (log,                           ('2.8: Ben BodyA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('94288cca', 'Ben.Body.IB', 'match_priority = 0\n')),
     ],
 '9a724295': [
@@ -96,7 +98,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('94288cca', 'Ben.Body.IB', 'match_priority = 0\n')),
     ],
 '2edd6f62': [
-        (log,                           ('2.8: Ben BodyA MaterialMap Hash',)),
+        (log,                           ('2.8: Ben BodyA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('94288cca', 'Ben.Body.IB', 'match_priority = 0\n')),
     ],
 '3678fad4': [
@@ -145,15 +147,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === New Database 2.8 Synced Ben Weapon hashes ===
 '6fc3d991': [
-        (log,                           ('2.8: Ben Weapon LightMap Hash [New]',)),
+        (log,                           ('2.8: Ben Weapon LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('4e4f3440', 'Ben.Weapon.IB', 'match_priority = 0\n')),
     ],
 'bd88580a': [
-        (log,                           ('2.8: Ben Weapon Diffuse Hash [New]',)),
+        (log,                           ('2.8: Ben Weapon Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('4e4f3440', 'Ben.Weapon.IB', 'match_priority = 0\n')),
     ],
 'beeef18a': [
-        (log,                           ('2.8: Ben Weapon MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Ben Weapon MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('4e4f3440', 'Ben.Weapon.IB', 'match_priority = 0\n')),
     ],
     }

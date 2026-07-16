@@ -97,6 +97,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '6902f441': [(log, ('1.? -> 1.?: Lycaon Head Texcoord Hash',)), (update_hash, ('b1edaf35',))],
 'b1edaf35': [(log, ('1.? -> 1.6: Lycaon Head Texcoord Hash',)), (update_hash, ('3adaebb3',))],
 '7341e07b': [(log, ('1.5 -> 1.6: Lycaon Head IB Hash',)),       (update_hash, ('6ffdfccb',))],
+'7ee74083': [(log, ('1.0: Lycaon HeadA LightMap 1024p Hash [Legacy]',)), (update_hash, ('7341e07b',))],
+'fd705bb4': [(log, ('1.0: Lycaon HeadA LightMap 2048p Hash [Legacy]',)), (update_hash, ('7341e07b',))],
 '4f098897': [(log, ('1.5 -> 1.6: Lycaon Head Diffuse 1024p Hash',)), (update_hash, ('2cc208a7',))],
 
 # === Pembaruan Sinkronisasi Diffuse Bodi v2.8 ===

@@ -237,15 +237,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === New Database 2.8 Synced Corin Weapon hashes ===
 '8dd64c09': [
-        (log,                           ('2.8: Corin Weapon Diffuse Hash [New]',)),
+        (log,                           ('2.8: Corin Weapon Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n')),
     ],
 'e8c22497': [
-        (log,                           ('2.8: Corin Weapon LightMap Hash [New]',)),
+        (log,                           ('2.8: Corin Weapon LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n')),
     ],
 'b921465e': [
-        (log,                           ('2.8: Corin Weapon MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Corin Weapon MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('6f2286a6', 'Corin.Weapon.IB', 'match_priority = 0\n')),
     ],
     }

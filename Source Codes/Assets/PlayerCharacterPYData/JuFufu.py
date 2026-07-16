@@ -129,7 +129,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 '16e4cac1': [
-        (log,                           ('2.8: JuFufu BodyA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.8: JuFufu BodyA Diffuse 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 '9d1ab7c4': [
@@ -137,7 +137,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 'c952431f': [
-        (log,                           ('2.8: JuFufu BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: JuFufu BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 'f72af17c': [
@@ -145,7 +145,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 'd555b4f8': [
-        (log,                           ('2.8: JuFufu BodyA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.8: JuFufu BodyA MaterialMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('de303163', 'JuFufu.Body.IB', 'match_priority = 0\n')),
     ],
 
@@ -168,15 +168,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Tiger Prestige Textures (v2.8 Target) ===
 '094ac0a2': [
-        (log,                           ('2.8: JuFufu Tiger Prestige Diffuse Hash',)),
+        (log,                           ('2.8: JuFufu Tiger Prestige Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('b51e30e5', 'JuFufu.TigerPrestige.IB', 'match_priority = 0\n')),
     ],
 '4bb30541': [
-        (log,                           ('2.8: JuFufu Tiger Prestige LightMap Hash',)),
+        (log,                           ('2.8: JuFufu Tiger Prestige LightMap 2048p Hash',)),
         (add_section_if_missing,        ('b51e30e5', 'JuFufu.TigerPrestige.IB', 'match_priority = 0\n')),
     ],
 '9db94a04': [
-        (log,                           ('2.8: JuFufu Tiger Prestige MaterialMap Hash',)),
+        (log,                           ('2.8: JuFufu Tiger Prestige MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('b51e30e5', 'JuFufu.TigerPrestige.IB', 'match_priority = 0\n')),
     ],
 

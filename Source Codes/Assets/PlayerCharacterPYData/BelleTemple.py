@@ -33,6 +33,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '4e8b2454': [(log, ('2.8: BelleTemple Pink Badge IB Hash',)),           (add_ib_check_if_missing,)],
 '4dcc384f': [(log, ('2.8: BelleTemple Orange Green Badge IB Hash',)),   (add_ib_check_if_missing,)],
 '455bcfc7': [(log, ('2.8: BelleTemple Glasses IB Hash',)),               (add_ib_check_if_missing,)],
+'169e5f5d': [(log, ('3.0: BelleTemple BackRibbon IB Hash',)),            (add_ib_check_if_missing,)],
+'e850777c': [(log, ('3.0: BelleTemple Earring IB Hash',)),               (add_ib_check_if_missing,)],
 
 # === IB Hashes (v3.0 Target) ===
 'd0627e1f': [(log, ('3.0: BelleTemple Neck IB Hash',)),                  (add_ib_check_if_missing,)],
@@ -73,7 +75,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '04abceb5': [(log, ('2.8: BelleTemple Face draw_vb',)),                 (add_section_if_missing, ('9a9780a7', 'BelleTemple.Face.IB', 'match_priority = 0\n'))],
 '3eb95df2': [(log, ('2.8: BelleTemple Face position_vb',)),             (add_section_if_missing, ('9a9780a7', 'BelleTemple.Face.IB', 'match_priority = 0\n'))],
 '0c9a075b': [(log, ('2.8 -> 3.0: BelleTemple Face blend_vb [Legacy]',)), (update_hash, ('359e4502',))],
-'ccc76aea': [(log, ('2.8 -> 3.0: BelleTemple Face texcoord_vb Hash [Legacy]',)), (update_hash, ('d3000b22',))],
+'ccc76aea': [(log, ('2.8 -> 3.0: BelleTemple Face texcoord_vb Hash [Legacy]',)), (update_hash, ('bcfc3326',))],
+'bcfc3326': [(log, ('3.0: BelleTemple Face texcoord_vb Hash Target [Legacy Reference]',)), (add_section_if_missing, ('9a9780a7', 'BelleTemple.Face.IB', 'match_priority = 0\n'))],
 
 # Neck
 '4c215c73': [(log, ('2.8 -> 3.0: BelleTemple Neck draw_vb Hash [Legacy]',)), (update_hash, ('3f594476',))],
@@ -160,7 +163,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'f425bd04': [(log, ('2.8: Belle Body Texcoord Hash [Legacy] 2.0',)),     (update_hash, ('91fbd2fa',))],
 '84529dab': [(log, ('2.8: Belle BodyA Diffuse 2048p Hash [Legacy] Old',)), (update_hash, ('da2bfe2f',))],
 'ef76b675': [(log, ('2.8: Belle BodyA Diffuse 1024p Hash [Legacy] Old',)), (update_hash, ('0a2e0f42',))],
-'db7add33': [(log, ('2.8 -> 3.0: BelleTemple Neck blend_vb Hash [Legacy]',)), (update_hash, ('3bd79a0b',))],
+'db7add33': [(log, ('2.8 -> 3.0: BelleTemple Neck blend_vb Hash [Legacy]',)), (update_hash, ('f18dd23f',))],
+'cac9fd5d': [(log, ('2.0 -> 2.1: BelleTemple Body/Neck/Legs Diffuse Hash [Legacy]',)), (update_hash, ('da2bfe2f',))],
+'1de8fc08': [(log, ('2.8 -> 3.0: BelleTemple Face texcoord_vb [Legacy]',)), (update_hash, ('d3000b22',))],
 
 # === 3.0 Database Updates (Strict Sync) ===
 # Hair
@@ -222,6 +227,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === Body/Neck/Legs Shared Textures ===
+'59218fac': [
+        (log,                           ('2.8 -> 3.0: BelleTemple Body/Neck/Legs Diffuse Hash [Legacy]',)),
+        (update_hash,                   ('fdf0b49e',)),
+    ],
 'fdf0b49e': [
         (log,                           ('2.8: BelleTemple Body/Neck/Legs Diffuse Hash',)),
         (add_section_if_missing,        ('62ed56cc', 'BelleTemple.Neck.IB', 'match_priority = 0\n')),
@@ -368,57 +377,57 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     ],
 
 # === BelleSchoolUniform Components (v3.0) ===
-'0a843a8f': [(log, ('3.0: BelleSchoolUniform Hat IB Hash',)), (add_ib_check_if_missing,)],
-'b946c37f': [(log, ('3.0: BelleSchoolUniform Tie IB Hash',)), (add_ib_check_if_missing,)],
-'62711f82': [(log, ('3.0: BelleSchoolUniform Earrings IB Hash',)), (add_ib_check_if_missing,)],
-'feb1c4cd': [(log, ('3.0: BelleSchoolUniform Body IB Hash',)), (add_ib_check_if_missing,)],
-'a318b3c6': [(log, ('3.0: BelleSchoolUniform Player IB Hash',)), (add_ib_check_if_missing,)],
+'0a843a8f': [(log, ('3.0: BelleTemple Hat IB Hash',)), (add_ib_check_if_missing,)],
+'b946c37f': [(log, ('3.0: BelleTemple Tie IB Hash',)), (add_ib_check_if_missing,)],
+'62711f82': [(log, ('3.0: BelleTemple Earrings IB Hash',)), (add_ib_check_if_missing,)],
+'feb1c4cd': [(log, ('3.0: BelleTemple Body IB Hash',)), (add_ib_check_if_missing,)],
+'a318b3c6': [(log, ('3.0: BelleTemple Player IB Hash',)), (add_ib_check_if_missing,)],
 '08453671': [
-        (log,                           ('3.0: BelleSchoolUniform HatA MaterialMap 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA MaterialMap 1024p Hash',)),
         (multiply_section_if_missing,   ('57130f7c', 'BelleSchoolUniform.HatA.MaterialMap.2048')),
     ],
 '57130f7c': [
-        (log,                           ('3.0: BelleSchoolUniform HatA MaterialMap 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA MaterialMap 2048p Hash',)),
         (multiply_section_if_missing,   ('08453671', 'BelleSchoolUniform.HatA.MaterialMap.1024')),
     ],
 '269a82f9': [
-        (log,                           ('3.0: BelleSchoolUniform HatA Diffuse 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA Diffuse 1024p Hash',)),
         (multiply_section_if_missing,   ('8c0ea559', 'BelleSchoolUniform.HatA.Diffuse.2048')),
     ],
 '8c0ea559': [
-        (log,                           ('3.0: BelleSchoolUniform HatA Diffuse 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA Diffuse 2048p Hash',)),
         (multiply_section_if_missing,   ('269a82f9', 'BelleSchoolUniform.HatA.Diffuse.1024')),
     ],
 'a21dde78': [
-        (log,                           ('3.0: BelleSchoolUniform HatA LightMap 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA LightMap 1024p Hash',)),
         (multiply_section_if_missing,   ('dcb8ba2e', 'BelleSchoolUniform.HatA.LightMap.2048')),
     ],
 'dcb8ba2e': [
-        (log,                           ('3.0: BelleSchoolUniform HatA LightMap 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple HatA LightMap 2048p Hash',)),
         (multiply_section_if_missing,   ('a21dde78', 'BelleSchoolUniform.HatA.LightMap.1024')),
     ],
 '639ad374': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA Diffuse 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA Diffuse 1024p Hash',)),
         (multiply_section_if_missing,   ('a292d07d', 'BelleSchoolUniform.BodyA.Diffuse.2048')),
     ],
 'a292d07d': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA Diffuse 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA Diffuse 2048p Hash',)),
         (multiply_section_if_missing,   ('639ad374', 'BelleSchoolUniform.BodyA.Diffuse.1024')),
     ],
 'e1f357ec': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA LightMap 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA LightMap 1024p Hash',)),
         (multiply_section_if_missing,   ('42310c0e', 'BelleSchoolUniform.BodyA.LightMap.2048')),
     ],
 '42310c0e': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA LightMap 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA LightMap 2048p Hash',)),
         (multiply_section_if_missing,   ('e1f357ec', 'BelleSchoolUniform.BodyA.LightMap.1024')),
     ],
 '7c1fb5f6': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA MaterialMap 1024p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA MaterialMap 1024p Hash',)),
         (multiply_section_if_missing,   ('5724e531', 'BelleSchoolUniform.BodyA.MaterialMap.2048')),
     ],
 '5724e531': [
-        (log,                           ('3.0: BelleSchoolUniform BodyA MaterialMap 2048p Hash',)),
+        (log,                           ('3.0: BelleTemple BodyA MaterialMap 2048p Hash',)),
         (multiply_section_if_missing,   ('7c1fb5f6', 'BelleSchoolUniform.BodyA.MaterialMap.1024')),
     ],
 

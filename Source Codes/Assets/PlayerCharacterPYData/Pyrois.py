@@ -47,15 +47,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Hair Textures ===
 '28b3c245': [
-        (log,                           ('3.0: Pyrois Hair Diffuse Hash',)),
+        (log,                           ('3.0: Pyrois Hair Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('d98c8923', 'Pyrois.Hair.IB', 'match_priority = 0\n')),
     ],
 '0d24e396': [
-        (log,                           ('3.0: Pyrois Hair LightMap Hash',)),
+        (log,                           ('3.0: Pyrois Hair LightMap 2048p Hash',)),
         (add_section_if_missing,        ('d98c8923', 'Pyrois.Hair.IB', 'match_priority = 0\n')),
     ],
 'bd5b0984': [
-        (log,                           ('3.0: Pyrois Hair MaterialMap Hash',)),
+        (log,                           ('3.0: Pyrois Hair MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('d98c8923', 'Pyrois.Hair.IB', 'match_priority = 0\n')),
     ],
 
@@ -78,15 +78,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Sword Textures ===
 'bda9d364': [
-        (log,                           ('3.0: Pyrois Sword Diffuse Hash',)),
+        (log,                           ('3.0: Pyrois Sword Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('585b0241', 'Pyrois.Sword.IB', 'match_priority = 0\n')),
     ],
 '6bc7e6b2': [
-        (log,                           ('3.0: Pyrois Sword LightMap Hash',)),
+        (log,                           ('3.0: Pyrois Sword LightMap 2048p Hash',)),
         (add_section_if_missing,        ('585b0241', 'Pyrois.Sword.IB', 'match_priority = 0\n')),
     ],
 'a71b1a4a': [
-        (log,                           ('3.0: Pyrois Sword MaterialMap Hash',)),
+        (log,                           ('3.0: Pyrois Sword MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('585b0241', 'Pyrois.Sword.IB', 'match_priority = 0\n')),
     ],
 
@@ -131,7 +131,38 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('3.0: Pyrois HairA Diffuse 1024p Hash',)),
         (multiply_section_if_missing,   ('bee6766b', 'Pyrois.HairA.Diffuse.1024')),
     ],
-    }
+
+# === Legacy Sword 1024p Textures ===
+    '36cbf65b': [
+        (log,                           ('3.0: Pyrois Sword Diffuse 1024p Hash',)),
+        (update_hash,                   ('bda9d364',)),
+        (multiply_section_if_missing,   (('bda9d364', '36cbf65b'), 'Pyrois.Sword.Diffuse.2048')),
+    ],
+    '8cb22c6d': [
+        (log,                           ('3.0: Pyrois Sword MaterialMap 1024p Hash',)),
+        (update_hash,                   ('a71b1a4a',)),
+        (multiply_section_if_missing,   (('a71b1a4a', '8cb22c6d'), 'Pyrois.Sword.MaterialMap.2048')),
+    ],
+    '964cadd0': [
+        (log,                           ('3.0: Pyrois Sword LightMap 1024p Hash',)),
+        (update_hash,                   ('6bc7e6b2',)),
+        (multiply_section_if_missing,   (('6bc7e6b2', '964cadd0'), 'Pyrois.Sword.LightMap.2048')),
+    ],
+
+# === New Cape & GlowMap Hashes ===
+'6d49f4cf': [(log, ('3.0: Pyrois Cape1 IB Hash',)),                     (add_ib_check_if_missing,)],
+'a0a7b6de': [(log, ('3.0: Pyrois Cape2 IB Hash',)),                     (add_ib_check_if_missing,)],
+'e8d597ed': [(log, ('3.0: Pyrois Cape3 IB Hash',)),                     (add_ib_check_if_missing,)],
+'b7dd2930': [(log, ('3.0: Pyrois Cape4 IB Hash',)),                     (add_ib_check_if_missing,)],
+'3fcd46aa': [
+        (log,                           ('3.0: Pyrois Hair GlowMap Hash',)),
+        (add_section_if_missing,        ('d98c8923', 'Pyrois.Hair.IB', 'match_priority = 0\n')),
+    ],
+'785d91ba': [
+        (log,                           ('3.0: Pyrois Hair GlowMap2 Hash',)),
+        (add_section_if_missing,        ('d98c8923', 'Pyrois.Hair.IB', 'match_priority = 0\n')),
+    ],
+}
 
 
 # Character metadata

@@ -15,14 +15,30 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     """
     return {
 # === IB Hashes ===
-'776f5703': [(log, ('2.8: NicoleCutie Hair IB Hash',)),                 (add_ib_check_if_missing,)],
-'52842f31': [(log, ('2.8: NicoleCutie Body IB Hash',)),                 (add_ib_check_if_missing,)],
+'6847bbbd': [(log, ('1.0: NicoleCutie Hair IB Hash [Legacy]',)),          (update_hash, ('7dcfe907',)), (add_ib_check_if_missing,)],
+'776f5703': [(log, ('2.8 -> 3.0: NicoleCutie Hair IB Hash [Legacy]',)),      (update_hash, ('7dcfe907',)),],
+'7dcfe907': [(log, ('3.0: NicoleCutie Hair IB Hash',)),                      (add_ib_check_if_missing,)],
+'5a4c1ef3': [(log, ('1.0: NicoleCutie Body IB Hash [Legacy]',)),          (update_hash, ('e53364dd',)), (add_ib_check_if_missing,)],
+'52842f31': [(log, ('2.8 -> 3.0: NicoleCutie Body IB Hash [Legacy]',)),      (update_hash, ('e53364dd',)),],
+'e53364dd': [(log, ('3.0: NicoleCutie Body IB Hash',)),                      (add_ib_check_if_missing,)],
 '262c96ff': [(log, ('2.8: NicoleCutie Phone IB Hash',)),                 (add_ib_check_if_missing,)],
 '40e64ae2': [(log, ('2.8: NicoleCutie Amillion IB Hash',)),              (add_ib_check_if_missing,)],
 '7435fc0e': [(log, ('2.8 -> 3.0: NicoleCutie Face IB Hash [Legacy]',)),  (update_hash, ('93b02078',))],
 '93b02078': [(log, ('3.0: NicoleCutie Face IB Hash',)),                 (add_ib_check_if_missing,)],
 '4ed9a81f': [(log, ('2.8: NicoleCutie Hair Shadow IB Hash',)),          (add_ib_check_if_missing,)],
 'f9befc51': [(log, ('2.8: NicoleCutie Weapon IB Hash',)),                (add_ib_check_if_missing,)],
+
+# === Legacy Hash Updates ===
+'6d3868f9': [(log, ('1.0: NicoleCutie HairA Diffuse 2048p Hash [Legacy]',)),    (add_section_if_missing, ('6847bbbd', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('7a45adcd', 'NicoleCutie.HairA.Diffuse.1024'))],
+'7a45adcd': [(log, ('1.0: NicoleCutie HairA Diffuse 1024p Hash [Legacy]',)),    (add_section_if_missing, ('6847bbbd', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('6d3868f9', 'NicoleCutie.HairA.Diffuse.2048'))],
+'8c9c25d5': [(log, ('2.0: NicoleCutie HairA LightMap 2048p Hash [Legacy]',)), (add_section_if_missing, ('6847bbbd', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('f3c21e41', 'NicoleCutie.HairA.LightMap.1024'))],
+'f3c21e41': [(log, ('2.0: NicoleCutie HairA LightMap 1024p Hash [Legacy]',)), (add_section_if_missing, ('6847bbbd', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('8c9c25d5', 'NicoleCutie.HairA.LightMap.2048'))],
+'f86ffe2c': [(log, ('1.0: NicoleCutie BodyA, BangbooA Diffuse 2048p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('9ee9b402', 'NicoleCutie.BodyA.Diffuse.1024'))],
+'9ee9b402': [(log, ('1.0: NicoleCutie BodyA, BangbooA Diffuse 1024p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('f86ffe2c', 'NicoleCutie.BodyA.Diffuse.2048'))],
+'80855e0f': [(log, ('1.0: NicoleCutie BodyA, BangbooA LightMap 2048p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('2b5aa784', 'NicoleCutie.BodyA.LightMap.1024'))],
+'2b5aa784': [(log, ('1.0: NicoleCutie BodyA, BangbooA LightMap 1024p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('80855e0f', 'NicoleCutie.BodyA.LightMap.2048'))],
+'95cabef3': [(log, ('1.0: NicoleCutie BodyA, BangbooA MaterialMap 2048p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('bb33129d', 'NicoleCutie.BodyA.MaterialMap.1024'))],
+'bb33129d': [(log, ('1.0: NicoleCutie BodyA, BangbooA MaterialMap 1024p Hash [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'NicoleCutie.Body.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('95cabef3', 'NicoleCutie.BodyA.MaterialMap.2048'))],
 
 # === VB Hashes ===
 # Hair
@@ -199,24 +215,26 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'c03d03de': [(log, ('2.8: NicoleCutie Weapon LightMap 2 [Legacy]',)),       (update_hash, ('df7b84ed',))],
 'f1304abf': [(log, ('2.8: NicoleCutie Weapon MaterialMap 1 [Legacy]',)),   (update_hash, ('48f45547',))],
 
+# === NicoleSkin Texture Updates ===
+'6abd3dd3': [
+        (log,                           ('2.8: NicoleCutie HairA Diffuse 1024p Hash [Legacy]',)),
+        (update_hash,                   ('cdaa9ab5',)),
+        (multiply_section_if_missing,   (('cdaa9ab5', '6abd3dd3'), 'NicoleCutie.HairA.Diffuse.2048')),
+    ],
+
 # === Shared Normal Map ===
-'798adba3': [
-        (log,                           ('2.8: NicoleCutie Shared NormalMap Hash (v2.8 Target)',)),
-        (add_section_if_missing,        ('776f5703', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('52842f31', 'NicoleCutie.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('262c96ff', 'NicoleCutie.Phone.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('f9befc51', 'NicoleCutie.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('4ed9a81f', 'NicoleCutie.HairShadow.IB', 'match_priority = 0\n')),
-    ],
 'ebac056e': [
-        (log,                           ('2.8: NicoleCutie HairA, BodyA, PhoneA, AmillionA NormalMap Hash [Legacy]',)),
-        (add_section_if_missing,        ('776f5703', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('52842f31', 'NicoleCutie.Body.IB', 'match_priority = 0\n')),
+        (log,                           ('3.0: NicoleCutie Shared NormalMap Hash',)),
+        (add_section_if_missing,        ('7dcfe907', 'NicoleCutie.Hair.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('e53364dd', 'NicoleCutie.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('262c96ff', 'NicoleCutie.Phone.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('40e64ae2', 'NicoleCutie.Amillion.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('93b02078', 'NicoleCutie.Face.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('4ed9a81f', 'NicoleCutie.HairShadow.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('f9befc51', 'NicoleCutie.Weapon.IB', 'match_priority = 0\n')),
     ],
-    }
+
+}
 
 
 # Character metadata

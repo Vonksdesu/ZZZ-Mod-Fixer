@@ -39,6 +39,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '1eee2121': [(log, ('2.8: PanYinhu Face texcoord_vb Hash',)),             (add_section_if_missing, ('ebb6a59b', 'PanYinhu.Face.IB', 'match_priority = 0\n'))],
 '4aae3329': [(log, ('2.8: PanYinhu Face blend_vb Hash',)),                (add_section_if_missing, ('ebb6a59b', 'PanYinhu.Face.IB', 'match_priority = 0\n'))],
 
+# === Legacy Face Hash Update ===
+'523c1dca': [(log, ('2.0 -> 2.1: PanYinhu Face Position Hash',)),         (update_hash, ('784ab863',))],
+'784ab863': [(log, ('2.1: PanYinhu Face Position Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+
 # Weapon - Ladle (weapon-武器-炒勺)
 '2a45b03d': [(log, ('2.8: PanYinhu Ladle draw_vb Hash',)),               (add_section_if_missing, ('45a8cd1b', 'PanYinhu.WeaponLadle.IB', 'match_priority = 0\n'))],
 'e56ae11f': [(log, ('2.8: PanYinhu Ladle position_vb Hash',)),           (add_section_if_missing, ('45a8cd1b', 'PanYinhu.WeaponLadle.IB', 'match_priority = 0\n'))],

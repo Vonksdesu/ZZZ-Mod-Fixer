@@ -192,21 +192,21 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 'dc3a9ef1': [
-        (log,                           ('2.8: Anton Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Anton Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('a21ac290', 'Anton.Weapon.IB', 'match_priority = 0\n')),
     ],
 'cf503557': [
-        (log,                           ('2.8: Anton Weapon LightMap Hash',)),
+        (log,                           ('2.8: Anton Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('a21ac290', 'Anton.Weapon.IB', 'match_priority = 0\n')),
     ],
 'bd257544': [
-        (log,                           ('2.8: Anton Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Anton Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('a21ac290', 'Anton.Weapon.IB', 'match_priority = 0\n')),
     ],
 
 # === Shared Normal Map ===
 '798adba3': [
-        (log,                           ('2.8: Anton Shared NormalMap Hash (v2.8 Target)',)),
+        (log,                           ('2.8: Anton Shared NormalMap 2048p Hash (v2.8 Target)',)),
         (add_section_if_missing,        ('6b95c80d', 'Anton.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('653fb27c', 'Anton.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('a21fcee4', 'Anton.Jacket.IB', 'match_priority = 0\n')),

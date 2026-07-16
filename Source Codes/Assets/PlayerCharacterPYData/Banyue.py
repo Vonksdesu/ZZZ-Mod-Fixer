@@ -109,15 +109,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === BothArms Textures (v2.8 Target) ===
 'd6a9d46e': [
-        (log,                           ('2.8: Banyue BothArms Diffuse Hash',)),
+        (log,                           ('2.8: Banyue BothArms Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
     ],
 '46d2edd3': [
-        (log,                           ('2.8: Banyue BothArms LightMap Hash',)),
+        (log,                           ('2.8: Banyue BothArms LightMap 2048p Hash',)),
         (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
     ],
 '721a29de': [
-        (log,                           ('2.8: Banyue BothArms MaterialMap Hash',)),
+        (log,                           ('2.8: Banyue BothArms MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
     ],
 

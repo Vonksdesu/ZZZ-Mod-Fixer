@@ -45,6 +45,10 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Waist Supply
 'ec497419': [(log, ('2.8: Pulchra Waist Supply draw_vb Hash',)),         (add_section_if_missing, ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n'))],
+'49b9e647': [(log, ('2.0 -> 2.1: Pulchra Waist Supply position_vb Hash [Legacy]',)), (update_hash, ('b410f6f4',))],
+'b410f6f4': [(log, ('2.8: Pulchra Waist Supply position_vb Hash',)),     (add_section_if_missing, ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n'))],
+'8d36ab74': [(log, ('2.0 -> 2.1: Pulchra Waist Supply texcoord_vb Hash [Legacy]',)), (update_hash, ('5e8cc065',))],
+'5e8cc065': [(log, ('2.8: Pulchra Waist Supply texcoord_vb Hash',)),     (add_section_if_missing, ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n'))],
 '5391a870': [(log, ('2.8: Pulchra Waist Supply blend_vb Hash',)),        (add_section_if_missing, ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n'))],
 
 # Wrist Supply
@@ -163,19 +167,35 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Waist & Wrist Pouches Textures (v2.8 Target) ===
 'ebd6c100': [
-        (log,                           ('2.8: Pulchra Pouches Diffuse Hash',)),
+        (log,                           ('3.0: Pulchra Pouches Diffuse Hash',)),
         (add_section_if_missing,        ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('96cb7dc9', 'Pulchra.Wrist.IB', 'match_priority = 0\n')),
     ],
-'6f17d782': [
-        (log,                           ('2.8: Pulchra Pouches LightMap Hash',)),
+    '6f17d782': [
+        (log,                           ('3.0: Pulchra Pouches LightMap Hash',)),
         (add_section_if_missing,        ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('96cb7dc9', 'Pulchra.Wrist.IB', 'match_priority = 0\n')),
     ],
-'b8e1e3f6': [
-        (log,                           ('2.8: Pulchra Pouches MaterialMap Hash',)),
+    'b8e1e3f6': [
+        (log,                           ('3.0: Pulchra Pouches MaterialMap Hash',)),
         (add_section_if_missing,        ('425a7565', 'Pulchra.Waist.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('96cb7dc9', 'Pulchra.Wrist.IB', 'match_priority = 0\n')),
+    ],
+
+    'cae1373a': [
+        (log,                           ('3.0: Pulchra Waist/Wrist Pouches Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('cae1373a', 'Pulchra.Waist.Diffuse.1024')),
+        (multiply_section_if_missing,   ('cae1373a', 'Pulchra.Wrist.Diffuse.1024')),
+    ],
+    'f23d32e1': [
+        (log,                           ('3.0: Pulchra Waist/Wrist Pouches LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('f23d32e1', 'Pulchra.Waist.LightMap.1024')),
+        (multiply_section_if_missing,   ('f23d32e1', 'Pulchra.Wrist.LightMap.1024')),
+    ],
+    '9ea60b10': [
+        (log,                           ('3.0: Pulchra Waist/Wrist Pouches MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('9ea60b10', 'Pulchra.Waist.MaterialMap.1024')),
+        (multiply_section_if_missing,   ('9ea60b10', 'Pulchra.Wrist.MaterialMap.1024')),
     ],
 
 # === Shared Normal Map ===

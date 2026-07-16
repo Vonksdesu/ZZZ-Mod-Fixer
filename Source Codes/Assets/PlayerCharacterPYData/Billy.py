@@ -36,6 +36,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Face / Head
 'd776fbbe': [(log, ('2.8: Billy Head VertexLimit Hash',)),               (add_section_if_missing, ('dc7978f3', 'Billy.Head.IB', 'match_priority = 0\n'))],
+'f88a6fbe': [(log, ('2.0 -> 2.1: Billy Head position_vb Hash [Legacy]',)), (update_hash, ('ed6468f9',))],
 'ed6468f9': [(log, ('2.8: Billy Head position_vb Hash',)),               (add_section_if_missing, ('dc7978f3', 'Billy.Head.IB', 'match_priority = 0\n'))],
 'b19e644f': [(log, ('2.8: Billy Head texcoord_vb Hash',)),               (add_section_if_missing, ('dc7978f3', 'Billy.Head.IB', 'match_priority = 0\n'))],
 '26b0deb9': [(log, ('2.8: Billy Head blend_vb Hash',)),                  (add_section_if_missing, ('dc7978f3', 'Billy.Head.IB', 'match_priority = 0\n'))],
@@ -134,6 +135,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.8: Billy HairA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('21e98aeb', 'Billy.Hair.IB', 'match_priority = 0\n')),
     ],
+'87e6ddda': [
+        (log,                           ('2.0: Billy HairA LightMap 2048p Hash',)),
+        (add_section_if_missing,        ('21e98aeb', 'Billy.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('d269a0a1', 'Billy.HairA.LightMap.1024')),
+    ],
 
 # === Body Textures ===
 '399d9865': [
@@ -173,24 +179,24 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Textures (v2.8 Target) ===
 '3541c183': [
-        (log,                           ('2.8: Billy Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Billy Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'Billy.WeaponRight.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('1fd6dbf3', 'Billy.WeaponLeft.IB', 'match_priority = 0\n')),
     ],
 '6f6aad09': [
-        (log,                           ('2.8: Billy Weapon LightMap Hash',)),
+        (log,                           ('2.8: Billy Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'Billy.WeaponRight.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('1fd6dbf3', 'Billy.WeaponLeft.IB', 'match_priority = 0\n')),
     ],
 '11af0644': [
-        (log,                           ('2.8: Billy Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Billy Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'Billy.WeaponRight.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('1fd6dbf3', 'Billy.WeaponLeft.IB', 'match_priority = 0\n')),
     ],
 
 # === Shared Normal Map ===
 '798adba3': [
-        (log,                           ('2.8: Billy Shared NormalMap Hash (v2.8 Target)',)),
+        (log,                           ('2.8: Billy Shared NormalMap 2048p Hash (v2.8 Target)',)),
         (add_section_if_missing,        ('21e98aeb', 'Billy.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('3371580a', 'Billy.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('dc7978f3', 'Billy.Head.IB', 'match_priority = 0\n')),

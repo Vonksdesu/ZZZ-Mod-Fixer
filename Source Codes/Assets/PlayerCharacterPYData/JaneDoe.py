@@ -31,12 +31,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'e42171df': [
         (log,                           ('3.0: Jane Hair Blend Hash',)),
         (add_section_if_missing,        ('3275b812', 'Jane.Hair.IB', 'match_priority = 0\n')),
-        (log,                           ('+ Remapping hair blend indices (Jane 2.5+ bone fix)',)),
-        (update_buffer_blend_indices,   (
-            'e42171df',
-            (26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126),
-            (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 18, 22, 23, 24, 25, 26, 27, 28, 21, 29, 30, 31, 33, 34, 32, 36, 37, 35, 38, 39, 40, 41, 42, 44, 45, 46, 48, 47, 43, 49, 52, 53, 54, 55, 50, 51, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68),
-        )),
     ],
 
 # Body
@@ -67,53 +61,44 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'd06a9206': [
         (log,                           ('3.0: Jane Hands & Accessories blend_vb Hash',)),
         (add_section_if_missing,        ('294a319a', 'Jane.HandsAccessories.IB', 'match_priority = 0\n')),
-        (log,                           ('+ Remapping hand blend indices (Jane 2.5+ bone fix)',)),
-        (update_buffer_blend_indices,   (
-            'd06a9206',
-            (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 127, 128, 129),
-            (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60),
-        )),
     ],
 
 # === Legacy Hash Updates ===
 'c8ad344e': [
         (log, ('1.1 -> 1.2: Jane Hair Texcoord Hash',)),
         (update_hash, ('257a90d6',)),
-        (log, ('+ Remapping hair texcoord buffer',)),
-        (zzz_13_remap_texcoord, (
-            '11_Jane_Hair',
-            ('4f','2e','2e'),
-            ('4B','2f','2f')
-        )),
+        (log, ('+ Remapping texcoord buffer',)),
+        (zzz_12_shrink_texcoord_color, ('1.2',))
     ],
 '5721e4e7': [(log, ('1.3 -> 1.4: Jane Hair Draw Hash',)),               (update_hash, ('2d06e785',))],
 '24323bf9': [(log, ('1.3 -> 1.4: Jane Hair Position Hash',)),           (update_hash, ('e7a3b7dc',))],
 '0a10c747': [(log, ('1.3 -> 1.4: Jane Hair Blend Hash',)),              (update_hash, ('8721477f',))],
 '257a90d6': [(log, ('1.3 -> 1.4: Jane Hair Texcoord Hash',)),           (update_hash, ('acec29f8',))],
 '40fca454': [(log, ('1.3 -> 1.4: Jane Hair MaterialMap Hash',)),        (update_hash, ('5e34e275',))],
-'d1f56c7d': [(log, ('1.3 -> 1.4: Jane Body Diffuse Hash',)),            (update_hash, ('e62ae3b5',))],
-'3087f82a': [(log, ('1.3 -> 1.4: Jane Body LightMap Hash',)),           (update_hash, ('52fa9861',))],
-'99eae42e': [(log, ('1.3 -> 1.4: Jane Body MaterialMap Hash',)),        (update_hash, ('5dce2408',))],
+'d1f56c7d': [(log, ('1.3 -> 1.4: Jane Body Diffuse 2048p Hash',)),            (update_hash, ('e62ae3b5',))],
+'3087f82a': [(log, ('1.3 -> 1.4: Jane Body LightMap 2048p Hash',)),           (update_hash, ('52fa9861',))],
+'99eae42e': [(log, ('1.3 -> 1.4: Jane Body MaterialMap 2048p Hash',)),        (update_hash, ('5dce2408',))],
+'d1aa4b85': [(log, ('1.3 -> 1.4: Jane Body Draw Hash',)),                  (update_hash, ('0e1c6740',))],
+'06f9bc49': [(log, ('1.3 -> 1.4: Jane Body Position Hash',)),              (update_hash, ('10050266',))],
+'8b85c03e': [(log, ('1.3 -> 1.4: Jane Body Texcoord Hash',)),              (update_hash, ('949549de',))],
 
 # === Legacy Hash Updates (continued) ===
 '689639a5': [(log, ('1.3 -> 1.4: Jane HeadA Diffuse 1024p Hash',)), (update_hash, ('d823ac80',))],
 '8974fb74': [(log, ('1.3 -> 1.4: Jane HeadA Diffuse 2048p Hash',)), (update_hash, ('3b75aa2c',))],
 '9727a184': [(log, ('1.3 -> 1.4: Jane Body Blend Hash',)),    (update_hash, ('e27f398e',))],
 '9f2f7c53': [(log, ('2.4 -> 2.5: Jane Head Texcoord Hash',)), (update_hash, ('1fa404c1',))],
+'850d4cbf': [(log, ('2.1 -> 2.2: Jane Face Position Hash [Legacy]',)), (update_hash, ('eace2dfa',))],
+'eace2dfa': [(log, ('2.2: Jane Face Position Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+'7fd655de': [(log, ('2.1 -> 2.2: Jane Face Texcoord Hash [Legacy]',)), (update_hash, ('535e2453',))],
+'535e2453': [(log, ('2.2: Jane Face Texcoord Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+'a14461d9': [(log, ('2.1 -> 2.2: Jane Face Blend Hash [Legacy]',)), (update_hash, ('7310ad6a',))],
+'7310ad6a': [(log, ('2.2: Jane Face Blend Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+'0165f71c': [(log, ('1.1: Jane BodyA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('e2c0144e',))],
+'387dfc9f': [(log, ('1.1: Jane BodyA NormalMap 1024p Hash [Legacy]',)), (update_hash, ('e2c0144e',))],
+'4aa12b36': [(log, ('1.1: Jane HairA NormalMap 2048p Hash [Legacy]',)), (update_hash, ('7b16a708',))],
+'f0aded31': [(log, ('1.1: Jane HairA NormalMap 1024p Hash [Legacy]',)), (update_hash, ('7b16a708',))],
 
 # === Legacy Transition Paths ===
-'06f9bc49': [(log, ('1.1 -> 3.0: Jane Body Position Hash [Legacy]',)),   (update_hash, ('10050266',))],
-'d1aa4b85': [(log, ('1.1 -> 3.0: Jane Body VertexLimitRaise [Legacy]',)), (update_hash, ('0e1c6740',))],
-'8b85c03e': [
-        (log,                           ('1.1 -> 3.0: Jane Body Texcoord Hash [Legacy]',)),
-        (update_hash,                   ('949549de',)),
-        (log,                           ('+ Remapping body texcoord buffer',)),
-        (zzz_13_remap_texcoord, (
-            '11_Jane_Body',
-            ('2e','2e','2e'),
-            ('2f','2f','2f')
-        )),
-    ],
 '7b16a708': [(log, ('1.3 -> 1.4: Jane Hair IB Hash [Legacy]',)),        (update_hash, ('9268a5af',))],
 '9268a5af': [(log, ('1.4 -> 2.5: Jane Hair IB Hash [Legacy]',)),        (update_hash, ('3275b812',))],
 '8721477f': [(log, ('1.4 -> 2.5: Jane Hair Blend Hash [Legacy]',)),     (update_hash, ('e42171df',))],
@@ -205,16 +190,28 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Hand Knife Textures ===
 '59c18114': [
-        (log,                           ('3.0: Jane Hand Knife Diffuse Hash',)),
+        (log,                           ('3.0: Jane Hand Knife Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'Jane.HandKnife.IB', 'match_priority = 0\n')),
     ],
-'76cda993': [
-        (log,                           ('3.0: Jane Hand Knife LightMap Hash',)),
+    '0158a68f': [
+        (log,                           ('3.0: Jane Hand Knife Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('59c18114', 'Jane.HandKnife.Diffuse.2048')),
+    ],
+    '76cda993': [
+        (log,                           ('3.0: Jane Hand Knife LightMap 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'Jane.HandKnife.IB', 'match_priority = 0\n')),
     ],
-'d83ad325': [
-        (log,                           ('3.0: Jane Hand Knife MaterialMap Hash',)),
+    '655a0c17': [
+        (log,                           ('3.0: Jane Hand Knife LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('76cda993', 'Jane.HandKnife.LightMap.2048')),
+    ],
+    'd83ad325': [
+        (log,                           ('3.0: Jane Hand Knife MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'Jane.HandKnife.IB', 'match_priority = 0\n')),
+    ],
+    'f9f30a0e': [
+        (log,                           ('3.0: Jane Hand Knife MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('d83ad325', 'Jane.HandKnife.MaterialMap.2048')),
     ],
 
 # === Shared Normal Map ===

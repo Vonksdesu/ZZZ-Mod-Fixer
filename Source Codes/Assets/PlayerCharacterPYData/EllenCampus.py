@@ -80,12 +80,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'b06f7cb9': [(log, ('2.0 -> 2.8: EllenCampus Weapon Diffuse [Legacy]',)), (update_hash, ('e9e610cd',))],
 '0567bc4e': [(log, ('2.0 -> 2.8: EllenCampus Weapon LightMap [Legacy]',)), (update_hash, ('1721ed1a',))],
 'd4c2adaa': [(log, ('2.0 -> 2.8: EllenCampus Weapon MaterialMap [Legacy]',)), (update_hash, ('9aaa6b4b',))],
-'0cf3cd79': [(log, ('1.5 -> 2.0: EllenSkin HairA MaterialMap 1024p Hash',)), (update_hash, ('0ab940d8',))],
-'0de025b4': [(log, ('1.7 -> 2.0: EllenSkin HairA MaterialMap 2048p Hash',)), (update_hash, ('8740602f',))],
-'a4b66af3': [(log, ('1.5 -> 2.0: EllenSkin BodyA MaterialMap 1024p Hash',)), (update_hash, ('ae919d9f',))],
-'abb51170': [(log, ('1.7 -> 2.0: EllenSkin TailA MaterialMap 2048p Hash',)), (update_hash, ('51cc39d5',))],
-'beb3f207': [(log, ('1.5 -> 2.0: EllenSkin TailA MaterialMap 1024p Hash',)), (update_hash, ('cf37068c',))],
-'d08f1a54': [(log, ('1.7 -> 2.0: EllenSkin BodyA MaterialMap 2048p Hash',)), (update_hash, ('1d7b458d',))],
+'0cf3cd79': [(log, ('1.5 -> 2.0: EllenCampus HairA MaterialMap 1024p Hash',)), (update_hash, ('0ab940d8',))],
+'0de025b4': [(log, ('1.7 -> 2.0: EllenCampus HairA MaterialMap 2048p Hash',)), (update_hash, ('8740602f',))],
+'a4b66af3': [(log, ('1.5 -> 2.0: EllenCampus BodyA MaterialMap 1024p Hash',)), (update_hash, ('ae919d9f',))],
+'abb51170': [(log, ('1.7 -> 2.0: EllenCampus TailA MaterialMap 2048p Hash',)), (update_hash, ('51cc39d5',))],
+'beb3f207': [(log, ('1.5 -> 2.0: EllenCampus TailA MaterialMap 1024p Hash',)), (update_hash, ('cf37068c',))],
+'d08f1a54': [(log, ('1.7 -> 2.0: EllenCampus BodyA MaterialMap 2048p Hash',)), (update_hash, ('1d7b458d',))],
 
 # === Hair Textures ===
 '37eefb17': [

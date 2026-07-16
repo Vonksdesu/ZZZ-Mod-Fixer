@@ -143,7 +143,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('6324de38', 'Harumasa.Hair.IB', 'match_priority = 0\n')),
     ],
 '11041778': [
-        (log,                           ('2.8: Harumasa HairA LightMap Hash',)),
+        (log,                           ('2.8: Harumasa HairA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('6324de38', 'Harumasa.Hair.IB', 'match_priority = 0\n')),
     ],
 '7217c146': [
@@ -179,7 +179,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (multiply_section_if_missing,   ('4b4d0ff6', 'Harumasa.LegsA.LightMap.2048')),
     ],
 '72885950': [
-        (log,                           ('2.8: Harumasa LegsA MaterialMap Hash',)),
+        (log,                           ('2.8: Harumasa LegsA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('aa7ba2dc', 'Harumasa.Legs.IB', 'match_priority = 0\n')),
     ],
 'b84027c8': [
@@ -276,15 +276,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Weapon Quiver Textures (v2.8 Target) ===
 'c776b2ac': [
-        (log,                           ('2.8: Harumasa Quiver Diffuse Hash Part 2',)),
+        (log,                           ('2.8: Harumasa Quiver Diffuse 1024p Hash Part 2',)),
         (add_section_if_missing,        ('448ba3f6', 'Harumasa.WeaponQuiver.IB', 'match_priority = 0\n')),
     ],
 '0e38f04c': [
-        (log,                           ('2.8: Harumasa Quiver LightMap Hash Part 2',)),
+        (log,                           ('2.8: Harumasa Quiver LightMap 1024p Hash Part 2',)),
         (add_section_if_missing,        ('448ba3f6', 'Harumasa.WeaponQuiver.IB', 'match_priority = 0\n')),
     ],
 'ceb7b1fa': [
-        (log,                           ('2.8: Harumasa Quiver MaterialMap Hash Part 2',)),
+        (log,                           ('2.8: Harumasa Quiver MaterialMap 1024p Hash Part 2',)),
         (add_section_if_missing,        ('448ba3f6', 'Harumasa.WeaponQuiver.IB', 'match_priority = 0\n')),
     ],
 

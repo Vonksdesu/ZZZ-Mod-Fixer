@@ -184,7 +184,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('35cf83ad', 'Seth.Hair.IB', 'match_priority = 0\n')),
     ],
 'a855884d': [
-        (log,                           ('2.8: Seth HairA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Seth HairA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('35cf83ad', 'Seth.Hair.IB', 'match_priority = 0\n')),
     ],
 '57cf813c': [
@@ -192,7 +192,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('00172ec3', 'Seth.Body.IB', 'match_priority = 0\n')),
     ],
 '5b205468': [
-        (log,                           ('2.8: Seth BodyA LightMap Hash [Legacy]',)),
+        (log,                           ('2.8: Seth BodyA LightMap 2048p Hash [Legacy]',)),
         (add_section_if_missing,        ('00172ec3', 'Seth.Body.IB', 'match_priority = 0\n')),
     ],
 

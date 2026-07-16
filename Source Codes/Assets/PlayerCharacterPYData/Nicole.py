@@ -39,8 +39,9 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Hair Shadow
 '4d61e6f3': [(log, ('2.8: Nicole Hair Shadow draw_vb Hash',)),           (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
 'b408b261': [(log, ('2.8: Nicole Hair Shadow position_vb Hash',)),       (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
-'322345a6': [(log, ('2.8: Nicole Hair Shadow texcoord_vb Hash',)),       (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
-'ab4b28ad': [(log, ('2.8: Nicole Hair Shadow blend_vb Hash',)),          (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
+'322345a6': [(log, ('2.8 -> 3.0: Nicole Hair Shadow texcoord_vb [Legacy]',)), (update_hash, ('e6b9e50e',))],
+'e6b9e50e': [(log, ('3.0: Nicole Hair Shadow texcoord_vb Hash',)),            (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
+'ab4b28ad': [(log, ('2.8: Nicole Hair Shadow blend_vb Hash',)),               (add_section_if_missing, ('4ed9a81f', 'Nicole.HairShadow.IB', 'match_priority = 0\n'))],
 
 # Body
 '8cc1262b': [(log, ('2.8 -> 3.0: Nicole Body draw_vb [Legacy]',)),       (update_hash, ('b19da99e',))],
@@ -62,6 +63,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Face / Head
 '9274e401': [(log, ('2.8 -> 3.0: Nicole Face VertexLimit [Legacy]',)),   (update_hash, ('967c2f1c',))],
 '967c2f1c': [(log, ('3.0: Nicole Face VertexLimit',)),                   (add_section_if_missing, ('93b02078', 'Nicole.Head.IB', 'match_priority = 0\n'))],
+'a8667746': [(log, ('2.8 -> 3.0: Nicole Face position_vb [Legacy]',)),   (update_hash, ('ac6ebc5b',))],
+'ac6ebc5b': [(log, ('3.0: Nicole Face position_vb',)),                   (add_section_if_missing, ('93b02078', 'Nicole.Head.IB', 'match_priority = 0\n'))],
 '5714e5e6': [(log, ('2.8 -> 3.0: Nicole Face Texcoord [Legacy]',)),      (update_hash, ('d5958556',))],
 'd5958556': [(log, ('3.0: Nicole Face Texcoord',)),                      (add_section_if_missing, ('93b02078', 'Nicole.Head.IB', 'match_priority = 0\n'))],
 'b25ebcf6': [(log, ('2.8 -> 3.0: Nicole Face Blend [Legacy]',)),         (update_hash, ('292d1b1f',))],
@@ -84,7 +87,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '9ee9b402': [(log, ('1.0-1.7: Nicole BodyA, AmillionA Diffuse 1024p Hash (Removed in 2.5) [Legacy]',)), (multiply_section_if_missing, ('f86ffe2c', 'Nicole.BodyA.Diffuse.2048'))],
 '2b5aa784': [(log, ('1.0-1.7: Nicole BodyA, AmillionA LightMap 1024p Hash (Removed in 2.5) [Legacy]',)), (multiply_section_if_missing, ('80855e0f', 'Nicole.BodyA.LightMap.2048'))],
 'bb33129d': [(log, ('1.0-1.7: Nicole BodyA, AmillionA MaterialMap 1024p Hash (Removed in 2.5) [Legacy]',)), (multiply_section_if_missing, ('95cabef3', 'Nicole.BodyA.MaterialMap.2048'))],
-
 '580df52d': [(log, ('1.0-1.7: Nicole BodyA, BangbooA NormalMap 1024p Hash (Removed in 2.5) [Legacy]',)), (add_section_if_missing, ('5a4c1ef3', 'Nicole.Body.IB', 'match_priority = 0\n')), (add_section_if_missing, ('40e64ae2', 'Nicole.Bangboo.IB', 'match_priority = 0\n')), (multiply_section_if_missing, ('8cf23419', 'Nicole.BodyA.NormalMap.2048'))],
 '76e8ac35': [(log, ('2.8: Nicole Weapon Diffuse Part 2 [Legacy]',)),     (update_hash, ('f1af36a8',))],
 'a365836f': [(log, ('2.8: Nicole Weapon LightMap [Legacy]',)),           (update_hash, ('6d5ee825',))],

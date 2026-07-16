@@ -117,6 +117,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n')),
     ],
+
+# === Eye Textures ===
+'9c4b3484': [
+        (log,                           ('2.8: AriaAgent Eye Diffuse Hash',)),
+        (add_section_if_missing,        ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n')),
+    ],
     }
 
 

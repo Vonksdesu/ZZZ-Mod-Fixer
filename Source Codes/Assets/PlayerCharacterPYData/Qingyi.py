@@ -217,15 +217,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Texture Hashes (v2.8 Target)
 '330dfe54': [
-        (log,                           ('2.8: Qingyi Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Qingyi Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n')),
     ],
 '2d703fde': [
-        (log,                           ('2.8: Qingyi Weapon LightMap Hash',)),
+        (log,                           ('2.8: Qingyi Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n')),
     ],
 '8d6da65b': [
-        (log,                           ('2.8: Qingyi Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Qingyi Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('6b62986f', 'Qingyi.Weapon.IB', 'match_priority = 0\n')),
     ],
 '798adba3': [

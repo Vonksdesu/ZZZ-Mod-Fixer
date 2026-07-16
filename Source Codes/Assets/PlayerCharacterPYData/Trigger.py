@@ -38,10 +38,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Face
 '8057c562': [(log, ('2.8: Trigger Face VertexLimit Hash',)),              (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
+'ba455625': [(log, ('2.0 -> 2.1: Trigger Face Position Hash [Legacy]',)), (update_hash, ('dfc69ad0',))],
 'dfc69ad0': [(log, ('2.8: Trigger Face Position Hash',)),                (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
 'b9f0d595': [(log, ('2.2 -> 2.3: Trigger Face Texcoord Hash',)), (update_hash, ('d4a12ab7',))],
+'b6d507d9': [(log, ('2.0 -> 2.1: Trigger Face Texcoord Hash [Legacy]',)), (update_hash, ('a58b916d',))],
 
 'd4a12ab7': [(log, ('2.8: Trigger Face Texcoord Hash',)),                (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
+'a58b916d': [(log, ('2.0 -> 2.1: Trigger Face Texcoord Hash [Legacy]',)), (update_hash, ('d4a12ab7',))],
 '1a9a858c': [(log, ('2.8: Trigger Face Blend Hash',)),                   (add_section_if_missing, ('40cd4182', 'Trigger.Face.IB', 'match_priority = 0\n'))],
 
 # Weapon - Gun Body
@@ -52,6 +55,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Weapon - Gun Stock
 '0cdfa94a': [(log, ('2.8: Trigger Weapon Gun Stock draw_vb Hash',)),      (add_section_if_missing, ('bb079ba3', 'Trigger.WeaponStock.IB', 'match_priority = 0\n'))],
+'988144a6': [(log, ('2.0 -> 2.1: Trigger Weapon Gun Stock position_vb Hash [Legacy]',)), (update_hash, ('862efc96',))],
+'862efc96': [(log, ('2.1: Trigger Weapon Gun Stock position_vb Hash Target [Legacy Reference]',)), (add_section_if_missing, ('bb079ba3', 'Trigger.WeaponStock.IB', 'match_priority = 0\n'))],
 '570ffcdc': [(log, ('2.8: Trigger Weapon Gun Stock position_vb Hash',)),  (add_section_if_missing, ('bb079ba3', 'Trigger.WeaponStock.IB', 'match_priority = 0\n'))],
 '73555896': [(log, ('2.8: Trigger Weapon Gun Stock texcoord_vb Hash',)),  (add_section_if_missing, ('bb079ba3', 'Trigger.WeaponStock.IB', 'match_priority = 0\n'))],
 '7ab2b542': [(log, ('2.8: Trigger Weapon Gun Stock blend_vb Hash',)),     (add_section_if_missing, ('bb079ba3', 'Trigger.WeaponStock.IB', 'match_priority = 0\n'))],

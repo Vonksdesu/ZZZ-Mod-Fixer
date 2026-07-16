@@ -304,6 +304,58 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.5: YeShunguangTouchOfDawnlight SkirtA MaterialMap 2048p Hash',)),
         (multiply_section_if_missing,   ('a2ae050f', 'YeShunguangTouchOfDawnlight.SkirtA.MaterialMap.1024')),
     ],
+
+# === Legacy 3.0 1024p Texture Hashes ===
+    '3359b263': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight HairA, FrontHairA Diffuse 1024p Hash',)),
+        (update_hash,                   ('79f6acd7',)),
+        (multiply_section_if_missing,   (('79f6acd7', '3359b263'), 'YeShunguangTouchOfDawnlight.HairA.Diffuse.2048')),
+    ],
+    '3c140ab4': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight HairA, FrontHairA LightMap 1024p Hash',)),
+        (update_hash,                   ('88269532',)),
+        (multiply_section_if_missing,   (('88269532', '3c140ab4'), 'YeShunguangTouchOfDawnlight.HairA.LightMap.2048')),
+    ],
+    'c009d7c9': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight HairA, FrontHairA MaterialMap 1024p Hash',)),
+        (update_hash,                   ('825fbf26',)),
+        (multiply_section_if_missing,   (('825fbf26', 'c009d7c9'), 'YeShunguangTouchOfDawnlight.HairA.MaterialMap.2048')),
+    ],
+    '019fb20a': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight BraidA, HeadwearLongRibbonA, RibbonFlowerA Diffuse 1024p Hash',)),
+        (update_hash,                   ('8d400443',)),
+        (multiply_section_if_missing,   (('8d400443', '019fb20a'), 'YeShunguangTouchOfDawnlight.BraidA.Diffuse.2048')),
+    ],
+    '656d2415': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight BraidA, HeadwearLongRibbonA, RibbonFlowerA LightMap 1024p Hash',)),
+        (update_hash,                   ('68e162a7',)),
+        (multiply_section_if_missing,   (('68e162a7', '656d2415'), 'YeShunguangTouchOfDawnlight.BraidA.LightMap.2048')),
+    ],
+    '926bffd5': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight BraidA, HeadwearLongRibbonA, RibbonFlowerA MaterialMap 1024p Hash',)),
+        (update_hash,                   ('fdd44e2a',)),
+        (multiply_section_if_missing,   (('fdd44e2a', '926bffd5'), 'YeShunguangTouchOfDawnlight.BraidA.MaterialMap.2048')),
+    ],
+    '50f2ead2': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight FaceA, BrowsA Diffuse 1024p Hash',)),
+        (update_hash,                   ('6ed0c951',)),
+        (multiply_section_if_missing,   (('6ed0c951', '50f2ead2'), 'YeShunguangTouchOfDawnlight.FaceA.Diffuse.2048')),
+    ],
+    'f5e4bed0': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight Sword Diffuse 1024p Hash',)),
+        (update_hash,                   ('7eb1ca38',)),
+        (multiply_section_if_missing,   (('7eb1ca38', 'f5e4bed0'), 'YeShunguangTouchOfDawnlight.Sword.Diffuse.2048')),
+    ],
+    'c2c54664': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight Sword LightMap 1024p Hash',)),
+        (update_hash,                   ('90250152',)),
+        (multiply_section_if_missing,   (('90250152', 'c2c54664'), 'YeShunguangTouchOfDawnlight.Sword.LightMap.2048')),
+    ],
+    'ef4c4385': [
+        (log,                           ('3.0: YeShunguangTouchOfDawnlight Sword MaterialMap 1024p Hash',)),
+        (update_hash,                   ('a355e13d',)),
+        (multiply_section_if_missing,   (('a355e13d', 'ef4c4385'), 'YeShunguangTouchOfDawnlight.Sword.MaterialMap.2048')),
+    ],
     }
 
 

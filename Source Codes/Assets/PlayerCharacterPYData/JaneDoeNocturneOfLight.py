@@ -30,12 +30,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'e42171df': [
         (log,                           ('3.0: JaneNocturne Hair blend_vb',)),
         (add_section_if_missing,        ('3275b812', 'JaneNocturne.Hair.IB', 'match_priority = 0\n')),
-        (log,                           ('+ Remapping hair blend indices (Jane 2.5+ bone fix)',)),
-        (update_buffer_blend_indices,   (
-            'e42171df',
-            (26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126),
-            (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 18, 22, 23, 24, 25, 26, 27, 28, 21, 29, 30, 31, 33, 34, 32, 36, 37, 35, 38, 39, 40, 41, 42, 44, 45, 46, 48, 47, 43, 49, 52, 53, 54, 55, 50, 51, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68),
-        )),
     ],
 
 # Hair Shadow
@@ -70,19 +64,35 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('3.0: JaneNocturne Face Diffuse Hash',)),
         (add_section_if_missing,        ('ef86fc9f', 'JaneNocturne.Face.IB', 'match_priority = 0\n')),
     ],
+    'd823ac80': [
+        (log,                           ('3.0: JaneNocturne Face Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('3b75aa2c', 'JaneNocturne.HeadA.Diffuse.2048')),
+    ],
 
 # === Hair Textures ===
 'f7ef1a53': [
         (log,                           ('3.0: JaneNocturne Hair Diffuse Hash',)),
         (add_section_if_missing,        ('3275b812', 'JaneNocturne.Hair.IB', 'match_priority = 0\n')),
     ],
-'9ec4cd4f': [
+    'b33a9770': [
+        (log,                           ('3.0: JaneNocturne Hair Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('f7ef1a53', 'JaneNocturne.HairA.Diffuse.2048')),
+    ],
+    '9ec4cd4f': [
         (log,                           ('3.0: JaneNocturne Hair LightMap Hash',)),
         (add_section_if_missing,        ('3275b812', 'JaneNocturne.Hair.IB', 'match_priority = 0\n')),
     ],
-'5e34e275': [
+    '5e12acc1': [
+        (log,                           ('3.0: JaneNocturne Hair LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('9ec4cd4f', 'JaneNocturne.HairA.LightMap.2048')),
+    ],
+    '5e34e275': [
         (log,                           ('3.0: JaneNocturne Hair MaterialMap Hash',)),
         (add_section_if_missing,        ('3275b812', 'JaneNocturne.Hair.IB', 'match_priority = 0\n')),
+    ],
+    '40fca454': [
+        (log,                           ('3.0: JaneNocturne Hair MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('5e34e275', 'JaneNocturne.HairA.MaterialMap.2048')),
     ],
 
 # === Body Textures ===
@@ -91,36 +101,48 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('a47bf989',)),
     ],
 'a47bf989': [
-        (log,                           ('3.0: JaneNocturne Body Diffuse Hash',)),
+        (log,                           ('3.0: JaneNocturne Body Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('ac900322', 'JaneNocturne.Body.IB', 'match_priority = 0\n')),
     ],
 'dd1b5520': [
-        (log,                           ('3.0: JaneNocturne Body LightMap Hash',)),
+        (log,                           ('3.0: JaneNocturne Body LightMap 2048p Hash',)),
         (add_section_if_missing,        ('ac900322', 'JaneNocturne.Body.IB', 'match_priority = 0\n')),
     ],
 '389d9c67': [
-        (log,                           ('3.0: JaneNocturne Body MaterialMap Hash',)),
+        (log,                           ('3.0: JaneNocturne Body MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('ac900322', 'JaneNocturne.Body.IB', 'match_priority = 0\n')),
     ],
 
 # === Leg Ring Gemstone Textures ===
 'e108fa5b': [
-        (log,                           ('3.0: JaneNocturne Leg Ring Gemstone Diffuse Hash',)),
+        (log,                           ('3.0: JaneNocturne Leg Ring Gemstone Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('ca887a07', 'JaneNocturne.LegRingGemstone.IB', 'match_priority = 0\n')),
     ],
 
 # === Hand Knife Textures ===
 '59c18114': [
-        (log,                           ('3.0: JaneNocturne Hand Knife Diffuse Hash',)),
+        (log,                           ('3.0: JaneNocturne Hand Knife Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'JaneNocturne.HandKnife.IB', 'match_priority = 0\n')),
     ],
-'76cda993': [
-        (log,                           ('3.0: JaneNocturne Hand Knife LightMap Hash',)),
+    '0158a68f': [
+        (log,                           ('3.0: JaneNocturne Hand Knife Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,   ('59c18114', 'JaneNocturne.HandKnife.Diffuse.2048')),
+    ],
+    '76cda993': [
+        (log,                           ('3.0: JaneNocturne Hand Knife LightMap 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'JaneNocturne.HandKnife.IB', 'match_priority = 0\n')),
     ],
-'d83ad325': [
-        (log,                           ('3.0: JaneNocturne Hand Knife MaterialMap Hash',)),
+    '655a0c17': [
+        (log,                           ('3.0: JaneNocturne Hand Knife LightMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('76cda993', 'JaneNocturne.HandKnife.LightMap.2048')),
+    ],
+    'd83ad325': [
+        (log,                           ('3.0: JaneNocturne Hand Knife MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('602c545a', 'JaneNocturne.HandKnife.IB', 'match_priority = 0\n')),
+    ],
+    'f9f30a0e': [
+        (log,                           ('3.0: JaneNocturne Hand Knife MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,   ('d83ad325', 'JaneNocturne.HandKnife.MaterialMap.2048')),
     ],
 
 # === Shared Normal Map ===
@@ -140,28 +162,42 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Legacy BodyA Textures ===
     'a47bf989': [
         (log,                           ('1.1: JaneSkin BodyA Diffuse 2048p Hash',)),
-        (multiply_section_if_missing,   ('be442045', 'JaneSkin.BodyA.Diffuse.1024')),
+        (multiply_section_if_missing,   ('be442045', 'JaneDoeNocturneOfLight.BodyA.Diffuse.1024')),
     ],
     'be442045': [
         (log,                           ('1.1: JaneSkin BodyA Diffuse 1024p Hash',)),
-        (multiply_section_if_missing,   ('a47bf989', 'JaneSkin.BodyA.Diffuse.2048')),
+        (multiply_section_if_missing,   ('a47bf989', 'JaneDoeNocturneOfLight.BodyA.Diffuse.2048')),
     ],
     'dd1b5520': [
         (log,                           ('1.1: JaneSkin BodyA LightMap 2048p Hash',)),
-        (multiply_section_if_missing,   ('f655d62e', 'JaneSkin.BodyA.LightMap.1024')),
+        (multiply_section_if_missing,   ('f655d62e', 'JaneDoeNocturneOfLight.BodyA.LightMap.1024')),
     ],
     'f655d62e': [
         (log,                           ('1.1: JaneSkin BodyA LightMap 1024p Hash',)),
-        (multiply_section_if_missing,   ('dd1b5520', 'JaneSkin.BodyA.LightMap.2048')),
+        (multiply_section_if_missing,   ('dd1b5520', 'JaneDoeNocturneOfLight.BodyA.LightMap.2048')),
     ],
     '389d9c67': [
         (log,                           ('1.1: JaneSkin BodyA MaterialMap 2048p Hash',)),
-        (multiply_section_if_missing,   ('13eafbbd', 'JaneSkin.BodyA.MaterialMap.1024')),
+        (multiply_section_if_missing,   ('13eafbbd', 'JaneDoeNocturneOfLight.BodyA.MaterialMap.1024')),
     ],
     '13eafbbd': [
         (log,                           ('1.1: JaneSkin BodyA MaterialMap 1024p Hash',)),
-        (multiply_section_if_missing,   ('389d9c67', 'JaneSkin.BodyA.MaterialMap.2048')),
+        (multiply_section_if_missing,   ('389d9c67', 'JaneDoeNocturneOfLight.BodyA.MaterialMap.2048')),
     ],
+
+# === Legacy Hash Updates ===
+'9268a5af': [(log, ('2.4 -> 2.5: JaneNocturne Hair IB Hash [Legacy]',)), (update_hash, ('3275b812',))],
+'2d06e785': [(log, ('2.4 -> 2.5: JaneNocturne Hair Draw Hash [Legacy]',)), (update_hash, ('74bc0b7f',))],
+'e7a3b7dc': [(log, ('2.4 -> 2.5: JaneNocturne Hair Position Hash [Legacy]',)), (update_hash, ('33a09cfe',))],
+'acec29f8': [(log, ('2.4 -> 2.5: JaneNocturne Hair Texcoord Hash [Legacy]',)), (update_hash, ('fa617c9a',))],
+'8721477f': [(log, ('2.4 -> 2.5: JaneNocturne Hair Blend Hash [Legacy]',)), (update_hash, ('e42171df',))],
+'9f2f7c53': [(log, ('2.4 -> 2.5: JaneNocturne Head Texcoord Hash [Legacy]',)), (update_hash, ('1fa404c1',))],
+'850d4cbf': [(log, ('2.1 -> 2.2: JaneNocturne Face Position Hash [Legacy]',)), (update_hash, ('eace2dfa',))],
+'eace2dfa': [(log, ('2.2: JaneNocturne Face Position Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+'7fd655de': [(log, ('2.1 -> 2.2: JaneNocturne Face Texcoord Hash [Legacy]',)), (update_hash, ('535e2453',))],
+'535e2453': [(log, ('2.2: JaneNocturne Face Texcoord Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
+'a14461d9': [(log, ('2.1 -> 2.2: JaneNocturne Face Blend Hash [Legacy]',)), (update_hash, ('7310ad6a',))],
+'7310ad6a': [(log, ('2.2: JaneNocturne Face Blend Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
     }
 
 

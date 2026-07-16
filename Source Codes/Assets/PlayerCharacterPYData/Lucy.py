@@ -93,6 +93,8 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Legacy Hash Updates ===
 '5315f036': [(log, ('1.2 -> 1.3: Lucy Hair Blend Hash',)),    (update_hash, ('a37c7537',))],
 '751e21a5': [(log, ('1.2 -> 1.3: Lucy Hair Texcoord Hash',)), (update_hash, ('c8810832',))],
+'9b4dfd86': [(log, ('1.3 -> 2.0: Lucy HairWallpaper Position Hash',)), (update_hash, ('39cfd24c',))],
+'39cfd24c': [(log, ('2.0: Lucy HairWallpaper Position Hash Target [Legacy Reference]',)), (add_ib_check_if_missing,)],
 '198e99d7': [
         (log, ('1.2 -> 1.3: Lucy Hair IB Hash',)),
         (update_hash, ('69ad9d08',)),
@@ -219,36 +221,36 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 'ca5fd23a': [(log, ('1.0 -> 2.8: Lucy HelmetA NormalMap 2048p Hash',)), (update_hash, ('ebac056e',))],
 'f4d44970': [(log, ('1.0 -> 2.8: Lucy HelmetA NormalMap 1024p Hash',)), (update_hash, ('ebac056e',))],
 '0a99d9d5': [
-        (log,                           ('2.8: Lucy HelmetA MaterialMap Hash',)),
+        (log,                           ('2.8: Lucy HelmetA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('4227db77', 'b3013a33'), 'Lucy.HelmetA.MaterialMap')),
     ],
 
 # === Weapon Textures (v2.8 Target) ===
 'a580ad12': [
-        (log,                           ('2.8: Lucy Weapon Diffuse Hash',)),
+        (log,                           ('2.8: Lucy Weapon Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('cff7ddad', 'Lucy.Weapon.IB', 'match_priority = 0\n')),
     ],
 'b4f4dfdc': [
-        (log,                           ('2.8: Lucy Weapon LightMap Hash',)),
+        (log,                           ('2.8: Lucy Weapon LightMap 2048p Hash',)),
         (add_section_if_missing,        ('cff7ddad', 'Lucy.Weapon.IB', 'match_priority = 0\n')),
     ],
 '7e203979': [
-        (log,                           ('2.8: Lucy Weapon MaterialMap Hash',)),
+        (log,                           ('2.8: Lucy Weapon MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('cff7ddad', 'Lucy.Weapon.IB', 'match_priority = 0\n')),
     ],
 
 # === Little Pig Textures (v2.8 Target) ===
 '30bf583f': [
-        (log,                           ('2.8: Lucy Little Pig Diffuse Hash',)),
+        (log,                           ('2.8: Lucy Little Pig Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('e47150d9', 'Lucy.LittlePig.IB', 'match_priority = 0\n')),
     ],
 '13c237a3': [
-        (log,                           ('2.8: Lucy Little Pig LightMap Hash',)),
+        (log,                           ('2.8: Lucy Little Pig LightMap 2048p Hash',)),
         (add_section_if_missing,        ('e47150d9', 'Lucy.LittlePig.IB', 'match_priority = 0\n')),
     ],
 '84d36706': [
-        (log,                           ('2.8: Lucy Little Pig MaterialMap Hash',)),
+        (log,                           ('2.8: Lucy Little Pig MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('e47150d9', 'Lucy.LittlePig.IB', 'match_priority = 0\n')),
     ],
 

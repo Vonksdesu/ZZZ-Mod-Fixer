@@ -37,6 +37,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 '2182114e': [(log, ('2.8: StarlightBilly Hair position_vb',)),      (add_section_if_missing, ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n'))],
 'bedc10c4': [(log, ('2.8: StarlightBilly Hair texcoord_vb',)),      (add_section_if_missing, ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n'))],
 '794d5c7b': [(log, ('2.8: StarlightBilly Hair blend_vb',)),         (add_section_if_missing, ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n'))],
+'058d85b5': [(log, ('2.8: StarlightBilly HairA MaterialMap 2048p Hash',)),    (add_section_if_missing, ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n'))],
 
 # Body
 'c0d45183': [(log, ('2.8: StarlightBilly Body draw_vb',)),          (add_section_if_missing, ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n'))],
@@ -128,7 +129,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 'f55b5dbb': [
-        (log,                           ('2.8: StarlightBilly FaceA Diffuse Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly FaceA Diffuse 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 '4784f14a': [
@@ -136,7 +137,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 'ba8a1e40': [
-        (log,                           ('2.8: StarlightBilly FaceA LightMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly FaceA LightMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 'd08a92b4': [
@@ -144,13 +145,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 'bdc617ad': [
-        (log,                           ('2.8: StarlightBilly FaceA MaterialMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly FaceA MaterialMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('47be3135', 'StarlightBilly.Face.IB', 'match_priority = 0\n')),
     ],
 
 # === Hair Textures ===
 'ff939fb7': [
-        (log,                           ('3.0: StarlightBilly Hair Diffuse Hash',)),
+        (log,                           ('3.0: StarlightBilly Hair Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n')),
     ],
 '6a6a1c79': [
@@ -158,7 +159,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (update_hash,                   ('ff939fb7',)),
     ],
 'b6e1da4b': [
-        (log,                           ('3.0: StarlightBilly Hair LightMap Hash',)),
+        (log,                           ('3.0: StarlightBilly Hair LightMap 2048p Hash',)),
         (add_section_if_missing,        ('b126d40d', 'StarlightBilly.Hair.IB', 'match_priority = 0\n')),
     ],
 '2edbc842': [
@@ -172,7 +173,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 '30b6b9c7': [
-        (log,                           ('2.8: StarlightBilly BodyA Diffuse Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly BodyA Diffuse 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 '7ac1a66a': [
@@ -180,7 +181,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 'da2181cf': [
-        (log,                           ('2.8: StarlightBilly BodyA LightMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly BodyA LightMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 '150df321': [
@@ -188,7 +189,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 'd85dec5d': [
-        (log,                           ('2.8: StarlightBilly BodyA MaterialMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly BodyA MaterialMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
     ],
 
@@ -298,7 +299,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 'ed4bde0d': [
-        (log,                           ('2.8: StarlightBilly Motorcycle Diffuse Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly Motorcycle Diffuse 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 '5dc62b0b': [
@@ -306,7 +307,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 '573e87e3': [
-        (log,                           ('2.8: StarlightBilly Motorcycle LightMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly Motorcycle LightMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 '81cd8366': [
@@ -314,13 +315,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 '6b61b30c': [
-        (log,                           ('2.8: StarlightBilly Motorcycle MaterialMap Hash (Skins)',)),
+        (log,                           ('2.8: StarlightBilly Motorcycle MaterialMap 2048p Hash (Skins)',)),
         (add_section_if_missing,        ('26d71d07', 'StarlightBilly.Motorcycle.IB', 'match_priority = 0\n')),
     ],
 
 # === Gun Textures ===
 '3541c183': [
-        (log,                           ('2.8: StarlightBilly Gun Diffuse Hash',)),
+        (log,                           ('2.8: StarlightBilly Gun Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'StarlightBilly.Gun.IB', 'match_priority = 0\n')),
     ],
 '3a1ee1d7': [
@@ -328,7 +329,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('9f671d6b', 'StarlightBilly.Gun.IB', 'match_priority = 0\n')),
     ],
 '6f6aad09': [
-        (log,                           ('2.8: StarlightBilly Gun LightMap Hash',)),
+        (log,                           ('2.8: StarlightBilly Gun LightMap 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'StarlightBilly.Gun.IB', 'match_priority = 0\n')),
     ],
 '4b0a8224': [
@@ -336,7 +337,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('9f671d6b', 'StarlightBilly.Gun.IB', 'match_priority = 0\n')),
     ],
 '11af0644': [
-        (log,                           ('2.8: StarlightBilly Gun MaterialMap Hash',)),
+        (log,                           ('2.8: StarlightBilly Gun MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('9f671d6b', 'StarlightBilly.Gun.IB', 'match_priority = 0\n')),
     ],
 '49782d36': [
@@ -346,7 +347,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # === Shared Normal Map ===
 '798adba3': [
-        (log,                           ('2.8: StarlightBilly Shared NormalMap Hash (v2.8 Target)',)),
+        (log,                           ('2.8: StarlightBilly Shared NormalMap 2048p Hash (v2.8 Target)',)),
         (add_section_if_missing,        ('099cc55b', 'StarlightBilly.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('b602e4de', 'StarlightBilly.Torso.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('85ec4f39', 'StarlightBilly.LeftArm.IB', 'match_priority = 0\n')),

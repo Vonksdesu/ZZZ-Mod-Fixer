@@ -58,6 +58,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Body
 'f201bd10': [(log, ('2.8: YeShunguangUlt Body draw_vb',)),               (add_section_if_missing, ('c209c22b', 'YeShunguangUlt.Torso.IB', 'match_priority = 0\n'))],
 '3239124c': [(log, ('2.8: YeShunguangUlt Body position_vb',)),           (add_section_if_missing, ('c209c22b', 'YeShunguangUlt.Torso.IB', 'match_priority = 0\n'))],
+'d1ffd339': [(log, ('2.7 -> 2.8: YeShunguangUlt Body texcoord_vb [Legacy]',)), (update_hash, ('dbb027eb',))],
 'dbb027eb': [(log, ('2.8: YeShunguangUlt Body texcoord_vb',)),           (add_section_if_missing, ('c209c22b', 'YeShunguangUlt.Torso.IB', 'match_priority = 0\n'))],
 '79c7949c': [(log, ('2.8: YeShunguangUlt Body blend_vb',)),              (add_section_if_missing, ('c209c22b', 'YeShunguangUlt.Torso.IB', 'match_priority = 0\n'))],
 
@@ -236,19 +237,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # === Sword Textures (v2.8 Target) ===
 '512d9f71': [
         (log,                           ('2.8: YeShunguangUlt Sword Diffuse Hash',)),
-        (add_section_if_missing,        ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('dd46b065', 'YeShunguangYeShunguangUlt.Sword.IB', 'match_priority = 0\n')),
     ],
 'd87a1e13': [
         (log,                           ('2.8: YeShunguangUlt Sword LightMap Hash',)),
-        (add_section_if_missing,        ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('dd46b065', 'YeShunguangYeShunguangUlt.Sword.IB', 'match_priority = 0\n')),
     ],
 'ce96ea2f': [
         (log,                           ('2.8: YeShunguangUlt Sword MaterialMap Hash',)),
-        (add_section_if_missing,        ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('dd46b065', 'YeShunguangYeShunguangUlt.Sword.IB', 'match_priority = 0\n')),
     ],
 '8842671b': [
         (log,                           ('2.8: YeShunguangUlt Sword NormalMap Hash',)),
-        (add_section_if_missing,        ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('dd46b065', 'YeShunguangYeShunguangUlt.Sword.IB', 'match_priority = 0\n')),
     ],
     }
 

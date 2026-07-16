@@ -174,15 +174,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('7c01dc6b', 'Cissia.Eyebrow.IB', 'match_priority = 0\n')),
     ],
 'fcfeb117': [
-        (log,                           ('2.8: Cissia Body Diffuse Hash [New]',)),
+        (log,                           ('2.8: Cissia Body Diffuse 2048p Hash [New]',)),
         (add_section_if_missing,        ('ff2ec4d6', 'Cissia.Body.IB', 'match_priority = 0\n')),
     ],
 '2b6d5c26': [
-        (log,                           ('2.8: Cissia Body LightMap Hash [New]',)),
+        (log,                           ('2.8: Cissia Body LightMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('ff2ec4d6', 'Cissia.Body.IB', 'match_priority = 0\n')),
     ],
 'e5edf7dd': [
-        (log,                           ('2.8: Cissia Body MaterialMap Hash [New]',)),
+        (log,                           ('2.8: Cissia Body MaterialMap 2048p Hash [New]',)),
         (add_section_if_missing,        ('ff2ec4d6', 'Cissia.Body.IB', 'match_priority = 0\n')),
     ],
 'f8739729': [(log,('2.7: -> 2.8: Cissia BodyC Diffuse 2048p Hash',)),(update_hash,('ec85e98d',)),],
