@@ -1,0 +1,114 @@
+[
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "dfd93ee5",
+    "position_vb": "b4db1979",
+    "texcoord_vb": "c7b58675",
+    "blend_vb": "21dd67a7",
+    "ib": "94288cca",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "d8dc4645"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "9a724295"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "3678fad4"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Face-脸",
+    "VertexLimit": "7e77201a",
+    "Blend": "18d26bd2",
+    "ib": "9c4f1a9a",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8d83daba"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "9372e123"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "dd8c0b3a"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "weapon武器",
+    "VertexLimit": "fcc2accc",
+    "Position": "3c5c930c",
+    "Texcoord": "89932f55",
+    "Blend": "7a0c8bf9",
+    "ib": "4e4f3440",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "fb05197d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "ac04b14e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "7eec482a"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "_note": "作者信息",
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make",
+    "_notice": "Please do not reprint without permission, otherwise no future updates will be uploaded. 请勿私自转载，否则后期不再上传。",
+    "_urls": [
+      "https://github.com/hefengchang",
+      "https://www.caimogu.cc/user/1761398.html"
+    ]
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "d515e182",
+    "position_vb": "ad686c31",
+    "texcoord_vb": "b86d14b0",
+    "blend_vb": "cf1202fd",
+    "ib": "d131acb1",
+    "object_indexes": [
+      0,
+      22074
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "91d2f9fd"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "6c957d8f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "bc4c87fd"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "91d2f9fd"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "6c957d8f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "bc4c87fd"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "draw_vb": "d482d732",
+    "position_vb": "a3fb836a",
+    "texcoord_vb": "85fb0c65",
+    "blend_vb": "14c96dd0",
+    "ib": "ebbe2894",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "a7fbdddb",
+    "position_vb": "75218916",
+    "texcoord_vb": "3c686494",
+    "blend_vb": "7dc3bf5b",
+    "ib": "cf8612e6",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "7283db21"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "8087d734"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "e4f01bb0"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "BeltAcc-腰带显示屏",
+    "draw_vb": "6f724c8e",
+    "position_vb": "3246b6ca",
+    "texcoord_vb": "a70f45bd",
+    "blend_vb": "ff4d1872",
+    "ib": "24d07797",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "bf0e4dab"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "BackAcc-背部装饰",
+    "draw_vb": "f100ba28",
+    "position_vb": "65d035e4",
+    "texcoord_vb": "4d910650",
+    "blend_vb": "c715afa3",
+    "ib": "2fcd160b",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "6775ef8d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dbea86db"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "21126e07"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Face-脸部",
+    "draw_vb": "70088a4a",
+    "position_vb": "4a1a190d",
+    "texcoord_vb": "7c9dbd4a",
+    "blend_vb": "2326355e",
+    "ib": "b078ff22",
+    "object_indexes": [
+      0,
+      9954,
+      10074
+    ],
+    "object_classifications": [
+      "A",
+      "B",
+      "C"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "33fdeb6d"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "33fdeb6d"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "33fdeb6d"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "sword-剑",
+    "draw_vb": "4d92da0d",
+    "ib": "2c37d8c9",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "6775ef8d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dbea86db"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "21126e07"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make"
+  },
+  {
+    "_note": "作者信息",
+    "_author": "踩蘑菇网绿小林子制作，Github-GreenLzz-Make",
+    "_notice": "Please do not reprint without permission, otherwise no future updates will be uploaded. 请勿私自转载，否则后期不再上传。",
+    "_urls": [
+      "https://github.com/hefengchang",
+      "https://www.caimogu.cc/user/1761398.html"
+    ]
+  }
+]

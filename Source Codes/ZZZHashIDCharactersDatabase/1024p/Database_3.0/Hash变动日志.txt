@@ -1,0 +1,463 @@
+=======================================================================
+  版本 2.8 → 3.0
+=======================================================================
+
+【哲Wise】
+  IB: 8d6acf4e（身体）
+    Diffuse2048: f2fb7a37 -> a9652fa4
+    Diffuse1024: dea7a8ca -> 53b3623f
+    Blend: 46462bd8 -> 03dadd2a
+
+【哲Wise / 哲-皮肤WiseSkin（头发共用）】
+  IB: d5ca0411（头发）
+    Blend: edfd1666 -> 68e4f572
+
+【哲-皮肤WiseSkin】
+  IB: 01c42a1d（颈部）
+    Blend: 458bbde3 -> e0b1e734
+  IB: 1eca2097（身体）
+    Blend: 8612559a -> f28a6363
+    Diffuse2048: 81406abe -> 669191ec
+    Diffuse1024: 9fc3646e -> 23876240
+
+【哲Wise / 哲-皮肤WiseSkin / 泳装WiseSwimwear（脸共用）】
+  IB: 1fdaf388（脸）
+    Blend: 757bc7cc -> 015fbf96
+
+【哲-泳装WiseSwimwear】
+  IB: cb272754 -> 0ec31440（头发）※ 模型变化不可修复
+  IB: 3f771e63 -> 8d08b190（头发阴影）
+  IB: 4fe696c8 -> 19a3f02e（身体）※ 模型变化不可修复
+
+【铃Belle】
+  IB: bea4a483 -> 3acf9aea（头发）※ 模型变化不可修复
+  IB: 1817f3ca -> c2b4ce3a（身体）※ 模型变化不可修复
+  IB: 9a9780a7（脸）
+    Texcoord: 1de8fc08 -> d3000b22
+    Blend: 36138f65 -> 6ade3fdc
+
+【铃皮肤BelleSkin】
+  IB: aa9ffb85（头发）
+    Blend: 39ac6700 -> 8f7ae834
+  IB: 20d3a340（头饰）
+    Blend: db7add33 -> f18dd23f
+  IB: 62ed56cc -> d0627e1f（颈部）※ 模型变化不可修复
+  IB: d509bdd4（身体）
+    Blend: f3dedb50 -> 4d74d5e9
+  IB: bcc9e4e1（腿部）
+    Blend: f53b2eba -> 922a7db6
+
+【铃皮肤BelleSkin / 泳装BelleSwimwear（脸共用）】
+  IB: 9a9780a7（脸）
+    Blend: 0c9a075b -> 359e4502
+
+【铃-泳装BelleSwimwear】
+  IB: ea055cac -> a7683988（头发）※ 模型变化不可修复
+  IB: 43ed3c22 -> 619c5c94（身体）※ 模型变化不可修复
+  IB: 69148073（T恤）
+    Texcoord: 881514bf -> 325b4a1c
+    Blend: 0139f7e8 -> 0a00d846
+    LightMap2048: e0a86379 -> 60250d24
+    LightMap1024: a189eccd -> 5978a2ca
+
+【星见雅-皮肤MiyabiSkin】
+  IB: fbb18630（衣服）
+    Diffuse2048: 66724f5a -> 4e6c90bd
+    MaterialMap2048: 1e1485e7 -> 30590865
+    Diffuse1024: 88e357af -> 7d80f565
+    MaterialMap1024: 85aad660 -> 2fbabf2e
+
+【普罗米娅Promeia】
+  IB: 36e794ea -> b386901d（身体-束缚状态）
+    VertexLimitRaise: 19ad87f6 -> dd86f5ae
+    Position: ffaa183a -> 68e2baef
+    Texcoord: 2a9842a1 -> 6fe5f8c1
+    Blend: dae4abd0 -> 112582ea
+  IB: 62a6b4bd -> 10c77d62（身体-正常状态）
+    Position: bf938187 -> 2dbfe8c9
+    Texcoord: d99d21e0 -> 1fc95f5b
+    Blend: 575d8b1b -> ee35cc06
+  IB: 93f1f568 -> 0ae14c24（衣服）
+    Position: 1d63183b -> f6cc27b6
+    Texcoord: 826446a7 -> bf00cc95
+    Blend: 58f42be3 -> 4b0d6867
+    Diffuse2048: b9367016 -> e1492a53
+    LightMap2048: d743acd0 -> 9bf7f5cc
+    MaterialMap2048: 31d7cbad -> d37b40a9
+    Diffuse1024: 406b1373 -> 47d294f4
+    LightMap1024: 044d2d39 -> 562616d5
+    MaterialMap1024: 01a5ba27 -> 73aaae54
+  IB: fd054d1d -> ec003379（腿部）
+    Position: 0b822797 -> 4c1d0a70
+    Texcoord: f5fd0e92 -> 03d6f933
+    Blend: 9839b071 -> 65bba179
+  IB: 8995db58（环刃）
+    Position: d242b77a -> 35ecba91
+    Texcoord: f2f5bd28 -> 064658e2
+    Diffuse2048: d1399215 -> 328135c5
+    LightMap2048: 369f0efd -> 82f4146a
+    MaterialMap2048: a179a69c -> d672b87c
+    Diffuse1024: 138bcaa1 -> 7750fc88
+    LightMap1024: 5e59380e -> a1988612
+    MaterialMap1024: 09271c02 -> 7559d574
+
+【v3.01热更新 - 妮可Nicole】
+  IB: 6847bbbd -> 7dcfe907（头发）
+    draw_vb: f6344432 -> d9b8d61a
+    position_vb: 199853eb -> 6f931ca7
+    texcoord_vb: 06e4fd79 -> e04f4893
+    blend_vb: 347e4a48 -> 8171f5c9
+  IB: 4ed9a81f（头发阴影）
+    texcoord_vb: 322345a6 -> e6b9e50e
+  IB: 5a4c1ef3 -> e53364dd（身体）
+    draw_vb: 8cc1262b -> b19da99e
+    position_vb: 89df5a07 -> 4af0a4cd
+    texcoord_vb: 91c1b779 -> ed4c47a9
+    blend_vb: 7ecda89f -> b793c804
+  IB: 40e64ae2（艾米莉安）
+    texcoord_vb: 077c3500 -> f9f810ed
+  IB: 7435fc0e -> 93b02078（脸）
+    VertexLimit: 9274e401 -> 967c2f1c
+    Texcoord: 5714e5e6 -> d5958556
+    Blend: b25ebcf6 -> 292d1b1f
+    Position: a8667746 -> ac6ebc5b
+
+
+=======================================================================
+  版本 2.7 → 2.8
+=======================================================================
+
+【南宫羽Nanyu】
+  IB: cd884c0a / 3b4190ce / 4586e530
+    Diffuse: 2d290490 -> 11254966
+    Diffuse: fe06152c -> dc41fbbf
+
+【希希芙Cissia】
+  IB: ff2ec4d6 / 4c11c155 / 29b5b0b0 / 29123d5a / bad668cc / d49a5866
+    Diffuse: f8739729 -> ec85e98d
+    Diffuse: f5ecd616 -> 6d861173
+
+【莱特Lighter】
+  IB: 542b8aa9 / 2de659bd
+    Diffuse: c5d60a1d -> 4e088042
+    MaterialMap: d5ba9ea6 -> d331b850
+    Diffuse: 1cd2d442 -> 0ee07935
+    MaterialMap: 8687f7b8 -> 99ad14f1
+
+【普罗米娅Promeia】
+  IB: 6cca89ab -> 31178971
+    position_vb: 35096cb6 -> 681aceaa
+    texcoord_vb: 9c0aad96 -> 84d40d91
+    blend_vb: 5a263750 -> 3d4a4881
+  IB: a633d5b7 -> 36e794ea
+    draw_vb: dd86f5ae -> 19ad87f6
+    position_vb: a7769c93 -> ffaa183a
+    texcoord_vb: bfcfb2f7 -> 2a9842a1
+    blend_vb: 61c399b6 -> dae4abd0
+  IB: 6abaa60a -> 62a6b4bd
+    texcoord_vb: b1ec331c -> d99d21e0
+    blend_vb: bca960d0 -> 575d8b1b
+  IB: 68f34958 -> 93f1f568
+    position_vb: d43597aa -> 1d63183b
+    texcoord_vb: 9f083955 -> 826446a7
+    blend_vb: 870f56b5 -> 58f42be3
+  IB: 21871660 -> fd054d1d
+    position_vb: 595bd76e -> 0b822797
+    texcoord_vb: 2918714e -> f5fd0e92
+    blend_vb: fd3c3d9f -> 9839b071
+  IB: cb9d17fc -> e032287a
+    texcoord_vb: 3a00aa76 -> d3d65ca5
+  IB: 5ea47a32 -> ef3c4506
+    texcoord_vb: b7a6479f -> dcd61276
+    blend_vb: 5ff41c34 -> bf5b785d
+  IB: 947ceb88 -> 8995db58
+    draw_vb: 7d76d686 -> 0a06059e
+    position_vb: 2f3a560d -> d242b77a
+    texcoord_vb: 23587131 -> f2f5bd28
+    blend_vb: 21ac80fa -> a864dc82
+  IB: de6eb63b -> ff223b2c
+
+【星见雅皮肤MiyabiSkin】
+  IB: a913e9a9
+    blend_vb: f2f19cb2 -> 5121459b
+
+【5/13热更新】
+  普罗米娅Promeia（见上方普罗米娅条目）
+
+
+=======================================================================
+  版本 2.6 → 2.7
+=======================================================================
+
+【哲Wise】
+  IB: 8d6acf4e
+    Diffuse: 868709f2 -> f2fb7a37
+    Diffuse: 3d7a53b0 -> dea7a8ca
+
+【千夏皮肤ChinatsuSkin】
+  IB: 6cc4d486 -> a6d82ba5
+    draw_vb: 22c82346 -> 74cc56df
+    position_vb: 327644ee -> 4b93d8eb
+    texcoord_vb: 5e70dde6 -> b9030f86
+    blend_vb: 79de92c7 -> 4a795f2a
+  IB: ee17c9a2
+    position_vb: c77b3235 -> 25cf6bf7
+    texcoord_vb: 0c6b95ca -> 7a31eb8b
+
+【爱芮-皮肤ArieSkin】
+  IB: c6bb960b
+    Diffuse: a55f187e -> 677f73d9
+    Diffuse: 3c6bd181 -> 303c63bc
+
+
+=======================================================================
+  版本 2.5 → 2.6
+=======================================================================
+
+【铃泳装/皮肤（共用）】
+  IB: 9a9780a7
+    texcoord_vb: ccc76aea -> bcfc3326
+
+
+=======================================================================
+  版本 2.4 → 2.5
+=======================================================================
+
+【哲皮肤WiseSkin】
+  IB: 6acc1eb8 -> 1eca2097
+    draw_vb: 4fa228f9 -> ca02f614
+    position_vb: ae59eabb -> a388eb6b
+    texcoord_vb: a83ada4e -> b39870e1
+    blend_vb: 177ad7e8 -> 8612559a
+
+【琉音Dialyn】
+  IB: af39a873
+    blend_vb: 6ff0e4ad -> 3d7e53cf
+  IB: 1d8f8de6
+    position_vb: 79fc6a95 -> fd32eb72
+    texcoord_vb: c0f5d550 -> 5455d3c6
+    blend_vb: 35709db4 -> 8fe19cc1
+
+【简Jane】
+  IB: 9268a5af -> 3275b812
+    draw_vb: 2d06e785 -> 74bc0b7f
+    position_vb: e7a3b7dc -> 33a09cfe
+    texcoord_vb: acec29f8 -> fa617c9a
+    blend_vb: 8721477f -> e42171df
+    object_indexes: [0, 33780] -> [0, 16986]
+  IB: ef86fc9f
+    Texcoord: 9f2f7c53 -> 1fa404c1
+
+【铃皮肤BelleSkin】
+  IB: 860e1558 -> d509bdd4
+    draw_vb: 02c9dc4b -> 19e5f486
+    position_vb: 0b3c5e7c -> 8a4e97cd
+    texcoord_vb: 862dc27a -> d761e076
+    blend_vb: 01b0c8b6 -> f3dedb50
+
+【莱卡恩Lycaon】
+  IB: 6749b6e7 / c28ea8d7
+    Diffuse: 7169ec86 -> 4cb6928e
+    Diffuse: 82ad0c28 -> 7a22ad61
+
+【叶瞬光YeShunguang】
+  IB: c209c22b
+    texcoord_vb: d1ffd339 -> dbb027eb
+
+【模型结构变化说明】
+  ※ 简：新增 手和配饰 IB:294a319a；头发权重发生变化，无法修复
+  ※ 铃-道服：新增 脖子 IB:62ed56cc
+  ※ 哲-道服：新增 脖子 IB:01c42a1d
+
+
+=======================================================================
+  版本 2.3 → 2.4
+=======================================================================
+
+【月城柳Yanagi】
+  IB: f478ee4c
+    blend_vb: fd363c76 -> b558d482
+
+【爱丽丝皮肤AliceSkin】
+  IB: 2c37d8c9
+    position_vb: e3a50a16 -> 5324c543
+    texcoord_vb: c6899a42 -> 3136fbad
+    blend_vb: 4fbccfe1 -> e52f08c3
+
+【薇薇安皮肤VivianSkin】
+  IB: 3060793b
+    blend_vb: f32eec8a -> 723bccec
+
+【伊德海莉Yidhair】
+  IB: 12251f42
+    LightMap: 2ae9bee8 -> 5b985a6f
+    LightMap: 9ad20501 -> 381e8e5a
+
+
+=======================================================================
+  版本 2.2 → 2.3
+=======================================================================
+
+【席德seed】
+  IB: 75e1ae0a
+    position_vb: b095c5cf -> 567f9bcd
+    texcoord_vb: 56979e94 -> 030e0aca
+    NormalMap: fc59be11 -> b35534a9
+    NormalMap: b35534a9 -> b87d9c50
+
+【扳机Trigger】
+  IB: 40cd4182
+    Texcoord: b9f0d595 -> d4a12ab7
+
+
+=======================================================================
+  版本 2.1 → 2.2
+=======================================================================
+
+【哲-泳装WiseSwimwear】
+  IB: 4fe696c8
+    blend_vb: 9741e2f0 -> d4147320
+
+【铃-泳装BelleSwimwear】
+  IB: 43ed3c22
+    blend_vb: 6af00597 -> 4f3ddd5c
+  IB: 69148073
+    blend_vb: 65481194 -> 0139f7e8
+
+【爱丽丝皮肤AliceSkin】
+  IB: 2c37d8c9
+    position_vb: 5324c543 -> e3a50a16
+    texcoord_vb: 3136fbad -> c6899a42
+    blend_vb: e52f08c3 -> 4fbccfe1
+
+【简Jane】
+  IB: 602c545a
+    Position: 850d4cbf -> eace2dfa
+    Texcoord: 7fd655de -> 535e2453
+    Blend: a14461d9 -> 7310ad6a
+
+
+=======================================================================
+  版本 2.0 → 2.1
+=======================================================================
+
+【哲皮肤WiseSkin】
+  IB: f6cac296 -> d5ca0411
+    draw_vb: ba59bf09 -> ef9c0510
+    position_vb: 6235fa7f -> e8df7ff3
+    texcoord_vb: fe89498c -> 774071dd
+    blend_vb: 1273c7b0 -> edfd1666
+  IB: 83e07a1b -> 8d08b190
+    draw_vb: af5fc216 -> 681651f9
+    position_vb: 1a438b0d -> 4af493e5
+    texcoord_vb: 7b7957fa -> ad7d7eca
+    blend_vb: 52bd07dd -> 795e9a7c
+  IB: 1fdaf388
+    Texcoord: ebe9f31b -> c83b6cbf
+
+【哲Wise】
+  IB: f6cac296 -> d5ca0411
+    draw_vb: ba59bf09 -> ef9c0510
+    position_vb: 6235fa7f -> e8df7ff3
+    texcoord_vb: fe89498c -> 774071dd
+    blend_vb: 1273c7b0 -> edfd1666
+  IB: 83e07a1b -> 8d08b190
+    draw_vb: af5fc216 -> 681651f9
+    position_vb: 1a438b0d -> 4af493e5
+    texcoord_vb: 7b7957fa -> ad7d7eca
+    blend_vb: 52bd07dd -> 795e9a7c
+  IB: 8d6acf4e
+    texcoord_vb: f425bd04 -> 91fbd2fa
+  IB: b1df5d22
+    texcoord_vb: 2ae08ae7 -> 8d825ff1
+  IB: 1fdaf388
+    Texcoord: ebe9f31b -> c83b6cbf
+
+【扳机Trigger】
+  IB: 40cd4182
+    Position: ba455625 -> dfc69ad0
+  IB: f61f6acd
+    Position: 988144a6 -> 862efc96
+    Texcoord: b6d507d9 -> a58b916d
+
+【月城柳Yanagi】
+  IB: 44d9123b
+    draw_vb: (新增) -> 178a1ff8
+    position_vb: (新增) -> 8e3cf210
+    texcoord_vb: (新增) -> dd32963a
+    blend_vb: (新增) -> 6b5d6e39
+
+【本Ben】
+  IB: 9c4f1a9a
+    Position: 4465b35d -> 3e601b7c
+
+【比利Billy】
+  IB: dc7978f3
+    Position: f88a6fbe -> ed6468f9
+
+【波可娜Pulchra】
+  IB: 425a7565
+    position_vb: d82af72e -> a9d915fc
+    texcoord_vb: 13af1533 -> ac887af1
+  IB: 5b644956
+    Position: 49b9e647 -> b410f6f4
+    Texcoord: 8d36ab74 -> 5e8cc065
+  IB: bfc94dff
+    Position: 49b9e647 -> b410f6f4
+    Texcoord: 8d36ab74 -> 5e8cc065
+
+【潘引壶PanYinhu】
+  IB: ebb6a59b
+    position_vb: 523c1dca -> 784ab863
+
+【铃皮肤BelleSkin】
+  IB: 403eace9
+    texcoord_vb: 7bf983ed -> 31746eaa
+  IB: 860e1558
+    Diffuse: cac9fd5d -> da2bfe2f
+    Diffuse: 59218fac -> fdf0b49e
+
+【格莉丝Grace】
+  IB: 8b240678
+    Diffuse: 210b3ebf -> 9c7057e8
+    Diffuse: 21794bd6 -> ac361185
+
+【浮波柚叶皮肤YuzuhaSkin】
+  IB: f34fdc84 -> b298482d
+    draw_vb: cf3319f6 -> 07437c27
+    position_vb: a3b56c9b -> 2a7b9144
+    texcoord_vb: 3d3199c5 -> 0c9062c5
+    blend_vb: be70426a -> 523cf99d
+
+【仪玄-皮肤YixuanSkin】
+  IB: 95de0d39 / 064cd7d3
+    Diffuse: 487db3e0 -> 7683c132
+    MaterialMap: 16a1fb10 -> 7e6747ac
+    Diffuse: c13cac2c -> 89509335
+    MaterialMap: 9a79cf64 -> 229c5b0f
+
+=======================================================================
+  版本变化统计
+=======================================================================
+
+版本区间        | 变更角色/皮肤数 | 主要涉及角色
+---------------|----------------|-----------------------------------------------
+2.8 → 3.0      | 6              | 哲/皮肤/泳装、铃/皮肤/泳装、星见雅-皮肤、普罗米娅、妮可（v3.01热更新）
+2.7 → 2.8      | 5              | 南宫羽、希希芙、莱特、普罗米娅、星见雅皮肤
+2.6 → 2.7      | 3              | 哲、千夏皮肤、爱芮-皮肤
+2.5 → 2.6      | 1              | 铃泳装/皮肤
+2.4 → 2.5      | 7              | 哲皮肤、琉音、简、铃皮肤、莱卡恩、叶瞬光 + 模型结构变化说明
+2.3 → 2.4      | 4              | 月城柳、爱丽丝皮肤、薇薇安皮肤、伊德海莉
+2.2 → 2.3      | 2              | 席德、扳机
+2.1 → 2.2      | 4              | 哲-泳装、铃-泳装、爱丽丝皮肤、简
+2.0 → 2.1      | 10             | 哲、铃皮肤、扳机、月城柳、本、比利、波可娜、潘引壶、格莉丝、浮波柚叶皮肤、仪玄-皮肤
+
+
+
+
+--------------------
+作者: 踩蘑菇网绿小林子制作，Github-GreenLzz-Make
+声明: 请勿私自转载，否则后期不再上传。
+网址1: https://github.com/hefengchang
+网址2: https://www.caimogu.cc/user/1761398.html
+--------------------
