@@ -1,6 +1,7 @@
 """
 Sunna Character Hash Commands
-ZZZ Mod Fixer v2.8
+ZZZ Mod Fixer v2.6
+Game Version: 2.6
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -12,260 +13,366 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns Sunna's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
 # === IB Hashes ===
-'904ecd0f': [(log, ('2.8: Sunna Hair IB Hash',)),              (add_ib_check_if_missing,)],
-'3ab6d438': [(log, ('2.8: Sunna HairShadow IB Hash',)),        (add_ib_check_if_missing,)],
-'b3c6ea5a': [(log, ('2.8: Sunna Body IB Hash',)),              (add_ib_check_if_missing,)],
-'30ea5791': [(log, ('2.8: Sunna Eyebrow IB Hash',)),           (add_ib_check_if_missing,)],
-'1a2c8573': [(log, ('2.8: Sunna Face IB Hash',)),              (add_ib_check_if_missing,)],
-'0b9bd38f': [(log, ('2.8: Sunna DisplayScreen IB Hash',)),     (add_ib_check_if_missing,)],
-'337a62c1': [(log, ('2.8: Sunna WeaponBackpack IB Hash',)),    (add_ib_check_if_missing,)],
-'e7a17172': [(log, ('2.8: Sunna PaopaoFight IB Hash',)),       (add_ib_check_if_missing,)],
-'07a82c9c': [(log, ('2.8: Sunna PaopaoIdle IB Hash',)),        (add_ib_check_if_missing,)],
-'c811c294': [(log, ('2.8: Sunna Weapon IB Hash',)),            (add_ib_check_if_missing,)],
-'0a237cd3': [(log, ('2.8: Sunna WeaponDeco1 IB Hash',)),       (add_ib_check_if_missing,)],
-'8ad8f57d': [(log, ('2.8: Sunna WeaponDeco2 IB Hash',)),       (add_ib_check_if_missing,)],
-
-# === PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT) ===
-# Hair VBs
-'cc070c66': [(log, ('2.8: Sunna Hair draw_vb',)),                       (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
-'5c030eea': [(log, ('2.8: Sunna Hair position_vb',)),                   (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
-'06bea24e': [(log, ('2.8: Sunna Hair texcoord_vb',)),                   (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
-'0c183c3f': [(log, ('2.8: Sunna Hair blend_vb',)),                      (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n'))],
-
-# Body VBs
-'8991360f': [(log, ('2.8: Sunna Body draw_vb',)),                       (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
-'6eb68b62': [(log, ('2.8: Sunna Body position_vb',)),                   (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
-'712eb020': [(log, ('2.8: Sunna Body texcoord_vb',)),                   (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
-'53661c9a': [(log, ('2.8: Sunna Body blend_vb',)),                      (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n'))],
-
-# Eyebrow VBs
-'9f0ab8cd': [(log, ('2.8: Sunna Eyebrow draw_vb',)),                    (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
-'a5182b8a': [(log, ('2.8: Sunna Eyebrow position_vb',)),                (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
-'e3cc1981': [(log, ('2.8: Sunna Eyebrow texcoord_vb',)),                (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
-'f5daa764': [(log, ('2.8: Sunna Eyebrow blend_vb',)),                   (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n'))],
-
-# Face VBs
-'9679c257': [(log, ('2.8: Sunna Face draw_vb',)),                       (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
-'ac6b5110': [(log, ('2.8: Sunna Face position_vb',)),                   (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
-'506dc9e1': [(log, ('2.8: Sunna Face texcoord_vb',)),                   (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
-'21299f88': [(log, ('2.8: Sunna Face blend_vb',)),                      (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n'))],
-
-# DisplayScreen VBs
-'dd676093': [(log, ('2.8: Sunna DisplayScreen draw_vb',)),              (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
-'6f7ae47c': [(log, ('2.8: Sunna DisplayScreen position_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
-'541d5b0f': [(log, ('2.8: Sunna DisplayScreen texcoord_vb',)),          (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
-'2ef8be58': [(log, ('2.8: Sunna DisplayScreen blend_vb',)),             (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n'))],
-'92e01314': [
-        (log,                           ('3.0: Sunna DisplayScreen Diffuse Hash',)),
-        (add_section_if_missing,        ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+'337a62c1': [
+        (log,                           ('2.6: Sunna BagCharm IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'b3c6ea5a': [
+        (log,                           ('2.6: Sunna Body IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'1a2c8573': [
+        (log,                           ('2.6: Sunna Face IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'904ecd0f': [
+        (log,                           ('2.6: Sunna Hair IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'e7a17172': [
+        (log,                           ('2.6: Sunna Paopao IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'07a82c9c': [
+        (log,                           ('2.6: Sunna PaopaoA IB Hash',)),
+        (add_ib_check_if_missing,),
     ],
 
-# WeaponBackpack VBs
-'953975c0': [(log, ('2.8: Sunna WeaponBackpack draw_vb',)),             (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
-'a28ba31c': [(log, ('2.8: Sunna WeaponBackpack position_vb',)),         (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
-'b642db41': [(log, ('2.8: Sunna WeaponBackpack texcoord_vb',)),         (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
-'16e2d8ea': [(log, ('2.8: Sunna WeaponBackpack blend_vb',)),            (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n'))],
 
-# Paopao (Fight) VBs
-'ffe207d5': [(log, ('2.8: Sunna PaopaoFight draw_vb',)),                (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
-'3a7143a6': [(log, ('2.8: Sunna PaopaoFight position_vb',)),            (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
-'62519e38': [(log, ('2.8: Sunna PaopaoFight texcoord_vb',)),            (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
-'38e2fe9f': [(log, ('2.8: Sunna PaopaoFight blend_vb',)),               (add_section_if_missing, ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n'))],
-
-# Paopao (Idle) VBs
-'1a0cad46': [(log, ('2.8: Sunna PaopaoIdle position_vb',)),             (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
-'df0f6142': [(log, ('2.8: Sunna PaopaoIdle texcoord_vb',)),             (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
-'d4e13802': [(log, ('2.8: Sunna PaopaoIdle blend_vb',)),                (add_section_if_missing, ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n'))],
-
-# Hammer VBs
-'6cbdb4d3': [(log, ('2.8: Sunna Weapon draw_vb',)),                     (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
-'9220fbd5': [(log, ('2.8: Sunna Weapon position_vb',)),                 (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
-'5d7fdc2e': [(log, ('2.8: Sunna Weapon texcoord_vb',)),                 (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
-'4b46dfdc': [(log, ('2.8: Sunna Weapon blend_vb',)),                    (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n'))],
-
-# HammerDeco1 VBs
-'dab9d122': [(log, ('2.8: Sunna WeaponDeco1 draw_vb',)),                (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
-'0a41bae7': [(log, ('2.8: Sunna WeaponDeco1 position_vb',)),            (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
-'34dc63b4': [(log, ('2.8: Sunna WeaponDeco1 texcoord_vb',)),            (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
-'a5ecc7ea': [(log, ('2.8: Sunna WeaponDeco1 blend_vb',)),               (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n'))],
-
-# HammerDeco2 VBs
-'84a9dfca': [(log, ('2.8: Sunna WeaponDeco2 draw_vb',)),                (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
-'81321ee9': [(log, ('2.8: Sunna WeaponDeco2 position_vb',)),            (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
-'33a66c47': [(log, ('2.8: Sunna WeaponDeco2 texcoord_vb',)),            (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
-'0d2178c5': [(log, ('2.8: Sunna WeaponDeco2 blend_vb',)),               (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n'))],
-
-# === Shared NormalMap ===
-'798adba3': [
-        (log,                           ('2.8: Sunna Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n')),
-    ],
-
-# === Face & Eyebrow Textures ===
+# === Sunna Textures (FaceA) ===
 '1ef66a60': [
-        (log,                           ('2.8: Sunna FaceA, Eyebrow Diffuse Hash',)),
-        (add_section_if_missing,        ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n')),
-    ],
-
-# === Hair Textures ===
-'e85201e7': [
-        (log,                           ('2.8: Sunna HairA Diffuse Hash',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-'a2b36369': [
-        (log,                           ('2.8: Sunna HairA LightMap Hash',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-'ab3c12c0': [
-        (log,                           ('2.8: Sunna HairA MaterialMap Hash',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-
-# === Body Textures ===
-'aa0f48fe': [
-        (log,                           ('2.8: Sunna BodyA Diffuse Hash',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-    ],
-'3987c8c2': [
-        (log,                           ('2.8: Sunna BodyA LightMap Hash',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-    ],
-'1d459d73': [
-        (log,                           ('2.8: Sunna BodyA MaterialMap Hash',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-    ],
-
-# === Backpack Textures ===
-'bde1bdad': [
-        (log,                           ('2.8: Sunna WeaponBackpack Diffuse Hash',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
-    ],
-'9368a6f9': [
-        (log,                           ('2.8: Sunna WeaponBackpack LightMap Hash',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
-    ],
-'508c297c': [
-        (log,                           ('2.8: Sunna WeaponBackpack MaterialMap Hash',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
-    ],
-
-# === Paopao Shared Textures (Fight & Idle state) ===
-'be5cd451': [
-        (log,                           ('2.8: Sunna Paopao Diffuse Hash',)),
-        (add_section_if_missing,        ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n')),
-    ],
-'945afd67': [
-        (log,                           ('2.8: Sunna Paopao LightMap Hash',)),
-        (add_section_if_missing,        ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n')),
-    ],
-'e9783f84': [
-        (log,                           ('2.8: Sunna Paopao MaterialMap Hash',)),
-        (add_section_if_missing,        ('e7a17172', 'Sunna.PaopaoFight.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('07a82c9c', 'Sunna.PaopaoIdle.IB', 'match_priority = 0\n')),
-    ],
-
-# === Weapon & Decoration Shared Textures ===
-'b9d9b7a7': [
-        (log,                           ('2.8: Sunna Weapon, WeaponDeco Diffuse Hash',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n')),
-    ],
-'6c369f22': [
-        (log,                           ('2.8: Sunna Weapon, WeaponDeco LightMap Hash',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n')),
-    ],
-'15cd94f7': [
-        (log,                           ('2.8: Sunna Weapon, WeaponDeco MaterialMap Hash',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('0a237cd3', 'Sunna.WeaponDeco1.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('8ad8f57d', 'Sunna.WeaponDeco2.IB', 'match_priority = 0\n')),
-    ],
-
-# === New Database 2.8 Synced Sunna hashes ===
-'2fcfee64': [
-        (log,                           ('2.8: Sunna Hair Alternate Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-'8cd786f7': [
-        (log,                           ('2.8: Sunna Hair Alternate LightMap Hash [New]',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-'3f11dfd9': [
-        (log,                           ('2.8: Sunna Hair Alternate MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
-    ],
-'f051c211': [
-        (log,                           ('2.8: Sunna Body Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-    ],
-'4aca364a': [
-        (log,                           ('2.8: Sunna Body LightMap Hash [New]',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
-    ],
-'f3f8895c': [
-        (log,                           ('2.8: Sunna Body MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna FaceA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('c9b5c6ce', 'Sunna.FaceA.Diffuse.2048')),
     ],
 'c9b5c6ce': [
-        (log,                           ('2.8: Sunna Face Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna FaceA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('1ef66a60', 'Sunna.FaceA.Diffuse.1024')),
+    ],
+
+# === Sunna Textures (HairA) ===
+'e85201e7': [
+        (log,                           ('2.6: Sunna HairA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('2fcfee64', 'Sunna.HairA.Diffuse.2048')),
+    ],
+'2fcfee64': [
+        (log,                           ('2.6: Sunna HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('e85201e7', 'Sunna.HairA.Diffuse.1024')),
+    ],
+'a2b36369': [
+        (log,                           ('2.6: Sunna HairA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('8cd786f7', 'Sunna.HairA.LightMap.2048')),
+    ],
+'8cd786f7': [
+        (log,                           ('2.6: Sunna HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('a2b36369', 'Sunna.HairA.LightMap.1024')),
+    ],
+'ab3c12c0': [
+        (log,                           ('2.6: Sunna HairA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('3f11dfd9', 'Sunna.HairA.MaterialMap.2048')),
+    ],
+'3f11dfd9': [
+        (log,                           ('2.6: Sunna HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('ab3c12c0', 'Sunna.HairA.MaterialMap.1024')),
+    ],
+
+# === Sunna Textures (BodyA) ===
+'aa0f48fe': [
+        (log,                           ('2.6: Sunna BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('f051c211', 'Sunna.BodyA.Diffuse.2048')),
+    ],
+'f051c211': [
+        (log,                           ('2.6: Sunna BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('aa0f48fe', 'Sunna.BodyA.Diffuse.1024')),
+    ],
+'3987c8c2': [
+        (log,                           ('2.6: Sunna BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('4aca364a', 'Sunna.BodyA.LightMap.2048')),
+    ],
+'4aca364a': [
+        (log,                           ('2.6: Sunna BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('3987c8c2', 'Sunna.BodyA.LightMap.1024')),
+    ],
+'1d459d73': [
+        (log,                           ('2.6: Sunna BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('f3f8895c', 'Sunna.BodyA.MaterialMap.2048')),
+    ],
+'f3f8895c': [
+        (log,                           ('2.6: Sunna BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('1d459d73', 'Sunna.BodyA.MaterialMap.1024')),
+    ],
+
+# === Sunna Textures (BagCharmA) ===
+'bde1bdad': [
+        (log,                           ('2.6: Sunna BagCharmA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('6c04b56d', 'Sunna.BagCharmA.Diffuse.2048')),
     ],
 '6c04b56d': [
-        (log,                           ('2.8: Sunna Backpack Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna BagCharmA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('bde1bdad', 'Sunna.BagCharmA.Diffuse.1024')),
+    ],
+'9368a6f9': [
+        (log,                           ('2.6: Sunna BagCharmA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('39dac70b', 'Sunna.BagCharmA.LightMap.2048')),
     ],
 '39dac70b': [
-        (log,                           ('2.8: Sunna Backpack LightMap Hash [New]',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna BagCharmA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('9368a6f9', 'Sunna.BagCharmA.LightMap.1024')),
+    ],
+'508c297c': [
+        (log,                           ('2.6: Sunna BagCharmA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('95070f7f', 'Sunna.BagCharmA.MaterialMap.2048')),
     ],
 '95070f7f': [
-        (log,                           ('2.8: Sunna Backpack MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('337a62c1', 'Sunna.WeaponBackpack.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna BagCharmA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('508c297c', 'Sunna.BagCharmA.MaterialMap.1024')),
+    ],
+
+# === Sunna Textures (PaopaoA) ===
+'be5cd451': [
+        (log,                           ('2.6: Sunna PaopaoA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('7d8ac131', 'Sunna.PaopaoA.Diffuse.2048')),
     ],
 '7d8ac131': [
-        (log,                           ('2.8: Sunna Paopao Diffuse Hash [New]',)),
-        (add_section_if_missing,        (('e7a17172', '07a82c9c'), 'Sunna.Paopao.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna PaopaoA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('be5cd451', 'Sunna.PaopaoA.Diffuse.1024')),
+    ],
+'945afd67': [
+        (log,                           ('2.6: Sunna PaopaoA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('5c5b6aad', 'Sunna.PaopaoA.LightMap.2048')),
     ],
 '5c5b6aad': [
-        (log,                           ('2.8: Sunna Paopao LightMap Hash [New]',)),
-        (add_section_if_missing,        (('e7a17172', '07a82c9c'), 'Sunna.Paopao.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna PaopaoA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('945afd67', 'Sunna.PaopaoA.LightMap.1024')),
+    ],
+'e9783f84': [
+        (log,                           ('2.6: Sunna PaopaoA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('3c4378db', 'Sunna.PaopaoA.MaterialMap.2048')),
     ],
 '3c4378db': [
-        (log,                           ('2.8: Sunna Paopao MaterialMap Hash [New]',)),
-        (add_section_if_missing,        (('e7a17172', '07a82c9c'), 'Sunna.Paopao.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: Sunna PaopaoA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('e9783f84', 'Sunna.PaopaoA.MaterialMap.1024')),
     ],
-'003c6497': [
-        (log,                           ('2.8: Sunna Hammer Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+'5c030eea': [
+        (log, ('3.0: Sunna Hair VB Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
     ],
-'4b4975a2': [
-        (log,                           ('2.8: Sunna Hammer LightMap Hash [New]',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+'06bea24e': [
+        (log, ('3.0: Sunna Hair VB Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
     ],
-'635f5cc9': [
-        (log,                           ('2.8: Sunna Hammer MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+'0c183c3f': [
+        (log, ('3.0: Sunna Hair VB Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
     ],
 'ebac056e': [
-        (log,                           ('2.8: Sunna Shared NormalMap [New]',)),
-        (add_section_if_missing,        ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Sunna Hair TEX Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
+    ],
+'3ab6d438': [(log, ('3.0: Sunna Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'8991360f': [
+        (log, ('3.0: Sunna Body VB Hash',)),
+        (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+    ],
+'6eb68b62': [
+        (log, ('3.0: Sunna Body VB Hash',)),
+        (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+    ],
+'712eb020': [
+        (log, ('3.0: Sunna Body VB Hash',)),
+        (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+    ],
+'53661c9a': [
+        (log, ('3.0: Sunna Body VB Hash',)),
+        (add_section_if_missing, ('b3c6ea5a', 'Sunna.Body.IB', 'match_priority = 0\n')),
+    ],
+'30ea5791': [(log, ('3.0: Sunna Eyebrow IB Hash',)), (add_ib_check_if_missing,)],
+'9f0ab8cd': [
+        (log, ('3.0: Sunna Eyebrow VB Hash',)),
+        (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'a5182b8a': [
+        (log, ('3.0: Sunna Eyebrow VB Hash',)),
+        (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'e3cc1981': [
+        (log, ('3.0: Sunna Eyebrow VB Hash',)),
+        (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'f5daa764': [
+        (log, ('3.0: Sunna Eyebrow VB Hash',)),
+        (add_section_if_missing, ('30ea5791', 'Sunna.Eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'ac6b5110': [
+        (log, ('3.0: Sunna Face VB Hash',)),
+        (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
+    ],
+'506dc9e1': [
+        (log, ('3.0: Sunna Face VB Hash',)),
+        (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
+    ],
+'21299f88': [
+        (log, ('3.0: Sunna Face VB Hash',)),
+        (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
+    ],
+'0b9bd38f': [(log, ('3.0: Sunna DisplayScreen IB Hash',)), (add_ib_check_if_missing,)],
+'dd676093': [
+        (log, ('3.0: Sunna DisplayScreen VB Hash',)),
+        (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+    ],
+'6f7ae47c': [
+        (log, ('3.0: Sunna DisplayScreen VB Hash',)),
+        (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+    ],
+'541d5b0f': [
+        (log, ('3.0: Sunna DisplayScreen VB Hash',)),
+        (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+    ],
+'2ef8be58': [
+        (log, ('3.0: Sunna DisplayScreen VB Hash',)),
+        (add_section_if_missing, ('0b9bd38f', 'Sunna.DisplayScreen.IB', 'match_priority = 0\n')),
+    ],
+'a28ba31c': [
+        (log, ('3.0: Sunna WeaponBackpackCharmGrip VB Hash',)),
+        (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
+    ],
+'b642db41': [
+        (log, ('3.0: Sunna WeaponBackpackCharmGrip VB Hash',)),
+        (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
+    ],
+'16e2d8ea': [
+        (log, ('3.0: Sunna WeaponBackpackCharmGrip VB Hash',)),
+        (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
+    ],
+'3a7143a6': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('e7a17172', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'62519e38': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('e7a17172', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'38e2fe9f': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('e7a17172', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'df0f6142': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('07a82c9c', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'d4e13802': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('07a82c9c', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'c811c294': [(log, ('3.0: Sunna Weapon IB Hash',)), (add_ib_check_if_missing,)],
+'6cbdb4d3': [
+        (log, ('3.0: Sunna Weapon VB Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'9220fbd5': [
+        (log, ('3.0: Sunna Weapon VB Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'5d7fdc2e': [
+        (log, ('3.0: Sunna Weapon VB Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'4b46dfdc': [
+        (log, ('3.0: Sunna Weapon VB Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'003c6497': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'4b4975a2': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'635f5cc9': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'0a237cd3': [(log, ('3.0: Sunna WeaponDecoration IB Hash',)), (add_ib_check_if_missing,)],
+'dab9d122': [
+        (log, ('3.0: Sunna WeaponDecoration VB Hash',)),
+        (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDecoration.IB', 'match_priority = 0\n')),
+    ],
+'0a41bae7': [
+        (log, ('3.0: Sunna WeaponDecoration VB Hash',)),
+        (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDecoration.IB', 'match_priority = 0\n')),
+    ],
+'34dc63b4': [
+        (log, ('3.0: Sunna WeaponDecoration VB Hash',)),
+        (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDecoration.IB', 'match_priority = 0\n')),
+    ],
+'a5ecc7ea': [
+        (log, ('3.0: Sunna WeaponDecoration VB Hash',)),
+        (add_section_if_missing, ('0a237cd3', 'Sunna.WeaponDecoration.IB', 'match_priority = 0\n')),
+    ],
+'8ad8f57d': [(log, ('3.0: Sunna WeaponDecoration2 IB Hash',)), (add_ib_check_if_missing,)],
+'84a9dfca': [
+        (log, ('3.0: Sunna WeaponDecoration2 VB Hash',)),
+        (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDecoration2.IB', 'match_priority = 0\n')),
+    ],
+'81321ee9': [
+        (log, ('3.0: Sunna WeaponDecoration2 VB Hash',)),
+        (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDecoration2.IB', 'match_priority = 0\n')),
+    ],
+'33a66c47': [
+        (log, ('3.0: Sunna WeaponDecoration2 VB Hash',)),
+        (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDecoration2.IB', 'match_priority = 0\n')),
+    ],
+'0d2178c5': [
+        (log, ('3.0: Sunna WeaponDecoration2 VB Hash',)),
+        (add_section_if_missing, ('8ad8f57d', 'Sunna.WeaponDecoration2.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Sunna Hair TEX Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
+    ],
+'b9d9b7a7': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'6c369f22': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'15cd94f7': [
+        (log, ('3.0: Sunna Weapon TEX Hash',)),
+        (add_section_if_missing, ('c811c294', 'Sunna.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'1a0cad46': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('07a82c9c', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'ffe207d5': [
+        (log, ('3.0: Sunna paopao VB Hash',)),
+        (add_section_if_missing, ('e7a17172', 'Sunna.paopao.IB', 'match_priority = 0\n')),
+    ],
+'953975c0': [
+        (log, ('3.0: Sunna WeaponBackpackCharmGrip VB Hash',)),
+        (add_section_if_missing, ('337a62c1', 'Sunna.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
+    ],
+'9679c257': [
+        (log, ('3.0: Sunna Face VB Hash',)),
+        (add_section_if_missing, ('1a2c8573', 'Sunna.Face.IB', 'match_priority = 0\n')),
+    ],
+'cc070c66': [
+        (log, ('3.0: Sunna Hair VB Hash',)),
+        (add_section_if_missing, ('904ecd0f', 'Sunna.Hair.IB', 'match_priority = 0\n')),
     ],
     }
+
 
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Sunna',
-    'game_versions': ['2.8', '3.0'],
+    'aliases': ['Chinatsu', '千夏'],
+    'game_versions': ['2.6'],
 }

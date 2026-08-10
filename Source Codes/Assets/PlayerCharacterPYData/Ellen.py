@@ -1,6 +1,7 @@
 """
 Ellen Character Hash Commands
-ZZZ Mod Fixer v2.8
+ZZZ Mod Fixer v2.5
+Auto-generated from zzz-mod-fixer_2.5a_WIP.py
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -12,54 +13,13 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns Ellen's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# === IB Hashes ===
-'d44a8015': [(log, ('2.8: Ellen Hair IB Hash',)),                       (add_ib_check_if_missing,)],
-'e30fae03': [(log, ('2.8: Ellen Body IB Hash',)),                       (add_ib_check_if_missing,)],
-'f6ef8f3a': [(log, ('2.8: Ellen Head IB Hash',)),                       (add_ib_check_if_missing,)],
-'7b54b96f': [(log, ('2.8: Ellen Hair Shadow IB Hash',)),                (add_ib_check_if_missing,)],
-'569f47ac': [(log, ('2.8: Ellen Weapon Scythe IB Hash',)),               (add_ib_check_if_missing,)],
-'2747bdd1': [(log, ('2.8: Ellen Weapon Spring IB Hash',)),               (add_ib_check_if_missing,)],
-
-# === VB Hashes ===
-# Hair
-'77ac5f85': [(log, ('2.8: Ellen Hair draw_vb',)),                       (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n'))],
-'ba0fe600': [(log, ('2.8: Ellen Hair position_vb',)),                   (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n'))],
-'a27a8e1a': [(log, ('2.8: Ellen Hair texcoord_vb',)),                   (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n'))],
-'e91c93e0': [(log, ('2.8: Ellen Hair blend_vb',)),                      (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n'))],
-
-# Hair Shadow
-'3d83f929': [(log, ('2.8: Ellen Hair Shadow draw_vb',)),                (add_section_if_missing, ('7b54b96f', 'Ellen.HairShadow.IB', 'match_priority = 0\n'))],
-'58dacb05': [(log, ('2.8: Ellen Hair Shadow position_vb',)),            (add_section_if_missing, ('7b54b96f', 'Ellen.HairShadow.IB', 'match_priority = 0\n'))],
-'fcfafc18': [(log, ('2.8: Ellen Hair Shadow texcoord_vb',)),            (add_section_if_missing, ('7b54b96f', 'Ellen.HairShadow.IB', 'match_priority = 0\n'))],
-'01033838': [(log, ('2.8: Ellen Hair Shadow blend_vb',)),               (add_section_if_missing, ('7b54b96f', 'Ellen.HairShadow.IB', 'match_priority = 0\n'))],
-
-# Body
-'cdce1fc2': [(log, ('2.8: Ellen Body draw_vb',)),                       (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n'))],
-'b78f3616': [(log, ('2.8: Ellen Body position_vb',)),                   (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n'))],
-'5ac6d5ee': [(log, ('2.8: Ellen Body texcoord_vb',)),                   (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n'))],
-'ed9cb852': [(log, ('2.8: Ellen Body blend_vb',)),                      (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n'))],
-
-# Face
-'96baf0ee': [(log, ('2.8: Ellen Face VertexLimit Hash',)),               (add_section_if_missing, ('f6ef8f3a', 'Ellen.Head.IB', 'match_priority = 0\n'))],
-'aca863a9': [(log, ('2.8: Ellen Face position_vb Hash',)),               (add_section_if_missing, ('f6ef8f3a', 'Ellen.Head.IB', 'match_priority = 0\n'))],
-'158fa3f3': [(log, ('2.8: Ellen Face texcoord_vb Hash',)),               (add_section_if_missing, ('f6ef8f3a', 'Ellen.Head.IB', 'match_priority = 0\n'))],
-'e015297d': [(log, ('2.8: Ellen Face blend_vb Hash',)),                  (add_section_if_missing, ('f6ef8f3a', 'Ellen.Head.IB', 'match_priority = 0\n'))],
-
-# Weapon - Scythe
-'14ee18a1': [(log, ('2.8: Ellen Scythe Weapon VertexLimit Hash',)),     (add_section_if_missing, ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n'))],
-'0e6ed776': [(log, ('2.8: Ellen Scythe Weapon position_vb Hash',)),     (add_section_if_missing, ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n'))],
-'ad548430': [(log, ('2.8: Ellen Scythe Weapon texcoord_vb Hash',)),     (add_section_if_missing, ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n'))],
-'6500eb53': [(log, ('2.8: Ellen Scythe Weapon blend_vb Hash',)),        (add_section_if_missing, ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n'))],
-
-# Weapon - Spring
-'a063d963': [(log, ('2.8: Ellen Spring Weapon VertexLimit Hash',)),     (add_section_if_missing, ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n'))],
-'4b5ecba8': [(log, ('2.8: Ellen Spring Weapon position_vb Hash',)),     (add_section_if_missing, ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n'))],
-'c75b2bfe': [(log, ('2.8: Ellen Spring Weapon texcoord_vb Hash',)),     (add_section_if_missing, ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n'))],
-'4afdcca5': [(log, ('2.8: Ellen Spring Weapon blend_vb Hash',)),        (add_section_if_missing, ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n'))],
-
-# === Legacy Hash Updates ===
+'d44a8015': [(log, ('1.1: Ellen Hair IB Hash',)), (add_ib_check_if_missing,)],
+'e30fae03': [(log, ('1.1: Ellen Body IB Hash',)), (add_ib_check_if_missing,)],
+'f6ef8f3a': [(log, ('1.1: Ellen Head IB Hash',)), (add_ib_check_if_missing,)],
 '9c7fac5a': [(log, ('1.0 -> 1.1: Ellen Head IB Hash',)),       (update_hash, ('f6ef8f3a',))],
 '7f89a2b3': [(log, ('1.0 -> 1.1: Ellen Hair IB Hash',)),       (update_hash, ('d44a8015',))],
 'a72cfb34': [(log, ('1.0 -> 1.1: Ellen Body IB Hash',)),       (update_hash, ('e30fae03',))],
@@ -100,141 +60,221 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (multiply_section_if_missing,   (('4808d050', 'e6b27e31'), 'Ellen.HeadA.Diffuse.1024')),
     ],
 'e6b27e31': [(log, ('1.0 -> 1.1: Ellen HeadA Diffuse 1024p Hash',)), (update_hash, ('4808d050',))],
-
-# === Pembaruan Sinkronisasi Senjata v2.8 (Scythe) ===
-'b06f7cb9': [(log, ('2.0 -> 2.8: Ellen Weapon Diffuse [Legacy]',)), (update_hash, ('e9e610cd',))],
-'0567bc4e': [(log, ('2.0 -> 2.8: Ellen Weapon LightMap [Legacy]',)), (update_hash, ('1721ed1a',))],
-'d4c2adaa': [(log, ('2.0 -> 2.8: Ellen Weapon MaterialMap [Legacy]',)), (update_hash, ('9aaa6b4b',))],
-
-# === Face Textures ===
 '4808d050': [
-        (log,                           ('2.8: Ellen HeadA Diffuse 1024p Hash',)),
+        (log,                           ('1.1: Ellen HeadA Diffuse 1024p Hash',)),
         (add_section_if_missing,        (('f6ef8f3a', '9c7fac5a'), 'Ellen.Head.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('465a66eb', '09d55bce'), 'Ellen.HeadA.Diffuse.2048')),
     ],
-
-# === Hair Textures ===
 '81ccd2e2': [
-        (log,                           ('2.8: Ellen HairA Diffuse 2048p Hash',)),
+        (log,                           ('1.0: Ellen HairA Diffuse 2048p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('1440e534', 'Ellen.HairA.Diffuse.1024')),
     ],
 '1440e534': [
-        (log,                           ('2.8: Ellen HairA Diffuse 1024p Hash',)),
+        (log,                           ('1.0: Ellen HairA Diffuse 1024p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('81ccd2e2', 'Ellen.HairA.Diffuse.2048')),
     ],
 'dc9d8b6e': [
-        (log,                           ('2.8: Ellen HairA LightMap 2048p Hash',)),
+        (log,                           ('1.0: Ellen HairA LightMap 2048p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('8c835faa', 'Ellen.HairA.LightMap.1024')),
     ],
 '8c835faa': [
-        (log,                           ('2.8: Ellen HairA LightMap 1024p Hash',)),
+        (log,                           ('1.0: Ellen HairA LightMap 1024p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('dc9d8b6e', 'Ellen.HairA.LightMap.2048')),
     ],
 '01bb8189': [
-        (log,                           ('2.8: Ellen HairA MaterialMap 2048p Hash',)),
+        (log,                           ('1.0: Ellen HairA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('b21b8370', 'Ellen.HairA.MaterialMap.1024')),
     ],
 'b21b8370': [
-        (log,                           ('2.8: Ellen HairA MaterialMap 1024p Hash',)),
+        (log,                           ('1.0: Ellen HairA MaterialMap 1024p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('01bb8189', 'Ellen.HairA.MaterialMap.2048')),
     ],
 'aaadca31': [
-        (log,                           ('2.8: Ellen HairA NormalMap 2048p Hash (Old)',)),
+        (log,                           ('1.0 -> 2.5: Ellen HairA NormalMap 2048p Hash',)),
         (update_hash,                   ('ebac056e',)),
     ],
 'd6715e09': [
-        (log,                           ('2.8: Ellen HairA NormalMap 1024p Hash',)),
+        (log,                           ('1.0: Ellen HairA NormalMap 1024p Hash',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('ebac056e', 'aaadca31'), 'Ellen.HairA.NormalMap.2048')),
     ],
-
-# === Body Textures ===
-'cf5f5fed': [
-        (log,                           ('2.8: Ellen BodyA Diffuse 2048p Hash (Old)',)),
-        (update_hash,                   ('163e2559',)),
-    ],
-'163e2559': [
-        (log,                           ('2.8: Ellen BodyA Diffuse 2048p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   (('22fa0cd6', '94c15986'), 'Ellen.BodyA.Diffuse.1024')),
-    ],
-'94c15986': [
-        (log,                           ('2.8: Ellen BodyA Diffuse 1024p Hash (Old)',)),
-        (update_hash,                   ('22fa0cd6',)),
-    ],
-'22fa0cd6': [
-        (log,                           ('2.8: Ellen BodyA Diffuse 1024p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   (('163e2559', 'cf5f5fed'), 'Ellen.BodyA.Diffuse.2048')),
-    ],
-'ff26fb83': [
-        (log,                           ('2.8: Ellen BodyA LightMap 2048p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('cea7516a', 'Ellen.BodyA.LightMap.1024')),
-    ],
-'cea7516a': [
-        (log,                           ('2.8: Ellen BodyA LightMap 1024p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('ff26fb83', 'Ellen.BodyA.LightMap.2048')),
-    ],
-'f4487235': [
-        (log,                           ('2.8: Ellen BodyA MaterialMap 2048p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('30dc14d7', 'Ellen.BodyA.MaterialMap.1024')),
-    ],
-'30dc14d7': [
-        (log,                           ('2.8: Ellen BodyA MaterialMap 1024p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   ('f4487235', 'Ellen.BodyA.MaterialMap.2048')),
-    ],
-'798c3a51': [
-        (log,                           ('2.8: Ellen BodyA NormalMap 2048p Hash (Old)',)),
-        (update_hash,                   ('ebac056e',)),
-    ],
-'590880e5': [
-        (log,                           ('2.8: Ellen BodyA NormalMap 1024p Hash',)),
-        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (multiply_section_if_missing,   (('ebac056e', '798c3a51'), 'Ellen.BodyA.NormalMap.2048')),
-    ],
-
-# === Weapon Textures (v2.8 Target) ===
-'e9e610cd': [
-        (log,                           ('2.8: Ellen Weapon Diffuse Hash',)),
-        (add_section_if_missing,        ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n')),
-    ],
-'1721ed1a': [
-        (log,                           ('2.8: Ellen Weapon LightMap Hash',)),
-        (add_section_if_missing,        ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n')),
-    ],
-'9aaa6b4b': [
-        (log,                           ('2.8: Ellen Weapon MaterialMap Hash',)),
-        (add_section_if_missing,        ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n')),
-    ],
-
-# === Shared Normal Map ===
-'798adba3': [
-        (log,                           ('2.8: Ellen Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('569f47ac', 'Ellen.WeaponScythe.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('2747bdd1', 'Ellen.WeaponSpring.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('7b54b96f', 'Ellen.HairShadow.IB', 'match_priority = 0\n')),
-    ],
 'ebac056e': [
-        (log,                           ('2.8: Ellen HairA and BodyA NormalMap 2048p Hash (shared)',)),
+        (log,                           ('2.5: Ellen HairA and BodyA NormalMap 2048p Hash (shared)',)),
         (add_section_if_missing,        (('d44a8015', '7f89a2b3'), 'Ellen.Hair.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('d6715e09', 'Ellen.HairA.NormalMap.1024')),
         (multiply_section_if_missing,   ('590880e5', 'Ellen.BodyA.NormalMap.1024')),
+    ],
+'cf5f5fed': [
+        (log,                           ('1.0: -> 1.1: Ellen BodyA Diffuse 2048p Hash',)),
+        (update_hash,                   ('163e2559',)),
+    ],
+'163e2559': [
+        (log,                           ('1.1: Ellen BodyA Diffuse 2048p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('22fa0cd6', '94c15986'), 'Ellen.BodyA.Diffuse.1024')),
+    ],
+'94c15986': [
+        (log,                           ('1.0: -> 1.1: Ellen BodyA Diffuse 1024p Hash',)),
+        (update_hash,                   ('22fa0cd6',)),
+    ],
+'22fa0cd6': [
+        (log,                           ('1.1: Ellen BodyA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('163e2559', 'cf5f5fed'), 'Ellen.BodyA.Diffuse.2048')),
+    ],
+'ff26fb83': [
+        (log,                           ('1.0: Ellen BodyA LightMap 2048p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('cea7516a', 'Ellen.BodyA.LightMap.1024')),
+    ],
+'cea7516a': [
+        (log,                           ('1.0: Ellen BodyA LightMap 1024p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('ff26fb83', 'Ellen.BodyA.LightMap.2048')),
+    ],
+'f4487235': [
+        (log,                           ('1.0: Ellen BodyA MaterialMap 2048p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('30dc14d7', 'Ellen.BodyA.MaterialMap.1024')),
+    ],
+'30dc14d7': [
+        (log,                           ('1.0: Ellen BodyA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   ('f4487235', 'Ellen.BodyA.MaterialMap.2048')),
+    ],
+'798c3a51': [
+        (log,                           ('1.0 -> 2.5: Ellen BodyA NormalMap 2048p Hash',)),
+        (update_hash,                   ('ebac056e',)),
+    ],
+'590880e5': [
+        (log,                           ('1.0: Ellen BodyA NormalMap 1024p Hash',)),
+        (add_section_if_missing,        (('e30fae03', 'a72cfb34'), 'Ellen.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,   (('ebac056e', '798c3a51'), 'Ellen.BodyA.NormalMap.2048')),
+    ],
+'ba0fe600': [
+        (log, ('3.0: Ellen Hair VB Hash',)),
+        (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
+    ],
+'a27a8e1a': [
+        (log, ('3.0: Ellen Hair VB Hash',)),
+        (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
+    ],
+'e91c93e0': [
+        (log, ('3.0: Ellen Hair VB Hash',)),
+        (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
+    ],
+'7b54b96f': [(log, ('3.0: Ellen Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'3d83f929': [
+        (log, ('3.0: Ellen Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('7b54b96f', 'Ellen.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'58dacb05': [
+        (log, ('3.0: Ellen Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('7b54b96f', 'Ellen.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'fcfafc18': [
+        (log, ('3.0: Ellen Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('7b54b96f', 'Ellen.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'01033838': [
+        (log, ('3.0: Ellen Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('7b54b96f', 'Ellen.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'cdce1fc2': [
+        (log, ('3.0: Ellen Body VB Hash',)),
+        (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n')),
+    ],
+'b78f3616': [
+        (log, ('3.0: Ellen Body VB Hash',)),
+        (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n')),
+    ],
+'5ac6d5ee': [
+        (log, ('3.0: Ellen Body VB Hash',)),
+        (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n')),
+    ],
+'ed9cb852': [
+        (log, ('3.0: Ellen Body VB Hash',)),
+        (add_section_if_missing, ('e30fae03', 'Ellen.Body.IB', 'match_priority = 0\n')),
+    ],
+'aca863a9': [
+        (log, ('3.0: Ellen Face VB Hash',)),
+        (add_section_if_missing, ('f6ef8f3a', 'Ellen.Face.IB', 'match_priority = 0\n')),
+    ],
+'158fa3f3': [
+        (log, ('3.0: Ellen Face VB Hash',)),
+        (add_section_if_missing, ('f6ef8f3a', 'Ellen.Face.IB', 'match_priority = 0\n')),
+    ],
+'e015297d': [
+        (log, ('3.0: Ellen Face VB Hash',)),
+        (add_section_if_missing, ('f6ef8f3a', 'Ellen.Face.IB', 'match_priority = 0\n')),
+    ],
+'569f47ac': [(log, ('3.0: Ellen weapon IB Hash',)), (add_ib_check_if_missing,)],
+'0e6ed776': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'ad548430': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'6500eb53': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'e9e610cd': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'1721ed1a': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'9aaa6b4b': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'2747bdd1': [(log, ('3.0: Ellen weapon IB Hash',)), (add_ib_check_if_missing,)],
+'4b5ecba8': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('2747bdd1', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'c75b2bfe': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('2747bdd1', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'4afdcca5': [
+        (log, ('3.0: Ellen weapon VB Hash',)),
+        (add_section_if_missing, ('2747bdd1', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'14ee18a1': [(log, ('3.0: Ellen misc hash',)),],
+'96baf0ee': [(log, ('3.0: Ellen misc hash',)),],
+'a063d963': [(log, ('3.0: Ellen misc hash',)),],
+'77ac5f85': [
+        (log, ('3.0: Ellen Hair VB Hash',)),
+        (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Ellen Hair TEX Hash',)),
+        (add_section_if_missing, ('d44a8015', 'Ellen.Hair.IB', 'match_priority = 0\n')),
+    ],
+'b06f7cb9': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'0567bc4e': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
+    ],
+'d4c2adaa': [
+        (log, ('3.0: Ellen weapon TEX Hash',)),
+        (add_section_if_missing, ('569f47ac', 'Ellen.weapon.IB', 'match_priority = 0\n')),
     ],
     }
 
@@ -242,5 +282,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Ellen',
-    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.8', '3.0'],
+    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.5'],
 }

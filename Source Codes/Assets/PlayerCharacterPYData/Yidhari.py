@@ -1,8 +1,7 @@
 """
 Yidhari Character Hash Commands
 ZZZ Mod Fixer v2.5
-Auto-generated from zzz-mod-fixer_2.5a_WIP.py
-Pembaruan Database 2.8 oleh AI & Komunitas
+Game Version: 2.5
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -18,9 +17,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# ==========================================
-# 1. ORIGINAL COMMUNITY CODES (DIPERTAHANKAN)
-# ==========================================
 # IB Hashes
 '2022936e': [(log, ('2.5: Yidhari Hair IB Hash',)),   (add_ib_check_if_missing,)],
 '12251f42': [(log, ('2.5: Yidhari Body IB Hash',)),   (add_ib_check_if_missing,)],
@@ -31,53 +27,124 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
 # Hair Textures
 'd0587bc2': [
-        (log,                           ('2.5: Yidhari HairA Diffuse Hash',)),
+        (log,                           ('2.5: Yidhari HairA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('aefe5860', 'Yidhari.HairA.Diffuse.1024')),
+    ],
+
+'aefe5860': [
+        (log,                           ('2.5: Yidhari HairA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('d0587bc2', 'Yidhari.HairA.Diffuse.2048')),
     ],
 '42ef8882': [
-        (log,                           ('2.5: Yidhari HairA LightMap Hash',)),
+        (log,                           ('2.5: Yidhari HairA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('222b6f58', 'Yidhari.HairA.LightMap.1024')),
+    ],
+
+'222b6f58': [
+        (log,                           ('2.5: Yidhari HairA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('42ef8882', 'Yidhari.HairA.LightMap.2048')),
     ],
 'bc5d6f24': [
-        (log,                           ('2.5: Yidhari HairA MaterialMap Hash',)),
+        (log,                           ('2.5: Yidhari HairA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('527ac41b', 'Yidhari.HairA.MaterialMap.1024')),
+    ],
+
+'527ac41b': [
+        (log,                           ('2.5: Yidhari HairA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('bc5d6f24', 'Yidhari.HairA.MaterialMap.2048')),
     ],
 
 # Body Textures
 'ca51f269': [
-        (log,                           ('2.5: Yidhari BodyA Diffuse Hash',)),
+        (log,                           ('2.5: Yidhari BodyA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('89bec19d', 'Yidhari.BodyA.Diffuse.1024')),
     ],
-'2ae9bee8': [(log, ('2.3 -> 2.4: Yidhari BodyA LightMap 2048p Hash',)), (update_hash, ('5b985a6f',))],
 
-'5b985a6f': [
-        (log,                           ('2.5: Yidhari BodyA LightMap Hash',)),
+'89bec19d': [
+        (log,                           ('2.5: Yidhari BodyA Diffuse 1024p Hash',)),
         (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('ca51f269', 'Yidhari.BodyA.Diffuse.2048')),
+    ],
+'2ae9bee8': [(log, ('2.3 -> 2.4: Yidhair BodyA LightMap 2048p Hash',)), (update_hash, ('5b985a6f',))],
+'5b985a6f': [
+        (log,                           ('2.5: Yidhari BodyA LightMap 2048p Hash',)),
+        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        (('9ad20501', '381e8e5a'), 'Yidhari.BodyA.LightMap.1024')),
+    ],
+
+'9ad20501': [(log, ('2.3 -> 2.4: Yidhair BodyA LightMap 1024p Hash',)), (update_hash, ('381e8e5a',))],
+'381e8e5a': [
+        (log,                           ('2.5: Yidhari BodyA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        (('2ae9bee8', '5b985a6f'), 'Yidhari.BodyA.LightMap.2048')),
     ],
 '0e91ed54': [
-        (log,                           ('2.5: Yidhari BodyA MaterialMap Hash',)),
+        (log,                           ('2.5: Yidhari BodyA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('9af65de7', 'Yidhari.BodyA.MaterialMap.1024')),
+    ],
+
+'9af65de7': [
+        (log,                           ('2.5: Yidhari BodyA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('0e91ed54', 'Yidhari.BodyA.MaterialMap.2048')),
     ],
 
 # Tentacles Textures
 '2156a161': [
-        (log,                           ('2.5: Yidhari TentaclesA Diffuse Hash',)),
+        (log,                           ('2.5: Yidhari TentaclesA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('067b0a15', 'Yidhari.TailA.Diffuse.1024')),
+    ],
+
+'067b0a15': [
+        (log,                           ('2.5: Yidhari TentaclesA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('2156a161', 'Yidhari.TailA.Diffuse.2048')),
     ],
 '8bf59f48': [
-        (log,                           ('2.5: Yidhari TentaclesA LightMap Hash',)),
+        (log,                           ('2.5: Yidhari TentaclesA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('6b99432e', 'Yidhari.TailA.LightMap.1024')),
+    ],
+
+'6b99432e': [
+        (log,                           ('2.5: Yidhari TentaclesA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('8bf59f48', 'Yidhari.TailA.LightMap.2048')),
     ],
 'e0bb4de9': [
-        (log,                           ('2.5: Yidhari TentaclesA MaterialMap Hash',)),
+        (log,                           ('2.5: Yidhari TentaclesA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('0bf712a3', 'Yidhari.TailA.MaterialMap.1024')),
+    ],
+
+'0bf712a3': [
+        (log,                           ('2.5: Yidhari TentaclesA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('e0bb4de9', 'Yidhari.TailA.MaterialMap.2048')),
     ],
 
 # Face/Brows Shared Diffuse Texture
 'c6e0cfbe': [
-        (log,                           ('2.5: Yidhari Face & Brows Diffuse Hash',)),
+        (log,                           ('2.5: Yidhari Face & Brows Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('4753db8f', 'Yidhari.FaceA.Diffuse.1024')),
+    ],
+
+'4753db8f': [
+        (log,                           ('2.5: Yidhari Face & Brows Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
+        (add_section_if_missing,        ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('c6e0cfbe', 'Yidhari.FaceA.Diffuse.2048')),
     ],
 
 # Shared NormalMap (Hair, Body, Tentacles)
@@ -87,135 +154,138 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
     ],
-
-# ==========================================
-# 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
-# ==========================================
-# Hash Updates (v2.4 -> v2.8)
-'9ad20501': [(log, ('2.4 -> 2.8: Yidhari Body LightMap Hash',)), (update_hash, ('381e8e5a',))],
-
-# Target Hashes (Penyelarasan Validasi)
-'381e8e5a': [
-        (log,                           ('2.8: Yidhari Body LightMap Hash (Target)',)),
-        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+'4512a51e': [
+        (log, ('3.0: Yidhari Hair VB Hash',)),
+        (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
     ],
-
-# New Index Buffer (IB) Hashes
-'a5a5654d': [(log, ('2.8: Yidhari HairShadow IB Hash',)), (add_ib_check_if_missing,)],
-'bc96ab6e': [(log, ('2.8: Yidhari Weapon IB Hash',)),     (add_ib_check_if_missing,)],
-
-# Hair draw_vb & VBs
-'2736d089': [(log, ('2.8: Yidhari Hair draw_vb',)),                    (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n'))],
-'4512a51e': [(log, ('2.8: Yidhari Hair position_vb',)),                (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n'))],
-'028c0d28': [(log, ('2.8: Yidhari Hair texcoord_vb',)),                (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n'))],
-'6a65d55c': [(log, ('2.8: Yidhari Hair blend_vb',)),                   (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n'))],
-
-# Hair Shadow draw_vb & VBs
-'225ffc91': [(log, ('2.8: Yidhari HairShadow draw_vb',)),              (add_section_if_missing, ('a5a5654d', 'Yidhari.HairShadow.IB', 'match_priority = 0\n'))],
-'e13a4a8c': [(log, ('2.8: Yidhari HairShadow position_vb',)),          (add_section_if_missing, ('a5a5654d', 'Yidhari.HairShadow.IB', 'match_priority = 0\n'))],
-'a74fecc6': [(log, ('2.8: Yidhari HairShadow texcoord_vb',)),          (add_section_if_missing, ('a5a5654d', 'Yidhari.HairShadow.IB', 'match_priority = 0\n'))],
-'7d881667': [(log, ('2.8: Yidhari HairShadow blend_vb',)),             (add_section_if_missing, ('a5a5654d', 'Yidhari.HairShadow.IB', 'match_priority = 0\n'))],
-
-# Body draw_vb & VBs
-'471aa92a': [(log, ('2.8: Yidhari Body draw_vb',)),                    (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n'))],
-'74f07fc5': [(log, ('2.8: Yidhari Body position_vb',)),                (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n'))],
-'2abc67fb': [(log, ('2.8: Yidhari Body texcoord_vb',)),                (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n'))],
-'eff05950': [(log, ('2.8: Yidhari Body blend_vb',)),                   (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n'))],
-
-# Tail draw_vb & VBs
-'bf5562d4': [(log, ('2.8: Yidhari Tail draw_vb',)),                    (add_section_if_missing, ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n'))],
-'c9dab2d3': [(log, ('2.8: Yidhari Tail position_vb',)),                (add_section_if_missing, ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n'))],
-'344e456e': [(log, ('2.8: Yidhari Tail texcoord_vb',)),                (add_section_if_missing, ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n'))],
-'9b99674d': [(log, ('2.8: Yidhari Tail blend_vb',)),                   (add_section_if_missing, ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n'))],
-
-# Eyebrow VBs & Limits
-'534c2f9b': [(log, ('2.8: Yidhari Eyebrow VertexLimit',)),             (add_section_if_missing, ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n'))],
-'695ebcdc': [(log, ('2.8: Yidhari Eyebrow Position',)),                (add_section_if_missing, ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n'))],
-'cf1a7297': [(log, ('2.8: Yidhari Eyebrow Texcoord',)),                (add_section_if_missing, ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n'))],
-'ee532c5b': [(log, ('2.8: Yidhari Eyebrow Blend',)),                   (add_section_if_missing, ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n'))],
-
-# Face VBs & Limits
-'8abeb827': [(log, ('2.8: Yidhari Face VertexLimit',)),                (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n'))],
-'b0ac2b60': [(log, ('2.8: Yidhari Face Position',)),                   (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n'))],
-'08316415': [(log, ('2.8: Yidhari Face Texcoord',)),                   (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n'))],
-'de712ebf': [(log, ('2.8: Yidhari Face Blend',)),                      (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n'))],
-
-# Weapon VBs & Limits
-'6bc320f0': [(log, ('2.8: Yidhari Weapon VertexLimit',)),              (add_section_if_missing, ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n'))],
-'09c65b14': [(log, ('2.8: Yidhari Weapon Position',)),                 (add_section_if_missing, ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n'))],
-'5a6fe39e': [(log, ('2.8: Yidhari Weapon Texcoord',)),                 (add_section_if_missing, ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n'))],
-'f98b369d': [(log, ('2.8: Yidhari Weapon Blend',)),                    (add_section_if_missing, ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n'))],
-
-# Texture Hashes (v2.8)
-'aefe5860': [
-        (log,                           ('2.8: Yidhari HairA Diffuse Hash',)),
-        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+'028c0d28': [
+        (log, ('3.0: Yidhari Hair VB Hash',)),
+        (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
     ],
-'222b6f58': [
-        (log,                           ('2.8: Yidhari HairA LightMap Hash',)),
-        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+'6a65d55c': [
+        (log, ('3.0: Yidhari Hair VB Hash',)),
+        (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
     ],
-'527ac41b': [
-        (log,                           ('2.8: Yidhari HairA MaterialMap Hash',)),
-        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+'a5a5654d': [(log, ('3.0: Yidhari Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'225ffc91': [
+        (log, ('3.0: Yidhari Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('a5a5654d', 'Yidhari.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'798adba3': [
-        (log,                           ('2.8: Yidhari Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+'e13a4a8c': [
+        (log, ('3.0: Yidhari Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('a5a5654d', 'Yidhari.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'89bec19d': [
-        (log,                           ('2.8: Yidhari BodyA Diffuse Hash',)),
-        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+'a74fecc6': [
+        (log, ('3.0: Yidhari Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('a5a5654d', 'Yidhari.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'9af65de7': [
-        (log,                           ('2.8: Yidhari BodyA MaterialMap Hash',)),
-        (add_section_if_missing,        ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
+'7d881667': [
+        (log, ('3.0: Yidhari Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('a5a5654d', 'Yidhari.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'067b0a15': [
-        (log,                           ('2.8: Yidhari TailA Diffuse Hash',)),
-        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+'471aa92a': [
+        (log, ('3.0: Yidhari Body VB Hash',)),
+        (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
     ],
-'6b99432e': [
-        (log,                           ('2.8: Yidhari TailA LightMap Hash',)),
-        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+'74f07fc5': [
+        (log, ('3.0: Yidhari Body VB Hash',)),
+        (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
     ],
-'0bf712a3': [
-        (log,                           ('2.8: Yidhari TailA MaterialMap Hash',)),
-        (add_section_if_missing,        ('4cb99618', 'Yidhari.Tentacles.IB', 'match_priority = 0\n')),
+'2abc67fb': [
+        (log, ('3.0: Yidhari Body VB Hash',)),
+        (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
     ],
-'4753db8f': [
-        (log,                           ('2.8: Yidhari FaceA, BrowsA Diffuse Hash',)),
-        (add_section_if_missing,        ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('02072970', 'Yidhari.Brows.IB', 'match_priority = 0\n')),
+'eff05950': [
+        (log, ('3.0: Yidhari Body VB Hash',)),
+        (add_section_if_missing, ('12251f42', 'Yidhari.Body.IB', 'match_priority = 0\n')),
     ],
-'85b7643e': [
-        (log,                           ('2.8: Yidhari WeaponA Diffuse Hash',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+'bf5562d4': [
+        (log, ('3.0: Yidhari Tail VB Hash',)),
+        (add_section_if_missing, ('4cb99618', 'Yidhari.Tail.IB', 'match_priority = 0\n')),
     ],
-'cbb02c28': [
-        (log,                           ('2.8: Yidhari WeaponA LightMap Hash',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+'c9dab2d3': [
+        (log, ('3.0: Yidhari Tail VB Hash',)),
+        (add_section_if_missing, ('4cb99618', 'Yidhari.Tail.IB', 'match_priority = 0\n')),
     ],
-'d17095b0': [
-        (log,                           ('2.8: Yidhari WeaponA MaterialMap Hash',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+'344e456e': [
+        (log, ('3.0: Yidhari Tail VB Hash',)),
+        (add_section_if_missing, ('4cb99618', 'Yidhari.Tail.IB', 'match_priority = 0\n')),
     ],
-
-# === New Database 2.8 Synced Weapon Texture Hashes ===
+'9b99674d': [
+        (log, ('3.0: Yidhari Tail VB Hash',)),
+        (add_section_if_missing, ('4cb99618', 'Yidhari.Tail.IB', 'match_priority = 0\n')),
+    ],
+'695ebcdc': [
+        (log, ('3.0: Yidhari eyebrow VB Hash',)),
+        (add_section_if_missing, ('02072970', 'Yidhari.eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'cf1a7297': [
+        (log, ('3.0: Yidhari eyebrow VB Hash',)),
+        (add_section_if_missing, ('02072970', 'Yidhari.eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'ee532c5b': [
+        (log, ('3.0: Yidhari eyebrow VB Hash',)),
+        (add_section_if_missing, ('02072970', 'Yidhari.eyebrow.IB', 'match_priority = 0\n')),
+    ],
+'b0ac2b60': [
+        (log, ('3.0: Yidhari Face VB Hash',)),
+        (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
+    ],
+'08316415': [
+        (log, ('3.0: Yidhari Face VB Hash',)),
+        (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
+    ],
+'de712ebf': [
+        (log, ('3.0: Yidhari Face VB Hash',)),
+        (add_section_if_missing, ('a2406060', 'Yidhari.Face.IB', 'match_priority = 0\n')),
+    ],
+'bc96ab6e': [(log, ('3.0: Yidhari weapon IB Hash',)), (add_ib_check_if_missing,)],
+'09c65b14': [
+        (log, ('3.0: Yidhari weapon VB Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
+'5a6fe39e': [
+        (log, ('3.0: Yidhari weapon VB Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
+'f98b369d': [
+        (log, ('3.0: Yidhari weapon VB Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
 '48889652': [
-        (log,                           ('2.8: Yidhari Weapon Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
     ],
 'e6728419': [
-        (log,                           ('2.8: Yidhari Weapon LightMap Hash [New]',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
     ],
 '42666703': [
-        (log,                           ('2.8: Yidhari Weapon MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('bc96ab6e', 'Yidhari.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
+'534c2f9b': [(log, ('3.0: Yidhari misc hash',)),],
+'6bc320f0': [(log, ('3.0: Yidhari misc hash',)),],
+'8abeb827': [(log, ('3.0: Yidhari misc hash',)),],
+'2736d089': [
+        (log, ('3.0: Yidhari Hair VB Hash',)),
+        (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Yidhari Hair TEX Hash',)),
+        (add_section_if_missing, ('2022936e', 'Yidhari.Hair.IB', 'match_priority = 0\n')),
+    ],
+'85b7643e': [
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
+'cbb02c28': [
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
+    ],
+'d17095b0': [
+        (log, ('3.0: Yidhari weapon TEX Hash',)),
+        (add_section_if_missing, ('bc96ab6e', 'Yidhari.weapon.IB', 'match_priority = 0\n')),
     ],
     }
 
@@ -223,5 +293,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Yidhari',
-    'game_versions': ['2.8', '3.0'],
+    'game_versions': ['2.5'],
 }
+

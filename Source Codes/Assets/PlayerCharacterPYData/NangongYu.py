@@ -1,8 +1,7 @@
 """
 NangongYu Character Hash Commands
-ZZZ Mod Fixer v2.8
-Auto-generated from database mapping
-Pembaruan Database 2.8 oleh AI & Komunitas
+ZZZ Mod Fixer v2.7
+Game Version: 2.7
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -14,171 +13,233 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns NangongYu's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# ==========================================
-# 1. ORIGINAL COMMUNITY CODES (DIPERTAHANKAN)
-# ==========================================
 # === IB Hashes ===
-'969152d4': [(log, ('2.8: NangongYu Hair IB Hash',)),         (add_ib_check_if_missing,)],
-'17438fa9': [(log, ('2.8: NangongYu HairShadow IB Hash',)),   (add_ib_check_if_missing,)],
-'cd884c0a': [(log, ('2.8: NangongYu Headband IB Hash',)),     (add_ib_check_if_missing,)],
-'3b4190ce': [(log, ('2.8: NangongYu Wing IB Hash',)),         (add_ib_check_if_missing,)],
-'4586e530': [(log, ('2.8: NangongYu Body IB Hash',)),         (add_ib_check_if_missing,)],
-'ba598cf9': [(log, ('2.8: NangongYu Eyebrow IB Hash',)),      (add_ib_check_if_missing,)],
-'d643e19a': [(log, ('2.8: NangongYu Face IB Hash',)),         (add_ib_check_if_missing,)],
-'dcd7242e': [(log, ('2.8: NangongYu Weapon IB Hash',)),       (add_ib_check_if_missing,)],
+'4586e530': [
+        (log,                           ('2.7: NangongYu Body IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'d643e19a': [
+        (log,                           ('2.7: NangongYu Face IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'969152d4': [
+        (log,                           ('2.7: NangongYu Hair IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
 
-# === Hash update 2.7 -> 2.8: NangongYu Headband/Wing/Body Diffuse ===
-'fe06152c': [(log, ('2.7 -> 2.8: NangongYu Headband, Wing, Body Diffuse Hash',)), (update_hash, ('dc41fbbf',))],
-
-# === Face & Eyebrow Textures ===
+# === NangongYu Textures (FaceA) ===
 'b6e87aef': [
-        (log,                           ('2.8: NangongYu FaceA, Eyebrow Diffuse Hash',)),
-        (add_section_if_missing,        ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('ba598cf9', 'NangongYu.Eyebrow.IB', 'match_priority = 0\n')),
-    ],
-
-# === Hair Textures ===
-'d2e23730': [
-        (log,                           ('2.8: NangongYu HairA Diffuse Hash',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
-    ],
-'e3573bc8': [
-        (log,                           ('2.8: NangongYu HairA LightMap Hash',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
-    ],
-'687f57b8': [
-        (log,                           ('2.8: NangongYu HairA MaterialMap Hash',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
-    ],
-
-# === Headband, Wing & Body Shared Textures ===
-'dc41fbbf': [
-        (log,                           ('2.8: NangongYu Headband, Wing, Body Diffuse Hash',)),
-        (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
-    ],
-'ab51539c': [
-        (log,                           ('2.8: NangongYu Headband, Wing, Body LightMap Hash',)),
-        (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
-    ],
-'958e389e': [
-        (log,                           ('2.8: NangongYu Headband, Wing, Body MaterialMap Hash',)),
-        (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
-    ],
-
-# === Weapon Textures ===
-'84246d50': [
-        (log,                           ('2.8: NangongYu WeaponA Diffuse Hash',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'fcc325af': [
-        (log,                           ('2.8: NangongYu WeaponA LightMap Hash',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'a64be703': [
-        (log,                           ('2.8: NangongYu WeaponA MaterialMap Hash',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-
-# ==========================================
-# 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
-# ==========================================
-# Hair VBs
-'536345c3': [(log, ('2.8: NangongYu Hair draw_vb',)),                       (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
-'d1a15d0e': [(log, ('2.8: NangongYu Hair position_vb',)),                   (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
-'e67f6a3c': [(log, ('2.8: NangongYu Hair texcoord_vb',)),                   (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
-'56699a62': [(log, ('2.8: NangongYu Hair blend_vb',)),                      (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n'))],
-
-# Headband VBs
-'5aac7571': [(log, ('2.8: NangongYu Headband draw_vb',)),                   (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
-'74cbadea': [(log, ('2.8: NangongYu Headband position_vb',)),               (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
-'00cbd7a8': [(log, ('2.8: NangongYu Headband texcoord_vb',)),               (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
-'82509f4f': [(log, ('2.8: NangongYu Headband blend_vb',)),                  (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n'))],
-
-# Wing VBs
-'6ab572d9': [(log, ('2.8: NangongYu Wing draw_vb',)),                       (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
-'b90d042a': [(log, ('2.8: NangongYu Wing position_vb',)),                   (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
-'e062b6fc': [(log, ('2.8: NangongYu Wing texcoord_vb',)),                   (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
-'4d677fbd': [(log, ('2.8: NangongYu Wing blend_vb',)),                      (add_section_if_missing, ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n'))],
-
-# Body VBs
-'5b0185fc': [(log, ('2.8: NangongYu Body draw_vb',)),                       (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
-'d4908293': [(log, ('2.8: NangongYu Body position_vb',)),                   (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
-'5ebf2446': [(log, ('2.8: NangongYu Body texcoord_vb',)),                   (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
-'f43a1dba': [(log, ('2.8: NangongYu Body blend_vb',)),                      (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n'))],
-
-# Face VBs
-'d70f65c1': [(log, ('2.8: NangongYu Face draw_vb',)),                       (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
-'ed1df686': [(log, ('2.8: NangongYu Face position_vb',)),                   (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
-'45910aef': [(log, ('2.8: NangongYu Face texcoord_vb',)),                   (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
-'93c1ec0c': [(log, ('2.8: NangongYu Face blend_vb',)),                      (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n'))],
-
-# Shared NormalMap
-'798adba3': [
-        (log,                           ('2.8: NangongYu Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('3b4190ce', 'NangongYu.Wing.IB', 'match_priority = 0\n')),
-    ],
-
-'2d290490': [(log,('2.7: -> 2.8: NanGongYu BodyA Diffuse 2048p Hash',)),(update_hash,('11254966',)),],
-
-# === New Database 2.8 Synced NangongYu hashes ===
-'11254966': [
-        (log,                           ('2.8: NangongYu Headband Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
+        (log,                           ('2.7: NangongYu FaceA Diffuse 1024p Hash',)),
+        (add_section_if_missing,    ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('1fd77103', 'NangongYu.FaceA.Diffuse.2048')),
     ],
 '1fd77103': [
-        (log,                           ('2.8: NangongYu Eyebrow Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('ba598cf9', 'NangongYu.Eyebrow.IB', 'match_priority = 0\n')),
+        (log,                           ('2.7: NangongYu FaceA Diffuse 2048p Hash',)),
+        (add_section_if_missing,    ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('b6e87aef', 'NangongYu.FaceA.Diffuse.1024')),
     ],
-'5e50a4f2': [
-        (log,                           ('2.8: NangongYu Weapon LightMap Hash [New]',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'766f3fca': [
-        (log,                           ('2.8: NangongYu Weapon MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'a458a615': [
-        (log,                           ('2.8: NangongYu Hair MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
-    ],
-'acea6f2f': [
-        (log,                           ('2.8: NangongYu Weapon Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'beb11b78': [
-        (log,                           ('2.8: NangongYu Body MaterialMap Hash [New]',)),
-        (add_section_if_missing,        ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
-    ],
-'d94a0c41': [
-        (log,                           ('2.8: NangongYu Hair LightMap Hash [New]',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+
+# === NangongYu Textures (HairA) ===
+'d2e23730': [
+        (log,                           ('2.7: NangongYu HairA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('df39b77c', 'NangongYu.HairA.Diffuse.2048')),
     ],
 'df39b77c': [
-        (log,                           ('2.8: NangongYu Hair Diffuse Hash [New]',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+        (log,                           ('2.7: NangongYu HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('d2e23730', 'NangongYu.HairA.Diffuse.1024')),
     ],
-'ebac056e': [
-        (log,                           ('2.8: NangongYu Shared NormalMap [New]',)),
-        (add_section_if_missing,        ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+'e3573bc8': [
+        (log,                           ('2.7: NangongYu HairA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('d94a0c41', 'NangongYu.HairA.LightMap.2048')),
+    ],
+'d94a0c41': [
+        (log,                           ('2.7: NangongYu HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('e3573bc8', 'NangongYu.HairA.LightMap.1024')),
+    ],
+'687f57b8': [
+        (log,                           ('2.7: NangongYu HairA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('a458a615', 'NangongYu.HairA.MaterialMap.2048')),
+    ],
+'a458a615': [
+        (log,                           ('2.7: NangongYu HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('687f57b8', 'NangongYu.HairA.MaterialMap.1024')),
+    ],
+
+# === NangongYu Textures (BodyA) ===
+'fe06152c': [
+        (log,                           ('2.7 -> 2.8: NangongYu BodyA Diffuse 1024p Hash',)),
+        (update_hash,                        ('dc41fbbf',)),
+    ],
+'dc41fbbf': [
+        (log,                           ('2.7: NangongYu BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        (('2d290490', '11254966'), 'NangongYu.BodyA.Diffuse.2048')),
+    ],
+'2d290490': [
+        (log,                           ('2.7 -> 2.8: NangongYu BodyA Diffuse 2048p Hash',)),
+        (update_hash,                        ('11254966',)),
+    ],
+'11254966': [
+        (log,                           ('2.7: NangongYu BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        (('fe06152c', 'dc41fbbf'), 'NangongYu.BodyA.Diffuse.1024')),
+    ],
+'ab51539c': [
+        (log,                           ('2.7: NangongYu BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('fee3d533', 'NangongYu.BodyA.LightMap.2048')),
     ],
 'fee3d533': [
-        (log,                           ('2.8: NangongYu Body LightMap Hash [New]',)),
-        (add_section_if_missing,        ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
+        (log,                           ('2.7: NangongYu BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('ab51539c', 'NangongYu.BodyA.LightMap.1024')),
+    ],
+'958e389e': [
+        (log,                           ('2.7: NangongYu BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('beb11b78', 'NangongYu.BodyA.MaterialMap.2048')),
+    ],
+'beb11b78': [
+        (log,                           ('2.7: NangongYu BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('958e389e', 'NangongYu.BodyA.MaterialMap.1024')),
+    ],
+'d1a15d0e': [
+        (log, ('3.0: NangongYu Hair VB Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'e67f6a3c': [
+        (log, ('3.0: NangongYu Hair VB Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'56699a62': [
+        (log, ('3.0: NangongYu Hair VB Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'ebac056e': [
+        (log, ('3.0: NangongYu Hair TEX Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'17438fa9': [(log, ('3.0: NangongYu Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'cd884c0a': [(log, ('3.0: NangongYu Headband IB Hash',)), (add_ib_check_if_missing,)],
+'5aac7571': [
+        (log, ('3.0: NangongYu Headband VB Hash',)),
+        (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
+    ],
+'74cbadea': [
+        (log, ('3.0: NangongYu Headband VB Hash',)),
+        (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
+    ],
+'00cbd7a8': [
+        (log, ('3.0: NangongYu Headband VB Hash',)),
+        (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
+    ],
+'82509f4f': [
+        (log, ('3.0: NangongYu Headband VB Hash',)),
+        (add_section_if_missing, ('cd884c0a', 'NangongYu.Headband.IB', 'match_priority = 0\n')),
+    ],
+'3b4190ce': [(log, ('3.0: NangongYu wing IB Hash',)), (add_ib_check_if_missing,)],
+'6ab572d9': [
+        (log, ('3.0: NangongYu wing VB Hash',)),
+        (add_section_if_missing, ('3b4190ce', 'NangongYu.wing.IB', 'match_priority = 0\n')),
+    ],
+'b90d042a': [
+        (log, ('3.0: NangongYu wing VB Hash',)),
+        (add_section_if_missing, ('3b4190ce', 'NangongYu.wing.IB', 'match_priority = 0\n')),
+    ],
+'e062b6fc': [
+        (log, ('3.0: NangongYu wing VB Hash',)),
+        (add_section_if_missing, ('3b4190ce', 'NangongYu.wing.IB', 'match_priority = 0\n')),
+    ],
+'4d677fbd': [
+        (log, ('3.0: NangongYu wing VB Hash',)),
+        (add_section_if_missing, ('3b4190ce', 'NangongYu.wing.IB', 'match_priority = 0\n')),
+    ],
+'d4908293': [
+        (log, ('3.0: NangongYu Body VB Hash',)),
+        (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
+    ],
+'5ebf2446': [
+        (log, ('3.0: NangongYu Body VB Hash',)),
+        (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
+    ],
+'f43a1dba': [
+        (log, ('3.0: NangongYu Body VB Hash',)),
+        (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
+    ],
+'ba598cf9': [(log, ('3.0: NangongYu Eyebrow IB Hash',)), (add_ib_check_if_missing,)],
+'ed1df686': [
+        (log, ('3.0: NangongYu Face VB Hash',)),
+        (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+    ],
+'45910aef': [
+        (log, ('3.0: NangongYu Face VB Hash',)),
+        (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+    ],
+'93c1ec0c': [
+        (log, ('3.0: NangongYu Face VB Hash',)),
+        (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+    ],
+'dcd7242e': [(log, ('3.0: NangongYu Weapon IB Hash',)), (add_ib_check_if_missing,)],
+'acea6f2f': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'5e50a4f2': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'766f3fca': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: NangongYu Hair TEX Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'fcc325af': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'a64be703': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'d70f65c1': [
+        (log, ('3.0: NangongYu Face VB Hash',)),
+        (add_section_if_missing, ('d643e19a', 'NangongYu.Face.IB', 'match_priority = 0\n')),
+    ],
+'5b0185fc': [
+        (log, ('3.0: NangongYu Body VB Hash',)),
+        (add_section_if_missing, ('4586e530', 'NangongYu.Body.IB', 'match_priority = 0\n')),
+    ],
+'536345c3': [
+        (log, ('3.0: NangongYu Hair VB Hash',)),
+        (add_section_if_missing, ('969152d4', 'NangongYu.Hair.IB', 'match_priority = 0\n')),
+    ],
+'84246d50': [
+        (log, ('3.0: NangongYu Weapon TEX Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'8252253e': [
+        (log, ('2.8: NangongYu Weapon draw_vb Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'fe68de06': [
+        (log, ('2.8: NangongYu Weapon position_vb Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'06639b26': [
+        (log, ('2.8: NangongYu Weapon texcoord_vb Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
+    ],
+'4115d67b': [
+        (log, ('2.8: NangongYu Weapon blend_vb Hash',)),
+        (add_section_if_missing, ('dcd7242e', 'NangongYu.Weapon.IB', 'match_priority = 0\n')),
     ],
     }
+
 
 # Character metadata
 CHARACTER_INFO = {
     'name': 'NangongYu',
-    'game_versions': ['2.8', '3.0'],
+    'game_versions': ['2.7', '2.8'],
 }

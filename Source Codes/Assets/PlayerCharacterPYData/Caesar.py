@@ -2,7 +2,6 @@
 Caesar Character Hash Commands
 ZZZ Mod Fixer v2.5
 Auto-generated from zzz-mod-fixer_2.5a_WIP.py
-Pembaruan Database 2.8 oleh AI & Komunitas
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -14,23 +13,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns Caesar's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# ==========================================
-# 1. ORIGINAL COMMUNITY CODES (DIPERTAHANKAN)
-# ==========================================
 # === IB Hashes ===
 '7a8fa826': [(log, ('1.2: Caesar Hair IB Hash',)), (add_ib_check_if_missing,)],
 '92061e5e': [(log, ('1.2: Caesar Body IB Hash',)), (add_ib_check_if_missing,)],
 '6caaeb53': [(log, ('1.2: Caesar Head IB Hash',)), (add_ib_check_if_missing,)],
 
 # === Position VB Hashes ===
-'6de24342': [(log, ('2.5: Caesar Hair Position Hash',)),                 (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
-'7b6d4dab': [(log, ('2.5: Caesar Body Position Hash',)),                 (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
+'6de24342': [(log, ('2.5: Caesar Hair Position Hash',))],
+'7b6d4dab': [(log, ('2.5: Caesar Body Position Hash',))],
 
 # === Blend VB Hashes ===
-'c2417533': [(log, ('2.5: Caesar Hair Blend Hash',)),                    (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
-'8a3da083': [(log, ('2.5: Caesar Body Blend Hash',)),                    (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
+'c2417533': [(log, ('2.5: Caesar Hair Blend Hash',))],
+'8a3da083': [(log, ('2.5: Caesar Body Blend Hash',))],
 
 # === Texcoord VB Hashes ===
 'af291513': [
@@ -43,7 +41,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             ('4B','2f','2f','2f')
         )),
     ],
-'72537fa3': [(log, ('1.3 -> 2.5: Caesar Hair Texcoord Hash',)),          (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
+'72537fa3': [(log, ('1.3 -> 2.5: Caesar Hair Texcoord Hash',))],
 
 '3b2a70a5': [
         (log,            ('1.2 -> 1.3: Caesar Body Texcoord Hash',)),
@@ -55,7 +53,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             ('4B','2f','2f','2f', '2f')
         )),
     ],
-'0ca81129': [(log, ('1.3 -> 2.5: Caesar Body Texcoord Hash',)),          (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
+'0ca81129': [(log, ('1.3 -> 2.5: Caesar Body Texcoord Hash',))],
 
 # === Face Textures ===
 '84d53514': [
@@ -86,6 +84,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.5: Caesar HairA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   ('c7115c4b', 'Caesar.HairA.LightMap.1024')),
+        (multiply_section_if_missing,        (('89b2d3b3', 'c7115c4b'), 'Caesar.HairA.LightMap.1024')),
+    ],
+
+'89b2d3b3': [
+        (log,                           ('2.5: Caesar HairA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('c7115c4b', 'Caesar.HairA.LightMap.1024')),
+        (multiply_section_if_missing,        (('d5d3585b', 'bf19954f'), 'Caesar.HairA.LightMap.2048')),
     ],
 'c7115c4b': [
         (log,                           ('1.2 -> 2.5: Caesar HairA LightMap 1024p Hash',)),
@@ -160,88 +166,105 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n')),
         (multiply_section_if_missing,   (('ebac056e', '36f39b49', 'f1c6c309', 'c1f1e12f'), 'Caesar.BodyA.NormalMap.2048')),
     ],
-
-# ==========================================
-# 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
-# ==========================================
-# New Index Buffer (IB) Hashes
-'f5b1c16e': [(log, ('2.8: Caesar HairShadow IB Hash',)), (add_ib_check_if_missing,)],
-'57c63788': [(log, ('2.8: Caesar Shield IB Hash',)),     (add_ib_check_if_missing,)],
-'a9d32076': [(log, ('2.8: Caesar Sword IB Hash',)),      (add_ib_check_if_missing,)],
-
-# Hair draw_vb
-'bb723235': [(log, ('2.8: Caesar Hair draw_vb',)),                       (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n'))],
-
-# Hair Shadow VBs
-'394dedc6': [(log, ('2.8: Caesar HairShadow draw_vb',)),                 (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
-'51c22365': [(log, ('2.8: Caesar HairShadow position_vb',)),             (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
-'25c45f17': [(log, ('2.8: Caesar HairShadow texcoord_vb',)),             (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
-'6736df70': [(log, ('2.8: Caesar HairShadow blend_vb',)),                (add_section_if_missing, ('f5b1c16e', 'Caesar.HairShadow.IB', 'match_priority = 0\n'))],
-
-# Body draw_vb
-'622b5a8d': [(log, ('2.8: Caesar Body draw_vb',)),                       (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n'))],
-
-# Face VBs & Limits
-'700350dc': [(log, ('2.8: Caesar Face VertexLimit',)),                   (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
-'4a11c39b': [(log, ('2.8: Caesar Face Position',)),                      (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
-'845ee2b0': [(log, ('2.8: Caesar Face Texcoord',)),                      (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
-'5af59912': [(log, ('2.8: Caesar Face Blend',)),                         (add_section_if_missing, ('6caaeb53', 'Caesar.Head.IB', 'match_priority = 0\n'))],
-
-# Shield VBs & Limits
-'b8d3109f': [(log, ('2.8: Caesar Shield VertexLimit',)),                 (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
-'189abd09': [(log, ('2.8: Caesar Shield Position',)),                    (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
-'3d6da969': [(log, ('2.8: Caesar Shield Texcoord',)),                    (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
-'e4d38c28': [(log, ('2.8: Caesar Shield Blend',)),                       (add_section_if_missing, ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n'))],
-
-# Sword VBs & Limits
-'dc1c0ec2': [(log, ('2.8: Caesar Sword VertexLimit',)),                  (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
-'3c1f14b7': [(log, ('2.8: Caesar Sword Position',)),                     (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
-'b0fd2b2e': [(log, ('2.8: Caesar Sword Texcoord',)),                     (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
-'4b76e29f': [(log, ('2.8: Caesar Sword Blend',)),                        (add_section_if_missing, ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n'))],
-
-# Texture Hashes (v2.8)
-'89b2d3b3': [
-        (log,                           ('2.8: Caesar Hair LightMap Hash',)),
-        (add_section_if_missing,        ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n')),
+'f5b1c16e': [(log, ('3.0: Caesar Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'394dedc6': [
+        (log, ('3.0: Caesar Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('f5b1c16e', 'Caesar.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'1ead4a3e': [
-        (log,                           ('2.8: Caesar Weapons Diffuse Hash',)),
-        (add_section_if_missing,        ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n')),
+'51c22365': [
+        (log, ('3.0: Caesar Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('f5b1c16e', 'Caesar.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'798adba3': [
-        (log,                           ('2.8: Caesar Weapons NormalMap Hash',)),
-        (add_section_if_missing,        ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n')),
+'25c45f17': [
+        (log, ('3.0: Caesar Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('f5b1c16e', 'Caesar.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'973bc57d': [
-        (log,                           ('2.8: Caesar Weapons LightMap Hash',)),
-        (add_section_if_missing,        ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n')),
+'6736df70': [
+        (log, ('3.0: Caesar Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('f5b1c16e', 'Caesar.Hair Shadow.IB', 'match_priority = 0\n')),
     ],
-'f8dfb686': [
-        (log,                           ('2.8: Caesar Weapons MaterialMap Hash',)),
-        (add_section_if_missing,        ('57c63788', 'Caesar.Shield.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('a9d32076', 'Caesar.Sword.IB', 'match_priority = 0\n')),
+'622b5a8d': [
+        (log, ('3.0: Caesar Body VB Hash',)),
+        (add_section_if_missing, ('92061e5e', 'Caesar.Body.IB', 'match_priority = 0\n')),
     ],
-
-# === New Database 2.8 Synced Caesar Weapon hashes ===
+'57c63788': [(log, ('3.0: Caesar weapon IB Hash',)), (add_ib_check_if_missing,)],
 'a00fcc14': [
-        (log,                           ('2.8: Caesar Weapon Diffuse Hash [New]',)),
-        (add_section_if_missing,        (('57c63788', 'a9d32076'), 'Caesar.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
     ],
 '5e0cdd97': [
-        (log,                           ('2.8: Caesar Weapon LightMap Hash [New]',)),
-        (add_section_if_missing,        (('57c63788', 'a9d32076'), 'Caesar.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
     ],
 'be9d7d53': [
-        (log,                           ('2.8: Caesar Weapon MaterialMap Hash [New]',)),
-        (add_section_if_missing,        (('57c63788', 'a9d32076'), 'Caesar.Weapon.IB', 'match_priority = 0\n')),
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'a9d32076': [(log, ('3.0: Caesar weapon IB Hash',)), (add_ib_check_if_missing,)],
+'4a11c39b': [
+        (log, ('3.0: Caesar Face VB Hash',)),
+        (add_section_if_missing, ('6caaeb53', 'Caesar.Face.IB', 'match_priority = 0\n')),
+    ],
+'845ee2b0': [
+        (log, ('3.0: Caesar Face VB Hash',)),
+        (add_section_if_missing, ('6caaeb53', 'Caesar.Face.IB', 'match_priority = 0\n')),
+    ],
+'5af59912': [
+        (log, ('3.0: Caesar Face VB Hash',)),
+        (add_section_if_missing, ('6caaeb53', 'Caesar.Face.IB', 'match_priority = 0\n')),
+    ],
+'3d6da969': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'e4d38c28': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'b0fd2b2e': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('a9d32076', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'4b76e29f': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('a9d32076', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'700350dc': [(log, ('3.0: Caesar misc hash',)),],
+'b8d3109f': [(log, ('3.0: Caesar misc hash',)),],
+'dc1c0ec2': [(log, ('3.0: Caesar misc hash',)),],
+'bb723235': [
+        (log, ('3.0: Caesar Hair VB Hash',)),
+        (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Caesar Hair TEX Hash',)),
+        (add_section_if_missing, ('7a8fa826', 'Caesar.Hair.IB', 'match_priority = 0\n')),
+    ],
+'1ead4a3e': [
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'973bc57d': [
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'f8dfb686': [
+        (log, ('3.0: Caesar weapon TEX Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'3c1f14b7': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('a9d32076', 'Caesar.weapon.IB', 'match_priority = 0\n')),
+    ],
+'189abd09': [
+        (log, ('3.0: Caesar weapon VB Hash',)),
+        (add_section_if_missing, ('57c63788', 'Caesar.weapon.IB', 'match_priority = 0\n')),
     ],
     }
+
 
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Caesar',
-    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.8', '3.0'],
+    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.5'],
 }

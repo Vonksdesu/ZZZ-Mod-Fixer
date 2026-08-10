@@ -1,6 +1,7 @@
 """
 Banyue Character Hash Commands
-ZZZ Mod Fixer v2.8
+ZZZ Mod Fixer v2.5
+Game Version: 2.5
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -12,184 +13,281 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns Banyue's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# === IB Hashes ===
-'f3b6e869': [(log, ('2.8: Banyue Hair IB Hash',)),                      (add_ib_check_if_missing,)],
-'698046e6': [(log, ('2.8: Banyue Body IB Hash',)),                      (add_ib_check_if_missing,)],
-'5f855404': [(log, ('2.8: Banyue Legs IB Hash',)),                      (add_ib_check_if_missing,)],
-'635709b5': [(log, ('2.8: Banyue BothArms IB Hash',)),                  (add_ib_check_if_missing,)],
-'084eb825': [(log, ('2.8: Banyue PalmsBall IB Hash',)),                 (add_ib_check_if_missing,)],
-'9bb1eb14': [(log, ('2.8: Banyue WeaponBall IB Hash',)),                (add_ib_check_if_missing,)],
-
-# === VB Hashes ===
-# BothArms
-'8e08205b': [(log, ('2.8: Banyue BothArms draw_vb',)),                  (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n'))],
-'121a1aa7': [(log, ('2.8: Banyue BothArms position_vb',)),              (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n'))],
-'d17bb604': [(log, ('2.8: Banyue BothArms texcoord_vb',)),              (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n'))],
-'0bc8c485': [(log, ('2.8: Banyue BothArms blend_vb',)),                 (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n'))],
-
-# Legs
-'ae8abe08': [(log, ('2.8: Banyue Legs draw_vb',)),                      (add_section_if_missing, ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n'))],
-'dc2a8ff5': [(log, ('2.8: Banyue Legs position_vb',)),                  (add_section_if_missing, ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n'))],
-'132c3f5c': [(log, ('2.8: Banyue Legs texcoord_vb',)),                  (add_section_if_missing, ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n'))],
-'edc17446': [(log, ('2.8: Banyue Legs blend_vb',)),                     (add_section_if_missing, ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n'))],
-
-# Body
-'1aab74cc': [(log, ('2.8: Banyue Body draw_vb',)),                      (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n'))],
-'6fab5f8b': [(log, ('2.8: Banyue Body position_vb',)),                  (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n'))],
-'9b4cef87': [(log, ('2.8: Banyue Body texcoord_vb',)),                  (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n'))],
-'dba0d45e': [(log, ('2.8: Banyue Body blend_vb',)),                     (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n'))],
-
-# PalmsBall
-'16698b4f': [(log, ('2.8: Banyue PalmsBall draw_vb',)),                 (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n'))],
-'679f2627': [(log, ('2.8: Banyue PalmsBall position_vb',)),             (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n'))],
-'daf0e9f9': [(log, ('2.8: Banyue PalmsBall texcoord_vb',)),             (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n'))],
-'3a3a9a42': [(log, ('2.8: Banyue PalmsBall blend_vb',)),                (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n'))],
-
-# WeaponBall
-'00f0ed60': [(log, ('2.8: Banyue WeaponBall draw_vb',)),                (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n'))],
-'289bb2ef': [(log, ('2.8: Banyue WeaponBall position_vb',)),            (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n'))],
-'d6d66d05': [(log, ('2.8: Banyue WeaponBall texcoord_vb',)),            (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n'))],
-'48237f26': [(log, ('2.8: Banyue WeaponBall blend_vb',)),               (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n'))],
-
-# Face
-'0a12bb17': [(log, ('2.8: Banyue Face draw_vb',)),                      (add_section_if_missing, ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n'))],
-'8be7477c': [(log, ('2.8: Banyue Face position_vb',)),                  (add_section_if_missing, ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n'))],
-'ec9b7916': [(log, ('2.8: Banyue Face texcoord_vb',)),                  (add_section_if_missing, ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n'))],
-'bafd83bb': [(log, ('2.8: Banyue Face blend_vb',)),                     (add_section_if_missing, ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n'))],
-
-# === Legacy Hash Updates ===
-'b91ab7b9': [(log, ('2.0 -> 2.8: Banyue BothArms Diffuse [Legacy]',)), (update_hash, ('d6a9d46e',))],
-'a2b682d6': [(log, ('2.0 -> 2.8: Banyue BothArms LightMap [Legacy]',)), (update_hash, ('46d2edd3',))],
-'d6ac66fa': [(log, ('2.0 -> 2.8: Banyue BothArms MaterialMap [Legacy]',)), (update_hash, ('721a29de',))],
-'d70384d8': [(log, ('2.0 -> 2.8: Banyue PalmsBall Diffuse [Legacy]',)), (update_hash, ('3b8e4eda',))],
-'1be5d33e': [(log, ('2.0 -> 2.8: PalmsBall LightMap [Legacy]',)), (update_hash, ('4a7ef137',))],
-'a0df0d6c': [(log, ('2.0 -> 2.8: PalmsBall MaterialMap [Legacy]',)), (update_hash, ('cc671a53',))],
-
-# === Hair Textures ===
+# ==================== Hair Component ====================
+'f3b6e869': [(log, ('2.5: Banyue Hair IB Hash',)), (add_ib_check_if_missing,)],
 '0a1f42fb': [
-        (log,                           ('2.8: Banyue HairA Diffuse Hash',)),
+        (log,                           ('2.5: Banyue HairA Diffuse 2048p Hash',)),
+        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('fc9c6235', 'Banyue.HeadA.Diffuse.1024')),
+    ],
+
+'fc9c6235': [
+        (log,                           ('2.5: Banyue HairA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('0a1f42fb', 'Banyue.HeadA.Diffuse.2048')),
+    ],
+'ebac056e': [
+        (log,                           ('2.5: Banyue Hair/Legs/Body NormalMap Hash',)),
         (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
     ],
 '81cd7414': [
-        (log,                           ('2.8: Banyue HairA LightMap Hash',)),
+        (log,                           ('2.5: Banyue HairA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('6c0d6d52', 'Banyue.HeadA.LightMap.1024')),
+    ],
+
+'6c0d6d52': [
+        (log,                           ('2.5: Banyue HairA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('81cd7414', 'Banyue.HeadA.LightMap.2048')),
     ],
 'ef8ba12a': [
-        (log,                           ('2.8: Banyue HairA MaterialMap Hash',)),
+        (log,                           ('2.5: Banyue HairA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('ca2b8ca8', 'Banyue.HeadA.MaterialMap.1024')),
     ],
 
-# === Body Textures ===
-'b3b968a5': [
-        (log,                           ('2.8: Banyue Body Diffuse Hash',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-    ],
-'19c3125c': [
-        (log,                           ('2.8: Banyue BodyA Diffuse Hash [Legacy]',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-    ],
-'cdecf7ef': [
-        (log,                           ('2.8: Banyue Body LightMap Hash',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-    ],
-'f44f6316': [
-        (log,                           ('2.8: Banyue BodyA LightMap Hash [Legacy]',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-    ],
-'77d743f8': [
-        (log,                           ('2.8: Banyue Body MaterialMap Hash',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-    ],
-'7099d2dc': [
-        (log,                           ('2.8: Banyue BodyA MaterialMap Hash [Legacy]',)),
-        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+'ca2b8ca8': [
+        (log,                           ('2.5: Banyue HairA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('ef8ba12a', 'Banyue.HeadA.MaterialMap.2048')),
     ],
 
-# === BothArms Textures (v2.8 Target) ===
-'d6a9d46e': [
-        (log,                           ('2.8: Banyue BothArms Diffuse 2048p Hash',)),
-        (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
-    ],
-'46d2edd3': [
-        (log,                           ('2.8: Banyue BothArms LightMap 2048p Hash',)),
-        (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
-    ],
-'721a29de': [
-        (log,                           ('2.8: Banyue BothArms MaterialMap 2048p Hash',)),
-        (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
-    ],
-
-# === PalmsBall & WeaponBall Shared Textures (v2.8 Target) ===
-'3b8e4eda': [
-        (log,                           ('2.8: Banyue PalmsBall/WeaponBall Diffuse Hash',)),
-        (add_section_if_missing,        ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
-    ],
-'4a7ef137': [
-        (log,                           ('2.8: Banyue PalmsBall/WeaponBall LightMap Hash',)),
-        (add_section_if_missing,        ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
-    ],
-'cc671a53': [
-        (log,                           ('2.8: Banyue PalmsBall/WeaponBall MaterialMap Hash',)),
-        (add_section_if_missing,        ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
-    ],
-
-# === Leg Textures ===
-'950ca70a': [
-        (log,                           ('2.8: Banyue Legs Diffuse Hash',)),
-        (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
-    ],
+# ==================== Legs Component ====================
+'5f855404': [(log, ('2.5: Banyue Legs IB Hash',)), (add_ib_check_if_missing,)],
 'a75cf25e': [
-        (log,                           ('2.8: Banyue LegsA Diffuse Hash [Legacy]',)),
+        (log,                           ('2.5: Banyue LegsA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('950ca70a', 'Banyue.LegA.Diffuse.1024')),
     ],
-'62c9fcaa': [
-        (log,                           ('2.8: Banyue Legs LightMap Hash',)),
+
+'950ca70a': [
+        (log,                           ('2.5: Banyue LegsA Diffuse 1024p Hash',)),
         (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('a75cf25e', 'Banyue.LegA.Diffuse.2048')),
     ],
+# Note: ebac056e NormalMap is shared with Hair and Body components above
 '1003c4df': [
-        (log,                           ('2.8: Banyue LegsA LightMap Hash [Legacy]',)),
+        (log,                           ('2.5: Banyue LegsA LightMap 2048p Hash',)),
         (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('62c9fcaa', 'Banyue.LegA.LightMap.1024')),
     ],
-'8b0fcc7b': [
-        (log,                           ('2.8: Banyue Legs MaterialMap Hash',)),
+
+'62c9fcaa': [
+        (log,                           ('2.5: Banyue LegsA LightMap 1024p Hash',)),
         (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('1003c4df', 'Banyue.LegA.LightMap.2048')),
     ],
 '1125ccff': [
-        (log,                           ('2.8: Banyue LegsA MaterialMap Hash [Legacy]',)),
+        (log,                           ('2.5: Banyue LegsA MaterialMap 2048p Hash',)),
         (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('8b0fcc7b', 'Banyue.LegA.MaterialMap.1024')),
     ],
 
-# === Face Textures ===
-'fc9c6235': [
-        (log,                           ('2.8: Banyue Face Diffuse Hash',)),
-        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
-    ],
-'6c0d6d52': [
-        (log,                           ('2.8: Banyue Face LightMap Hash',)),
-        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
-    ],
-'ca2b8ca8': [
-        (log,                           ('2.8: Banyue Face MaterialMap Hash',)),
-        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+'8b0fcc7b': [
+        (log,                           ('2.5: Banyue LegsA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('1125ccff', 'Banyue.LegA.MaterialMap.2048')),
     ],
 
-# === Shared Normal Map ===
-'798adba3': [
-        (log,                           ('2.8: Banyue Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+# ==================== Body Component ====================
+'698046e6': [(log, ('2.5: Banyue Body IB Hash',)), (add_ib_check_if_missing,)],
+'19c3125c': [
+        (log,                           ('2.5: Banyue BodyA Diffuse 2048p Hash',)),
         (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('5f855404', 'Banyue.Legs.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('b3b968a5', 'Banyue.BodyA.Diffuse.1024')),
     ],
-'ebac056e': [
-        (log,                           ('2.8: Banyue Hair/Legs/Body NormalMap Hash [Legacy]',)),
-        (add_section_if_missing,        ('f3b6e869', 'Banyue.Hair.IB', 'match_priority = 0\n')),
+
+'b3b968a5': [
+        (log,                           ('2.5: Banyue BodyA Diffuse 1024p Hash',)),
+        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('19c3125c', 'Banyue.BodyA.Diffuse.2048')),
+    ],
+# Note: ebac056e NormalMap is shared with Hair and Legs components above
+'f44f6316': [
+        (log,                           ('2.5: Banyue BodyA LightMap 2048p Hash',)),
+        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('cdecf7ef', 'Banyue.BodyA.LightMap.1024')),
+    ],
+
+'cdecf7ef': [
+        (log,                           ('2.5: Banyue BodyA LightMap 1024p Hash',)),
+        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('f44f6316', 'Banyue.BodyA.LightMap.2048')),
+    ],
+'7099d2dc': [
+        (log,                           ('2.5: Banyue BodyA MaterialMap 2048p Hash',)),
+        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('77d743f8', 'Banyue.BodyA.MaterialMap.1024')),
+    ],
+
+'77d743f8': [
+        (log,                           ('2.5: Banyue BodyA MaterialMap 1024p Hash',)),
+        (add_section_if_missing,        ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+        (multiply_section_if_missing,        ('7099d2dc', 'Banyue.BodyA.MaterialMap.2048')),
+    ],
+
+# Resolusi tambahan (1024p/2048p)
+
+'b91ab7b9': [
+        (log,                           ('2.5: Banyue BothArmsA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('d6a9d46e', 'Banyue.BothArmsA.Diffuse.2048')),
+    ],
+
+'d6a9d46e': [
+        (log,                           ('2.5: Banyue BothArmsA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('b91ab7b9', 'Banyue.BothArmsA.Diffuse.1024')),
+    ],
+
+'a2b682d6': [
+        (log,                           ('2.5: Banyue BothArmsA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('46d2edd3', 'Banyue.BothArmsA.LightMap.2048')),
+    ],
+
+'46d2edd3': [
+        (log,                           ('2.5: Banyue BothArmsA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('a2b682d6', 'Banyue.BothArmsA.LightMap.1024')),
+    ],
+
+'d6ac66fa': [
+        (log,                           ('2.5: Banyue BothArmsA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('721a29de', 'Banyue.BothArmsA.MaterialMap.2048')),
+    ],
+
+'721a29de': [
+        (log,                           ('2.5: Banyue BothArmsA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('d6ac66fa', 'Banyue.BothArmsA.MaterialMap.1024')),
+    ],
+'635709b5': [(log, ('2.5: Banyue BothArms IB Hash',)), (add_ib_check_if_missing,)],
+'1aab74cc': [
+        (log, ('3.0: Banyue Body VB Hash',)),
+        (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+    ],
+'6fab5f8b': [
+        (log, ('3.0: Banyue Body VB Hash',)),
+        (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+    ],
+'9b4cef87': [
+        (log, ('3.0: Banyue Body VB Hash',)),
+        (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+    ],
+'dba0d45e': [
+        (log, ('3.0: Banyue Body VB Hash',)),
+        (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+    ],
+'121a1aa7': [
+        (log, ('3.0: Banyue BothArms VB Hash',)),
+        (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
+    ],
+'d17bb604': [
+        (log, ('3.0: Banyue BothArms VB Hash',)),
+        (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
+    ],
+'0bc8c485': [
+        (log, ('3.0: Banyue BothArms VB Hash',)),
+        (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
+    ],
+'dc2a8ff5': [
+        (log, ('3.0: Banyue Leg VB Hash',)),
+        (add_section_if_missing, ('5f855404', 'Banyue.Leg.IB', 'match_priority = 0\n')),
+    ],
+'132c3f5c': [
+        (log, ('3.0: Banyue Leg VB Hash',)),
+        (add_section_if_missing, ('5f855404', 'Banyue.Leg.IB', 'match_priority = 0\n')),
+    ],
+'edc17446': [
+        (log, ('3.0: Banyue Leg VB Hash',)),
+        (add_section_if_missing, ('5f855404', 'Banyue.Leg.IB', 'match_priority = 0\n')),
+    ],
+'8be7477c': [
+        (log, ('3.0: Banyue Face VB Hash',)),
+        (add_section_if_missing, ('f3b6e869', 'Banyue.Face.IB', 'match_priority = 0\n')),
+    ],
+'ec9b7916': [
+        (log, ('3.0: Banyue Face VB Hash',)),
+        (add_section_if_missing, ('f3b6e869', 'Banyue.Face.IB', 'match_priority = 0\n')),
+    ],
+'bafd83bb': [
+        (log, ('3.0: Banyue Face VB Hash',)),
+        (add_section_if_missing, ('f3b6e869', 'Banyue.Face.IB', 'match_priority = 0\n')),
+    ],
+'084eb825': [(log, ('3.0: Banyue PalmsBall IB Hash',)), (add_ib_check_if_missing,)],
+'16698b4f': [
+        (log, ('3.0: Banyue PalmsBall VB Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'679f2627': [
+        (log, ('3.0: Banyue PalmsBall VB Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'daf0e9f9': [
+        (log, ('3.0: Banyue PalmsBall VB Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'3a3a9a42': [
+        (log, ('3.0: Banyue PalmsBall VB Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'3b8e4eda': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'4a7ef137': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'cc671a53': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'9bb1eb14': [(log, ('3.0: Banyue WeaponBall IB Hash',)), (add_ib_check_if_missing,)],
+'00f0ed60': [
+        (log, ('3.0: Banyue WeaponBall VB Hash',)),
+        (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
+    ],
+'289bb2ef': [
+        (log, ('3.0: Banyue WeaponBall VB Hash',)),
+        (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
+    ],
+'d6d66d05': [
+        (log, ('3.0: Banyue WeaponBall VB Hash',)),
+        (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
+    ],
+'48237f26': [
+        (log, ('3.0: Banyue WeaponBall VB Hash',)),
+        (add_section_if_missing, ('9bb1eb14', 'Banyue.WeaponBall.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Banyue Body TEX Hash',)),
+        (add_section_if_missing, ('698046e6', 'Banyue.Body.IB', 'match_priority = 0\n')),
+    ],
+'d70384d8': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'1be5d33e': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'a0df0d6c': [
+        (log, ('3.0: Banyue PalmsBall TEX Hash',)),
+        (add_section_if_missing, ('084eb825', 'Banyue.PalmsBall.IB', 'match_priority = 0\n')),
+    ],
+'0a12bb17': [
+        (log, ('3.0: Banyue Face VB Hash',)),
+        (add_section_if_missing, ('f3b6e869', 'Banyue.Face.IB', 'match_priority = 0\n')),
+    ],
+'ae8abe08': [
+        (log, ('3.0: Banyue Leg VB Hash',)),
+        (add_section_if_missing, ('5f855404', 'Banyue.Leg.IB', 'match_priority = 0\n')),
+    ],
+'8e08205b': [
+        (log, ('3.0: Banyue BothArms VB Hash',)),
+        (add_section_if_missing, ('635709b5', 'Banyue.BothArms.IB', 'match_priority = 0\n')),
     ],
     }
 
@@ -199,5 +297,5 @@ CHARACTER_INFO = {
     'name': 'Banyue',
     'element': 'Fire',
     'faction': 'Yunkui Summit',
-    'game_versions': ['2.8', '3.0'],
+    'game_versions': ['2.5'],
 }
