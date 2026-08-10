@@ -126,8 +126,7 @@ This time, I’ve made some changes to the ZZZ Mod Fixer tool.
 * **Basic Guide**: I have also added a basic guide feature here.
 
 > [!NOTE]
-> I drew inspiration for the design from [Petrascyll](https://github.com/Petrascyll/gui_collect)
-> The source code is in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch
+> I drew inspiration for the design from [Petrascyll](https://github.com/Petrascyll/gui_collect) and the source code is in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch
 
 ---
 
