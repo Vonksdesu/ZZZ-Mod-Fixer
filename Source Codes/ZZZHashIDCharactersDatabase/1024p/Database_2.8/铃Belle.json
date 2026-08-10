@@ -1,0 +1,121 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "142ddbbc",
+    "position_vb": "a9673001",
+    "texcoord_vb": "11e38ebb",
+    "blend_vb": "cc32660c",
+    "ib": "bea4a483",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "08f04d95"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "f44f330b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "7542ef4b"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "ib": "403eace9",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "ac1c8f80",
+    "position_vb": "d2844c01",
+    "texcoord_vb": "801edbf4",
+    "blend_vb": "c92a17d8",
+    "ib": "1817f3ca",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "b9c7f71b"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "a4d3687d"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b1abe877"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "draw_vb": "04abceb5",
+    "position_vb": "3eb95df2",
+    "texcoord_vb": "1de8fc08",
+    "blend_vb": "36138f65",
+    "ib": "9a9780a7",
+    "MatchFirstIndex": [
+      "0",
+      "8532"
+    ],
+    "PartNameList": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "77eef7e8"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "77eef7e8"
+        ]
+      ]
+    ]
+  }
+]
