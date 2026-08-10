@@ -1,0 +1,21 @@
+{
+  "_comment": "Alias mapping for the database synchronizer (check-database-sync.py).",
+  "_comment2": "Keys are names as written in the reference database JSON files (English clean name or raw Chinese name).",
+  "_comment3": "Values are the clean module names in Assets/PlayerCharacterPYData that they map to.",
+  "_comment4": "Add new entries whenever a future ZZZ version adds characters/skins whose names differ totally from yours (e.g. CN/JP name vs Global name).",
+  "aliases": {
+    "chinatsu": ["sunna"],
+    "千夏": ["sunna"],
+    "arie": ["aria"],
+    "arieagentskin": ["ariaagentdiscordantnote"],
+    "nanyu": ["nangongyu"],
+    "yidhair": ["yidhari"],
+    "astra": ["astrayao"],
+    "belleswimwear": ["bellesummer"],
+    "wiseswimwear": ["wisesummer"],
+    "sigridskin": ["sigridmajesticwavechaser"],
+    "remielleskinwhite": ["remielleseashadepasseul"],
+    "remielleskinblack": ["remiellemoonlightwhispers"],
+    "lucyskin": ["lucyprincessonholiday"]
+  }
+}
