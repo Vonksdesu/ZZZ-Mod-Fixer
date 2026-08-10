@@ -89,6 +89,9 @@ After creating the special folder, copy these three things:
 
 After you've copied these three things, place them in your custom folder. Then you put the folder you created in the main `Mods` folder, not the ZZZ mods folder directly. Then, you can run the `run-fixer.bat` file.
 
+> [!IMPORTANT]
+> Specifically for the version 2.0.0 revamps, you must use `run-fixer-gui.bat` instead of the CLI-based `run-fixer.bat`. After that, add two new files to your setup: `Jane.remapper.py` and `Dialyn.remapper.py`. You can find the source code in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch.
+
 ---
 
 ## Troubleshooting & FAQs
@@ -126,7 +129,7 @@ This time, I’ve made some changes to the ZZZ Mod Fixer tool.
 * **Basic Guide**: I have also added a basic guide feature here.
 
 > [!NOTE]
-> I drew inspiration for the design from [Petrascyll](https://github.com/Petrascyll/gui_collect) and the source code is in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch
+> I drew inspiration for the design from [Petrascyll](https://github.com/Petrascyll/gui_collect) and the source code is in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch.
 
 ---
 
