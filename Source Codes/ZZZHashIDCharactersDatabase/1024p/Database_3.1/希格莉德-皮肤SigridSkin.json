@@ -1,0 +1,397 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "840c1713",
+    "position_vb": "53d5d966",
+    "texcoord_vb": "6b1c911c",
+    "blend_vb": "380ee24b",
+    "ib": "84618ee0",
+    "object_indexes": [
+      0,
+      22296
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "66dbe05f"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "bc582555"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d055f8e9"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "66dbe05f"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "bc582555"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d055f8e9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "ib": "81e925ed",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Hairpin-发夹",
+    "draw_vb": "6a8ea608",
+    "position_vb": "63981c38",
+    "texcoord_vb": "937473ae",
+    "blend_vb": "68bfe8f5",
+    "ib": "b51bdd59",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "66dbe05f"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "bc582555"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d055f8e9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "5f83ec60",
+    "position_vb": "525d51d8",
+    "texcoord_vb": "9331668a",
+    "blend_vb": "4923328d",
+    "ib": "d9e49957",
+    "object_indexes": [
+      0,
+      67443
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "82a7f32e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "1b4edd7b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa626489"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "82a7f32e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "1b4edd7b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa626489"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Tail-尾巴",
+    "draw_vb": "cb72b377",
+    "position_vb": "b3aeb830",
+    "texcoord_vb": "84ef2fb1",
+    "blend_vb": "710b43f7",
+    "ib": "b30db54e",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "66dbe05f"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "bc582555"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d055f8e9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Eyebrow-眉毛",
+    "ib": "454ff522",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "f178a6f2"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "draw_vb": "9b76d1d7",
+    "position_vb": "a1644290",
+    "texcoord_vb": "c90ff663",
+    "blend_vb": "e768b061",
+    "ib": "48625d6d",
+    "object_indexes": [
+      0,
+      7980,
+      13080
+    ],
+    "object_classifications": [
+      "A",
+      "B",
+      "C"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "f178a6f2"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "f178a6f2"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "f178a6f2"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Spear-长枪",
+    "draw_vb": "cc9f0724",
+    "position_vb": "f7f0b608",
+    "texcoord_vb": "5ae0d9a1",
+    "blend_vb": "830f0c5c",
+    "ib": "285aa61f",
+    "object_indexes": [
+      0,
+      16818
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "98a57712"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "6c9142f7"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "e1240523"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "98a57712"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "6c9142f7"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "e1240523"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Rotor-转轮",
+    "draw_vb": "914dcde9",
+    "position_vb": "fe91db45",
+    "texcoord_vb": "cd92341a",
+    "blend_vb": "0bacf856",
+    "ib": "d892c658",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "a58912ea"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ffdc1ea7"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "01f5701a"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "4ba54e3f"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "RotorBearing-转轮轴承",
+    "draw_vb": "efe37d81",
+    "position_vb": "513d615a",
+    "texcoord_vb": "f8153d33",
+    "blend_vb": "09f65e9d",
+    "ib": "b4f608f5",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "82a7f32e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "1b4edd7b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa626489"
+        ]
+      ]
+    ]
+  }
+]
