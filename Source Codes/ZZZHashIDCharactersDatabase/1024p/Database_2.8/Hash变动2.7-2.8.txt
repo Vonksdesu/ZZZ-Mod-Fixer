@@ -1,0 +1,9 @@
+南宫羽Nanyu.json, IB: cd884c0a/3b4190ce/4586e530
+  Diffuse: fe06152c -> dc41fbbf
+
+希希芙Cissia.json, IB: ff2ec4d6/4c11c155/29b5b0b0/29123d5a/bad668cc/d49a5866
+  Diffuse: f5ecd616 -> 6d861173
+
+莱特Lighter.json, IB: 542b8aa9/2de659bd
+  Diffuse: 1cd2d442 -> 0ee07935
+  MaterialMap: 8687f7b8 -> 99ad14f1

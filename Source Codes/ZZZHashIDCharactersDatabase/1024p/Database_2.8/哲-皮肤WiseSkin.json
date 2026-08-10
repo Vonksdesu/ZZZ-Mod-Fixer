@@ -1,0 +1,201 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "ef9c0510",
+    "position_vb": "e8df7ff3",
+    "texcoord_vb": "774071dd",
+    "blend_vb": "edfd1666",
+    "ib": "d5ca0411",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "cb0d0c22"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "33368e12"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d9383a15"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "draw_vb": "681651f9",
+    "position_vb": "4af493e5",
+    "texcoord_vb": "ad7d7eca",
+    "blend_vb": "795e9a7c",
+    "ib": "8d08b190",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Neck-脖子",
+    "draw_vb": "276e1373",
+    "position_vb": "d8ad824b",
+    "texcoord_vb": "39a1dfe3",
+    "blend_vb": "458bbde3",
+    "ib": "01c42a1d",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "9fc3646e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dd79b44b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa712fb9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "ca02f614",
+    "position_vb": "a388eb6b",
+    "texcoord_vb": "b39870e1",
+    "blend_vb": "8612559a",
+    "ib": "1eca2097",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "9fc3646e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "dd79b44b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa712fb9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Waist accessories-腰饰",
+    "draw_vb": "0c1c9bf3",
+    "position_vb": "1e5cafee",
+    "texcoord_vb": "06f42a6f",
+    "blend_vb": "0a0aa1a8",
+    "ib": "e7f527ea",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "e590e6be"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "a78880dc"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "4a0b4014"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "VertexLimit": "6c4552bb",
+    "Position": "5657c1fc",
+    "Texcoord": "c83b6cbf",
+    "Blend": "757bc7cc",
+    "ib": "1fdaf388",
+    "MatchFirstIndex": [
+      "0",
+      "9258"
+    ],
+    "PartNameList": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "588d7d2d"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "588d7d2d"
+        ]
+      ]
+    ]
+  }
+]
