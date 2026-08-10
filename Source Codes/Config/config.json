@@ -1,0 +1,23 @@
+{
+  "active_section": "Hash Character Mods Updater",
+  "mod_paths": {
+    "Hash Character Mods Updater": {
+      "frame_hash_updater_path": "Drive:\\...\\ZZMI\\Mods",
+      "ini_backup_folder": "",
+      "ini_checkbox_status": false,
+      "buf_backup_folder": "",
+      "buf_checkbox_status": false
+    },
+    "Jane Doe Remapper": {
+      "frame_janedoe_remapper_path": "Drive:\\...\\ZZMI\\Mods\\(Your_JaneDoe_Folder_Mod)",
+      "buf_backup_folder": "",
+      "buf_checkbox_status": false
+    },
+    "Dialyn Remapper": {
+      "frame_dialyn_remapper_path": "Drive:\\...\\ZZMI\\Mods\\(Your_Dialyn_Folder_Mod)",
+      "buf_backup_folder": "",
+      "buf_checkbox_status": false
+    },
+    "Guides": {}
+  }
+}
