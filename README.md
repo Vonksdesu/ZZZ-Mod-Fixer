@@ -72,7 +72,7 @@ Use this option if you want to keep your current mod setup:
 This is the most recommended method to prevent any hidden conflicts and ensure the best results:
 1. **Delete all mod folders** inside your main `Mods` directory.
 2. Replace them with **fresh, untouched mod files** (use backups that have *never* been modified or processed by Petrascyll's original program).
-3. Place and run my `zzz-mod-fixer-v3.0.exe` inside the `Mods` folder to automatically update them.
+3. Place and run my `zzz-mod-fixer-v3.1.exe` inside the `Mods` folder to automatically update them.
 4. Launch the game via **XXMI Launcher**.
 
 ### ⚠️ Attention to users who have problems with Windows Security
