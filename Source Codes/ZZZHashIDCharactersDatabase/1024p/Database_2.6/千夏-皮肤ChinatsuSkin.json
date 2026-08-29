@@ -1,0 +1,255 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "22c82346",
+    "position_vb": "327644ee",
+    "texcoord_vb": "5e70dde6",
+    "blend_vb": "79de92c7",
+    "ib": "6cc4d486",
+    "object_indexes": [
+      0,
+      45987
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "8de1219d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "9795e08f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f240844c"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "e85201e7"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "a2b36369"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "ab3c12c0"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "ib": "4803b5d7",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "7353a665",
+    "position_vb": "c77b3235",
+    "texcoord_vb": "0c6b95ca",
+    "blend_vb": "9b65412a",
+    "ib": "ee17c9a2",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "5715ebbe"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "335f4f3e"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "68807c0b"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Eyebrow-眉毛",
+    "draw_vb": "9f0ab8cd",
+    "position_vb": "a5182b8a",
+    "texcoord_vb": "e3cc1981",
+    "blend_vb": "f5daa764",
+    "ib": "30ea5791",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1ef66a60"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸部",
+    "draw_vb": "9679c257",
+    "position_vb": "ac6b5110",
+    "texcoord_vb": "506dc9e1",
+    "blend_vb": "21299f88",
+    "ib": "1a2c8573",
+    "object_indexes": [
+      0,
+      2652,
+      9504
+    ],
+    "object_classifications": [
+      "A",
+      "B",
+      "C"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1ef66a60"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1ef66a60"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1ef66a60"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "WeaponBackpackCharmGrip-背包挂件",
+    "draw_vb": "953975c0",
+    "position_vb": "a28ba31c",
+    "texcoord_vb": "b642db41",
+    "blend_vb": "16e2d8ea",
+    "ib": "337a62c1",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "37f00c45"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "9368a6f9"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "508c297c"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Paopao-泡泡",
+    "draw_vb": "ffe207d5",
+    "position_vb": "1a0cad46",
+    "texcoord_vb": "df0f6142",
+    "blend_vb": "d4e13802",
+    "ib": "07a82c9c",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "be5cd451"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "945afd67"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "e9783f84"
+        ]
+      ]
+    ]
+  }
+]
