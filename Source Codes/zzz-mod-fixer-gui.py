@@ -9,6 +9,7 @@ import struct
 import shutil
 import threading
 import webbrowser
+import urllib.request
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import tkinter.font as tkfont
@@ -25,6 +26,12 @@ else:
     _DATA_DIR = _BASE_DIR
 
 _ICON_CACHE_DIR = _BASE_DIR / "Assets" / "Icons"
+
+APP_VERSION     = "v2.1.0"
+_GITHUB_REPO    = "Vonksdesu/ZZZ-Mod-Fixer"
+_GITHUB_API_URL = f"https://api.github.com/repos/{_GITHUB_REPO}/releases/latest"
+_GITHUB_REL_URL = f"https://github.com/{_GITHUB_REPO}/releases/latest"
+_TAG_PREFIX     = "zzz-mod-fixer-"   # tag format: zzz-mod-fixer-v2.0.0
 _FOLDER_ICON_PATH = _ICON_CACHE_DIR / "folder.png"
 _REFRESH_ICON_PATH = _ICON_CACHE_DIR / "refresh.png"
 
@@ -115,16 +122,22 @@ class ZZZModFixerGUI(tk.Tk):
         self._section_frames = {}
         self._action_buttons = []
         self._path_entry = None
+        self._rollback = None          # rollback module, loaded after layout
+        self._rb_active_border  = None # currently highlighted session card border
+        self._rb_active_session = None # dict of the synced session
+        self._rb_session_dir    = None # Path to active session folder
         self._path_placeholders = {
             "Hash Character Mods Updater": "Drive:\\...\\ZZMI\\Mods",
             "Jane Doe Remapper": "Drive:\\...\\ZZMI\\Mods\\(Your_JaneDoe_Folder_Mod)",
             "Dialyn Remapper": "Drive:\\...\\ZZMI\\Mods\\(Your_Dialyn_Folder_Mod)",
+            "Rolling Back": "",
             "Guides": "",
         }
         self._mod_paths = {
             "Hash Character Mods Updater": "",
             "Jane Doe Remapper": "",
             "Dialyn Remapper": "",
+            "Rolling Back": "",
             "Guides": "",
         }
         self._config_path = _DATA_DIR / "Config" / "config.json"
@@ -133,6 +146,76 @@ class ZZZModFixerGUI(tk.Tk):
         self._init_layout()
         self._bind_sidebar_hover()
         self._apply_path_placeholder()
+        self._rollback = self._load_rollback_module()
+
+    def _on_check_update(self):
+        """Triggered when user clicks Check Update. Runs version check in background."""
+        btn = self._check_update_btn
+        if btn.cget("text") != "Check Update":
+            return   # already in progress or showing result
+        btn.configure(text="Checking...", fg=self._muted, cursor="arrow", state="disabled")
+        threading.Thread(target=self._check_update_worker, daemon=True).start()
+
+    def _check_update_worker(self):
+        """Background thread: calls GitHub API and updates the button accordingly."""
+        btn = self._check_update_btn
+
+        def _reset():
+            btn.configure(text="Check Update", fg=self._muted,
+                          cursor="hand2", state="normal")
+
+        def _set_temporary(text, fg, delay_ms=2000):
+            btn.configure(text=text, fg=fg, cursor="arrow", state="disabled")
+            self.after(delay_ms, _reset)
+
+        try:
+            req = urllib.request.Request(
+                _GITHUB_API_URL,
+                headers={"User-Agent": f"ZZZ-Mod-Fixer/{APP_VERSION}"},
+            )
+            with urllib.request.urlopen(req, timeout=8) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+
+            raw_tag   = data.get("tag_name", "")          # e.g. "zzz-mod-fixer-v2.1.0"
+            latest    = raw_tag.replace(_TAG_PREFIX, "")  # → "v2.1.0"
+            current   = APP_VERSION                        # e.g. "v2.0.0"
+
+            if latest and latest != current:
+                # New version available — open releases page and reset button
+                self.after(0, lambda: webbrowser.open(_GITHUB_REL_URL))
+                self.after(0, _reset)
+                self.after(0, lambda: self._log(
+                    f"Update available:  {current} → {latest} (opening browser)"
+                ))
+            else:
+                # Already on latest
+                self.after(0, lambda: _set_temporary("Up to Date ✓", "#6dbf6d"))
+
+        except Exception as exc:
+            self.after(0, lambda: _set_temporary("Check Failed", "#cc6666"))
+            self.after(0, lambda: self._log(f"Update check failed:  {exc}"))
+
+    def _load_rollback_module(self):
+        """
+        Loads zzz-mod-fixer-rollback.py from the same directory as this GUI.
+        Returns the module on success, None on failure.
+        Called once after the layout is built so _log is available.
+        """
+        script_path = _BASE_DIR / "zzz-mod-fixer-rollback.py"
+        if not script_path.exists():
+            self._log(f"Rollback module not found: {script_path}")
+            return None
+        try:
+            spec   = importlib.util.spec_from_file_location("zzz_mod_fixer_rollback", str(script_path))
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            if not module.is_available():
+                self._log("Rollback: LOCALAPPDATA not found — Rolling Back disabled.")
+                return None
+            return module
+        except Exception as exc:
+            self._log(f"Rollback module failed to load: {exc}")
+            return None
 
     def _init_style(self):
         style = ttk.Style(self)
@@ -207,6 +290,8 @@ class ZZZModFixerGUI(tk.Tk):
                     "buf_backup_folder": "",
                     "buf_checkbox_status": False,
                 },
+                "Rolling Back": {},
+                "Guides": {},
             },
         }
         try:
@@ -227,6 +312,10 @@ class ZZZModFixerGUI(tk.Tk):
                                 for key, default_val in cfg.items()
                             }
                             data["mod_paths"][section] = merged_section
+                    # Remove stale keys that are no longer in default_data
+                    stale_keys = [k for k in data["mod_paths"] if k not in default_data["mod_paths"]]
+                    for k in stale_keys:
+                        del data["mod_paths"][k]
                 merged = {**default_data, **data}
                 self._config = merged
                 return
@@ -252,6 +341,7 @@ class ZZZModFixerGUI(tk.Tk):
             "Hash Character Mods Updater": mod_paths_cfg.get("Hash Character Mods Updater", {}).get("frame_hash_updater_path", ""),
             "Jane Doe Remapper": mod_paths_cfg.get("Jane Doe Remapper", {}).get("frame_janedoe_remapper_path", ""),
             "Dialyn Remapper": mod_paths_cfg.get("Dialyn Remapper", {}).get("frame_dialyn_remapper_path", ""),
+            "Rolling Back": mod_paths_cfg.get("Rolling Back", {}).get("frame_rollback_path", ""),
             "Guides": "",
         }
         hash_cfg = mod_paths_cfg.get("Hash Character Mods Updater", {})
@@ -340,117 +430,140 @@ class ZZZModFixerGUI(tk.Tk):
         header_label = tk.Label(parent, text="MAIN", bg=self._sidebar_bg, fg="#FFFFFF", font=("Segoe UI", 9, "bold"), anchor="w")
         header_label.grid(row=2, column=0, sticky="ew", padx=12, pady=(0, 8))
 
-        options = [
-            ("Hash Character Mods Updater", "Updating All Mods Hashes"),
-            ("Jane Doe Remapper", "Remapping Jane Doe Blend Indices"),
-            ("Dialyn Remapper", "Remapping Dialyn Blend Indices"),
+        # Unified sidebar structure — add new sections/items here only
+        # Item tuple: (title, desc) or (title, desc, wraplength)
+        # wraplength is optional — only set it for long descriptions
+        sidebar_sections = [
+            {
+                "header": "MAIN",
+                "items": [
+                    ("Hash Character Mods Updater", "Updating All Mods Hashes"),
+                    ("Jane Doe Remapper", "Remapping Jane Doe Blend Indices"),
+                    ("Dialyn Remapper", "Remapping Dialyn Blend Indices"),
+                ],
+            },
+            {
+                "header": "GUIDE",
+                "items": [
+                    ("Guides", "How To Use the Tool"),
+                ],
+            },
+            {
+                "header": "ROLLBACK",
+                "items": [
+                    ("Rolling Back", "Rolling Back Your Mods If There Are Some Broken Mods After Updating Mods Hashes", 170),
+                ],
+            },
         ]
 
         self.sidebar_buttons = []
-        self.sidebar_items = []
-        self._sidebar_options = options
+        self.sidebar_items  = []
+        self._sidebar_options = [(t[0], t[1]) for g in sidebar_sections for t in g["items"]]
 
         active_section = self._config.get("active_section", "Hash Character Mods Updater")
 
-        for idx, (title, desc) in enumerate(options, start=0):
-            item_frame = tk.Frame(parent, bg=self._sidebar_bg)
-            item_frame.grid(row=idx + 3, column=0, sticky="ew", padx=0, pady=0)
-            item_frame.columnconfigure(1, weight=1)
+        current_row = 2  # rows 0=logo, 1=top_sep consumed above
 
-            border_canvas = tk.Canvas(item_frame, width=0, bg=self._accent, highlightthickness=0)
-            border_canvas.place(x=0, y=0, relheight=1)
+        for group_idx, group in enumerate(sidebar_sections):
+            header_pady = (0, 8) if group_idx == 0 else (28, 8)
+            tk.Label(
+                parent, text=group["header"],
+                bg=self._sidebar_bg, fg="#FFFFFF",
+                font=("Segoe UI", 9, "bold"), anchor="w",
+            ).grid(row=current_row, column=0, sticky="ew", padx=12, pady=header_pady)
+            current_row += 1
 
-            icon_canvas = tk.Canvas(item_frame, width=20, height=20, bg=self._sidebar_bg, highlightthickness=0)
-            icon_canvas.grid(row=0, column=0, padx=(12, 8), pady=8)
-            
-            if title == active_section:
-                self._draw_hash_icon(icon_canvas, self._accent)
-            else:
-                self._draw_diamond_icon(icon_canvas, self._accent)
+            for item_data in group["items"]:
+                title      = item_data[0]
+                desc       = item_data[1]
+                wrap       = item_data[2] if len(item_data) > 2 else 0
+                idx        = len(self.sidebar_items)
 
-            text_frame = tk.Frame(item_frame, bg=self._sidebar_bg)
-            text_frame.grid(row=0, column=1, sticky="nsew", padx=(0, 12), pady=8)
+                item_frame = tk.Frame(parent, bg=self._sidebar_bg)
+                item_frame.grid(row=current_row, column=0, sticky="ew", padx=0, pady=0)
+                item_frame.columnconfigure(1, weight=1)
 
-            title_label = tk.Label(text_frame, text=title, bg=self._sidebar_bg, fg=self._fg, font=("Segoe UI", 9, "bold"), anchor="w")
-            title_label.pack(fill="x")
+                border_canvas = tk.Canvas(item_frame, width=0, bg=self._accent, highlightthickness=0)
+                border_canvas.place(x=0, y=0, relheight=1)
 
-            desc_label = tk.Label(text_frame, text=desc, bg=self._sidebar_bg, fg=self._muted, font=("Segoe UI", 8), anchor="w")
-            desc_label.pack(fill="x")
+                icon_canvas = tk.Canvas(item_frame, width=20, height=20, bg=self._sidebar_bg, highlightthickness=0)
+                icon_canvas.grid(row=0, column=0, padx=(12, 8), pady=8)
 
-            for widget in [item_frame, icon_canvas, text_frame, title_label, desc_label]:
-                widget.bind("<Enter>", lambda e, i=idx: self._on_sidebar_item_enter(i))
-                widget.bind("<Leave>", lambda e, i=idx: self._on_sidebar_item_leave(i))
-                widget.bind("<Button-1>", lambda e, t=title: self._on_sidebar_click(t))
+                if title == active_section:
+                    self._draw_hash_icon(icon_canvas, self._accent)
+                else:
+                    self._draw_diamond_icon(icon_canvas, self._accent)
 
-            self.sidebar_buttons.append(item_frame)
-            self.sidebar_items.append({
-                "frame": item_frame,
-                "border": border_canvas,
-                "icon": icon_canvas,
-                "title": title_label,
-                "desc": desc_label,
-                "text_frame": text_frame,
-                "title_text": title,
-                "index": idx,
-            })
+                text_frame = tk.Frame(item_frame, bg=self._sidebar_bg)
+                text_frame.grid(row=0, column=1, sticky="nsew", padx=(0, 12), pady=8)
 
-        guide_label = tk.Label(parent, text="GUIDE", bg=self._sidebar_bg, fg="#FFFFFF", font=("Segoe UI", 9, "bold"), anchor="w")
-        guide_label.grid(row=7, column=0, sticky="ew", padx=12, pady=(28, 8))
+                title_label = tk.Label(
+                    text_frame, text=title,
+                    bg=self._sidebar_bg, fg=self._fg,
+                    font=("Segoe UI", 9, "bold"), anchor="w",
+                )
+                title_label.pack(fill="x")
 
-        guides_title = "Guides"
-        guides_desc = "How To Use the Tool"
-        guides_item_frame = tk.Frame(parent, bg=self._sidebar_bg)
-        guides_item_frame.grid(row=8, column=0, sticky="ew", padx=0, pady=0)
-        guides_item_frame.columnconfigure(1, weight=1)
+                desc_kwargs = dict(
+                    bg=self._sidebar_bg, fg=self._muted,
+                    font=("Segoe UI", 8), anchor="w", justify="left",
+                )
+                if wrap:
+                    desc_kwargs["wraplength"] = wrap
+                desc_label = tk.Label(text_frame, text=desc, **desc_kwargs)
+                desc_label.pack(fill="x")
 
-        guides_border = tk.Canvas(guides_item_frame, width=0, bg=self._accent, highlightthickness=0)
-        guides_border.place(x=0, y=0, relheight=1)
+                for widget in [item_frame, icon_canvas, text_frame, title_label, desc_label]:
+                    widget.bind("<Enter>",    lambda e, i=idx: self._on_sidebar_item_enter(i))
+                    widget.bind("<Leave>",    lambda e, i=idx: self._on_sidebar_item_leave(i))
+                    widget.bind("<Button-1>", lambda e, t=title: self._on_sidebar_click(t))
 
-        guides_icon = tk.Canvas(guides_item_frame, width=20, height=20, bg=self._sidebar_bg, highlightthickness=0)
-        guides_icon.grid(row=0, column=0, padx=(12, 8), pady=8)
+                self.sidebar_buttons.append(item_frame)
+                self.sidebar_items.append({
+                    "frame":      item_frame,
+                    "border":     border_canvas,
+                    "icon":       icon_canvas,
+                    "title":      title_label,
+                    "desc":       desc_label,
+                    "text_frame": text_frame,
+                    "title_text": title,
+                    "index":      idx,
+                })
+                current_row += 1
 
-        if guides_title == active_section:
-            self._draw_hash_icon(guides_icon, self._accent)
-        else:
-            self._draw_diamond_icon(guides_icon, self._accent)
-
-        guides_text_frame = tk.Frame(guides_item_frame, bg=self._sidebar_bg)
-        guides_text_frame.grid(row=0, column=1, sticky="nsew", padx=(0, 12), pady=8)
-
-        guides_title_label = tk.Label(guides_text_frame, text=guides_title, bg=self._sidebar_bg, fg=self._fg, font=("Segoe UI", 9, "bold"), anchor="w")
-        guides_title_label.pack(fill="x")
-
-        guides_desc_label = tk.Label(guides_text_frame, text=guides_desc, bg=self._sidebar_bg, fg=self._muted, font=("Segoe UI", 8), anchor="w")
-        guides_desc_label.pack(fill="x")
-
-        for widget in [guides_item_frame, guides_icon, guides_text_frame, guides_title_label, guides_desc_label]:
-            widget.bind("<Enter>", lambda e, i=len(self.sidebar_items): self._on_sidebar_item_enter(i))
-            widget.bind("<Leave>", lambda e, i=len(self.sidebar_items): self._on_sidebar_item_leave(i))
-            widget.bind("<Button-1>", lambda e, t=guides_title: self._on_sidebar_click(t))
-
-        self.sidebar_buttons.append(guides_item_frame)
-        self.sidebar_items.append({
-            "frame": guides_item_frame,
-            "border": guides_border,
-            "icon": guides_icon,
-            "title": guides_title_label,
-            "desc": guides_desc_label,
-            "text_frame": guides_text_frame,
-            "title_text": guides_title,
-            "index": len(self.sidebar_items),
-        })
-
-        parent.rowconfigure(9, weight=1)
+        parent.rowconfigure(current_row, weight=1)
+        current_row += 1
 
         bottom_frame = tk.Frame(parent, bg=self._sidebar_bg)
-        bottom_frame.grid(row=10, column=0, sticky="ew", padx=0, pady=(0, 10))
+        bottom_frame.grid(row=current_row, column=0, sticky="ew", padx=0, pady=(0, 10))
         bottom_frame.columnconfigure(0, weight=1)
 
         bottom_sep = tk.Frame(bottom_frame, height=1, bg="#555555")
-        bottom_sep.pack(fill="x", padx=0, pady=(0, 10))
+        bottom_sep.pack(fill="x", padx=0, pady=(0, 8))
 
-        version_label = tk.Label(bottom_frame, text="v2.0.0 GUI", bg=self._sidebar_bg, fg=self._muted, font=("Segoe UI", 8), anchor="w")
-        version_label.pack(fill="x", padx=12)
+        ver_row = tk.Frame(bottom_frame, bg=self._sidebar_bg)
+        ver_row.pack(fill="x", padx=10, pady=(0, 4))
+        ver_row.columnconfigure(0, weight=1)
+
+        version_label = tk.Label(
+            ver_row, text=f"{APP_VERSION} GUI",
+            bg=self._sidebar_bg, fg=self._muted,
+            font=("Segoe UI", 8), anchor="w",
+        )
+        version_label.grid(row=0, column=0, sticky="w")
+
+        self._check_update_btn = tk.Button(
+            ver_row, text="Check Update",
+            bg=self._sidebar_bg, fg=self._muted,
+            activebackground=self._sidebar_bg, activeforeground="#cccccc",
+            relief="flat", bd=0, highlightthickness=0,
+            font=("Segoe UI", 8), padx=0, pady=0,
+            cursor="hand2",
+            command=self._on_check_update,
+        )
+        self._check_update_btn.grid(row=0, column=1, sticky="e")
+        self._check_update_btn.bind("<Enter>", lambda e: self._check_update_btn.configure(fg="#cccccc"))
+        self._check_update_btn.bind("<Leave>", lambda e: self._check_update_btn.configure(fg=self._muted))
 
     def _bind_sidebar_hover(self):
         pass
@@ -507,8 +620,8 @@ class ZZZModFixerGUI(tk.Tk):
         self._path_entry.pack(fill="both", expand=True)
         self._path_entry.configure(state="readonly")
 
-        ttk.Button(parent, text="Browse", style="Topbar.TButton", command=self._browse_folder).grid(row=0, column=2, sticky="e")
-        ttk.Button(parent, text="Refresh", style="Topbar.TButton", command=self._refresh_folder).grid(row=0, column=3, sticky="e", padx=(6, 0))
+        ttk.Button(parent, text="Browse", style="Topbar.TButton", cursor="hand2", command=self._browse_folder).grid(row=0, column=2, sticky="e")
+        ttk.Button(parent, text="Refresh", style="Topbar.TButton", cursor="hand2", command=self._refresh_folder).grid(row=0, column=3, sticky="e", padx=(6, 0))
 
         self.mod_path.trace_add("write", lambda *args: self._on_mod_path_changed())
         self._path_entry.bind("<FocusIn>", self._on_path_focus_in)
@@ -541,12 +654,13 @@ class ZZZModFixerGUI(tk.Tk):
         self._build_hash_updater_content(left, right)
         self._build_jane_doe_remapper_content(left, right)
         self._build_dialyn_remapper_content(left, right)
+        self._build_rollback_content(left, right)
         self._build_guides_content(left, right)
 
     def _build_hash_updater_content(self, left_parent, right_parent):
         left_widgets = []
 
-        ini_checkbox = tk.Checkbutton(left_parent, text="Create INI Backup Folder", variable=self.ini_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), command=lambda: self._on_checkbox_clicked("Create INI Backup Folder", self.ini_checkbox_status, self._on_hash_ini_toggle))
+        ini_checkbox = tk.Checkbutton(left_parent, text="Create INI Backup Folder", variable=self.ini_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), cursor="hand2", command=lambda: self._on_checkbox_clicked("Create INI Backup Folder", self.ini_checkbox_status, self._on_hash_ini_toggle))
         self._add_checkbox_hover(ini_checkbox)
         left_widgets.append({"widget": ini_checkbox, "options": {"row": 0, "column": 0, "sticky": "w"}})
 
@@ -571,7 +685,7 @@ class ZZZModFixerGUI(tk.Tk):
 
         left_widgets.append({"widget": ini_entry_wrapper, "options": {"row": 2, "column": 0, "sticky": "ew", "pady": (5, 30)}})
 
-        buf_checkbox = tk.Checkbutton(left_parent, text="Create BUF Backup Folder", variable=self.buf_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), command=lambda: self._on_checkbox_clicked("Create BUF Backup Folder", self.buf_checkbox_status, self._on_hash_buf_toggle))
+        buf_checkbox = tk.Checkbutton(left_parent, text="Create BUF Backup Folder", variable=self.buf_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), cursor="hand2", command=lambda: self._on_checkbox_clicked("Create BUF Backup Folder", self.buf_checkbox_status, self._on_hash_buf_toggle))
         self._add_checkbox_hover(buf_checkbox)
         left_widgets.append({"widget": buf_checkbox, "options": {"row": 3, "column": 0, "sticky": "w"}})
 
@@ -596,11 +710,11 @@ class ZZZModFixerGUI(tk.Tk):
 
         left_widgets.append({"widget": buf_entry_wrapper, "options": {"row": 5, "column": 0, "sticky": "ew", "pady": (4, 10)}})
 
-        btn = ttk.Button(left_parent, text="Update Hashes", style="Accent.TButton", command=self._run_update_hashes)
+        btn = ttk.Button(left_parent, text="Update Hashes", style="Accent.TButton", cursor="hand2", command=self._run_update_hashes)
         left_widgets.append({"widget": btn, "options": {"row": 6, "column": 0, "sticky": "ew", "pady": (16, 4)}})
         self._action_buttons.append(btn)
 
-        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", command=self._clear_cli_action)
+        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", cursor="hand2", command=self._clear_cli_action)
         left_widgets.append({"widget": clear_btn, "options": {"row": 7, "column": 0, "sticky": "ew", "pady": (4, 4)}})
         self._action_buttons.append(clear_btn)
 
@@ -667,11 +781,11 @@ class ZZZModFixerGUI(tk.Tk):
 
         left_widgets.append({"widget": buf_entry_wrapper, "options": {"row": 2, "column": 0, "sticky": "ew", "pady": (4, 10)}})
 
-        btn = ttk.Button(left_parent, text="Remap Now", style="Accent.TButton", command=self._run_jane_remapper)
+        btn = ttk.Button(left_parent, text="Remap Now", style="Accent.TButton", cursor="hand2", command=self._run_jane_remapper)
         left_widgets.append({"widget": btn, "options": {"row": 3, "column": 0, "sticky": "ew", "pady": (16, 4)}})
         self._action_buttons.append(btn)
 
-        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", command=self._clear_cli_action)
+        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", cursor="hand2", command=self._clear_cli_action)
         left_widgets.append({"widget": clear_btn, "options": {"row": 4, "column": 0, "sticky": "ew", "pady": (4, 4)}})
         self._action_buttons.append(clear_btn)
 
@@ -713,7 +827,7 @@ class ZZZModFixerGUI(tk.Tk):
     def _build_dialyn_remapper_content(self, left_parent, right_parent):
         left_widgets = []
 
-        buf_checkbox = tk.Checkbutton(left_parent, text="Create BUF Backup Folder", variable=self.dialyn_remapper_buf_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), command=lambda: self._on_checkbox_clicked("Create BUF Backup Folder", self.dialyn_remapper_buf_checkbox_status, self._on_dialyn_remapper_buf_toggle))
+        buf_checkbox = tk.Checkbutton(left_parent, text="Create BUF Backup Folder", variable=self.dialyn_remapper_buf_checkbox_status, bg="#252526", fg="#ffffff", selectcolor="#252526", activebackground="#2d2d30", activeforeground="#ffffff", highlightthickness=0, takefocus=0, relief="flat", bd=0, font=("Segoe UI", 9, "bold"), cursor="hand2", command=lambda: self._on_checkbox_clicked("Create BUF Backup Folder", self.dialyn_remapper_buf_checkbox_status, self._on_dialyn_remapper_buf_toggle))
         self._add_checkbox_hover(buf_checkbox)
         left_widgets.append({"widget": buf_checkbox, "options": {"row": 0, "column": 0, "sticky": "w"}})
 
@@ -738,11 +852,11 @@ class ZZZModFixerGUI(tk.Tk):
 
         left_widgets.append({"widget": buf_entry_wrapper, "options": {"row": 2, "column": 0, "sticky": "ew", "pady": (4, 10)}})
 
-        btn = ttk.Button(left_parent, text="Remap Now", style="Accent.TButton", command=self._run_dialyn_remapper)
+        btn = ttk.Button(left_parent, text="Remap Now", style="Accent.TButton", cursor="hand2", command=self._run_dialyn_remapper)
         left_widgets.append({"widget": btn, "options": {"row": 3, "column": 0, "sticky": "ew", "pady": (16, 4)}})
         self._action_buttons.append(btn)
 
-        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", command=self._clear_cli_action)
+        clear_btn = ttk.Button(left_parent, text="Clear CLI", style="Accent.TButton", cursor="hand2", command=self._clear_cli_action)
         left_widgets.append({"widget": clear_btn, "options": {"row": 4, "column": 0, "sticky": "ew", "pady": (4, 4)}})
         self._action_buttons.append(clear_btn)
 
@@ -780,6 +894,605 @@ class ZZZModFixerGUI(tk.Tk):
         }
 
         self._on_dialyn_remapper_buf_toggle()
+
+    def _build_rollback_content(self, left_parent, right_parent):
+        """
+        Rolling Back section — same three-panel structure as other sections
+        (custom topbar + left container + right container), just with different content:
+          Topbar  → SECTION tab bar (Hash / Jane Doe / Dialyn)
+          Left    → INI Backup History listbox  +  BUF Backup History listbox
+          Right   → Restore All / Delete All buttons  +  scrollable file-detail list
+        """
+
+        def _autoscroll(sb):
+            """Returns a yscrollcommand that shows the scrollbar only when content overflows."""
+            def _cb(first, last):
+                if float(first) <= 0.0 and float(last) >= 1.0:
+                    sb.grid_remove()
+                else:
+                    sb.grid()
+                sb.set(first, last)
+            return _cb
+
+        # ── Custom topbar (swaps with _main_topbar) ────────────────────────
+        # Placed as sibling of _main_topbar in the same parent frame.
+        topbar_parent = self._main_topbar.master
+        rb_topbar = tk.Frame(topbar_parent, bg="#2d2d30")
+        rb_topbar.grid(row=0, column=0, sticky="nsew")
+        rb_topbar.grid_remove()          # hidden until Rolling Back is active
+
+        tk.Label(
+            rb_topbar, text="SECTION",
+            bg="#2d2d30", fg="#888888",
+            font=("Segoe UI", 9, "bold"),
+        ).pack(side="left", padx=(14, 16), pady=0)
+
+        self._rb_active_tab = "Hash Character Mods Updater"
+        self._rb_tab_btns   = {}
+        for sec in ["Hash Character Mods Updater", "Jane Doe Remapper", "Dialyn Remapper"]:
+            btn = tk.Button(
+                rb_topbar, text=sec,
+                bg="#3c3c3c", fg="#cccccc",
+                activebackground=self._accent, activeforeground="#ffffff",
+                relief="flat", bd=0,
+                font=("Segoe UI", 9, "bold"),
+                padx=14, pady=5,
+                cursor="hand2",
+                command=lambda s=sec: self._rb_activate_tab(s),
+            )
+            btn.pack(side="left", padx=(0, 4))
+            btn.bind("<Enter>", lambda e, b=btn, s=sec: b.configure(
+                bg=self._accent if self._rb_active_tab == s else "#4a4a4a"
+            ))
+            btn.bind("<Leave>", lambda e, b=btn, s=sec: b.configure(
+                bg=self._accent if self._rb_active_tab == s else "#3c3c3c"
+            ))
+            self._rb_tab_btns[sec] = btn
+
+        self._rb_topbar = rb_topbar
+
+        # ── Left panel — single wrapper that fills left_container ──────────
+        # (left_container.rowconfigure(0, weight=1) is set in _show_section
+        #  when Rolling Back becomes active, and cleared when leaving.)
+        left_widgets = []
+
+        rb_left = tk.Frame(left_parent, bg="#252526")
+        left_widgets.append({"widget": rb_left,
+                              "options": {"row": 0, "column": 0, "sticky": "nsew"}})
+
+        rb_left.columnconfigure(0, weight=1)
+        rb_left.rowconfigure(1, weight=1)   # INI listbox expands
+        rb_left.rowconfigure(3, weight=1)   # BUF listbox expands
+
+        # INI BACKUP HISTORY — scrollable session card list
+        ini_section_label = tk.Label(
+            rb_left, text="INI BACKUP HISTORY",
+            bg="#252526", fg="#888888",
+            font=("Segoe UI", 8, "bold"), anchor="w",
+        )
+        ini_section_label.grid(row=0, column=0, sticky="w", pady=(0, 4))
+
+        ini_wrap = tk.Frame(rb_left, bg="#1c1c1c",
+                            highlightbackground="#3c3c3c", highlightthickness=1)
+        ini_wrap.grid(row=1, column=0, sticky="nsew")
+        ini_wrap.columnconfigure(0, weight=1)
+        ini_wrap.rowconfigure(0, weight=1)
+
+        ini_canvas = tk.Canvas(ini_wrap, bg="#1c1c1c", highlightthickness=0)
+        ini_canvas.grid(row=0, column=0, sticky="nsew")
+
+        ini_inner = tk.Frame(ini_canvas, bg="#1c1c1c")
+        ini_cwin  = ini_canvas.create_window((0, 0), window=ini_inner, anchor="nw")
+
+        def _ini_inner_cfg(e, _c=ini_canvas, _w=ini_cwin):
+            _c.configure(scrollregion=_c.bbox("all"))
+        def _ini_canvas_cfg(e, _c=ini_canvas, _w=ini_cwin):
+            _c.itemconfig(_w, width=e.width)
+
+        ini_inner.bind("<Configure>", _ini_inner_cfg)
+        ini_canvas.bind("<Configure>", _ini_canvas_cfg)
+        self._setup_canvas_mousewheel(ini_wrap, ini_canvas)
+
+        ini_ph = tk.Label(
+            ini_canvas, text="No backups found (.INI)",
+            bg="#1c1c1c", fg="#555555",
+            font=("Segoe UI", 9, "italic"),
+        )
+        ini_ph.place(relx=0.5, rely=0.5, anchor="center")
+
+        # BUF BACKUP HISTORY — scrollable session card list
+        buf_section_label = tk.Label(
+            rb_left, text="BUF BACKUP HISTORY",
+            bg="#252526", fg="#888888",
+            font=("Segoe UI", 8, "bold"), anchor="w",
+        )
+        buf_section_label.grid(row=2, column=0, sticky="w", pady=(12, 4))
+
+        buf_wrap = tk.Frame(rb_left, bg="#1c1c1c",
+                            highlightbackground="#3c3c3c", highlightthickness=1)
+        buf_wrap.grid(row=3, column=0, sticky="nsew")
+        buf_wrap.columnconfigure(0, weight=1)
+        buf_wrap.rowconfigure(0, weight=1)
+
+        buf_canvas = tk.Canvas(buf_wrap, bg="#1c1c1c", highlightthickness=0)
+        buf_canvas.grid(row=0, column=0, sticky="nsew")
+
+        buf_inner = tk.Frame(buf_canvas, bg="#1c1c1c")
+        buf_cwin  = buf_canvas.create_window((0, 0), window=buf_inner, anchor="nw")
+
+        def _buf_inner_cfg(e, _c=buf_canvas, _w=buf_cwin):
+            _c.configure(scrollregion=_c.bbox("all"))
+        def _buf_canvas_cfg(e, _c=buf_canvas, _w=buf_cwin):
+            _c.itemconfig(_w, width=e.width)
+
+        buf_inner.bind("<Configure>", _buf_inner_cfg)
+        buf_canvas.bind("<Configure>", _buf_canvas_cfg)
+        self._setup_canvas_mousewheel(buf_wrap, buf_canvas)
+
+        buf_ph = tk.Label(
+            buf_canvas, text="No backups found (.BUF)",
+            bg="#1c1c1c", fg="#555555",
+            font=("Segoe UI", 9, "italic"),
+        )
+        buf_ph.place(relx=0.5, rely=0.5, anchor="center")
+
+        # ── Right panel — file-detail area ─────────────────────────────────
+        right_frame = ttk.Frame(right_parent)
+        right_frame.columnconfigure(0, weight=1)
+        right_frame.rowconfigure(1, weight=1)
+
+        # Restore All / Delete All
+        btn_row = tk.Frame(right_frame, bg="#252526")
+        btn_row.grid(row=0, column=0, sticky="ew", pady=(0, 8))
+        btn_row.columnconfigure(0, weight=1)
+        btn_row.columnconfigure(1, weight=1)
+
+        restore_all_btn = tk.Button(
+            btn_row, text="Restore All",
+            bg=self._accent, fg="#ffffff",
+            activebackground="#d47a25", activeforeground="#ffffff",
+            disabledforeground="#888888",
+            relief="flat", bd=0,
+            highlightthickness=0,
+            font=("Segoe UI", 9, "bold"),
+            padx=12, pady=6, cursor="hand2",
+            state="disabled",
+            command=self._rb_restore_all,
+        )
+        restore_all_btn.grid(row=0, column=0, sticky="ew", padx=(0, 4))
+        restore_all_btn.bind("<Enter>", lambda e: restore_all_btn.configure(
+            bg="#F79C4E") if restore_all_btn.cget("state") == "normal" else None)
+        restore_all_btn.bind("<Leave>", lambda e: restore_all_btn.configure(
+            bg=self._accent) if restore_all_btn.cget("state") == "normal" else None)
+
+        delete_all_btn = tk.Button(
+            btn_row, text="Delete All",
+            bg="#5a2020", fg="#ffaaaa",
+            activebackground="#7a3030", activeforeground="#ffffff",
+            disabledforeground="#888888",
+            relief="flat", bd=0,
+            highlightthickness=0,
+            font=("Segoe UI", 9, "bold"),
+            padx=12, pady=6, cursor="hand2",
+            state="disabled",
+            command=self._rb_delete_all,
+        )
+        delete_all_btn.grid(row=0, column=1, sticky="ew", padx=(4, 0))
+        delete_all_btn.bind("<Enter>", lambda e: delete_all_btn.configure(
+            bg="#7a3030") if delete_all_btn.cget("state") == "normal" else None)
+        delete_all_btn.bind("<Leave>", lambda e: delete_all_btn.configure(
+            bg="#5a2020") if delete_all_btn.cget("state") == "normal" else None)
+
+        # Scrollable file list
+        file_wrap = tk.Frame(right_frame, bg="#1c1c1c",
+                             highlightbackground="#3c3c3c", highlightthickness=1)
+        file_wrap.grid(row=1, column=0, sticky="nsew")
+        file_wrap.columnconfigure(0, weight=1)
+        file_wrap.rowconfigure(0, weight=1)
+
+        file_canvas = tk.Canvas(file_wrap, bg="#1c1c1c", highlightthickness=0)
+        file_canvas.grid(row=0, column=0, sticky="nsew")
+
+        file_inner = tk.Frame(file_canvas, bg="#1c1c1c")
+        file_cwin  = file_canvas.create_window((0, 0), window=file_inner, anchor="nw")
+
+        def _on_inner_cfg(event, _c=file_canvas, _w=file_cwin):
+            _c.configure(scrollregion=_c.bbox("all"))
+
+        def _on_canvas_cfg(event, _c=file_canvas, _w=file_cwin):
+            _c.itemconfig(_w, width=event.width)
+
+        file_inner.bind("<Configure>", _on_inner_cfg)
+        file_canvas.bind("<Configure>", _on_canvas_cfg)
+        self._setup_canvas_mousewheel(file_wrap, file_canvas)
+
+        # Centered placeholder — visible by default, hidden when files are shown
+        file_ph = tk.Label(
+            file_canvas, text="No files detected",
+            bg="#1c1c1c", fg="#555555",
+            font=("Segoe UI", 9, "italic"),
+        )
+        file_ph.place(relx=0.5, rely=0.5, anchor="center")
+
+        # ── Store references ────────────────────────────────────────────────
+        self._rb_ini_canvas       = ini_canvas
+        self._rb_ini_inner        = ini_inner
+        self._rb_buf_canvas       = buf_canvas
+        self._rb_buf_inner        = buf_inner
+        self._rb_file_inner       = file_inner
+        self._rb_file_canvas      = file_canvas
+        self._rb_file_cwin        = file_cwin
+        self._rb_restore_all_btn  = restore_all_btn
+        self._rb_delete_all_btn   = delete_all_btn
+        # For show/hide INI section when tab changes
+        self._rb_left_frame       = rb_left
+        self._rb_ini_sec_lbl      = ini_section_label
+        self._rb_ini_lb_wrap      = ini_wrap
+        self._rb_buf_sec_lbl      = buf_section_label
+        # Centered empty-state placeholders
+        self._rb_ini_placeholder  = ini_ph
+        self._rb_buf_placeholder  = buf_ph
+        self._rb_file_placeholder = file_ph
+
+        self._rb_activate_tab("Hash Character Mods Updater")
+
+        self._section_frames["Rolling Back"] = {
+            "left_widgets": left_widgets,
+            "right": right_frame,
+        }
+
+    # ── Rolling Back helper methods ────────────────────────────────────────
+
+    def _rb_activate_tab(self, section):
+        """Switch active tab, refresh history, and log the action."""
+        self._rb_active_tab = section
+        for s, b in self._rb_tab_btns.items():
+            b.configure(
+                bg=self._accent if s == section else "#3c3c3c",
+                fg="#ffffff"     if s == section else "#cccccc",
+            )
+
+        # Guard: _log may not be available during __init__ layout phase
+        try:
+            self._log(f"Rolling Back tab: {section}")
+        except Exception:
+            pass
+
+        # Hash shows both INI + BUF; Jane Doe / Dialyn show BUF only
+        is_hash = (section == "Hash Character Mods Updater")
+        if is_hash:
+            self._rb_ini_sec_lbl.grid()
+            self._rb_ini_lb_wrap.grid()
+            self._rb_left_frame.rowconfigure(1, weight=1)
+            self._rb_buf_sec_lbl.grid(pady=(12, 4))
+        else:
+            self._rb_ini_sec_lbl.grid_remove()
+            self._rb_ini_lb_wrap.grid_remove()
+            self._rb_left_frame.rowconfigure(1, weight=0)
+            self._rb_buf_sec_lbl.grid(pady=(0, 4))
+
+        self._rb_refresh_history()
+
+    def _rb_refresh_history(self):
+        """Reload session cards from rollback module for the active section."""
+        self._rb_active_border  = None
+        self._rb_active_session = None
+        self._rb_session_dir    = None
+        self._rb_clear_files()
+
+        section = self._rb_active_tab
+
+        # INI cards (Hash section only)
+        if section == "Hash Character Mods Updater":
+            self._rb_populate_cards(
+                self._rb_ini_inner, self._rb_ini_canvas,
+                self._rb_ini_placeholder, section, "ini"
+            )
+
+        # BUF cards (all sections)
+        self._rb_populate_cards(
+            self._rb_buf_inner, self._rb_buf_canvas,
+            self._rb_buf_placeholder, section, "buf"
+        )
+
+    def _rb_populate_cards(self, cards_inner, cards_canvas, placeholder, section, file_type):
+        """Clear and rebuild session cards for one history list."""
+        for w in cards_inner.winfo_children():
+            w.destroy()
+
+        if not self._rollback:
+            placeholder.place(relx=0.5, rely=0.5, anchor="center")
+            return
+
+        sessions = self._rollback.list_sessions(section, file_type)
+
+        if not sessions:
+            placeholder.place(relx=0.5, rely=0.5, anchor="center")
+            return
+
+        placeholder.place_forget()
+
+        for session in sessions:
+            self._rb_create_session_card(cards_inner, session)
+
+        cards_inner.update_idletasks()
+        cards_canvas.configure(scrollregion=cards_canvas.bbox("all"))
+
+    def _setup_canvas_mousewheel(self, outer_frame, canvas):
+        """
+        Enable mousewheel scrolling only when content height exceeds the
+        visible canvas height. Activates on <Enter>, deactivates on <Leave>
+        (with a bounds check so moving between child widgets doesn't interrupt).
+        """
+        def _is_scrollable():
+            """Returns True only when there is actually content to scroll."""
+            try:
+                canvas.update_idletasks()
+                bbox = canvas.bbox("all")
+                if not bbox:
+                    return False
+                return bbox[3] > canvas.winfo_height()
+            except Exception:
+                return False
+
+        def _scroll(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+
+        def _enter(e=None):
+            if _is_scrollable():
+                self.bind_all("<MouseWheel>", _scroll)
+
+        def _leave(e=None):
+            try:
+                x, y = e.x_root, e.y_root
+                fx  = outer_frame.winfo_rootx()
+                fy  = outer_frame.winfo_rooty()
+                fw  = outer_frame.winfo_width()
+                fh  = outer_frame.winfo_height()
+                if fx <= x <= fx + fw and fy <= y <= fy + fh:
+                    return   # pointer still inside — keep scroll active
+            except Exception:
+                pass
+            self.unbind_all("<MouseWheel>")
+
+        outer_frame.bind("<Enter>", _enter, add="+")
+        outer_frame.bind("<Leave>", _leave, add="+")
+        canvas.bind("<Enter>", _enter, add="+")
+        canvas.bind("<Leave>", _leave, add="+")
+
+    def _rb_create_session_card(self, parent, session):
+        """Build one session card widget and append it to parent."""
+        _CARD_BG   = "#242428"
+        _TEXT_FG   = "#d0d0d0"
+        _MUTED_FG  = "#777777"
+        _BORDER_IN = _CARD_BG       # inactive border — invisible (matches card bg)
+        _BORDER_AC = self._accent   # active border — orange
+
+        card = tk.Frame(parent, bg=_CARD_BG)
+        card.pack(fill="x", padx=3, pady=(0, 3))
+        card.columnconfigure(1, weight=1)
+
+        # Left-edge border indicator — coloured when this session is active
+        border = tk.Frame(card, width=3, bg=_BORDER_IN)
+        border.grid(row=0, column=0, sticky="ns")
+
+        # Text block
+        text_frame = tk.Frame(card, bg=_CARD_BG, padx=8, pady=6)
+        text_frame.grid(row=0, column=1, sticky="ew")
+
+        tk.Label(
+            text_frame, text="Session Mods Sync",
+            bg=_CARD_BG, fg=_TEXT_FG,
+            font=("Segoe UI", 9, "bold"), anchor="w",
+        ).pack(fill="x")
+
+        tk.Label(
+            text_frame, text=session["datetime"],
+            bg=_CARD_BG, fg=_MUTED_FG,
+            font=("Segoe UI", 8), anchor="w",
+        ).pack(fill="x")
+
+        # Sync button — hover on button only, no card-level hover
+        sync_btn = tk.Button(
+            card, text="Sync",
+            bg="#3c3c3c", fg="#cccccc",
+            activebackground="#4a4a4a", activeforeground="#ffffff",
+            relief="flat", bd=0,
+            highlightthickness=0,       # removes white Windows border artifact
+            highlightbackground=_CARD_BG,
+            font=("Segoe UI", 9), padx=10, pady=5,
+            cursor="hand2",
+            command=lambda s=session, b=border: self._rb_sync_session(s, b),
+        )
+        sync_btn.grid(row=0, column=2, padx=(0, 8), pady=0)
+
+        # Hover: button only
+        sync_btn.bind("<Enter>", lambda e: sync_btn.configure(bg="#4a4a4a"))
+        sync_btn.bind("<Leave>", lambda e: sync_btn.configure(bg="#3c3c3c"))
+
+    def _rb_sync_session(self, session, border_frame):
+        """Called when user clicks Sync on a session card."""
+        # Deactivate previous card border
+        if self._rb_active_border:
+            try:
+                self._rb_active_border.configure(bg="#242428")
+            except Exception:
+                pass
+
+        # Activate new card
+        border_frame.configure(bg=self._accent)
+        self._rb_active_border  = border_frame
+        self._rb_active_session = session
+        self._rb_session_dir    = session["session_dir"]
+
+        file_count = session.get("file_count", 0)
+        self._log(
+            f"Rolling Back sync: {session['datetime']} ({file_count} file(s))"
+        )
+
+        if not self._rollback:
+            self._rb_show_placeholder()
+            return
+
+        files = self._rollback.load_session_files(self._rb_session_dir)
+        self._rb_display_session_files(files)
+
+    def _rb_show_placeholder(self):
+        """Show the 'No files detected' placeholder in the right panel."""
+        for w in self._rb_file_inner.winfo_children():
+            w.destroy()
+        self._rb_file_placeholder.place(relx=0.5, rely=0.5, anchor="center")
+
+    def _rb_clear_files(self):
+        """Reset right panel to empty/disabled state."""
+        self._rb_session_dir = None
+        self._rb_restore_all_btn.configure(state="disabled", bg="#5a3820", fg="#888888")
+        self._rb_delete_all_btn.configure(state="disabled",  bg="#3a1a1a", fg="#888888")
+        self._rb_show_placeholder()
+
+    def _rb_display_session_files(self, files):
+        """Populate the right panel with file rows from the given file entry list."""
+        for w in self._rb_file_inner.winfo_children():
+            w.destroy()
+        self._rb_file_placeholder.place_forget()
+
+        if not files:
+            self._rb_show_placeholder()
+            self._rb_restore_all_btn.configure(state="disabled", bg="#5a3820", fg="#888888")
+            self._rb_delete_all_btn.configure(state="disabled",  bg="#3a1a1a", fg="#888888")
+            return
+
+        self._rb_restore_all_btn.configure(state="normal", bg=self._accent, fg="#ffffff")
+        self._rb_delete_all_btn.configure(state="normal",  bg="#5a2020",    fg="#ffaaaa")
+
+        for i, entry in enumerate(files):
+            backup_name = entry.get("backup_name", "")
+            row_bg = "#222222" if i % 2 == 0 else "#1c1c1c"
+
+            row = tk.Frame(self._rb_file_inner, bg=row_bg)
+            row.pack(fill="x")
+            row.columnconfigure(0, weight=1)
+
+            # Label with dynamic ellipsis on resize
+            name_lbl = tk.Label(
+                row, text=backup_name,
+                bg=row_bg, fg="#e0e0e0",
+                font=("Consolas", 9), anchor="w",
+            )
+            name_lbl.pack(side="left", padx=(10, 4), pady=5, fill="x", expand=True)
+
+            full_name = backup_name
+            def _clip(event, lbl=name_lbl, name=full_name):
+                avail = event.width - 4
+                if avail <= 0:
+                    return
+                from tkinter import font as tkfont
+                fnt = tkfont.Font(font=lbl.cget("font"))
+                if fnt.measure(name) <= avail:
+                    lbl.config(text=name)
+                else:
+                    t = name
+                    while t and fnt.measure(t + "…") > avail:
+                        t = t[:-1]
+                    lbl.config(text=t + "…")
+            name_lbl.bind("<Configure>", _clip)
+
+            del_btn = tk.Button(
+                row, text="Delete",
+                bg="#5a2020", fg="#ffaaaa",
+                activebackground="#7a3030", activeforeground="#ffffff",
+                relief="flat", bd=0, highlightthickness=0,
+                font=("Segoe UI", 8), padx=8, pady=3, cursor="hand2",
+                command=lambda e=entry: self._rb_delete_file(e),
+            )
+            del_btn.pack(side="right", padx=(4, 8), pady=4)
+            del_btn.bind("<Enter>", lambda e, b=del_btn: b.configure(bg="#7a3030"))
+            del_btn.bind("<Leave>", lambda e, b=del_btn: b.configure(bg="#5a2020"))
+
+            res_btn = tk.Button(
+                row, text="Restore",
+                bg="#1a3a1a", fg="#aaffaa",
+                activebackground="#2a5a2a", activeforeground="#ffffff",
+                relief="flat", bd=0, highlightthickness=0,
+                font=("Segoe UI", 8), padx=8, pady=3, cursor="hand2",
+                command=lambda e=entry: self._rb_restore_file(e),
+            )
+            res_btn.pack(side="right", padx=(4, 0), pady=4)
+            res_btn.bind("<Enter>", lambda e, b=res_btn: b.configure(bg="#2a5a2a"))
+            res_btn.bind("<Leave>", lambda e, b=res_btn: b.configure(bg="#1a3a1a"))
+
+        self._rb_file_inner.update_idletasks()
+        self._rb_file_canvas.configure(scrollregion=self._rb_file_canvas.bbox("all"))
+
+    def _rb_restore_file(self, file_entry):
+        """Restore a single backup file to its original location."""
+        if not self._rollback or not self._rb_session_dir:
+            return
+        backup_name = file_entry.get("backup_name", "")
+        self._log(f"Rolling Back restore: {backup_name}")
+
+        success, msg = self._rollback.restore_file(self._rb_session_dir, file_entry)
+        self._log(f"{'Restored' if success else 'Failed'}: {msg}")
+
+        if self._rb_session_dir and self._rb_session_dir.exists():
+            files = self._rollback.load_session_files(self._rb_session_dir)
+            self._rb_display_session_files(files)
+            if self._rb_active_session:
+                self._rb_active_session["file_count"] = len(files)
+        else:
+            # Session fully consumed — refresh left panel
+            self._rb_refresh_history()
+
+    def _rb_delete_file(self, file_entry):
+        """Permanently delete a single backup file."""
+        if not self._rollback or not self._rb_session_dir:
+            return
+        backup_name = file_entry.get("backup_name", "")
+        self._log(f"Rolling Back delete: {backup_name}")
+
+        success, msg = self._rollback.delete_file(self._rb_session_dir, file_entry)
+        self._log(f"{'Deleted' if success else 'Failed'}: {msg}")
+
+        if self._rb_session_dir and self._rb_session_dir.exists():
+            files = self._rollback.load_session_files(self._rb_session_dir)
+            self._rb_display_session_files(files)
+            if self._rb_active_session:
+                self._rb_active_session["file_count"] = len(files)
+        else:
+            self._rb_refresh_history()
+
+    def _rb_restore_all(self):
+        """Restore every file in the active session."""
+        if not self._rollback or not self._rb_session_dir:
+            return
+        session = self._rb_active_session or {}
+        dt = session.get("datetime", str(self._rb_session_dir.name))
+        self._log(f"Rolling Back restore all: {dt}")
+
+        ok, fail, msgs = self._rollback.restore_all(self._rb_session_dir)
+        self._log(f"Restore All finished: {ok} restored, {fail} failed")
+
+        self._rb_active_border  = None
+        self._rb_active_session = None
+        self._rb_session_dir    = None
+        self._rb_refresh_history()
+
+    def _rb_delete_all(self):
+        """Permanently delete every file in the active session."""
+        if not self._rollback or not self._rb_session_dir:
+            return
+        session = self._rb_active_session or {}
+        dt = session.get("datetime", str(self._rb_session_dir.name))
+        self._log(f"Rolling Back delete all: {dt}")
+
+        ok, fail, msgs = self._rollback.delete_all(self._rb_session_dir)
+        self._log(f"Delete All finished: {ok} deleted, {fail} failed")
+
+        self._rb_active_border  = None
+        self._rb_active_session = None
+        self._rb_session_dir    = None
+        self._rb_refresh_history()
+
 
     def _build_guides_content(self, left_parent, right_parent):
         info = ttk.Frame(right_parent)
@@ -1129,6 +1842,8 @@ class ZZZModFixerGUI(tk.Tk):
         self._log("Active.")
 
     def _show_section(self, title):
+        prev_section = self._current_section   # remember before we change it
+
         if self._current_section and self._current_section in self._section_frames:
             current = self._section_frames[self._current_section]
             for item in current.get("left_widgets", []):
@@ -1174,12 +1889,32 @@ class ZZZModFixerGUI(tk.Tk):
         section["right"].grid(row=0, column=0, sticky="nsew")
         self.active_section_var.set(f"In {title}")
 
+        # --- Teardown Rolling Back–specific state when leaving it ---
+        if prev_section == "Rolling Back" and hasattr(self, "_rb_topbar"):
+            self._rb_topbar.grid_remove()
+            self.left_container.rowconfigure(0, weight=0)
+
+        # --- Per-section layout ---
         if title == "Guides":
             self._main_topbar.grid_remove()
             self._main_topbar_sep.grid_remove()
             self.left_container.grid_remove()
             self._main_sep.grid_remove()
             self.right_container.grid(row=0, column=0, columnspan=3, sticky="nsew")
+
+        elif title == "Rolling Back":
+            # Hide standard topbar; show Rolling Back's custom tab-bar instead.
+            # Keep separator + left/right panels — same structure as other sections.
+            self._main_topbar.grid_remove()
+            self._rb_topbar.grid()          # remembers its last grid config (row=0, col=0)
+            self._main_topbar_sep.grid(row=1, column=0, sticky="ew")
+            self.left_container.grid(row=0, column=0, sticky="nsew")
+            self._main_sep.grid(row=0, column=1, sticky="ns")
+            self.right_container.grid(row=0, column=2, sticky="nsew")
+            # Allow the single left-panel wrapper to expand vertically
+            self.left_container.rowconfigure(0, weight=1)
+            self.after(50, self._rb_refresh_history)
+
         else:
             self._main_topbar.grid(row=0, column=0, sticky="nsew")
             self._main_topbar_sep.grid(row=1, column=0, sticky="ew")
@@ -1662,6 +2397,9 @@ class ZZZModFixerGUI(tk.Tk):
                 sys.stdout = original_stdout
                 raise
 
+            rb_mod = self._rollback
+            rb_ctx = rb_mod.begin_session("Jane Doe Remapper") if rb_mod else None
+
             original_remap_binary = module.remap_binary
 
             def patched_remap_binary(target_hash, file_path, timestamp):
@@ -1698,6 +2436,10 @@ class ZZZModFixerGUI(tk.Tk):
                     output_bytes[group : group + 16] = weights
                     output_bytes[group + 16 : group + 32] = mapped_bytes
 
+                # ── Rollback BUF hidden backup (before writing new data) ──
+                if rb_mod and rb_ctx:
+                    rb_mod.backup_buf_file(file_path, rb_ctx)
+
                 backup_name = f"remap_backup_{timestamp}-{file_path.name}"
                 do_backup = self.jane_remapper_buf_checkbox_status.get() and self.jane_remapper_buf_backup_folder.get()
                 if do_backup:
@@ -1733,6 +2475,9 @@ class ZZZModFixerGUI(tk.Tk):
                 module.main()
             finally:
                 os.chdir(original_cwd)
+                # ── Finalize rollback session ──
+                if rb_mod and rb_ctx:
+                    rb_mod.finalize_session(rb_ctx)
 
             sys.stdout = original_stdout
             self.after(0, lambda: self._set_busy(False))
@@ -1782,6 +2527,9 @@ class ZZZModFixerGUI(tk.Tk):
                 sys.stdout = original_stdout
                 raise
 
+            rb_mod = self._rollback
+            rb_ctx = rb_mod.begin_session("Dialyn Remapper") if rb_mod else None
+
             original_remap_binary = module.remap_binary
 
             def patched_remap_binary(target_hash, file_path, timestamp):
@@ -1804,6 +2552,10 @@ class ZZZModFixerGUI(tk.Tk):
                     indices = struct.unpack_from('<4I', byte_data, offset + 16)
                     mapped_indices = [mapping.get(idx, idx) for idx in indices]
                     output_bytes[offset + 16:offset + 32] = struct.pack('<4I', *mapped_indices)
+
+                # ── Rollback BUF hidden backup (before writing new data) ──
+                if rb_mod and rb_ctx:
+                    rb_mod.backup_buf_file(file_path, rb_ctx)
 
                 backup_name = f"remap_backup_{timestamp}-{file_path.name}"
                 do_backup = self.dialyn_remapper_buf_checkbox_status.get() and self.dialyn_remapper_buf_backup_folder.get()
@@ -1840,6 +2592,9 @@ class ZZZModFixerGUI(tk.Tk):
                 module.main()
             finally:
                 os.chdir(original_cwd)
+                # ── Finalize rollback session ──
+                if rb_mod and rb_ctx:
+                    rb_mod.finalize_session(rb_ctx)
 
             sys.stdout = original_stdout
             self.after(0, lambda: self._set_busy(False))
@@ -1891,12 +2646,18 @@ class ZZZModFixerGUI(tk.Tk):
                 sys.stdout = original_stdout
                 raise
 
-            gui = self
+            gui    = self
+            rb_mod = self._rollback
+            rb_ctx = rb_mod.begin_session("Hash Character Mods Updater") if rb_mod else None
 
             original_save = module.Ini.save
 
             def patched_save(self):
                 if self._touched:
+                    # ── Rollback hidden backup (before file is moved/written) ──
+                    if rb_mod and rb_ctx:
+                        rb_mod.backup_ini_file(Path(self.filepath), rb_ctx)
+
                     basename = os.path.basename(self.filepath).split('.ini')[0]
                     do_ini_backup = gui.ini_checkbox_status.get() and gui.ini_backup_folder.get()
                     do_buf_backup = gui.buf_checkbox_status.get() and gui.buf_backup_folder.get()
@@ -1915,7 +2676,6 @@ class ZZZModFixerGUI(tk.Tk):
                         backup_dir = str(backup_dir.absolute())
                         backup_filename = f'DISABLED_BACKUP_{int(time.time())}_{basename}.txt'
                         backup_fullpath = os.path.join(backup_dir, backup_filename)
-
                         try:
                             import shutil
                             shutil.move(self.filepath, backup_fullpath)
@@ -1952,6 +2712,9 @@ class ZZZModFixerGUI(tk.Tk):
                         for filepath, data in self.modified_buffers.items():
                             original_path = Path(filepath)
                             if original_path.exists():
+                                # ── Rollback BUF hidden backup (before writing new data) ──
+                                if rb_mod and rb_ctx:
+                                    rb_mod.backup_buf_file(original_path, rb_ctx)
                                 if buf_backup_dir:
                                     try:
                                         relative = original_path.relative_to(Path(self.filepath).parent)
@@ -1989,6 +2752,9 @@ class ZZZModFixerGUI(tk.Tk):
                     module.process_folder(str(folder))
             finally:
                 sys.stdout = original_stdout
+                # ── Finalize rollback session ──
+                if rb_mod and rb_ctx:
+                    rb_mod.finalize_session(rb_ctx)
 
             self.after(0, lambda: self._set_busy(False))
             self.after(0, lambda: self._log("Update Hashes finished."))
