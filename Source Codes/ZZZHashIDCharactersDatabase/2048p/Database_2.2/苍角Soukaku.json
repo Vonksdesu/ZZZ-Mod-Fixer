@@ -1,11 +1,11 @@
 [
   {
     "component_name": "Hair-头发",
-    "draw_vb": "ef9c0510",
-    "position_vb": "e8df7ff3",
-    "texcoord_vb": "774071dd",
-    "blend_vb": "edfd1666",
-    "ib": "d5ca0411",
+    "draw_vb": "5432bbb8",
+    "position_vb": "beac45e4",
+    "texcoord_vb": "43fb429d",
+    "blend_vb": "f65883f3",
+    "ib": "fe70c7a3",
     "object_indexes": [
       0
     ],
@@ -17,7 +17,7 @@
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "32ea0d00"
         ],
         [
           "NormalMap",
@@ -27,23 +27,23 @@
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "a70e24a2"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "d1444c52"
         ]
       ]
     ]
   },
   {
     "component_name": "Hair Shadow-头发阴影",
-    "draw_vb": "681651f9",
-    "position_vb": "4af493e5",
-    "texcoord_vb": "ad7d7eca",
-    "blend_vb": "795e9a7c",
-    "ib": "8d08b190",
+    "draw_vb": "4ece0220",
+    "position_vb": "bbcd9e5a",
+    "texcoord_vb": "9ab82a7f",
+    "blend_vb": "d586de2b",
+    "ib": "c0ef468f",
     "object_indexes": [
       0
     ],
@@ -56,11 +56,11 @@
   },
   {
     "component_name": "Body-身体",
-    "draw_vb": "b581dc0a",
-    "position_vb": "67f21c9f",
-    "texcoord_vb": "91fbd2fa",
-    "blend_vb": "46462bd8",
-    "ib": "8d6acf4e",
+    "draw_vb": "ff00994d",
+    "position_vb": "a426e353",
+    "texcoord_vb": "176fb4d5",
+    "blend_vb": "dbbbafef",
+    "ib": "ced49ff8",
     "object_indexes": [
       0
     ],
@@ -72,7 +72,7 @@
         [
           "Diffuse",
           ".dds",
-          "868709f2"
+          "ee31954b"
         ],
         [
           "NormalMap",
@@ -82,23 +82,23 @@
         [
           "LightMap",
           ".dds",
-          "088718a9"
+          "112a36a4"
         ],
         [
           "MaterialMap",
           ".dds",
-          "a5fdb5e7"
+          "d638ddf9"
         ]
       ]
     ]
   },
   {
-    "component_name": "Bag-背包",
-    "draw_vb": "24ca2d36",
-    "position_vb": "19f96193",
-    "texcoord_vb": "8d825ff1",
-    "blend_vb": "d80dc314",
-    "ib": "b1df5d22",
+    "component_name": "Mask-面具",
+    "draw_vb": "ddd3fb88",
+    "position_vb": "3a6a6326",
+    "texcoord_vb": "e261ddc0",
+    "blend_vb": "5c5d1e7c",
+    "ib": "1315178e",
     "object_indexes": [
       0
     ],
@@ -110,7 +110,7 @@
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "32ea0d00"
         ],
         [
           "NormalMap",
@@ -120,42 +120,74 @@
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "a70e24a2"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "d1444c52"
         ]
       ]
     ]
   },
   {
     "component_name": "Face-脸",
-    "VertexLimit": "6c4552bb",
-    "Position": "5657c1fc",
-    "Texcoord": "c83b6cbf",
-    "Blend": "757bc7cc",
-    "ib": "1fdaf388",
+    "VertexLimit": "d06e95fd",
+    "Position": "ea7c06ba",
+    "Texcoord": "c2db08f0",
+    "Blend": "2d187d8f",
+    "ib": "020f9ac6",
     "MatchFirstIndex": [
       "0",
-      "9258"
+      "8346"
     ],
     "PartNameList": [
-      "A",
-      "B"
+      "1",
+      "2"
     ],
     "texture_hashes": [
       [
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "427b39a4"
         ],
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "427b39a4"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "weapon武器",
+    "VertexLimit": "66f9d07c",
+    "Position": "6b63687a",
+    "Texcoord": "c18afef0",
+    "Blend": "6bf775f7",
+    "ib": "931476f6",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "67177563"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "7c4efb96"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "d0796da7"
         ]
       ]
     ]
