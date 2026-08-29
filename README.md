@@ -13,8 +13,12 @@ Since the original creator is no longer releasing updates, I have taken the init
 ### Core Features & Improvements:
 * **Continuous Hash Updates**: The character hash database is regularly updated to support newer game versions. To see which exact game version is currently supported, please check the [Releases](../../releases) page (where all version-specific updates are posted).
 * **Backup File Conflict Fix**: In the original version, updated `.ini` mod files often conflicted with the backup (original) `.ini` files when left in the same folder. I have modified the code to automatically move the old/backup `.ini` files to a separate folder, preventing any conflicts and keeping your mod directory clean.
+* **CommandList Injection Fix**: Fixed the `run = CommandListSkinTexture` command injection bug and added detection for newer `CommandList` commands such as `run = CommandList\ZZMI\SetTextures` and `run = CommandList\RabbitFX\SetTextures`.
 
 *Note: This tool is exclusively designed to fix and update character hashes skin mods. It is not intended for other types of mods or fixing any complex broken mods.*
+
+> [!NOTE]
+> From now on, I will only update the source code in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch, this location will serve solely for providing key information.
 
 ---
 
@@ -50,7 +54,7 @@ Before using this tool, make sure you have the following installed:
 
 ## How to Use
 
-1. **Download**: Download the latest `zzz-mod-fixer-v3.0.exe` from the [Releases](../../releases) page.
+1. **Download**: Download the latest `zzz-mod-fixer-v3.1.exe` from the [Releases](../../releases) page.
 2. **Placement**: Place the `.exe` file **directly** inside the `Mods` folder within your **XXMI Launcher** installation directory. 
    > ⚠️ **Important:** Do *not* create a new folder for the `.exe` inside the `Mods` folder, as the program may not work properly.
 3. **Run**: Run the program and wait for the process to complete.
@@ -90,7 +94,7 @@ After creating the special folder, copy these three things:
 After you've copied these three things, place them in your custom folder. Then you put the folder you created in the main `Mods` folder, not the ZZZ mods folder directly. Then, you can run the `run-fixer.bat` file.
 
 > [!IMPORTANT]
-> Specifically for the version 2.0.0 revamps, you must use `run-fixer-gui.bat` instead of the CLI-based `run-fixer.bat`. After that, add two new files to your setup: `Jane.remapper.py` and `Dialyn.remapper.py`. You can find the source code in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch.
+> Specifically for the version 2.1.0, you must use `run-fixer-gui.bat` instead of the CLI-based `run-fixer.bat`. After that, add three new files to your setup: `zzz-mod-fixer-rollback.py`, `Jane.remapper.py` and `Dialyn.remapper.py`. You can find the source code in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch.
 
 ---
 
