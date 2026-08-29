@@ -96,6 +96,12 @@ After you've copied these three things, place them in your custom folder. Then y
 > [!IMPORTANT]
 > Specifically for the version 2.1.0, you must use `run-fixer-gui.bat` instead of the CLI-based `run-fixer.bat`. After that, add three new files to your setup: `zzz-mod-fixer-rollback.py`, `Jane.remapper.py` and `Dialyn.remapper.py`. You can find the source code in the [gui-version](https://github.com/Vonksdesu/ZZZ-Mod-Fixer/tree/gui-version) branch.
 
+### ⚠️ Windows Security Pop-Up Issue
+
+If a `Microsoft Defender SmartScreen` pop-up appears when you try to run `zzz-mod-fixer.exe`, do not worry; it is not harmful. The application simply lacks a digital signature (Code Signing Certificate) because I do not have the budget to purchase one.
+
+If the pop-up appears, simply click "More Info," then click "Run anyway," and the application will open.
+
 ---
 
 ## Troubleshooting & FAQs
