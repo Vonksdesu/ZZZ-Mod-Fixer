@@ -1,6 +1,7 @@
 """
 AriaAgent Character Hash Commands
-ZZZ Mod Fixer v2.8
+ZZZ Mod Fixer v2.6
+Game Version: 2.6
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -12,116 +13,85 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       **kwargs):
     """
     Returns AriaAgent's hash commands dictionary.
+    
+    All command classes are passed as parameters to avoid circular imports.
     """
     return {
 # === IB Hashes ===
-'1173ff78': [(log, ('2.8: AriaAgent Hair IB Hash',)),                    (add_ib_check_if_missing,)],
-'046400d3': [(log, ('2.8: AriaAgent Body IB Hash',)),                    (add_ib_check_if_missing,)],
-'ffa703e8': [(log, ('2.8: AriaAgent Face IB Hash',)),                    (add_ib_check_if_missing,)],
-'db7c8d25': [(log, ('2.8: AriaAgent Eye IB Hash',)),                     (add_ib_check_if_missing,)],
-'62cc8d20': [(log, ('2.8: AriaAgent Weapon IB Hash',)),                  (add_ib_check_if_missing,)],
-
-# === VB Hashes ===
-# Hair
-'5bbaca72': [(log, ('2.8: AriaAgent Hair draw_vb',)),                    (add_section_if_missing, ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n'))],
-'42a4622f': [(log, ('2.8: AriaAgent Hair position_vb',)),                (add_section_if_missing, ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n'))],
-'23629315': [(log, ('2.8: AriaAgent Hair texcoord_vb',)),                (add_section_if_missing, ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n'))],
-'468e532f': [(log, ('2.8: AriaAgent Hair blend_vb',)),                   (add_section_if_missing, ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n'))],
-
-# Body
-'a28a907a': [(log, ('2.8: AriaAgent Body draw_vb',)),                    (add_section_if_missing, ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n'))],
-'608bff86': [(log, ('2.8: AriaAgent Body position_vb',)),                (add_section_if_missing, ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n'))],
-'b019dae2': [(log, ('2.8: AriaAgent Body texcoord_vb',)),                (add_section_if_missing, ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n'))],
-'7c85654d': [(log, ('2.8: AriaAgent Body blend_vb',)),                   (add_section_if_missing, ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n'))],
-
-# Face
-'f0c79e51': [(log, ('2.8: AriaAgent Face draw_vb',)),                    (add_section_if_missing, ('ffa703e8', 'AriaAgent.Face.IB', 'match_priority = 0\n'))],
-'b62f2772': [(log, ('2.8: AriaAgent Face position_vb',)),                (add_section_if_missing, ('ffa703e8', 'AriaAgent.Face.IB', 'match_priority = 0\n'))],
-'9772ccda': [(log, ('2.8: AriaAgent Face texcoord_vb',)),                (add_section_if_missing, ('ffa703e8', 'AriaAgent.Face.IB', 'match_priority = 0\n'))],
-'ea540ea2': [(log, ('2.8: AriaAgent Face blend_vb',)),                   (add_section_if_missing, ('ffa703e8', 'AriaAgent.Face.IB', 'match_priority = 0\n'))],
-
-# Eye
-'390a4a23': [(log, ('2.8: AriaAgent Eye draw_vb',)),                     (add_section_if_missing, ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n'))],
-'cf12b575': [(log, ('2.8: AriaAgent Eye position_vb',)),                 (add_section_if_missing, ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n'))],
-'22b99744': [(log, ('2.8: AriaAgent Eye texcoord_vb',)),                 (add_section_if_missing, ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n'))],
-'71fabd1a': [(log, ('2.8: AriaAgent Eye blend_vb',)),                    (add_section_if_missing, ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n'))],
-
-# Weapon
-'380bb1a8': [(log, ('2.8: AriaAgent Weapon draw_vb Hash',)),             (add_section_if_missing, ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n'))],
-
-# === Legacy Hash Updates ===
-'6611eaa1': [(log, ('2.0 -> 2.8: AriaAgent Face Diffuse [Legacy]',)),      (update_hash, ('741d7c8f',))],
-'f0aec120': [(log, ('2.0 -> 2.8: AriaAgent Hair Diffuse [Legacy]',)),      (update_hash, ('be70c507',))],
-'9e2e56b3': [(log, ('2.0 -> 2.8: AriaAgent Hair LightMap [Legacy]',)),     (update_hash, ('41124010',))],
-'002360e1': [(log, ('2.0 -> 2.8: AriaAgent Hair MaterialMap [Legacy]',)),  (update_hash, ('01087a99',))],
-'702063c7': [(log, ('2.0 -> 2.8: AriaAgent Body Diffuse [Legacy]',)),      (update_hash, ('859bb461',))],
-'a588ea59': [(log, ('2.0 -> 2.8: AriaAgent Body LightMap [Legacy]',)),     (update_hash, ('ba534b39',))],
-'0a8badcd': [(log, ('2.0 -> 2.8: AriaAgent Body MaterialMap [Legacy]',)),  (update_hash, ('14aa84e5',))],
-'5ec4228a': [(log, ('2.0 -> 2.8: AriaAgent Weapon Diffuse [Legacy]',)),   (update_hash, ('f797551b',))],
-'e180bd1c': [(log, ('2.0 -> 2.8: AriaAgent Weapon LightMap [Legacy]',)),  (update_hash, ('6c620c16',))],
-'777472dd': [(log, ('2.0 -> 2.8: AriaAgent Weapon MaterialMap [Legacy]',)), (update_hash, ('9e9d8560',))],
-'ebac056e': [(log, ('2.8: AriaAgent Shared NormalMap Hash [Legacy]',)),   (update_hash, ('798adba3',))],
-
-# === Face Textures (v2.8 Target) ===
-'741d7c8f': [
-        (log,                           ('2.8: AriaAgent FaceA Diffuse Hash',)),
-        (add_section_if_missing,        ('ffa703e8', 'AriaAgent.Face.IB', 'match_priority = 0\n')),
+'046400d3': [
+        (log,                           ('2.6: AriaAgent Body IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'ffa703e8': [
+        (log,                           ('2.6: AriaAgent Face IB Hash',)),
+        (add_ib_check_if_missing,),
+    ],
+'1173ff78': [
+        (log,                           ('2.6: AriaAgent Hair IB Hash',)),
+        (add_ib_check_if_missing,),
     ],
 
-# === Hair Textures (v2.8 Target) ===
+
+# === AriaAgent Textures (FaceA) ===
+'6611eaa1': [
+        (log,                           ('2.6: AriaAgent FaceA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('741d7c8f', 'AriaAgent.FaceA.Diffuse.2048')),
+    ],
+'741d7c8f': [
+        (log,                           ('2.6: AriaAgent FaceA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('6611eaa1', 'AriaAgent.FaceA.Diffuse.1024')),
+    ],
+
+# === AriaAgent Textures (HairA) ===
+'f0aec120': [
+        (log,                           ('2.6: AriaAgent HairA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('be70c507', 'AriaAgent.HairA.Diffuse.2048')),
+    ],
 'be70c507': [
-        (log,                           ('2.8: AriaAgent HairA Diffuse Hash',)),
-        (add_section_if_missing,        ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent HairA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('f0aec120', 'AriaAgent.HairA.Diffuse.1024')),
+    ],
+'9e2e56b3': [
+        (log,                           ('2.6: AriaAgent HairA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('41124010', 'AriaAgent.HairA.LightMap.2048')),
     ],
 '41124010': [
-        (log,                           ('2.8: AriaAgent HairA LightMap Hash',)),
-        (add_section_if_missing,        ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent HairA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('9e2e56b3', 'AriaAgent.HairA.LightMap.1024')),
+    ],
+'002360e1': [
+        (log,                           ('2.6: AriaAgent HairA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('01087a99', 'AriaAgent.HairA.MaterialMap.2048')),
     ],
 '01087a99': [
-        (log,                           ('2.8: AriaAgent HairA MaterialMap Hash',)),
-        (add_section_if_missing,        ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent HairA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('002360e1', 'AriaAgent.HairA.MaterialMap.1024')),
     ],
 
-# === Body Textures (v2.8 Target) ===
+# === AriaAgent Textures (BodyA) ===
+'702063c7': [
+        (log,                           ('2.6: AriaAgent BodyA Diffuse 1024p Hash',)),
+        (multiply_section_if_missing,        ('859bb461', 'AriaAgent.BodyA.Diffuse.2048')),
+    ],
 '859bb461': [
-        (log,                           ('2.8: AriaAgent BodyA Diffuse Hash',)),
-        (add_section_if_missing,        ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent BodyA Diffuse 2048p Hash',)),
+        (multiply_section_if_missing,        ('702063c7', 'AriaAgent.BodyA.Diffuse.1024')),
+    ],
+'a588ea59': [
+        (log,                           ('2.6: AriaAgent BodyA LightMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('ba534b39', 'AriaAgent.BodyA.LightMap.2048')),
     ],
 'ba534b39': [
-        (log,                           ('2.8: AriaAgent BodyA LightMap Hash',)),
-        (add_section_if_missing,        ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent BodyA LightMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('a588ea59', 'AriaAgent.BodyA.LightMap.1024')),
+    ],
+'0a8badcd': [
+        (log,                           ('2.6: AriaAgent BodyA MaterialMap 1024p Hash',)),
+        (multiply_section_if_missing,        ('14aa84e5', 'AriaAgent.BodyA.MaterialMap.2048')),
     ],
 '14aa84e5': [
-        (log,                           ('2.8: AriaAgent BodyA MaterialMap Hash',)),
-        (add_section_if_missing,        ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n')),
-    ],
-
-# === Weapon Textures (v2.8 Target) ===
-'f797551b': [
-        (log,                           ('2.8: AriaAgent WeaponA Diffuse Hash',)),
-        (add_section_if_missing,        ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'6c620c16': [
-        (log,                           ('2.8: AriaAgent WeaponA LightMap Hash',)),
-        (add_section_if_missing,        ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n')),
-    ],
-'9e9d8560': [
-        (log,                           ('2.8: AriaAgent WeaponA MaterialMap Hash',)),
-        (add_section_if_missing,        ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n')),
-    ],
-
-# === Shared Normal Map ===
-'798adba3': [
-        (log,                           ('2.8: AriaAgent Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('1173ff78', 'AriaAgent.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('046400d3', 'AriaAgent.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('62cc8d20', 'AriaAgent.Weapon.IB', 'match_priority = 0\n')),
-    ],
-
-# === Eye Textures ===
-'9c4b3484': [
-        (log,                           ('2.8: AriaAgent Eye Diffuse Hash',)),
-        (add_section_if_missing,        ('db7c8d25', 'AriaAgent.Eye.IB', 'match_priority = 0\n')),
+        (log,                           ('2.6: AriaAgent BodyA MaterialMap 2048p Hash',)),
+        (multiply_section_if_missing,        ('0a8badcd', 'AriaAgent.BodyA.MaterialMap.1024')),
     ],
     }
 
@@ -129,5 +99,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'AriaAgent',
-    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.8', '3.0'],
+    'game_versions': ['2.6'],
 }

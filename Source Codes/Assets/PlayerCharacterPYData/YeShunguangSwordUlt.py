@@ -1,7 +1,7 @@
 """
 YeShunguangSwordUlt Character Hash Commands
-ZZZ Mod Fixer v2.5 / v2.8
-Pembaruan Database 2.8 oleh AI & Komunitas
+ZZZ Mod Fixer v2.5
+Auto-generated from zzz-mod-fixer_2.5a_WIP.py
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -47,20 +47,43 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.5: YeShunguangSwordUlt SwordA EffectMap Hash',)),
         (add_section_if_missing,        ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
     ],
-
-# ==========================================
-# 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
-# ==========================================
-# Target Model Vertex / Position / TexCoord / Blend Hashes (v2.8)
-'3a44ca69': [(log, ('2.8: YeShunguangSwordUlt Sword draw_vb',)), (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n'))],
-'724d29ad': [(log, ('2.8: YeShunguangSwordUlt Sword position_vb',)), (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n'))],
-'2c36b1a8': [(log, ('2.8: YeShunguangSwordUlt Sword texcoord_vb',)), (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n'))],
-'2e3a5c01': [(log, ('2.8: YeShunguangSwordUlt Sword blend_vb',)), (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n'))],
+'2c36b1a8': [
+        (log, ('3.0: YeShunguangSwordUlt Sword VB Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'2e3a5c01': [
+        (log, ('3.0: YeShunguangSwordUlt Sword VB Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'3a44ca69': [
+        (log, ('3.0: YeShunguangSwordUlt Sword VB Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'724d29ad': [
+        (log, ('3.0: YeShunguangSwordUlt Sword VB Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'bb70b320': [
+        (log, ('3.0: YeShunguangSwordUlt Sword Texture Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'ca8bd1e1': [
+        (log, ('3.0: YeShunguangSwordUlt Sword Texture Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'8182cc59': [
+        (log, ('3.0: YeShunguangSwordUlt Sword Texture Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
+'7b8275f5': [
+        (log, ('3.0: YeShunguangSwordUlt Sword Texture Hash',)),
+        (add_section_if_missing, ('dd46b065', 'YeShunguangSwordUlt.Sword.IB', 'match_priority = 0\n')),
+    ],
     }
 
 
 # Character metadata
 CHARACTER_INFO = {
     'name': 'YeShunguangSwordUlt',
-    'game_versions': ['2.5', '2.8', '3.0'],
+    'game_versions': ['2.5'],
 }

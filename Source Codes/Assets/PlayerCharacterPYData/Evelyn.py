@@ -2,7 +2,6 @@
 Evelyn Character Hash Commands
 ZZZ Mod Fixer v2.5
 Auto-generated from zzz-mod-fixer_2.5a_WIP.py
-Pembaruan Database 2.8 oleh AI & Komunitas
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -18,9 +17,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# ==========================================
-# 1. ORIGINAL COMMUNITY CODES (DIPERTAHANKAN)
-# ==========================================
 '10a5bde2': [(log, ('2.5: Evelyn Hair IB Hash',)),      (add_ib_check_if_missing,)],
 '04b53ecd': [(log, ('2.5: Evelyn Body IB Hash',)),      (add_ib_check_if_missing,)],
 'bb6d1023': [(log, ('2.5: Evelyn Jacket IB Hash',)),    (add_ib_check_if_missing,)],
@@ -91,82 +87,160 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.5: Evelyn Body, Shoulder MaterialMap 1024p Hash',)),
         (multiply_section_if_missing,   ('8624e4e4', 'Evelyn.Body.MaterialMap.2048')),
     ],
-
-# ==========================================
-# 2. PEMBARUAN DATABASE 2.8 (SINKRONISASI STRICT)
-# ==========================================
-# New Index Buffer (IB) Hashes
-'8ed17e5a': [(log, ('2.8: Evelyn HairShadow IB Hash',)), (add_ib_check_if_missing,)],
-'2488810a': [(log, ('2.8: Evelyn HairpinRibbon IB Hash',)), (add_ib_check_if_missing,)],
-'78699e6c': [(log, ('2.8: Evelyn DaggerActive IB Hash',)), (add_ib_check_if_missing,)],
-'7fb7467f': [(log, ('2.8: Evelyn DaggerSheathed IB Hash',)), (add_ib_check_if_missing,)],
-'af10bd11': [(log, ('2.8: Evelyn SilkString IB Hash',)), (add_ib_check_if_missing,)],
-
-# Hair VBs
-'798bc78b': [(log, ('2.8: Evelyn Hair draw_vb',)),                     (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n'))],
-'c2fe4e27': [(log, ('2.8: Evelyn Hair position_vb',)),                 (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n'))],
-'066f6115': [(log, ('2.8: Evelyn Hair texcoord_vb',)),                 (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n'))],
-'b43809d2': [(log, ('2.8: Evelyn Hair blend_vb',)),                    (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n'))],
-
-# Hair Shadow VBs
-'28913abf': [(log, ('2.8: Evelyn HairShadow draw_vb',)),               (add_section_if_missing, ('8ed17e5a', 'Evelyn.HairShadow.IB', 'match_priority = 0\n'))],
-'1251bc38': [(log, ('2.8: Evelyn HairShadow position_vb',)),           (add_section_if_missing, ('8ed17e5a', 'Evelyn.HairShadow.IB', 'match_priority = 0\n'))],
-'bf111b37': [(log, ('2.8: Evelyn HairShadow texcoord_vb',)),           (add_section_if_missing, ('8ed17e5a', 'Evelyn.HairShadow.IB', 'match_priority = 0\n'))],
-'94ce70dd': [(log, ('2.8: Evelyn HairShadow blend_vb',)),              (add_section_if_missing, ('8ed17e5a', 'Evelyn.HairShadow.IB', 'match_priority = 0\n'))],
-
-# Hairpin Ribbon VBs
-'98a87a48': [(log, ('2.8: Evelyn HairpinRibbon draw_vb',)),            (add_section_if_missing, ('2488810a', 'Evelyn.HairpinRibbon.IB', 'match_priority = 0\n'))],
-'f1076f2a': [(log, ('2.8: Evelyn HairpinRibbon position_vb',)),        (add_section_if_missing, ('2488810a', 'Evelyn.HairpinRibbon.IB', 'match_priority = 0\n'))],
-'63d18ae4': [(log, ('2.8: Evelyn HairpinRibbon texcoord_vb',)),        (add_section_if_missing, ('2488810a', 'Evelyn.HairpinRibbon.IB', 'match_priority = 0\n'))],
-'35070aca': [(log, ('2.8: Evelyn HairpinRibbon blend_vb',)),           (add_section_if_missing, ('2488810a', 'Evelyn.HairpinRibbon.IB', 'match_priority = 0\n'))],
-
-# Jacket VBs
-'1fb9dfe2': [(log, ('2.8: Evelyn Jacket draw_vb',)),                   (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n'))],
-'4edb27d5': [(log, ('2.8: Evelyn Jacket position_vb',)),               (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n'))],
-'8b3ed55f': [(log, ('2.8: Evelyn Jacket texcoord_vb',)),               (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n'))],
-'022d390f': [(log, ('2.8: Evelyn Jacket blend_vb',)),                  (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n'))],
-
-# Shoulder VBs
-'356f6430': [(log, ('2.8: Evelyn Shoulder draw_vb',)),                 (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulders.IB', 'match_priority = 0\n'))],
-'2b77b077': [(log, ('2.8: Evelyn Shoulder position_vb',)),             (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulders.IB', 'match_priority = 0\n'))],
-'3cecd299': [(log, ('2.8: Evelyn Shoulder texcoord_vb',)),             (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulders.IB', 'match_priority = 0\n'))],
-'a6b42907': [(log, ('2.8: Evelyn Shoulder blend_vb',)),                (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulders.IB', 'match_priority = 0\n'))],
-
-# Body VBs
-'02b04234': [(log, ('2.8: Evelyn Body draw_vb',)),                     (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n'))],
-'67eafa06': [(log, ('2.8: Evelyn Body position_vb',)),                 (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n'))],
-'26f9ba95': [(log, ('2.8: Evelyn Body texcoord_vb',)),                 (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n'))],
-'5ea06832': [(log, ('2.8: Evelyn Body blend_vb',)),                    (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n'))],
-
-# Face VBs & Limits
-'c6afc18c': [(log, ('2.8: Evelyn Face VertexLimit',)),                 (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n'))],
-'fcbd52cb': [(log, ('2.8: Evelyn Face Position',)),                    (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n'))],
-'aa2f560e': [(log, ('2.8: Evelyn Face Texcoord',)),                    (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n'))],
-'f9fc3c8b': [(log, ('2.8: Evelyn Face Blend',)),                       (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n'))],
-
-# Weapon Active VBs & Limits
-'3ae20915': [(log, ('2.8: Evelyn DaggerActive VertexLimit',)),         (add_section_if_missing, ('78699e6c', 'Evelyn.DaggerActive.IB', 'match_priority = 0\n'))],
-'99c7c611': [(log, ('2.8: Evelyn DaggerActive Blend',)),               (add_section_if_missing, ('78699e6c', 'Evelyn.DaggerActive.IB', 'match_priority = 0\n'))],
-
-# Penyelarasan Sinkronisasi v2.8 (SilkString VertexLimit)
-'4ff726df': [
-        (log,                           ('2.8: Evelyn SilkString VertexLimit',)),
-        (add_section_if_missing,        ('af10bd11', 'Evelyn.SilkString.IB', 'match_priority = 0\n')),
+'c2fe4e27': [
+        (log, ('3.0: Evelyn Hair VB Hash',)),
+        (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
+    ],
+'066f6115': [
+        (log, ('3.0: Evelyn Hair VB Hash',)),
+        (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
+    ],
+'b43809d2': [
+        (log, ('3.0: Evelyn Hair VB Hash',)),
+        (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
+    ],
+'8ed17e5a': [(log, ('3.0: Evelyn Hair Shadow IB Hash',)), (add_ib_check_if_missing,)],
+'28913abf': [
+        (log, ('3.0: Evelyn Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('8ed17e5a', 'Evelyn.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'1251bc38': [
+        (log, ('3.0: Evelyn Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('8ed17e5a', 'Evelyn.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'bf111b37': [
+        (log, ('3.0: Evelyn Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('8ed17e5a', 'Evelyn.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'94ce70dd': [
+        (log, ('3.0: Evelyn Hair Shadow VB Hash',)),
+        (add_section_if_missing, ('8ed17e5a', 'Evelyn.Hair Shadow.IB', 'match_priority = 0\n')),
+    ],
+'2488810a': [(log, ('3.0: Evelyn Hairpin IB Hash',)), (add_ib_check_if_missing,)],
+'98a87a48': [
+        (log, ('3.0: Evelyn Hairpin VB Hash',)),
+        (add_section_if_missing, ('2488810a', 'Evelyn.Hairpin.IB', 'match_priority = 0\n')),
+    ],
+'f1076f2a': [
+        (log, ('3.0: Evelyn Hairpin VB Hash',)),
+        (add_section_if_missing, ('2488810a', 'Evelyn.Hairpin.IB', 'match_priority = 0\n')),
+    ],
+'63d18ae4': [
+        (log, ('3.0: Evelyn Hairpin VB Hash',)),
+        (add_section_if_missing, ('2488810a', 'Evelyn.Hairpin.IB', 'match_priority = 0\n')),
+    ],
+'35070aca': [
+        (log, ('3.0: Evelyn Hairpin VB Hash',)),
+        (add_section_if_missing, ('2488810a', 'Evelyn.Hairpin.IB', 'match_priority = 0\n')),
+    ],
+'1fb9dfe2': [
+        (log, ('3.0: Evelyn Jacket VB Hash',)),
+        (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n')),
+    ],
+'4edb27d5': [
+        (log, ('3.0: Evelyn Jacket VB Hash',)),
+        (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n')),
+    ],
+'8b3ed55f': [
+        (log, ('3.0: Evelyn Jacket VB Hash',)),
+        (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n')),
+    ],
+'022d390f': [
+        (log, ('3.0: Evelyn Jacket VB Hash',)),
+        (add_section_if_missing, ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n')),
+    ],
+'356f6430': [
+        (log, ('3.0: Evelyn Shoulder VB Hash',)),
+        (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulder.IB', 'match_priority = 0\n')),
+    ],
+'2b77b077': [
+        (log, ('3.0: Evelyn Shoulder VB Hash',)),
+        (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulder.IB', 'match_priority = 0\n')),
+    ],
+'3cecd299': [
+        (log, ('3.0: Evelyn Shoulder VB Hash',)),
+        (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulder.IB', 'match_priority = 0\n')),
+    ],
+'a6b42907': [
+        (log, ('3.0: Evelyn Shoulder VB Hash',)),
+        (add_section_if_missing, ('b3eaedb0', 'Evelyn.Shoulder.IB', 'match_priority = 0\n')),
+    ],
+'02b04234': [
+        (log, ('3.0: Evelyn Body VB Hash',)),
+        (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n')),
+    ],
+'67eafa06': [
+        (log, ('3.0: Evelyn Body VB Hash',)),
+        (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n')),
+    ],
+'26f9ba95': [
+        (log, ('3.0: Evelyn Body VB Hash',)),
+        (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n')),
+    ],
+'5ea06832': [
+        (log, ('3.0: Evelyn Body VB Hash',)),
+        (add_section_if_missing, ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n')),
+    ],
+'fcbd52cb': [
+        (log, ('3.0: Evelyn Face VB Hash',)),
+        (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n')),
+    ],
+'aa2f560e': [
+        (log, ('3.0: Evelyn Face VB Hash',)),
+        (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n')),
+    ],
+'f9fc3c8b': [
+        (log, ('3.0: Evelyn Face VB Hash',)),
+        (add_section_if_missing, ('ddf4efa6', 'Evelyn.Face.IB', 'match_priority = 0\n')),
+    ],
+'78699e6c': [(log, ('3.0: Evelyn weapon IB Hash',)), (add_ib_check_if_missing,)],
+'7fb7467f': [(log, ('3.0: Evelyn weapon IB Hash',)), (add_ib_check_if_missing,)],
+'af10bd11': [(log, ('3.0: Evelyn silk string IB Hash',)), (add_ib_check_if_missing,)],
+'3ae20915': [(log, ('3.0: Evelyn misc hash',)),],
+'4ff726df': [(log, ('3.0: Evelyn misc hash',)),],
+'c6afc18c': [(log, ('3.0: Evelyn misc hash',)),],
+'798bc78b': [
+        (log, ('3.0: Evelyn Hair VB Hash',)),
+        (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
+    ],
+'798adba3': [
+        (log, ('3.0: Evelyn Hair TEX Hash',)),
+        (add_section_if_missing, ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
+    ],
+'99c7c611': [
+        (log, ('3.0: Evelyn weapon VB Hash',)),
+        (add_section_if_missing, ('78699e6c', 'Evelyn.weapon.IB', 'match_priority = 0\n')),
+    ],
+'33d2866e': [
+        (log, ('3.0: Evelyn weapon2 position_vb Hash',)),
+        (add_section_if_missing, ('7fb7467f', 'Evelyn.weapon2.IB', 'match_priority = 0\n')),
+    ],
+'040993a0': [
+        (log, ('3.0: Evelyn weapon2 texcoord_vb Hash',)),
+        (add_section_if_missing, ('7fb7467f', 'Evelyn.weapon2.IB', 'match_priority = 0\n')),
     ],
 
-# Texture Hashes (v2.8)
-'798adba3': [
-        (log,                           ('2.8: Evelyn Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('10a5bde2', 'Evelyn.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('bb6d1023', 'Evelyn.Jacket.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('04b53ecd', 'Evelyn.Body.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('b3eaedb0', 'Evelyn.Shoulders.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('78699e6c', 'Evelyn.DaggerActive.IB', 'match_priority = 0\n')),
+# Historical hashes (2.2-2.3): silk string & weapon open (tanpa penerus)
+'06c6a436': [
+        (log,                           ('2.2-2.3: Evelyn Silk String Position 2048p Hash',)),
+    ],
+'2c5dcebd': [
+        (log,                           ('2.2-2.3: Evelyn Silk String Texcoord 2048p Hash',)),
+    ],
+'99555cf2': [
+        (log,                           ('2.2-2.3: Evelyn Silk String Blend 2048p Hash',)),
+    ],
+'3e2abfae': [
+        (log,                           ('2.2: Evelyn Weapon Open Position Hash',)),
+    ],
+'691f1157': [
+        (log,                           ('2.2: Evelyn Weapon Open Texcoord Hash',)),
     ],
     }
+
 
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Evelyn',
-    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.8', '3.0'],
+    'game_versions': ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '2.5'],
 }
