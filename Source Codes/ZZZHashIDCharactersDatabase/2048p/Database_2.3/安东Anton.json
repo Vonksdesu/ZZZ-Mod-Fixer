@@ -1,11 +1,11 @@
 [
   {
     "component_name": "Hair-头发",
-    "draw_vb": "ef9c0510",
-    "position_vb": "e8df7ff3",
-    "texcoord_vb": "774071dd",
-    "blend_vb": "edfd1666",
-    "ib": "d5ca0411",
+    "draw_vb": "d46d8476",
+    "position_vb": "8ab64867",
+    "texcoord_vb": "bab585ea",
+    "blend_vb": "884e7cc3",
+    "ib": "6b95c80d",
     "object_indexes": [
       0
     ],
@@ -17,7 +17,7 @@
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "571aa398"
         ],
         [
           "NormalMap",
@@ -27,23 +27,23 @@
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "41601dfa"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "d47c5823"
         ]
       ]
     ]
   },
   {
     "component_name": "Hair Shadow-头发阴影",
-    "draw_vb": "681651f9",
-    "position_vb": "4af493e5",
-    "texcoord_vb": "ad7d7eca",
-    "blend_vb": "795e9a7c",
-    "ib": "8d08b190",
+    "draw_vb": "52fa44ae",
+    "position_vb": "558ab813",
+    "texcoord_vb": "1f1b89ae",
+    "blend_vb": "8d0bcd2b",
+    "ib": "0112ffd6",
     "object_indexes": [
       0
     ],
@@ -56,11 +56,11 @@
   },
   {
     "component_name": "Body-身体",
-    "draw_vb": "b581dc0a",
-    "position_vb": "67f21c9f",
-    "texcoord_vb": "91fbd2fa",
-    "blend_vb": "46462bd8",
-    "ib": "8d6acf4e",
+    "draw_vb": "9f262894",
+    "position_vb": "339b1975",
+    "texcoord_vb": "66217473",
+    "blend_vb": "76bc385f",
+    "ib": "653fb27c",
     "object_indexes": [
       0
     ],
@@ -72,7 +72,7 @@
         [
           "Diffuse",
           ".dds",
-          "868709f2"
+          "00abcf22"
         ],
         [
           "NormalMap",
@@ -82,23 +82,23 @@
         [
           "LightMap",
           ".dds",
-          "088718a9"
+          "ed6f4199"
         ],
         [
           "MaterialMap",
           ".dds",
-          "a5fdb5e7"
+          "986c9716"
         ]
       ]
     ]
   },
   {
-    "component_name": "Bag-背包",
-    "draw_vb": "24ca2d36",
-    "position_vb": "19f96193",
-    "texcoord_vb": "8d825ff1",
-    "blend_vb": "d80dc314",
-    "ib": "b1df5d22",
+    "component_name": "Jacket-夹克",
+    "draw_vb": "112ccbbd",
+    "position_vb": "9f0a8d2e",
+    "texcoord_vb": "1727e9e4",
+    "blend_vb": "3edd7ceb",
+    "ib": "a21fcee4",
     "object_indexes": [
       0
     ],
@@ -110,7 +110,7 @@
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "d4b15508"
         ],
         [
           "NormalMap",
@@ -120,42 +120,74 @@
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "ef7880e3"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "d36a2f7a"
         ]
       ]
     ]
   },
   {
     "component_name": "Face-脸",
-    "VertexLimit": "6c4552bb",
-    "Position": "5657c1fc",
-    "Texcoord": "c83b6cbf",
-    "Blend": "757bc7cc",
-    "ib": "1fdaf388",
+    "VertexLimit": "f7cda875",
+    "Position": "cddf3b32",
+    "Texcoord": "144828a7",
+    "Blend": "ec9763c1",
+    "ib": "a0201907",
     "MatchFirstIndex": [
       "0",
-      "9258"
+      "8256"
     ],
     "PartNameList": [
-      "A",
-      "B"
+      "1",
+      "2"
     ],
     "texture_hashes": [
       [
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "842119d6"
         ],
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "842119d6"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "weapon武器",
+    "VertexLimit": "fa346a40",
+    "Position": "193b9ea3",
+    "Texcoord": "65b52652",
+    "Blend": "2906a23f",
+    "ib": "a21ac290",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "dc3a9ef1"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "cf503557"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "bd257544"
         ]
       ]
     ]
