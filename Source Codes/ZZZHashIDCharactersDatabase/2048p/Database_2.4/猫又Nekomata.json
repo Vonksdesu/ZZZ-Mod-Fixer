@@ -1,49 +1,73 @@
 [
   {
     "component_name": "Hair-头发",
-    "draw_vb": "ef9c0510",
-    "position_vb": "e8df7ff3",
-    "texcoord_vb": "774071dd",
-    "blend_vb": "edfd1666",
-    "ib": "d5ca0411",
+    "draw_vb": "a00df230",
+    "position_vb": "35439aa6",
+    "texcoord_vb": "9ada013d",
+    "blend_vb": "f16498bf",
+    "ib": "da11fd85",
     "object_indexes": [
-      0
+      0,
+      9156
     ],
     "object_classifications": [
-      "A"
+      "A",
+      "B"
     ],
     "texture_hashes": [
       [
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "25f3ae9b"
         ],
         [
           "NormalMap",
-          ".dds",
+          ".jpg",
           "ebac056e"
         ],
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "1c0193dc"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "3f73186f"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "207b8e63"
+        ],
+        [
+          "NormalMap",
+          ".jpg",
+          "ebac056e"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "25df29e7"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b3286755"
         ]
       ]
     ]
   },
   {
     "component_name": "Hair Shadow-头发阴影",
-    "draw_vb": "681651f9",
-    "position_vb": "4af493e5",
-    "texcoord_vb": "ad7d7eca",
-    "blend_vb": "795e9a7c",
-    "ib": "8d08b190",
+    "draw_vb": "fef9750a",
+    "position_vb": "0630f676",
+    "texcoord_vb": "bef56da3",
+    "blend_vb": "65ae2514",
+    "ib": "23c162fc",
     "object_indexes": [
       0
     ],
@@ -56,11 +80,11 @@
   },
   {
     "component_name": "Body-身体",
-    "draw_vb": "b581dc0a",
-    "position_vb": "67f21c9f",
-    "texcoord_vb": "91fbd2fa",
-    "blend_vb": "46462bd8",
-    "ib": "8d6acf4e",
+    "draw_vb": "0c01e6a5",
+    "position_vb": "eaad1408",
+    "texcoord_vb": "f589a51f",
+    "blend_vb": "d27d0e6b",
+    "ib": "26a487ff",
     "object_indexes": [
       0
     ],
@@ -72,33 +96,33 @@
         [
           "Diffuse",
           ".dds",
-          "868709f2"
+          "207b8e63"
         ],
         [
           "NormalMap",
-          ".dds",
+          ".jpg",
           "ebac056e"
         ],
         [
           "LightMap",
           ".dds",
-          "088718a9"
+          "25df29e7"
         ],
         [
           "MaterialMap",
           ".dds",
-          "a5fdb5e7"
+          "b3286755"
         ]
       ]
     ]
   },
   {
-    "component_name": "Bag-背包",
-    "draw_vb": "24ca2d36",
-    "position_vb": "19f96193",
-    "texcoord_vb": "8d825ff1",
-    "blend_vb": "d80dc314",
-    "ib": "b1df5d22",
+    "component_name": "Legs-腿",
+    "draw_vb": "99132d05",
+    "position_vb": "3c4015fd",
+    "texcoord_vb": "2a4f8c9e",
+    "blend_vb": "f5efd8b1",
+    "ib": "74688145",
     "object_indexes": [
       0
     ],
@@ -110,52 +134,52 @@
         [
           "Diffuse",
           ".dds",
-          "28005a5b"
+          "207b8e63"
         ],
         [
           "NormalMap",
-          ".dds",
+          ".jpg",
           "ebac056e"
         ],
         [
           "LightMap",
           ".dds",
-          "8d8269f8"
+          "25df29e7"
         ],
         [
           "MaterialMap",
           ".dds",
-          "f1b20f3d"
+          "b3286755"
         ]
       ]
     ]
   },
   {
     "component_name": "Face-脸",
-    "VertexLimit": "6c4552bb",
-    "Position": "5657c1fc",
-    "Texcoord": "c83b6cbf",
-    "Blend": "757bc7cc",
-    "ib": "1fdaf388",
+    "VertexLimit": "c719aab9",
+    "Position": "fd0b39fe",
+    "Texcoord": "aa036e70",
+    "Blend": "5cfcac2d",
+    "ib": "37119851",
     "MatchFirstIndex": [
       "0",
-      "9258"
+      "9528"
     ],
     "PartNameList": [
-      "A",
-      "B"
+      "1",
+      "2"
     ],
     "texture_hashes": [
       [
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "ba411d22"
         ],
         [
           "Diffuse",
           ".dds",
-          "5d75fddc"
+          "ba411d22"
         ]
       ]
     ]
