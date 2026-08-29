@@ -1,0 +1,235 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "992d149f",
+    "position_vb": "71d2bf80",
+    "texcoord_vb": "a5e62ece",
+    "blend_vb": "39ac6700",
+    "ib": "aa9ffb85",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "08f04d95"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "f44f330b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "7542ef4b"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "ib": "403eace9",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Headwear-头饰",
+    "draw_vb": "2f828e6a",
+    "position_vb": "4dec8913",
+    "texcoord_vb": "cdd7fc8a",
+    "blend_vb": "db7add33",
+    "ib": "20d3a340",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "08f04d95"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "f44f330b"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "7542ef4b"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Neck-脖子",
+    "draw_vb": "4c215c73",
+    "position_vb": "be75a4be",
+    "texcoord_vb": "dd2b89aa",
+    "blend_vb": "3bd79a0b",
+    "ib": "62ed56cc",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "fdf0b49e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "93d94f22"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b95c08fb"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Torso-上半身",
+    "draw_vb": "19e5f486",
+    "position_vb": "8a4e97cd",
+    "texcoord_vb": "d761e076",
+    "blend_vb": "f3dedb50",
+    "ib": "d509bdd4",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "fdf0b49e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "93d94f22"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b95c08fb"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Leg-腿",
+    "draw_vb": "720d6a16",
+    "position_vb": "42b88f48",
+    "texcoord_vb": "82d0aadd",
+    "blend_vb": "f53b2eba",
+    "ib": "bcc9e4e1",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "fdf0b49e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "93d94f22"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b95c08fb"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "draw_vb": "04abceb5",
+    "position_vb": "3eb95df2",
+    "texcoord_vb": "ccc76aea",
+    "blend_vb": "0c9a075b",
+    "ib": "9a9780a7",
+    "MatchFirstIndex": [
+      "0",
+      "8532"
+    ],
+    "PartNameList": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "77eef7e8"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "77eef7e8"
+        ]
+      ]
+    ]
+  }
+]

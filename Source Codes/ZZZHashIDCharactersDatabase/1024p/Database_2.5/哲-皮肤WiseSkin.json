@@ -55,12 +55,12 @@
     ]
   },
   {
-    "component_name": "Body-身体",
-    "draw_vb": "b581dc0a",
-    "position_vb": "67f21c9f",
-    "texcoord_vb": "91fbd2fa",
-    "blend_vb": "46462bd8",
-    "ib": "8d6acf4e",
+    "component_name": "Neck-脖子",
+    "draw_vb": "276e1373",
+    "position_vb": "d8ad824b",
+    "texcoord_vb": "39a1dfe3",
+    "blend_vb": "458bbde3",
+    "ib": "01c42a1d",
     "object_indexes": [
       0
     ],
@@ -72,7 +72,7 @@
         [
           "Diffuse",
           ".dds",
-          "3d7a53b0"
+          "9fc3646e"
         ],
         [
           "NormalMap",
@@ -82,23 +82,23 @@
         [
           "LightMap",
           ".dds",
-          "9f46182a"
+          "dd79b44b"
         ],
         [
           "MaterialMap",
           ".dds",
-          "148283b7"
+          "aa712fb9"
         ]
       ]
     ]
   },
   {
-    "component_name": "Bag-背包",
-    "draw_vb": "24ca2d36",
-    "position_vb": "19f96193",
-    "texcoord_vb": "8d825ff1",
-    "blend_vb": "d80dc314",
-    "ib": "b1df5d22",
+    "component_name": "Body-身体",
+    "draw_vb": "ca02f614",
+    "position_vb": "a388eb6b",
+    "texcoord_vb": "b39870e1",
+    "blend_vb": "8612559a",
+    "ib": "1eca2097",
     "object_indexes": [
       0
     ],
@@ -110,7 +110,7 @@
         [
           "Diffuse",
           ".dds",
-          "cb0d0c22"
+          "9fc3646e"
         ],
         [
           "NormalMap",
@@ -120,12 +120,50 @@
         [
           "LightMap",
           ".dds",
-          "33368e12"
+          "dd79b44b"
         ],
         [
           "MaterialMap",
           ".dds",
-          "d9383a15"
+          "aa712fb9"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Waist accessories-腰饰",
+    "draw_vb": "0c1c9bf3",
+    "position_vb": "1e5cafee",
+    "texcoord_vb": "06f42a6f",
+    "blend_vb": "0a0aa1a8",
+    "ib": "e7f527ea",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "e590e6be"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "a78880dc"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "4a0b4014"
         ]
       ]
     ]
