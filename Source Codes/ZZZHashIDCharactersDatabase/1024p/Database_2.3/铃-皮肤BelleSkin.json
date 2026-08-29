@@ -1,11 +1,11 @@
 [
   {
     "component_name": "Hair-头发",
-    "draw_vb": "ef9c0510",
-    "position_vb": "e8df7ff3",
-    "texcoord_vb": "774071dd",
-    "blend_vb": "edfd1666",
-    "ib": "d5ca0411",
+    "draw_vb": "992d149f",
+    "position_vb": "71d2bf80",
+    "texcoord_vb": "a5e62ece",
+    "blend_vb": "39ac6700",
+    "ib": "aa9ffb85",
     "object_indexes": [
       0
     ],
@@ -17,7 +17,7 @@
         [
           "Diffuse",
           ".dds",
-          "cb0d0c22"
+          "08f04d95"
         ],
         [
           "NormalMap",
@@ -27,23 +27,19 @@
         [
           "LightMap",
           ".dds",
-          "33368e12"
+          "f44f330b"
         ],
         [
           "MaterialMap",
           ".dds",
-          "d9383a15"
+          "7542ef4b"
         ]
       ]
     ]
   },
   {
     "component_name": "Hair Shadow-头发阴影",
-    "draw_vb": "681651f9",
-    "position_vb": "4af493e5",
-    "texcoord_vb": "ad7d7eca",
-    "blend_vb": "795e9a7c",
-    "ib": "8d08b190",
+    "ib": "403eace9",
     "object_indexes": [
       0
     ],
@@ -55,12 +51,12 @@
     ]
   },
   {
-    "component_name": "Body-身体",
-    "draw_vb": "b581dc0a",
-    "position_vb": "67f21c9f",
-    "texcoord_vb": "91fbd2fa",
-    "blend_vb": "46462bd8",
-    "ib": "8d6acf4e",
+    "component_name": "Headwear-头饰",
+    "draw_vb": "2f828e6a",
+    "position_vb": "4dec8913",
+    "texcoord_vb": "cdd7fc8a",
+    "blend_vb": "db7add33",
+    "ib": "20d3a340",
     "object_indexes": [
       0
     ],
@@ -72,7 +68,7 @@
         [
           "Diffuse",
           ".dds",
-          "3d7a53b0"
+          "08f04d95"
         ],
         [
           "NormalMap",
@@ -82,23 +78,23 @@
         [
           "LightMap",
           ".dds",
-          "9f46182a"
+          "f44f330b"
         ],
         [
           "MaterialMap",
           ".dds",
-          "148283b7"
+          "7542ef4b"
         ]
       ]
     ]
   },
   {
-    "component_name": "Bag-背包",
-    "draw_vb": "24ca2d36",
-    "position_vb": "19f96193",
-    "texcoord_vb": "8d825ff1",
-    "blend_vb": "d80dc314",
-    "ib": "b1df5d22",
+    "component_name": "Torso-上半身",
+    "draw_vb": "02c9dc4b",
+    "position_vb": "0b3c5e7c",
+    "texcoord_vb": "862dc27a",
+    "blend_vb": "01b0c8b6",
+    "ib": "860e1558",
     "object_indexes": [
       0
     ],
@@ -110,7 +106,7 @@
         [
           "Diffuse",
           ".dds",
-          "cb0d0c22"
+          "fdf0b49e"
         ],
         [
           "NormalMap",
@@ -120,26 +116,64 @@
         [
           "LightMap",
           ".dds",
-          "33368e12"
+          "93d94f22"
         ],
         [
           "MaterialMap",
           ".dds",
-          "d9383a15"
+          "b95c08fb"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Leg-腿",
+    "draw_vb": "720d6a16",
+    "position_vb": "42b88f48",
+    "texcoord_vb": "82d0aadd",
+    "blend_vb": "f53b2eba",
+    "ib": "bcc9e4e1",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "fdf0b49e"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "93d94f22"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "b95c08fb"
         ]
       ]
     ]
   },
   {
     "component_name": "Face-脸",
-    "VertexLimit": "6c4552bb",
-    "Position": "5657c1fc",
-    "Texcoord": "c83b6cbf",
-    "Blend": "757bc7cc",
-    "ib": "1fdaf388",
+    "draw_vb": "04abceb5",
+    "position_vb": "3eb95df2",
+    "texcoord_vb": "ccc76aea",
+    "blend_vb": "0c9a075b",
+    "ib": "9a9780a7",
     "MatchFirstIndex": [
       "0",
-      "9258"
+      "8532"
     ],
     "PartNameList": [
       "A",
@@ -150,12 +184,12 @@
         [
           "Diffuse",
           ".dds",
-          "588d7d2d"
+          "77eef7e8"
         ],
         [
           "Diffuse",
           ".dds",
-          "588d7d2d"
+          "77eef7e8"
         ]
       ]
     ]
