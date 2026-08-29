@@ -825,50 +825,100 @@ class add_ib_check_if_missing():
         needs_check       = False
         new_sections      = ''
         unindexed_section = ''
+        
+        # List to track which commands were dynamically injected for logging purposes
+        injected_commands = []
 
         for section_match in section_matches:
-            if not re.search(r'\n\s*match_first_index\s*=', section_match.group(1), flags=re.IGNORECASE):
+            section_text = section_match.group(1)
+
+            # 1. Detect existing active command executions
+            has_old = re.search(r'\n\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
+            has_zzmi = re.search(r'\n\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
+            has_rabbitfx = re.search(r'\n\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
+
+            # 2. Detect modder intent (intentionally commented or disabled commands)
+            is_commented_old = re.search(r'\n\s*;\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
+            is_commented_zzmi = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
+            is_commented_rabbit = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
+            
+            # Detect 'if 0 == 1' protection blocks commonly used to bypass auto-fixers
+            is_disabled_by_if = re.search(r'if\s+0\s*==\s*1\s*\n\s*run\s*=', section_text, flags=re.IGNORECASE)
+
+            # If a command is explicitly defined (whether active or disabled), respect the intent and skip injection
+            if has_old or has_zzmi or has_rabbitfx or is_commented_old or is_commented_zzmi or is_commented_rabbit or is_disabled_by_if:
+                if not re.search(r'\n\s*match_first_index\s*=', section_text, flags=re.IGNORECASE):
+                    unindexed_section = section_match.group()
+                else:
+                    new_sections += section_match.group()
+                continue
+
+            # 3. Handle unindexed sections
+            # Sections without 'match_first_index' are typically decals/accessories (e.g., glasses)
+            # and should not receive global shader commands.
+            if not re.search(r'\n\s*match_first_index\s*=', section_text, flags=re.IGNORECASE):
                 unindexed_section = section_match.group()
                 continue
 
-            if re.search(r'\n\s*run\s*=\s*CommandListSkinTexture', section_match.group(1), flags=re.IGNORECASE):
-                new_sections += section_match.group()
-                continue
-
+            # 4. Heuristic syntax analysis
+            # The section has a 'match_first_index' and requires an execution command.
             needs_check = True
+            command_to_inject = r"CommandListSkinTexture" # Default to legacy method
+            
+            # Check for ZZMI SlotFix syntax
+            if re.search(r'\n\s*Resource\\ZZMI\\[a-zA-Z]+\s*=\s*ref', section_text, flags=re.IGNORECASE):
+                command_to_inject = r"CommandList\ZZMI\SetTextures"
+                
+            # Check for RabbitFX syntax
+            elif re.search(r'\n\s*\$\\RabbitFX\\[a-zA-Z]+\s*=', section_text, flags=re.IGNORECASE):
+                command_to_inject = r"CommandList\RabbitFX\SetTextures"
+            
+            if command_to_inject not in injected_commands:
+                injected_commands.append(command_to_inject)
+
+            # Inject the determined command immediately after 'match_first_index = ...'
+            # Utilizing \g<0> to preserve the original matched string and append the command.
+            replacement_string = r'\g<0>run = ' + command_to_inject + r'\n'
             new_sections += re.sub(
                 r'\n\s*match_first_index\s*=.*?\n',
-                r'\g<0>run = CommandListSkinTexture\n',
+                replacement_string,
                 section_match.group(),
                 flags=re.IGNORECASE, count=1
             )
 
-
+        # 5. Safe fallback to prevent blind injection
+        # Ensure unindexed sections (transparent/decal meshes) remain untouched.
         if unindexed_section and not new_sections:
-            if not re.search(r'\n\s*run\s*=\s*CommandListSkinTexture', unindexed_section, flags=re.IGNORECASE):
-                needs_check = True
-                unindexed_section = re.sub(
-                    r'\n\s*hash\s*=.*?\n',
-                    r'\g<0>run = CommandListSkinTexture\n',
-                    unindexed_section,
-                    flags=re.IGNORECASE, count=1
-                )
+            pass
 
         new_sections = unindexed_section + new_sections
 
-        return ExecutionResult(
-            touched        = False,
-            failed         = False,
-            signal_break   = False,
-            queue_hashes   = None,
-            queue_commands = (
-                (log,                     ('+ Adding `run = CommandListSkinTexture`',)),
-                (remove_indexed_sections, {'capture_position': '🌲'}),
-                (create_new_section,      {'saved_position': '🌲', 'section_content': new_sections}),
-            ) if needs_check else (
-                (log,                     ('/ Skipping `run = CommandListSkinTexture` Addition',)),
-            ),
-        )
+        # Prepare dynamic log output based on the successfully injected commands
+        log_messages = []
+        if needs_check:
+            for cmd in injected_commands:
+                log_messages.append((log, (f'+ Adding `run = {cmd}` to indexed mesh',)))
+            
+            return ExecutionResult(
+                touched        = False,
+                failed         = False,
+                signal_break   = False,
+                queue_hashes   = None,
+                queue_commands = tuple(log_messages) + (
+                    (remove_indexed_sections, {'capture_position': '🌲'}),
+                    (create_new_section,      {'saved_position': '🌲', 'section_content': new_sections}),
+                )
+            )
+        else:
+            return ExecutionResult(
+                touched        = False,
+                failed         = False,
+                signal_break   = False,
+                queue_hashes   = None,
+                queue_commands = (
+                    (log, ('/ Skipping CommandList Addition',)),
+                ),
+            )
 
 
 @dataclass
