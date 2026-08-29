@@ -258,7 +258,6 @@
   },
   {
     "component_name": "WeaponChakramA-武器环刃A面",
-    "draw_vb": "257c4603",
     "ib": "caa3c4ef",
     "object_indexes": [
       0

@@ -269,10 +269,6 @@
   },
   {
     "component_name": "Weapon-武器",
-    "draw_vb": "2ff62c6d",
-    "position_vb": "07e51b64",
-    "texcoord_vb": "c4173b6e",
-    "blend_vb": "aa195b0b",
     "ib": "ca38d6a1",
     "object_indexes": [
       0
@@ -308,10 +304,6 @@
   },
   {
     "component_name": "Shell-炮弹",
-    "draw_vb": "1b29ee19",
-    "position_vb": "e3fafeeb",
-    "texcoord_vb": "44991f30",
-    "blend_vb": "10d0bc6f",
     "ib": "85361021",
     "object_indexes": [
       0
