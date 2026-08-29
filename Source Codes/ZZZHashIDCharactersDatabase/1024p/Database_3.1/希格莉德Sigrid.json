@@ -156,14 +156,14 @@
   },
   {
     "component_name": "Body-身体",
-    "draw_vb": "01b35c45",
-    "position_vb": "08c15b45",
-    "texcoord_vb": "f6474154",
-    "blend_vb": "8c0622d7",
-    "ib": "a23aa8a3",
+    "draw_vb": "d0bf0e87",
+    "position_vb": "e2a28287",
+    "texcoord_vb": "08ddaed3",
+    "blend_vb": "018ea72c",
+    "ib": "38daef11",
     "object_indexes": [
       0,
-      42759
+      42963
     ],
     "object_classifications": [
       "A",

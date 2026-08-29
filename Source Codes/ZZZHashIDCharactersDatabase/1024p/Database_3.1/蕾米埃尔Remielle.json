@@ -441,8 +441,37 @@
     "_author": "踩蘑菇网绿林小子制作，Github-GreenLzz-Make"
   },
   {
-    "component_name": "Injector-喷射器",
+    "component_name": "Injector-左翼喷射器",
     "ib": "acfa670a",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "d930a5fa"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "9f940f25"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f01b9d5c"
+        ]
+      ]
+    ],
+    "_author": "踩蘑菇网绿林小子制作，Github-GreenLzz-Make"
+  },
+  {
+    "component_name": "Injector2-右翼喷射器",
+    "ib": "760c8064",
     "texture_hashes": [
       [
         [

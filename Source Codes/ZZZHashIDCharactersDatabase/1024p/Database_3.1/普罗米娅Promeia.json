@@ -300,10 +300,6 @@
   },
   {
     "component_name": "Weapon-环刃",
-    "draw_vb": "0a06059e",
-    "position_vb": "d242b77a",
-    "texcoord_vb": "f2f5bd28",
-    "blend_vb": "a864dc82",
     "ib": "8995db58",
     "object_indexes": [
       0

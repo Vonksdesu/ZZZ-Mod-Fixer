@@ -250,7 +250,7 @@
   {
     "component_name": "Neck-颈部",
     "draw_vb": "0e72bdb7",
-    "position_vb": "",
+    "position_vb": "d5c6a50f",
     "texcoord_vb": "07a15f8e",
     "blend_vb": "57192494",
     "ib": "a6431856",
@@ -290,7 +290,7 @@
     "component_name": "Face-脸部",
     "draw_vb": "04abceb5",
     "position_vb": "3eb95df2",
-    "texcoord_vb": "d3000b22",
+    "texcoord_vb": "228f5a8b",
     "blend_vb": "359e4502",
     "ib": "9a9780a7",
     "object_indexes": [

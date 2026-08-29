@@ -133,13 +133,7 @@
       "A"
     ],
     "texture_hashes": [
-      [
-        [
-          "Diffuse",
-          ".dds",
-          "e108fa5b"
-        ]
-      ]
+      []
     ],
     "_author": "踩蘑菇网绿林小子制作，Github-GreenLzz-Make"
   },
@@ -147,7 +141,7 @@
     "component_name": "Face-脸",
     "VertexLimit": "5661afc3",
     "Position": "6c733c84",
-    "Texcoord": "1fa404c1",
+    "Texcoord": "3c32a411",
     "Blend": "91846a84",
     "ib": "ef86fc9f",
     "MatchFirstIndex": [
