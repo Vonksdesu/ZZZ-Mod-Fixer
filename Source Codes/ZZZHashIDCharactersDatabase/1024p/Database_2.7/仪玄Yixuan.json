@@ -1,0 +1,396 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "36a68b27",
+    "position_vb": "cc898b44",
+    "texcoord_vb": "d4841137",
+    "blend_vb": "d7eb400e",
+    "ib": "ac8e9ee3",
+    "object_indexes": [
+      0,
+      21816
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "84fe943d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5574ca9f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f4ac690c"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "84fe943d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5574ca9f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f4ac690c"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "draw_vb": "7f5aba6c",
+    "position_vb": "c7748cbd",
+    "texcoord_vb": "a07eb5cf",
+    "blend_vb": "07c7e48f",
+    "ib": "d28b9c82",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "f922d854",
+    "position_vb": "155737d9",
+    "texcoord_vb": "7af146a0",
+    "blend_vb": "3e629c05",
+    "ib": "029c1f5a",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "d7db2bc6"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "96f754a7"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa1056a5"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Bottle-葫芦",
+    "draw_vb": "05466ddf",
+    "position_vb": "8555098d",
+    "texcoord_vb": "ff4b112b",
+    "blend_vb": "d89da8eb",
+    "ib": "1630f2d0",
+    "object_indexes": [
+      0,
+      66
+    ],
+    "object_classifications": [
+      "A",
+      "B"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "84fe943d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5574ca9f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f4ac690c"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "84fe943d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5574ca9f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f4ac690c"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Copper coin string-铜钱绳",
+    "draw_vb": "ddaf88bc",
+    "position_vb": "eaf79039",
+    "texcoord_vb": "9714e6e6",
+    "blend_vb": "ee9b9cfe",
+    "ib": "67c61080",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "84fe943d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5574ca9f"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f4ac690c"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hairpin-发簪",
+    "draw_vb": "ba017cf3",
+    "position_vb": "3194141e",
+    "texcoord_vb": "b3123168",
+    "blend_vb": "de9d3ab7",
+    "ib": "892858fd",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "d7db2bc6"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "96f754a7"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "aa1056a5"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Jacket-夹克",
+    "draw_vb": "73599fbb",
+    "position_vb": "9b67bc72",
+    "texcoord_vb": "9f95d565",
+    "blend_vb": "0ff3af5a",
+    "ib": "8c2fc05e",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "1fcedcc3"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "c4d167c3"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "fd56fa4b"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "VertexLimitVB": "ad3cd82a",
+    "position_vb": "972e4b6d",
+    "texcoord_vb": "2e04aac2",
+    "blend_vb": "4466e7ea",
+    "ib": "8b067f99",
+    "object_indexes": [
+      0,
+      8262,
+      12720
+    ],
+    "object_classifications": [
+      "A",
+      "B",
+      "C"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "9efd1605"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "9efd1605"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "9efd1605"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "weapon-武器-鸟(非战斗状态)",
+    "VertexLimit": "ccbbb7ea",
+    "Position": "9052084b",
+    "Texcoord": "f45313a0",
+    "Blend": "3ac6dfc7",
+    "ib": "ce38ac3b",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "677893d2"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "d1ee41dc"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "23d4f666"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "weapon-武器-鸟（战斗状态）",
+    "VertexLimit": "5a016c9b",
+    "Position": "1a201296",
+    "Texcoord": "1a0934e4",
+    "Blend": "2ad5c986",
+    "ib": "fd2cbc71",
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "9263dc92"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "fc9ae2ff"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "5e60bc3d"
+        ]
+      ]
+    ]
+  }
+]
