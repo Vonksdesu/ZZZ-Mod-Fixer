@@ -1,0 +1,258 @@
+[
+  {
+    "component_name": "Hair-头发",
+    "draw_vb": "bafa609a",
+    "position_vb": "7b4b4f06",
+    "texcoord_vb": "a09489fa",
+    "blend_vb": "0df63fc6",
+    "ib": "776f5703",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "0e55f39d"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "b3ef7388"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Hair Shadow-头发阴影",
+    "draw_vb": "4d61e6f3",
+    "position_vb": "b408b261",
+    "texcoord_vb": "879a6522",
+    "blend_vb": "720296ff",
+    "ib": "4ed9a81f",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      []
+    ]
+  },
+  {
+    "component_name": "Body-身体",
+    "draw_vb": "4151c6c6",
+    "position_vb": "dfab3761",
+    "texcoord_vb": "fa58977c",
+    "blend_vb": "f9fb2aa0",
+    "ib": "52842f31",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "b2bd144b"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5fcde3a6"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "76774ee7"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Amillion-艾米莉安",
+    "draw_vb": "bb7fffe9",
+    "position_vb": "176bf3d7",
+    "texcoord_vb": "077c3500",
+    "blend_vb": "4e1d9c9a",
+    "ib": "40e64ae2",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "b2bd144b"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "5fcde3a6"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "76774ee7"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "Face-脸",
+    "VertexLimit": "9274e401",
+    "Position": "a8667746",
+    "Texcoord": "5714e5e6",
+    "Blend": "b25ebcf6",
+    "ib": "7435fc0e",
+    "MatchFirstIndex": [
+      "0",
+      "9456"
+    ],
+    "PartNameList": [
+      "1",
+      "2"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "6abd3dd3"
+        ],
+        [
+          "Diffuse",
+          ".dds",
+          "6abd3dd3"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "weapon-武器",
+    "VertexLimit": "f6325378",
+    "Position": "00c8b3c5",
+    "Texcoord": "14b0d6b6",
+    "Blend": "2f427bdb",
+    "ib": "f9befc51",
+    "MatchFirstIndex": [
+      "0",
+      "7089"
+    ],
+    "PartNameList": [
+      "1",
+      "2"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "89699adb"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "b89dc4e4"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "48f45547"
+        ]
+      ],
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "b6f0f975"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "df7b84ed"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "5c298267"
+        ]
+      ]
+    ]
+  },
+  {
+    "component_name": "mobile phone-手机",
+    "draw_vb": "63d1bd6f",
+    "position_vb": "ef68beba",
+    "texcoord_vb": "8424f0ec",
+    "blend_vb": "cbce3456",
+    "ib": "262c96ff",
+    "object_indexes": [
+      0
+    ],
+    "object_classifications": [
+      "A"
+    ],
+    "texture_hashes": [
+      [
+        [
+          "Diffuse",
+          ".dds",
+          "d484bf22"
+        ],
+        [
+          "NormalMap",
+          ".dds",
+          "798adba3"
+        ],
+        [
+          "LightMap",
+          ".dds",
+          "8d3aca36"
+        ],
+        [
+          "MaterialMap",
+          ".dds",
+          "f8db9ea5"
+        ]
+      ]
+    ]
+  }
+]
