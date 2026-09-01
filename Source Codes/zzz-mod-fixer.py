@@ -820,78 +820,87 @@ class add_ib_check_if_missing():
         hash = default_args.hash
         
         pattern         = get_section_hash_pattern(hash)
-        section_matches = pattern.finditer(ini.content)
+        
+        # Convert iterator to a list to allow multiple passes (Pre-scan & Main loop)
+        section_matches = list(pattern.finditer(ini.content))
 
         needs_check       = False
         new_sections      = ''
-        unindexed_section = ''
         
         # List to track which commands were dynamically injected for logging purposes
         injected_commands = []
 
+        # --- NEW: PRE-SCAN TO DETECT GLOBAL HASH THEME ---
+        # Analyze all sections within the current hash to determine the overarching shader method used (ZZMI, RabbitFX, or Legacy).
+        # This prevents mixing different shader execution methods within the same hash group.
+        global_inject_command = r"CommandListSkinTexture" # Default to legacy method
+        for m in section_matches:
+            st = m.group(1)
+            # Check if ZZMI footprint is found anywhere in this Hash group
+            if re.search(r'\n\s*Resource\\ZZMI\\[a-zA-Z]+\s*=\s*ref', st, flags=re.IGNORECASE) or \
+               re.search(r'\n\s*run\s*=\s*CommandList\\ZZMI', st, flags=re.IGNORECASE):
+                global_inject_command = r"CommandList\ZZMI\SetTextures"
+                break
+            # Check if RabbitFX footprint is found anywhere in this Hash group
+            elif re.search(r'\n\s*(?:\$|Resource)\\RabbitFX\\[a-zA-Z]+\s*=', st, flags=re.IGNORECASE) or \
+                 re.search(r'\n\s*run\s*=\s*CommandList\\RabbitFX', st, flags=re.IGNORECASE):
+                global_inject_command = r"CommandList\RabbitFX\SetTextures"
+                break
+        # ----------------------------------------------------
+
         for section_match in section_matches:
             section_text = section_match.group(1)
+            
+            # 1. Detect ANY existing active execution commands 
+            # This catch-all regex will detect Legacy, ZZMI, RabbitFX, AND any Custom Modder Commands 
+            # (e.g., 'run = CommandListMyCustomShader' or 'run = CustomShader\SpecialDraw')
+            has_any_command = re.search(r'\n\s*run\s*=\s*(?:CommandList|CustomShader)', section_text, flags=re.IGNORECASE)
 
-            # 1. Detect existing active command executions
+            # 2. Detect existing active command executions
             has_old = re.search(r'\n\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
             has_zzmi = re.search(r'\n\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
             has_rabbitfx = re.search(r'\n\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
 
-            # 2. Detect modder intent (intentionally commented or disabled commands)
+            # 3. Detect modder intent (intentionally commented or disabled commands)
+            is_commented_any_commands = re.search(r'\n\s*;\s*run\s*=\s*(?:CommandList|CustomShader)', section_text, flags=re.IGNORECASE)
             is_commented_old = re.search(r'\n\s*;\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
             is_commented_zzmi = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
             is_commented_rabbit = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
             
             # Detect 'if 0 == 1' protection blocks commonly used to bypass auto-fixers
             is_disabled_by_if = re.search(r'if\s+0\s*==\s*1\s*\n\s*run\s*=', section_text, flags=re.IGNORECASE)
-
-            # If a command is explicitly defined (whether active or disabled), respect the intent and skip injection
-            if has_old or has_zzmi or has_rabbitfx or is_commented_old or is_commented_zzmi or is_commented_rabbit or is_disabled_by_if:
-                if not re.search(r'\n\s*match_first_index\s*=', section_text, flags=re.IGNORECASE):
-                    unindexed_section = section_match.group()
-                else:
-                    new_sections += section_match.group()
+            
+            
+            # If a command is explicitly defined (whether active or disabled), respect the intent and SKIP injection
+            if has_any_command or has_old or has_zzmi or has_rabbitfx or is_commented_any_commands or is_commented_old or is_commented_zzmi or is_commented_rabbit or is_disabled_by_if:
+                new_sections += section_match.group()
                 continue
 
             # 3. Handle unindexed sections
-            # Sections without 'match_first_index' are typically decals/accessories (e.g., glasses)
-            # and should not receive global shader commands.
+            # Sections without 'match_first_index' (e.g., handling=skip, decals, transparent accessories)
+            # Just append the original text directly and SKIP injection to avoid destroying shader properties.
             if not re.search(r'\n\s*match_first_index\s*=', section_text, flags=re.IGNORECASE):
-                unindexed_section = section_match.group()
+                new_sections += section_match.group()
                 continue
 
-            # 4. Heuristic syntax analysis
+            # 4. Context-Aware Injection
             # The section has a 'match_first_index' and requires an execution command.
             needs_check = True
-            command_to_inject = r"CommandListSkinTexture" # Default to legacy method
             
-            # Check for ZZMI SlotFix syntax
-            if re.search(r'\n\s*Resource\\ZZMI\\[a-zA-Z]+\s*=\s*ref', section_text, flags=re.IGNORECASE):
-                command_to_inject = r"CommandList\ZZMI\SetTextures"
-                
-            # Check for RabbitFX syntax
-            elif re.search(r'\n\s*\$\\RabbitFX\\[a-zA-Z]+\s*=', section_text, flags=re.IGNORECASE):
-                command_to_inject = r"CommandList\RabbitFX\SetTextures"
+            # Utilize the overarching theme detected during the Pre-Scan phase
+            command_to_inject = global_inject_command
             
             if command_to_inject not in injected_commands:
                 injected_commands.append(command_to_inject)
 
-            # Inject the determined command immediately after 'match_first_index = ...'
-            # Utilizing \g<0> to preserve the original matched string and append the command.
-            replacement_string = r'\g<0>run = ' + command_to_inject + r'\n'
+            # --- PERBAIKAN BUG \Z DI SINI ---
+            # Menggunakan lambda function agar Python tidak menerjemahkan \Z atau \R sebagai kode rahasia regex
             new_sections += re.sub(
                 r'\n\s*match_first_index\s*=.*?\n',
-                replacement_string,
+                lambda m: f"{m.group(0)}run = {command_to_inject}\n",
                 section_match.group(),
                 flags=re.IGNORECASE, count=1
             )
-
-        # 5. Safe fallback to prevent blind injection
-        # Ensure unindexed sections (transparent/decal meshes) remain untouched.
-        if unindexed_section and not new_sections:
-            pass
-
-        new_sections = unindexed_section + new_sections
 
         # Prepare dynamic log output based on the successfully injected commands
         log_messages = []
