@@ -27,7 +27,7 @@ else:
 
 _ICON_CACHE_DIR = _BASE_DIR / "Assets" / "Icons"
 
-APP_VERSION     = "v2.1.0"
+APP_VERSION     = "v2.1.1"
 _GITHUB_REPO    = "Vonksdesu/ZZZ-Mod-Fixer"
 _GITHUB_API_URL = f"https://api.github.com/repos/{_GITHUB_REPO}/releases/latest"
 _GITHUB_REL_URL = f"https://github.com/{_GITHUB_REPO}/releases/latest"
@@ -147,6 +147,22 @@ class ZZZModFixerGUI(tk.Tk):
         self._bind_sidebar_hover()
         self._apply_path_placeholder()
         self._rollback = self._load_rollback_module()
+
+    @staticmethod
+    def _setup_jump_scroll(scrollbar, widget):
+        """
+        Makes the scrollbar jump directly to the clicked position on the track,
+        instead of scrolling by page increments. Also works for dragging.
+        Bound via <Button-1> / <B1-Motion> so it intercepts before Tk's default.
+        """
+        def _jump(event):
+            h = scrollbar.winfo_height()
+            if h > 0:
+                widget.yview_moveto(max(0.0, min(1.0, event.y / h)))
+            return "break"
+
+        scrollbar.bind("<Button-1>", _jump)
+        scrollbar.bind("<B1-Motion>", _jump)
 
     def _on_check_update(self):
         """Triggered when user clicks Check Update. Runs version check in background."""
@@ -451,7 +467,7 @@ class ZZZModFixerGUI(tk.Tk):
             {
                 "header": "ROLLBACK",
                 "items": [
-                    ("Rolling Back", "Rolling Back Your Mods If There Are Some Broken Mods After Updating Mods Hashes", 170),
+                    ("Rolling Back", "Rolling Back Your Mods If There Are Some Broken Mods After Updating Mods Hashes Or Remapping", 170),
                 ],
             },
         ]
@@ -514,6 +530,7 @@ class ZZZModFixerGUI(tk.Tk):
                 desc_label.pack(fill="x")
 
                 for widget in [item_frame, icon_canvas, text_frame, title_label, desc_label]:
+                    widget.configure(cursor="hand2")
                     widget.bind("<Enter>",    lambda e, i=idx: self._on_sidebar_item_enter(i))
                     widget.bind("<Leave>",    lambda e, i=idx: self._on_sidebar_item_leave(i))
                     widget.bind("<Button-1>", lambda e, t=title: self._on_sidebar_click(t))
@@ -727,6 +744,7 @@ class ZZZModFixerGUI(tk.Tk):
         cli_frame = tk.Frame(info, bg="#0c0c0c")
         cli_frame.grid(row=1, column=0, sticky="nsew")
         cli_frame.columnconfigure(0, weight=1)
+        cli_frame.columnconfigure(1, minsize=17)   # pre-allocate scrollbar column → no layout shift
         cli_frame.rowconfigure(0, weight=1)
 
         self.hash_cli_output = tk.Text(cli_frame, bg="#0c0c0c", fg="#e6e6e6", insertbackground="#e6e6e6", relief="flat", wrap="word", font=("Consolas", 9), exportselection=True)
@@ -735,9 +753,10 @@ class ZZZModFixerGUI(tk.Tk):
         self.hash_cli_output.bind("<<Paste>>", lambda e: "break")
 
         cli_scroll = ttk.Scrollbar(cli_frame, orient="vertical", command=self.hash_cli_output.yview)
-        cli_scroll.grid(row=0, column=1, sticky="ns")
+        cli_scroll.grid(row=0, column=1, sticky="nsew")
         self.hash_cli_output.configure(yscrollcommand=cli_scroll.set)
         cli_scroll.grid_remove()
+        self._setup_jump_scroll(cli_scroll, self.hash_cli_output)
         self._cli_scroll = cli_scroll
 
         self._section_frames["Hash Character Mods Updater"] = {
@@ -801,6 +820,7 @@ class ZZZModFixerGUI(tk.Tk):
         cli_frame = tk.Frame(info, bg="#0c0c0c")
         cli_frame.grid(row=1, column=0, sticky="nsew")
         cli_frame.columnconfigure(0, weight=1)
+        cli_frame.columnconfigure(1, minsize=17)
         cli_frame.rowconfigure(0, weight=1)
 
         cli_output = tk.Text(cli_frame, bg="#0c0c0c", fg="#e6e6e6", insertbackground="#e6e6e6", relief="flat", wrap="word", font=("Consolas", 9), exportselection=True)
@@ -809,9 +829,10 @@ class ZZZModFixerGUI(tk.Tk):
         cli_output.bind("<<Paste>>", lambda e: "break")
 
         cli_scroll = ttk.Scrollbar(cli_frame, orient="vertical", command=cli_output.yview)
-        cli_scroll.grid(row=0, column=1, sticky="ns")
+        cli_scroll.grid(row=0, column=1, sticky="nsew")
         cli_output.configure(yscrollcommand=cli_scroll.set)
         cli_scroll.grid_remove()
+        self._setup_jump_scroll(cli_scroll, cli_output)
 
         self._section_frames["Jane Doe Remapper"] = {
             "left_widgets": left_widgets,
@@ -872,6 +893,7 @@ class ZZZModFixerGUI(tk.Tk):
         cli_frame = tk.Frame(info, bg="#0c0c0c")
         cli_frame.grid(row=1, column=0, sticky="nsew")
         cli_frame.columnconfigure(0, weight=1)
+        cli_frame.columnconfigure(1, minsize=17)
         cli_frame.rowconfigure(0, weight=1)
 
         cli_output = tk.Text(cli_frame, bg="#0c0c0c", fg="#e6e6e6", insertbackground="#e6e6e6", relief="flat", wrap="word", font=("Consolas", 9), exportselection=True)
@@ -880,9 +902,10 @@ class ZZZModFixerGUI(tk.Tk):
         cli_output.bind("<<Paste>>", lambda e: "break")
 
         cli_scroll = ttk.Scrollbar(cli_frame, orient="vertical", command=cli_output.yview)
-        cli_scroll.grid(row=0, column=1, sticky="ns")
+        cli_scroll.grid(row=0, column=1, sticky="nsew")
         cli_output.configure(yscrollcommand=cli_scroll.set)
         cli_scroll.grid_remove()
+        self._setup_jump_scroll(cli_scroll, cli_output)
 
         self._section_frames["Dialyn Remapper"] = {
             "left_widgets": left_widgets,
@@ -1712,6 +1735,7 @@ class ZZZModFixerGUI(tk.Tk):
             fallback_outer = tk.Frame(info, bg="#0d1117")
             fallback_outer.grid(row=0, column=0, sticky="nsew")
             fallback_outer.columnconfigure(0, weight=1)
+            fallback_outer.columnconfigure(1, minsize=17)
             fallback_outer.rowconfigure(1, weight=1)
 
             warn_lbl = tk.Label(
@@ -1734,8 +1758,9 @@ class ZZZModFixerGUI(tk.Tk):
             fallback.grid(row=1, column=0, sticky="nsew")
 
             scroll = ttk.Scrollbar(fallback_outer, orient="vertical", command=fallback.yview)
-            scroll.grid(row=1, column=1, sticky="ns")
+            scroll.grid(row=1, column=1, sticky="nsew")
             fallback.configure(yscrollcommand=scroll.set)
+            self._setup_jump_scroll(scroll, fallback)
 
             if guides_path.exists():
                 content = guides_path.read_text(encoding="utf-8")
