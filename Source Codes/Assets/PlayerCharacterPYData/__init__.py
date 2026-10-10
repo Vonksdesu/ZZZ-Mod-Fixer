@@ -6,7 +6,7 @@ This package contains individual character modules, each with their own
 hash commands dictionary.
 """
 
-__version__ = '3.1'
+__version__ = '3.2'
 
 CHARACTERS = [
     'Alice',
@@ -16,6 +16,7 @@ CHARACTERS = [
     'Aria',
     'AriaAgent',
     'AriaAgentDiscordantNote',
+    'AriaCutenessLoading',
     'AriaDiscordantNote',
     'AstraYao',
     'AstraYaoChandelier',
@@ -29,6 +30,7 @@ CHARACTERS = [
     'Burnice',
     'Caesar',
     'Cissia',
+    'Claret',
     'Corin',
     'Dialyn',
     'Ellen',
@@ -51,6 +53,7 @@ CHARACTERS = [
     'Miyabi',
     'MiyabiDignifiedBlossom',
     'NangongYu',
+    'NangongYuHeartfeltSupport',
     'NangongYuRhapsodyMuse',
     'Nekomata',
     'Nicole',
@@ -68,6 +71,7 @@ CHARACTERS = [
     'RemielleMoonlightWhispers',
     'RemielleSeashadePasSeul',
     'Rina',
+    'Roxy',
     'Seed',
     'Seth',
     'Sigrid',
@@ -78,6 +82,7 @@ CHARACTERS = [
     'StarlightBilly',
     'Sunna',
     'SunnaAfternoonTeaBreak',
+    'SunnaDelusionsInBusiness',
     'Trigger',
     'Velina',
     'VelinaShadeOfLeisure',
