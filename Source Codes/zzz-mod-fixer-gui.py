@@ -27,7 +27,7 @@ else:
 
 _ICON_CACHE_DIR = _BASE_DIR / "Assets" / "Icons"
 
-APP_VERSION     = "v2.1.1"
+APP_VERSION     = "v2.2.0"
 _GITHUB_REPO    = "Vonksdesu/ZZZ-Mod-Fixer"
 _GITHUB_API_URL = f"https://api.github.com/repos/{_GITHUB_REPO}/releases/latest"
 _GITHUB_REL_URL = f"https://github.com/{_GITHUB_REPO}/releases/latest"
@@ -37,35 +37,73 @@ _REFRESH_ICON_PATH = _ICON_CACHE_DIR / "refresh.png"
 
 
 class _GuiStdout:
-    def __init__(self, gui):
+    def __init__(self, gui, section_name=None):
         self._gui = gui
+        self._section_name = section_name
         self._buffer = ""
+        self._queue = []
+        self._lock = threading.Lock()
+        self._flush_scheduled = False
 
     def write(self, data):
         if not data:
             return
-        self._buffer += data
-        while "\n" in self._buffer:
-            line, self._buffer = self._buffer.split("\n", 1)
-            if self._should_filter(line):
-                continue
-            self._gui.after(0, lambda l=line: self._gui._append_cli_output(l + "\n"))
+        with self._lock:
+            self._buffer += data
+            while "\n" in self._buffer:
+                line, self._buffer = self._buffer.split("\n", 1)
+                if not self._should_filter(line):
+                    self._queue.append(line + "\n")
+
+            if self._queue and not self._flush_scheduled:
+                self._flush_scheduled = True
+                self._gui.after(40, self._flush_to_gui)
+
+    def _flush_to_gui(self):
+        with self._lock:
+            if not self._queue:
+                self._flush_scheduled = False
+                return
+            text_chunk = "".join(self._queue)
+            self._queue.clear()
+            self._flush_scheduled = False
+        self._gui._append_cli_output(text_chunk, self._section_name)
 
     def flush(self):
-        if self._buffer:
-            cleaned = "" if self._should_filter(self._buffer) else self._buffer
-            if cleaned:
-                self._gui.after(0, lambda b=cleaned: self._gui._append_cli_output(b))
-            self._buffer = ""
+        with self._lock:
+            if self._buffer:
+                if not self._should_filter(self._buffer):
+                    self._queue.append(self._buffer)
+                self._buffer = ""
+            if not self._queue:
+                return
+            text_chunk = "".join(self._queue)
+            self._queue.clear()
+            self._flush_scheduled = False
+        if threading.current_thread() is threading.main_thread():
+            self._gui._append_cli_output(text_chunk, self._section_name)
+        else:
+            self._gui.after(0, lambda c=text_chunk, s=self._section_name: self._gui._append_cli_output(c, s))
 
     @staticmethod
     def _should_filter(text: str) -> bool:
-        normalized = text.strip().lower()
+        normalized = text.strip().lower()   # strip() removes leading tab — intentional
         if not normalized:
             return False
-        return normalized.startswith("press") and ("exit" in normalized or "quit" in normalized)
-
-
+        # Suppress CLI quit/exit prompts (not relevant in GUI context)
+        if normalized.startswith("press") and ("exit" in normalized or "quit" in normalized):
+            return True
+        # Suppress high-volume 'Skipping' diagnostic noise.
+        # These lines are printed for EVERY unrecognised hash in every .ini file.
+        # A typical large mod folder can produce thousands of these lines, flooding
+        # the GUI event queue with zero actionable information for the end user.
+        # Note: normalized has already been .strip()'d so we check startswith, NOT '\tskipping'.
+        if normalized.startswith("skipping ") and (
+            "no tasks available" in normalized
+            or "already checked/processed" in normalized
+        ):
+            return True
+        return False
 
 
 class _ToolTip:
@@ -126,6 +164,11 @@ class ZZZModFixerGUI(tk.Tk):
         self._rb_active_border  = None # currently highlighted session card border
         self._rb_active_session = None # dict of the synced session
         self._rb_session_dir    = None # Path to active session folder
+        # ── Priority 2: Lazy / preload caches ────────────────────────────────
+        self._guides_loaded  = False   # True after Guides tab is first opened
+        self._fixer_module   = None    # zzz-mod-fixer module; preloaded once in bg
+        self._fixer_mod_lock = threading.Lock()  # guard concurrent preload vs use
+        # ─────────────────────────────────────────────────────────────────────
         self._path_placeholders = {
             "Hash Character Mods Updater": "Drive:\\...\\ZZMI\\Mods",
             "Jane Doe Remapper": "Drive:\\...\\ZZMI\\Mods\\(Your_JaneDoe_Folder_Mod)",
@@ -147,18 +190,46 @@ class ZZZModFixerGUI(tk.Tk):
         self._bind_sidebar_hover()
         self._apply_path_placeholder()
         self._rollback = self._load_rollback_module()
+        # Preload zzz-mod-fixer.py in background so first button click is instant
+        threading.Thread(target=self._preload_fixer_module, daemon=True).start()
 
     @staticmethod
-    def _setup_jump_scroll(scrollbar, widget):
+    def _setup_jump_scroll(scrollbar, widget=None):
         """
-        Makes the scrollbar jump directly to the clicked position on the track,
-        instead of scrolling by page increments. Also works for dragging.
+        Makes the scrollbar jump directly to the clicked position on the track.
+        Uses native .fraction(x, y) to accurately map the pixel coordinate to the 
+        scrollbar trough fraction, implicitly ignoring arrow buttons and borders.
         Bound via <Button-1> / <B1-Motion> so it intercepts before Tk's default.
         """
         def _jump(event):
-            h = scrollbar.winfo_height()
-            if h > 0:
-                widget.yview_moveto(max(0.0, min(1.0, event.y / h)))
+            # 1. Determine current thumb size ratio (0.0 to 1.0)
+            try:
+                first, last = scrollbar.get()
+                thumb_size = last - first
+            except Exception:
+                thumb_size = 0.0
+
+            # 2. Get accurate fractional position based on precise pixel hit.
+            # .fraction() perfectly scales the internal track excluding external paddings/arrows.
+            try:
+                click_fraction = scrollbar.fraction(event.x, event.y)
+            except Exception:
+                # Fallback purely for safety
+                h = scrollbar.winfo_height()
+                click_fraction = event.y / h if h > 0 else 0.0
+
+            # 3. Shift the target up by half the thumb size to center it under the mouse
+            target_fraction = click_fraction - (thumb_size / 2.0)
+            target_fraction = max(0.0, min(1.0, target_fraction))
+
+            # 4. Apply to target
+            if widget:
+                widget.yview_moveto(target_fraction)
+            else:
+                # Dynamic hook if widget isn't statically provided (e.g. tkinterweb internal elements)
+                cmd = scrollbar.cget("command")
+                if cmd:
+                    scrollbar.tk.call(cmd, "moveto", target_fraction)
             return "break"
 
         scrollbar.bind("<Button-1>", _jump)
@@ -194,7 +265,7 @@ class ZZZModFixerGUI(tk.Tk):
 
             raw_tag   = data.get("tag_name", "")          # e.g. "zzz-mod-fixer-v2.1.0"
             latest    = raw_tag.replace(_TAG_PREFIX, "")  # → "v2.1.0"
-            current   = APP_VERSION                        # e.g. "v2.0.0"
+            current   = APP_VERSION                       # e.g. "v2.0.0"
 
             if latest and latest != current:
                 # New version available — open releases page and reset button
@@ -767,6 +838,7 @@ class ZZZModFixerGUI(tk.Tk):
             "ini_icons": {"folder": ini_folder_icon, "refresh": ini_refresh_icon, "frame": ini_icon_frame},
             "buf_icons": {"folder": buf_folder_icon, "refresh": buf_refresh_icon, "frame": buf_icon_frame},
             "hash_cli_output": self.hash_cli_output,
+            "_cli_scroll": cli_scroll,
         }
 
         self._on_hash_ini_toggle()
@@ -1390,48 +1462,54 @@ class ZZZModFixerGUI(tk.Tk):
 
         for i, entry in enumerate(files):
             backup_name = entry.get("backup_name", "")
+            original_path = entry.get("original_path", "")
+            
+            # --- NEW DIRECTORY LOGIC (Includes 'Mods' folder & removes spaces around slashes) ---
+            display_text = backup_name
+            if original_path:
+                p = Path(original_path)
+                parts = p.parts
+                if 'Mods' in parts:
+                    idx = parts.index('Mods')
+                    # Extract from 'Mods' up to the folder immediately containing the file
+                    rel_parts = parts[idx:-1] 
+                    if rel_parts:
+                        display_text = f"{'/'.join(rel_parts)}/{backup_name}"
+                    else:
+                        display_text = f"{p.parent.name}/{backup_name}"
+                else:
+                    if len(parts) >= 3:
+                        display_text = f"{'/'.join(parts[-3:-1])}/{backup_name}"
+                    elif len(parts) == 2:
+                        display_text = f"{parts[-2]}/{backup_name}"
+
             row_bg = "#222222" if i % 2 == 0 else "#1c1c1c"
 
+            # Row frame uses pack to stack vertically
             row = tk.Frame(self._rb_file_inner, bg=row_bg)
             row.pack(fill="x")
-            row.columnconfigure(0, weight=1)
+            
+            # --- CUT-OFF BUTTON FIX: Using Grid for row contents ---
+            row.columnconfigure(0, weight=1) # Column 0 (Text) takes all remaining space
+            row.columnconfigure(1, weight=0) # Column 1 (Restore Button) fixed size
+            row.columnconfigure(2, weight=0) # Column 2 (Delete Button) fixed size
 
-            # Label with dynamic ellipsis on resize
+            # Text label
             name_lbl = tk.Label(
-                row, text=backup_name,
+                row, text=display_text,
                 bg=row_bg, fg="#e0e0e0",
-                font=("Consolas", 9), anchor="w",
+                font=("Consolas", 9), anchor="w", justify="left"
             )
-            name_lbl.pack(side="left", padx=(10, 4), pady=5, fill="x", expand=True)
+            name_lbl.grid(row=0, column=0, sticky="nsew", padx=(10, 4), pady=5)
 
-            full_name = backup_name
-            def _clip(event, lbl=name_lbl, name=full_name):
+            # Dynamic wraplength based purely on its column's available width
+            def _wrap(event, lbl=name_lbl):
                 avail = event.width - 4
-                if avail <= 0:
-                    return
-                from tkinter import font as tkfont
-                fnt = tkfont.Font(font=lbl.cget("font"))
-                if fnt.measure(name) <= avail:
-                    lbl.config(text=name)
-                else:
-                    t = name
-                    while t and fnt.measure(t + "…") > avail:
-                        t = t[:-1]
-                    lbl.config(text=t + "…")
-            name_lbl.bind("<Configure>", _clip)
+                if avail > 0:
+                    lbl.config(wraplength=avail)
+            name_lbl.bind("<Configure>", _wrap)
 
-            del_btn = tk.Button(
-                row, text="Delete",
-                bg="#5a2020", fg="#ffaaaa",
-                activebackground="#7a3030", activeforeground="#ffffff",
-                relief="flat", bd=0, highlightthickness=0,
-                font=("Segoe UI", 8), padx=8, pady=3, cursor="hand2",
-                command=lambda e=entry: self._rb_delete_file(e),
-            )
-            del_btn.pack(side="right", padx=(4, 8), pady=4)
-            del_btn.bind("<Enter>", lambda e, b=del_btn: b.configure(bg="#7a3030"))
-            del_btn.bind("<Leave>", lambda e, b=del_btn: b.configure(bg="#5a2020"))
-
+            # Restore Button (Column 1)
             res_btn = tk.Button(
                 row, text="Restore",
                 bg="#1a3a1a", fg="#aaffaa",
@@ -1440,9 +1518,22 @@ class ZZZModFixerGUI(tk.Tk):
                 font=("Segoe UI", 8), padx=8, pady=3, cursor="hand2",
                 command=lambda e=entry: self._rb_restore_file(e),
             )
-            res_btn.pack(side="right", padx=(4, 0), pady=4)
+            res_btn.grid(row=0, column=1, sticky="e", padx=(4, 0), pady=4)
             res_btn.bind("<Enter>", lambda e, b=res_btn: b.configure(bg="#2a5a2a"))
             res_btn.bind("<Leave>", lambda e, b=res_btn: b.configure(bg="#1a3a1a"))
+
+            # Delete Button (Column 2)
+            del_btn = tk.Button(
+                row, text="Delete",
+                bg="#5a2020", fg="#ffaaaa",
+                activebackground="#7a3030", activeforeground="#ffffff",
+                relief="flat", bd=0, highlightthickness=0,
+                font=("Segoe UI", 8), padx=8, pady=3, cursor="hand2",
+                command=lambda e=entry: self._rb_delete_file(e),
+            )
+            del_btn.grid(row=0, column=2, sticky="e", padx=(4, 8), pady=4)
+            del_btn.bind("<Enter>", lambda e, b=del_btn: b.configure(bg="#7a3030"))
+            del_btn.bind("<Leave>", lambda e, b=del_btn: b.configure(bg="#5a2020"))
 
         self._rb_file_inner.update_idletasks()
         self._rb_file_canvas.configure(scrollregion=self._rb_file_canvas.bbox("all"))
@@ -1518,19 +1609,53 @@ class ZZZModFixerGUI(tk.Tk):
 
 
     def _build_guides_content(self, left_parent, right_parent):
+        """
+        Builds only a lightweight placeholder frame for the Guides tab.
+        The actual heavy work (importing tkinterweb/markdown, reading GUIDES.md)
+        is deferred to _lazy_load_guides(), which runs the first time the user
+        clicks the Guides sidebar item.  This keeps app startup instant.
+        """
         info = ttk.Frame(right_parent)
         info.columnconfigure(0, weight=1)
         info.rowconfigure(0, weight=1)
 
+        # Spinner / loading label shown until real content is ready
+        self._guides_placeholder = tk.Label(
+            info,
+            text="Loading Guides...",
+            bg="#0d1117", fg="#8b949e",
+            font=("Segoe UI", 11),
+            anchor="center",
+        )
+        self._guides_placeholder.grid(row=0, column=0, sticky="nsew")
+        # Keep a reference to the container so _lazy_load_guides can populate it
+        self._guides_info_frame = info
+
+        self._section_frames["Guides"] = {
+            "left_widgets": [],
+            "right": info,
+        }
+
+    def _lazy_load_guides(self):
+        """
+        Called the first time the user switches to the Guides tab.
+        Runs the real tkinterweb / markdown loading on a background thread
+        so the UI stays responsive, then populates the frame on the main thread.
+        """
+        if self._guides_loaded:
+            return
+        self._guides_loaded = True  # set immediately to prevent duplicate calls
+        threading.Thread(target=self._guides_load_worker, daemon=True).start()
+
+    def _guides_load_worker(self):
+        """Background thread: imports heavy libs and renders GUIDES.md to HTML."""
+        import re
         guides_path = _BASE_DIR / "Assets" / "Guide" / "GUIDES.md"
+        result = {}   # will carry either 'html' or 'fallback_text' + 'missing'
 
         try:
             from tkinterweb import HtmlFrame
             import markdown
-            import re
-
-            frame = HtmlFrame(info, messages_enabled=False, vertical_scrollbar="auto", horizontal_scrollbar="auto")
-            frame.grid(row=0, column=0, sticky="nsew")
 
             if guides_path.exists():
                 with open(guides_path, "r", encoding="utf-8") as f:
@@ -1539,20 +1664,17 @@ class ZZZModFixerGUI(tk.Tk):
                 # Pre-process: GitHub-style callouts > [!TYPE] → styled HTML div
                 callout_cfg = {
                     "NOTE":     ("#1f6feb", "#388bfd", "&#x2139; NOTE"),
-                    "TIP":      ("#1a7f37", "#3fb950", "&#9889; TIP"),         # Use Sparkles (✨) if the light bulb icon renders blank
+                    "TIP":      ("#1a7f37", "#3fb950", "&#9889; TIP"),
                     "WARNING":  ("#9e6a03", "#d29922", "&#x26A0; WARNING"),
-                    "CAUTION":  ("#b62324", "#f85149", "&#x26D4; CAUTION"),       # Use No Entry (⛔) as it renders more reliably
+                    "CAUTION":  ("#b62324", "#f85149", "&#x26D4; CAUTION"),
                     "IMPORTANT":("#6639ba", "#ab7df8", "&#x1F4CC; IMPORTANT"),
                 }
 
-
                 def replace_callout(m):
-                    ctype  = m.group(1).upper()
-                    body   = m.group(2)
-                    # Strip leading '> ' from each body line
-                    body   = re.sub(r"^> ?", "", body, flags=re.MULTILINE).strip()
-                    cfg    = callout_cfg.get(ctype, ("#555555", "#aaaaaa", f"&#x26D4; {ctype}"))
-                    # Process markdown on body so bold/code renders correctly
+                    ctype     = m.group(1).upper()
+                    body      = m.group(2)
+                    body      = re.sub(r"^> ?", "", body, flags=re.MULTILINE).strip()
+                    cfg       = callout_cfg.get(ctype, ("#555555", "#aaaaaa", f"&#x26D4; {ctype}"))
                     body_html = markdown.markdown(body, extensions=["fenced_code"])
                     return (
                         f'<div style="'
@@ -1560,8 +1682,7 @@ class ZZZModFixerGUI(tk.Tk):
                         f'background:#161b22;'
                         f'padding:10px 16px;'
                         f'margin:14px 0;'
-                        f'border-radius:0 6px 6px 0;'
-                        f'">'
+                        f'border-radius:0 6px 6px 0;">'
                         f'<p style="margin:0 0 6px 0;font-weight:bold;color:{cfg[1]}">{cfg[2]}</p>'
                         f'{body_html}'
                         f'</div>'
@@ -1573,12 +1694,7 @@ class ZZZModFixerGUI(tk.Tk):
                     raw
                 )
 
-                html_body = markdown.markdown(
-                    raw,
-                    extensions=["tables", "fenced_code", "nl2br"]
-                )
-
-                # Pre-process: replace fenced code blocks (```) with styled <div>
+                # Pre-process: replace fenced code blocks with styled <div>
                 def replace_fenced_code(m):
                     code = m.group(1)
                     code = code.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -1710,8 +1826,7 @@ class ZZZModFixerGUI(tk.Tk):
                     f"{html_body}"
                     "</body></html>"
                 )
-
-                frame.load_html(full_html)
+                result = {"type": "html", "html": full_html, "HtmlFrame": HtmlFrame}
 
             else:
                 error_html = (
@@ -1719,19 +1834,56 @@ class ZZZModFixerGUI(tk.Tk):
                     "<style>body{font-family:'Segoe UI',sans-serif;background:#0d1117;"
                     "color:#e6edf3;padding:32px;} h2{color:#f85149;} code{background:#161b22;"
                     "padding:2px 6px;border-radius:4px;color:#f78166;}</style></head><body>"
-                    "<h2>⚠️ GUIDES.md Not Found</h2>"
-                    f"<p>File not found at path:</p>"
-                    f"<p><code>Assets/Guide/GUIDES.md</code></p>"
+                    "<h2>&#x26A0;&#xFE0F; GUIDES.md Not Found</h2>"
+                    "<p>File not found at path:</p>"
+                    "<p><code>Assets/Guide/GUIDES.md</code></p>"
                     "<p>Please make sure <code>GUIDES.md</code> exists inside the "
                     "<code>Assets/Guide/</code> folder in this tool's directory.</p>"
                     "</body></html>"
                 )
-                frame.load_html(error_html)
+                result = {"type": "html", "html": error_html, "HtmlFrame": HtmlFrame}
 
-        except ImportError as e:
-            # Fallback: plain tk.Text if tkinterweb / markdown is not installed
-            missing = "tkinterweb" if "tkinterweb" in str(e) else "markdown"
+        except ImportError as exc:
+            missing = "tkinterweb" if "tkinterweb" in str(exc) else "markdown"
+            if guides_path.exists():
+                content = guides_path.read_text(encoding="utf-8")
+            else:
+                content = "GUIDES.md not found at Assets/Guide/GUIDES.md"
+            result = {"type": "fallback", "missing": missing, "content": content}
 
+        # Hand off to the main thread to build/swap the real widget
+        self.after(0, lambda r=result: self._guides_render(r))
+
+    def _guides_render(self, result):
+        """Main-thread callback: replaces the loading placeholder with real content."""
+        info = self._guides_info_frame
+
+        # Destroy the placeholder label
+        try:
+            self._guides_placeholder.destroy()
+        except Exception:
+            pass
+
+        if result.get("type") == "html":
+            HtmlFrame = result["HtmlFrame"]
+            frame = HtmlFrame(info, messages_enabled=False,
+                              vertical_scrollbar="auto", horizontal_scrollbar="auto")
+            frame.grid(row=0, column=0, sticky="nsew")
+
+            # Hook jump-to-click on tkinterweb's internal vertical scrollbar
+            for child in frame.winfo_children():
+                if isinstance(child, (tk.Scrollbar, ttk.Scrollbar)):
+                    try:
+                        if str(child.cget("orient")) == "vertical":
+                            self._setup_jump_scroll(child)
+                    except Exception:
+                        pass
+
+            frame.load_html(result["html"])
+
+        else:
+            # Fallback: plain tk.Text
+            missing = result.get("missing", "unknown")
             fallback_outer = tk.Frame(info, bg="#0d1117")
             fallback_outer.grid(row=0, column=0, sticky="nsew")
             fallback_outer.columnconfigure(0, weight=1)
@@ -1740,7 +1892,7 @@ class ZZZModFixerGUI(tk.Tk):
 
             warn_lbl = tk.Label(
                 fallback_outer,
-                text=f"⚠️  Library '{missing}' is not installed. Falling back to plain text.\n"
+                text=f"\u26a0\ufe0f  Library '{missing}' is not installed. Falling back to plain text.\n"
                     f"Run:  pip install tkinterweb markdown",
                 bg="#161b22", fg="#d29922",
                 font=("Segoe UI", 9), anchor="w", padx=12, pady=8
@@ -1762,17 +1914,8 @@ class ZZZModFixerGUI(tk.Tk):
             fallback.configure(yscrollcommand=scroll.set)
             self._setup_jump_scroll(scroll, fallback)
 
-            if guides_path.exists():
-                content = guides_path.read_text(encoding="utf-8")
-            else:
-                content = "GUIDES.md not found at Assets/Guide/GUIDES.md"
-            fallback.insert("1.0", content)
+            fallback.insert("1.0", result.get("content", ""))
             fallback.configure(state="disabled")
-
-        self._section_frames["Guides"] = {
-            "left_widgets": [],
-            "right": info,
-        }
 
     def _create_satan1c_note(self, parent):
         """
@@ -1818,7 +1961,7 @@ class ZZZModFixerGUI(tk.Tk):
         txt.insert("end", _PREFIX)
         txt.insert("end", _LINK_LABEL, "link")
 
-        # hyperlink tag — underline only appears on hover
+        # Hyperlink tag — underline only appears on hover
         txt.tag_config("link", foreground=_LINK_FG, underline=False)
         txt.tag_bind("link", "<Button-1>",
                      lambda e, url=_NOTE_URL: webbrowser.open(url))
@@ -1829,7 +1972,7 @@ class ZZZModFixerGUI(tk.Tk):
 
         txt.config(state="disabled")
 
-        # --- auto-resize height when width changes ---
+        # --- Auto-resize height when width changes ---
         def _auto_height(event=None, _txt=txt):
             _txt.config(state="normal")
             _txt.update_idletasks()
@@ -1926,6 +2069,8 @@ class ZZZModFixerGUI(tk.Tk):
             self.left_container.grid_remove()
             self._main_sep.grid_remove()
             self.right_container.grid(row=0, column=0, columnspan=3, sticky="nsew")
+            # Trigger deferred loading the very first time this tab is shown
+            self._lazy_load_guides()
 
         elif title == "Rolling Back":
             # Hide standard topbar; show Rolling Back's custom tab-bar instead.
@@ -2112,13 +2257,23 @@ class ZZZModFixerGUI(tk.Tk):
     def _set_icon_png(self, canvas, png_path, enabled):
         canvas.delete("all")
         if Image is not None and ImageTk is not None:
+            # Cache the raw PIL image per path so disk is only read once per session.
+            # The alpha-composited PhotoImage is re-created per (path, enabled) pair
+            # because Tkinter PhotoImages are not thread-safe to share between canvases.
+            cache = getattr(self, "_icon_png_cache", None)
+            if cache is None:
+                self._icon_png_cache = {}
+                cache = self._icon_png_cache
             try:
-                img = Image.open(png_path)
-                if img.mode != "RGBA":
-                    img = img.convert("RGBA")
-                alpha = img.split()[-1]
+                raw = cache.get(png_path)
+                if raw is None:
+                    raw = Image.open(png_path)
+                    if raw.mode != "RGBA":
+                        raw = raw.convert("RGBA")
+                    cache[png_path] = raw   # store base image; cheap to keep in RAM
+                alpha = raw.split()[-1]
                 fg = (240, 240, 240, 255) if enabled else (120, 120, 120, 255)
-                colored = Image.new("RGBA", img.size, fg)
+                colored = Image.new("RGBA", raw.size, fg)
                 colored.putalpha(alpha)
                 photo = ImageTk.PhotoImage(colored)
                 canvas.create_image(7, 7, image=photo)
@@ -2415,7 +2570,7 @@ class ZZZModFixerGUI(tk.Tk):
             module = importlib.util.module_from_spec(spec)
 
             original_stdout = sys.stdout
-            sys.stdout = _GuiStdout(self)
+            sys.stdout = _GuiStdout(self, section_name="Jane Doe Remapper")
             try:
                 spec.loader.exec_module(module)
             except Exception:
@@ -2545,7 +2700,7 @@ class ZZZModFixerGUI(tk.Tk):
             module = importlib.util.module_from_spec(spec)
 
             original_stdout = sys.stdout
-            sys.stdout = _GuiStdout(self)
+            sys.stdout = _GuiStdout(self, section_name="Dialyn Remapper")
             try:
                 spec.loader.exec_module(module)
             except Exception:
@@ -2632,6 +2787,7 @@ class ZZZModFixerGUI(tk.Tk):
             self.after(0, lambda: self._log(traceback.format_exc()))
 
     def _update_hashes_worker(self):
+        original_stdout = sys.stdout   # captured early so except can always restore it
         try:
             self.after(0, lambda: self._clear_cli_output())
             folder = Path(self.mod_path.get())
@@ -2660,16 +2816,34 @@ class ZZZModFixerGUI(tk.Tk):
                 self.after(0, lambda: self._set_busy(False))
                 return
 
-            spec = importlib.util.spec_from_file_location("zzz_mod_fixer", str(script_path))
-            module = importlib.util.module_from_spec(spec)
-
             original_stdout = sys.stdout
-            sys.stdout = _GuiStdout(self)
-            try:
-                spec.loader.exec_module(module)
-            except Exception:
-                sys.stdout = original_stdout
-                raise
+            sys.stdout = _GuiStdout(self, section_name="Hash Character Mods Updater")
+
+            # ── Use preloaded module cache when available ──────────────────
+            with self._fixer_mod_lock:
+                cached = self._fixer_module
+
+            if cached is not None:
+                # Re-use the already-loaded module; reset its global state so
+                # it behaves identically to a fresh load on each run.
+                module = cached
+                try:
+                    module.global_modified_buffers.clear()
+                except Exception:
+                    pass
+            else:
+                # Cache miss (preload still in progress or failed) — load now
+                spec = importlib.util.spec_from_file_location("zzz_mod_fixer", str(script_path))
+                module = importlib.util.module_from_spec(spec)
+                try:
+                    spec.loader.exec_module(module)
+                except Exception:
+                    sys.stdout = original_stdout
+                    raise
+                with self._fixer_mod_lock:
+                    if self._fixer_module is None:
+                        self._fixer_module = module   # store for future clicks
+            # ──────────────────────────────────────────────────────────────
 
             gui    = self
             rb_mod = self._rollback
@@ -2770,8 +2944,19 @@ class ZZZModFixerGUI(tk.Tk):
 
             self.after(0, lambda: self._log("Running..."))
             try:
-                ini_files = [f for f in folder.rglob('*.ini') if not f.name.upper().startswith('DISABLED') and not f.name.upper().startswith('DESKTOP')]
-                if not ini_files:
+                # Use a short-circuit generator to check for .ini files without
+                # building a full list (stops at the very first match).
+                # This replaces the old approach that walked the entire directory
+                # tree TWICE (once for the pre-check, once inside process_folder).
+                first_ini = next(
+                    (
+                        f for f in folder.rglob("*.ini")
+                        if not f.name.upper().startswith("DISABLED")
+                        and not f.name.upper().startswith("DESKTOP")
+                    ),
+                    None,
+                )
+                if first_ini is None:
                     print("No .ini files found in current directory and subdirectories.")
                 else:
                     module.process_folder(str(folder))
@@ -2790,6 +2975,25 @@ class ZZZModFixerGUI(tk.Tk):
             self.after(0, lambda: self._log(f"Update Hashes failed: {exc}"))
             self.after(0, lambda: self._log(traceback.format_exc()))
 
+
+    def _preload_fixer_module(self):
+        """
+        Background thread started at app launch.
+        Loads zzz-mod-fixer.py once and caches it in self._fixer_module so the
+        first click of 'Update Hashes' is instant (no import overhead).
+        """
+        script_path = _BASE_DIR / "zzz-mod-fixer.py"
+        if not script_path.exists():
+            return
+        try:
+            spec   = importlib.util.spec_from_file_location("zzz_mod_fixer", str(script_path))
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            with self._fixer_mod_lock:
+                if self._fixer_module is None:   # don't overwrite if already set
+                    self._fixer_module = module
+        except Exception:
+            pass   # silent fail — worker in _update_hashes_worker will load it freshly
 
     def _set_busy(self, busy: bool):
         self._is_busy = busy
@@ -2818,32 +3022,40 @@ class ZZZModFixerGUI(tk.Tk):
             return
 
         target.config(state="normal")
-        content = target.get("1.0", "end").strip()
-        if not content:
+        has_content = target.compare("end-1c", ">", "1.0")
+        if not has_content:
+            target.config(state="disabled")
             self._log("No Process Found to Clean Up.")
         else:
             target.delete("1.0", "end")
+            target.config(state="disabled")
             self._log("CLI Output has been cleared.")
-        target.config(state="disabled")
         self._update_cli_scrollbar()
 
-    def _update_cli_scrollbar(self):
-        section = self._section_frames.get(self._current_section)
+    def _update_cli_scrollbar(self, section_name: str = None):
+        sec_name = section_name or self._current_section
+        section = self._section_frames.get(sec_name)
         target = section.get("hash_cli_output") if section else None
-        scrollbar = getattr(self, "_cli_scroll", None)
+        scrollbar = section.get("_cli_scroll") if section else None
+        if not scrollbar:
+            scrollbar = getattr(self, "_cli_scroll", None)
         if target is None or scrollbar is None:
             return
         try:
-            has_content = bool(target.get("1.0", "end").strip())
-            if has_content:
+            has_content = target.compare("end-1c", ">", "1.0")
+            is_visible = bool(scrollbar.winfo_ismapped())
+            if has_content and not is_visible:
                 scrollbar.grid()
-            else:
+            elif not has_content and is_visible:
                 scrollbar.grid_remove()
         except Exception:
             pass
 
-    def _append_cli_output(self, text: str):
-        section = self._section_frames.get(self._current_section)
+    def _append_cli_output(self, text: str, section_name: str = None):
+        if not text:
+            return
+        sec_name = section_name or self._current_section
+        section = self._section_frames.get(sec_name)
         target = section.get("hash_cli_output") if section else None
         if target is None:
             return
@@ -2853,7 +3065,7 @@ class ZZZModFixerGUI(tk.Tk):
             target.insert("end", text)
             target.see("end")
             target.config(state="disabled")
-            self._update_cli_scrollbar()
+            self._update_cli_scrollbar(sec_name)
 
         if threading.current_thread() is threading.main_thread():
             append()

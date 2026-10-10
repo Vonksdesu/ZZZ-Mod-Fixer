@@ -1,4 +1,4 @@
-# Originally written by petrascyll
+﻿# Originally written by petrascyll
 # Thanks to Leotorrez, CaveRabbit, and SilentNightSound for help
 # Join AGMG: discord.gg/agmg
 
@@ -16,11 +16,12 @@ import time
 import struct
 import argparse
 import traceback
+import functools
 
 from dataclasses import dataclass, field
 from pathlib import Path
 
-# extra precaution to not 'fix' 
+# Extra precaution to not 'fix' 
 # the same buffer multiple times
 global_modified_buffers: dict[str, list[str]] = {}
 
@@ -45,7 +46,6 @@ def main():
         # Change the CWD to the directory this script is in
         # Nuitka: "Onefile: Finding files" in https://nuitka.net/doc/user-manual.pdf 
         # I'm not using Nuitka anymore but this distinction (probably) also applies for pyinstaller
-        # os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
         print('CWD: {}'.format(os.path.abspath('.')))
         process_folder('.')
 
@@ -165,12 +165,6 @@ class Ini():
                 self._hashes.extend(set(result.queue_hashes).difference(self._done_hashes))
 
             if result.queue_commands:
-                # sub_default_args = DefaultArgs(
-                #     hash = default_args.hash,
-                #     ini  = default_args.ini,
-                #     data = default_args.data,
-                #     tabs = default_args.tabs
-                # )
                 self.execute(result.queue_commands, default_args)
 
             if result.signal_break:
@@ -184,6 +178,10 @@ class Ini():
             
             backup_dir = None
             
+            # --- START HEURISTIC AV FIX ---
+            # Implemented a safe upward relative traversal to locate the root ZZMI cache directory.
+            # This completely eliminates the need for aggressive A-Z drive enumeration,
+            # which is commonly flagged by Antivirus heuristic engines as Ransomware/Spyware behavior.
             current_path = Path(self.filepath).parent.resolve()
             for parent in [current_path] + list(current_path.parents):
                 test_path = parent / 'Data' / 'ZZMI'
@@ -198,45 +196,18 @@ class Ini():
                     backup_dir = test_path_direct / '(.ini) Caches'
                     break
             
-            if not backup_dir:
-                import string
-                for letter in string.ascii_uppercase:
-                    drive = f"{letter}:\\"
-                    if os.path.exists(drive):
-                        test_path1 = Path(drive) / 'XXMI' / 'Data' / 'ZZMI'
-                        if test_path1.is_dir():
-                            backup_dir = test_path1 / '(.ini) Caches'
-                            break
-                        test_path2 = Path(drive) / 'Data' / 'ZZMI'
-                        if test_path2.is_dir():
-                            backup_dir = test_path2 / '(.ini) Caches'
-                            break
-                        test_path3 = Path(drive) / 'XXMI' / 'ZZMI'
-                        if test_path3.is_dir():
-                            backup_dir = test_path3 / '(.ini) Caches'
-                            break
-                        test_path4 = Path(drive) / 'XXMI Launcher' / 'ZZMI'
-                        if test_path4.is_dir():
-                            backup_dir = test_path4 / '(.ini) Caches'
-                            break
-                        test_path5 = Path(drive) / 'ZZMI'
-                        if test_path5.is_dir():
-                            backup_dir = test_path5 / '(.ini) Caches'
-                            break
-
-            
             if backup_dir:
                 backup_dir = str(backup_dir.absolute())
             else:
-                
+                # Safe fallback: Defaulting to the local mod directory.
                 backup_dir = os.path.abspath(self.filepath.split(basename+'.ini')[0])
+            # --- END HEURISTIC AV FIX ---
             
             try:
                 os.makedirs(backup_dir, exist_ok=True)
             except Exception as e:
                 print(f"⚠  Failed to create external backup folder at '{backup_dir}': {e}")
                 backup_dir = os.path.abspath(self.filepath.split(basename+'.ini')[0])
-            
             
             backup_filename = f'DISABLED_BACKUP_{int(time.time())}_{basename}.txt'
             backup_fullpath = os.path.join(backup_dir, backup_filename)
@@ -266,8 +237,9 @@ class Ini():
 
             if len(self.modified_buffers) > 0:
                 print('Writing updated buffers')
-                # PENGAMAN 2: Backup .buf files BEFORE overwriting
-                # Find backup directory same pattern as (.ini) Caches but for (.buf) Backup
+                
+                # --- START HEURISTIC AV FIX (.BUF) ---
+                # Safe upward relative traversal for .buf backup folder.
                 buf_backup_dir = None
                 current_path = Path(self.filepath).parent.resolve()
                 for parent in [current_path] + list(current_path.parents):
@@ -282,47 +254,21 @@ class Ini():
                     if test_path_direct.is_dir():
                         buf_backup_dir = test_path_direct / '(.buf) Backup'
                         break
-                
-                if not buf_backup_dir:
-                    import string
-                    for letter in string.ascii_uppercase:
-                        drive = f"{letter}:\\"
-                        if os.path.exists(drive):
-                            test_path1 = Path(drive) / 'XXMI' / 'Data' / 'ZZMI'
-                            if test_path1.is_dir():
-                                buf_backup_dir = test_path1 / '(.buf) Backup'
-                                break
-                            test_path2 = Path(drive) / 'Data' / 'ZZMI'
-                            if test_path2.is_dir():
-                                buf_backup_dir = test_path2 / '(.buf) Backup'
-                                break
-                            test_path3 = Path(drive) / 'XXMI' / 'ZZMI'
-                            if test_path3.is_dir():
-                                buf_backup_dir = test_path3 / '(.buf) Backup'
-                                break
-                            test_path4 = Path(drive) / 'XXMI Launcher' / 'ZZMI'
-                            if test_path4.is_dir():
-                                buf_backup_dir = test_path4 / '(.buf) Backup'
-                                break
-                            test_path5 = Path(drive) / 'ZZMI'
-                            if test_path5.is_dir():
-                                buf_backup_dir = test_path5 / '(.buf) Backup'
-                                break
+                # --- END HEURISTIC AV FIX (.BUF) ---
                 
                 for filepath, data in self.modified_buffers.items():
                     # Backup original file before overwriting
                     original_path = Path(filepath)
                     if original_path.exists():
-                        # Determine backup filepath
+                        # Determine backup filepath gracefully
                         if buf_backup_dir:
-                            # Preserve relative folder structure
                             try:
                                 relative = original_path.relative_to(Path(self.filepath).parent)
                                 backup_file = Path(str(buf_backup_dir)) / relative
                             except ValueError:
                                 backup_file = Path(str(buf_backup_dir)) / original_path.name
                         else:
-                            # Fallback: same folder as mod
+                            # Fallback: Safe local assignment within the same mod directory
                             backup_file = original_path.parent / f'DISABLED_BACKUP_{int(time.time())}_{original_path.name}'
                         
                         try:
@@ -389,7 +335,6 @@ def process_commandlist(ini_content: str, commandlist: str, target: str):
 
         # Must check the commandlists that are run within the
         # the current commandlist for the resource as well
-        # Recursion yay
         elif line_match.group(1) == 'run':
             commandlist_title = line_match.group(2)
             pattern = get_section_title_pattern(commandlist_title)
@@ -481,7 +426,7 @@ class comment_sections():
         hash = default_args.hash
 
         pattern = get_section_hash_pattern(hash)
-        new_ini_content = ''   # ini content with all matching sections commented
+        new_ini_content = ''
 
         prev_j = 0
         commented_count = 0
@@ -517,7 +462,7 @@ class comment_commandlists():
         ini  = default_args.ini
 
         pattern = get_section_title_pattern(self.commandlist_title)
-        new_ini_content = ''   # ini content with matching commandlist commented out
+        new_ini_content = ''
 
         prev_j = 0
         commented_count = 0
@@ -672,12 +617,9 @@ class create_new_section():
 
         for placeholder, value in data.items():
             if placeholder.startswith('_'):
-                # conditions are not to be used for substitution
                 continue
             self.section_content = self.section_content.replace(placeholder, value)
 
-        # Half broken/fixed mods' ini will not have the object indices we're expecting
-        # Could also be triggered due to a typo in the hash commands
         for emoji in ['🍰', '🌲', '🤍']:
             if emoji in self.section_content:
                 print('Section substitution failed')
@@ -821,18 +763,14 @@ class add_ib_check_if_missing():
         
         pattern         = get_section_hash_pattern(hash)
         
-        # Convert iterator to a list to allow multiple passes (Pre-scan & Main loop)
         section_matches = list(pattern.finditer(ini.content))
 
         needs_check       = False
         new_sections      = ''
         
-        # List to track which commands were dynamically injected for logging purposes
         injected_commands = []
 
-        # --- NEW: PRE-SCAN TO DETECT GLOBAL HASH THEME ---
-        # Analyze all sections within the current hash to determine the overarching shader method used (ZZMI, RabbitFX, or Legacy).
-        # This prevents mixing different shader execution methods within the same hash group.
+        # --- PRE-SCAN TO DETECT GLOBAL HASH THEME ---
         global_inject_command = r"CommandListSkinTexture" # Default to legacy method
         for m in section_matches:
             st = m.group(1)
@@ -846,55 +784,37 @@ class add_ib_check_if_missing():
                  re.search(r'\n\s*run\s*=\s*CommandList\\RabbitFX', st, flags=re.IGNORECASE):
                 global_inject_command = r"CommandList\RabbitFX\SetTextures"
                 break
-        # ----------------------------------------------------
 
         for section_match in section_matches:
             section_text = section_match.group(1)
             
-            # 1. Detect ANY existing active execution commands 
-            # This catch-all regex will detect Legacy, ZZMI, RabbitFX, AND any Custom Modder Commands 
-            # (e.g., 'run = CommandListMyCustomShader' or 'run = CustomShader\SpecialDraw')
             has_any_command = re.search(r'\n\s*run\s*=\s*(?:CommandList|CustomShader)', section_text, flags=re.IGNORECASE)
-
-            # 2. Detect existing active command executions
             has_old = re.search(r'\n\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
             has_zzmi = re.search(r'\n\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
             has_rabbitfx = re.search(r'\n\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
 
-            # 3. Detect modder intent (intentionally commented or disabled commands)
             is_commented_any_commands = re.search(r'\n\s*;\s*run\s*=\s*(?:CommandList|CustomShader)', section_text, flags=re.IGNORECASE)
             is_commented_old = re.search(r'\n\s*;\s*run\s*=\s*CommandListSkinTexture', section_text, flags=re.IGNORECASE)
             is_commented_zzmi = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\ZZMI\\SetTextures', section_text, flags=re.IGNORECASE)
             is_commented_rabbit = re.search(r'\n\s*;\s*run\s*=\s*CommandList\\RabbitFX', section_text, flags=re.IGNORECASE)
             
-            # Detect 'if 0 == 1' protection blocks commonly used to bypass auto-fixers
             is_disabled_by_if = re.search(r'if\s+0\s*==\s*1\s*\n\s*run\s*=', section_text, flags=re.IGNORECASE)
             
-            
-            # If a command is explicitly defined (whether active or disabled), respect the intent and SKIP injection
             if has_any_command or has_old or has_zzmi or has_rabbitfx or is_commented_any_commands or is_commented_old or is_commented_zzmi or is_commented_rabbit or is_disabled_by_if:
                 new_sections += section_match.group()
                 continue
 
-            # 3. Handle unindexed sections
-            # Sections without 'match_first_index' (e.g., handling=skip, decals, transparent accessories)
-            # Just append the original text directly and SKIP injection to avoid destroying shader properties.
             if not re.search(r'\n\s*match_first_index\s*=', section_text, flags=re.IGNORECASE):
                 new_sections += section_match.group()
                 continue
 
-            # 4. Context-Aware Injection
-            # The section has a 'match_first_index' and requires an execution command.
             needs_check = True
             
-            # Utilize the overarching theme detected during the Pre-Scan phase
             command_to_inject = global_inject_command
             
             if command_to_inject not in injected_commands:
                 injected_commands.append(command_to_inject)
 
-            # --- PERBAIKAN BUG \Z DI SINI ---
-            # Menggunakan lambda function agar Python tidak menerjemahkan \Z atau \R sebagai kode rahasia regex
             new_sections += re.sub(
                 r'\n\s*match_first_index\s*=.*?\n',
                 lambda m: f"{m.group(0)}run = {command_to_inject}\n",
@@ -902,7 +822,6 @@ class add_ib_check_if_missing():
                 flags=re.IGNORECASE, count=1
             )
 
-        # Prepare dynamic log output based on the successfully injected commands
         log_messages = []
         if needs_check:
             for cmd in injected_commands:
@@ -974,17 +893,18 @@ class add_section_if_missing():
 @dataclass
 class zzz_13_remap_texcoord():
     id: str
-    old_format: tuple[str] # = ('4B','2e','2f','2e')
-    new_format: tuple[str] # = ('4B','2f','2f','2f')
+    old_format: tuple[str]
+    new_format: tuple[str]
 
     def execute(self, default_args: DefaultArgs):
+        # GUARD-FACE32: decide first, write later. Every decision is based on
+        # FILE STATE (buffer size + the ;stride marker we wrote ourselves),
+        # never on an in-memory global dedup set that is lost when the tool is
+        # run again. Without the guard, a second run corrupts the buffer.
         ini  = default_args.ini
         hash = default_args.hash
         tabs = default_args.tabs
 
-        # Precompute new buffer strides and offsets
-        # Check if existing buffer stride matches our expectations
-        # before remapping it
         if (len(self.old_format) != len(self.new_format)): raise Exception()
         old_stride = struct.calcsize('<' + ''.join(self.old_format))
         new_stride = struct.calcsize('<' + ''.join(self.new_format))
@@ -995,97 +915,134 @@ class zzz_13_remap_texcoord():
             offset += struct.calcsize(f'<{format_chunk}')
             offsets.append(offset)
 
-        # Need to find all Texcoord Resources used by this hash directly
-        # through TextureOverrides or run through Commandlists... 
         pattern = get_section_hash_pattern(hash)
         section_match = pattern.search(ini.content)
+        if not section_match:
+            print('{}Skipping texcoord remap {}: no [Texture|Shader]Override section with this hash'.format('\t'*tabs, hash))
+            return ExecutionResult(touched=False)
         resources = process_commandlist(ini.content, section_match.group(1), 'vb1')
 
-        # - Match Resource sections to find filenames of buffers 
-        # - Update stride value of resources early instead of iterating again later
-        buffer_filenames = set()
         line_pattern = re.compile(r'^\s*(filename|stride)\s*=\s*(.*)\s*$', flags=re.IGNORECASE)
+        marker_pattern = re.compile(r'^\s*;\s*stride\s*=\s*(\d+)\s*$', flags=re.IGNORECASE)
+
+        # 1) collect candidates -- not a single byte has been modified yet
+        candidates = []
         for resource in resources:
             pattern = get_section_title_pattern(resource)
             resource_section_match = pattern.search(ini.content)
-            if not resource_section_match: continue
+            if not resource_section_match:
+                continue
 
+            declared_stride = None
+            buffer_filename = None
+            marker_stride = None
+            for line in resource_section_match.group(1).splitlines():
+                line_match = line_pattern.match(line)
+                if line_match:
+                    if line_match.group(1).lower() == 'filename':
+                        if buffer_filename is None:
+                            buffer_filename = line_match.group(2)
+                    else:
+                        try:
+                            declared_stride = int(line_match.group(2))
+                        except ValueError:
+                            declared_stride = None
+                    continue
+                marker_match = marker_pattern.match(line)
+                if marker_match:
+                    marker_stride = int(marker_match.group(1))
+            candidates.append((resource, resource_section_match, declared_stride,
+                             buffer_filename, marker_stride))
+
+        # 2) decide per buffer (guard based on file state)
+        plan = []
+        for resource, resource_section_match, declared_stride, buffer_filename, marker_stride in candidates:
+            if not buffer_filename:
+                print('{}Skipping {}: resource section has no filename line'.format('\t'*tabs, resource))
+                continue
+            if declared_stride is None:
+                print('{}Skipping {}: resource section has no stride line'.format('\t'*tabs, resource))
+                continue
+
+            buffer_filepath = Path(Path(ini.filepath).parent/buffer_filename)
+            buffer_dict_key = str(buffer_filepath.absolute())
+            if buffer_dict_key in ini.modified_buffers:
+                buffer = ini.modified_buffers[buffer_dict_key]
+            elif buffer_filepath.exists():
+                buffer = buffer_filepath.read_bytes()
+            else:
+                print('{}Skipping {}: buffer {} not found'.format('\t'*tabs, resource, buffer_filename))
+                continue
+
+            if marker_stride is not None and declared_stride == new_stride:
+                print('{}Skipping {}: already converted (stride = {} + ;stride marker = {})'.format('\t'*tabs, resource, new_stride, marker_stride))
+                continue
+            if len(buffer) % old_stride != 0:
+                print('{}Skipping {}: buffer of {} bytes is not a multiple of the old stride {} (not the legacy format, or already 48)'.format('\t'*tabs, resource, len(buffer), old_stride))
+                continue
+            if len(buffer) % new_stride == 0:
+                print('{}Skipping {}: buffer of {} bytes is already a multiple of the new stride {} (ambiguous/already converted)'.format('\t'*tabs, resource, len(buffer), new_stride))
+                continue
+            if declared_stride != old_stride:
+                print('{}[X] WARNING [{}]! Expected buffer stride {} but got {} instead. Overriding and continuing.'.format('\t'*tabs, resource, old_stride, declared_stride))
+            plan.append((resource, resource_section_match, buffer_dict_key, buffer_filename))
+
+        if not plan:
+            return ExecutionResult(touched=False)
+
+        # 3) only now are they modified; from the last span backwards so the other spans stay valid
+        for resource, resource_section_match, buffer_dict_key, buffer_filename in sorted(
+                plan, key=lambda item: item[1].start(1), reverse=True):
             modified_resource_section = []
             for line in resource_section_match.group(1).splitlines():
                 line_match = line_pattern.match(line)
-                if not line_match:
-                    modified_resource_section.append(line)
-
-                # Capture buffer filename
-                elif line_match.group(1) == 'filename':
-                    modified_resource_section.append(line)
-                    buffer_filenames.add(line_match.group(2))
-
-                # Update stride value of resource in ini
-                elif line_match.group(1) == 'stride':
-                    stride = int(line_match.group(2))
-                    if stride != old_stride:
-                        print('{}[X] WARNING [{}]! Expected buffer stride {} but got {} instead. Overriding and continuing.'.format('\t'*tabs, resource, old_stride, stride))
-                    #     raise Exception('Remap failed for {}! Expected buffer stride {} but got {} instead.'.format(resource, old_stride, stride))
-
+                if line_match and line_match.group(1).lower() == 'stride':
                     modified_resource_section.append('stride = {}'.format(new_stride))
                     modified_resource_section.append(';'+line)
+                else:
+                    modified_resource_section.append(line)
 
-            # Update ini
             modified_resource_section = '\n'.join(modified_resource_section)
             i, j = resource_section_match.span(1)
             ini.content = ini.content[:i] + modified_resource_section + ini.content[j:]
 
+        # 4) repack the buffer (vcount uses old_stride -> always integral because of the guard)
         global global_modified_buffers
-        for buffer_filename in buffer_filenames:
-            buffer_filepath = Path(Path(ini.filepath).parent/buffer_filename)
-            buffer_dict_key = str(buffer_filepath.absolute())
-
+        for resource, resource_section_match, buffer_dict_key, buffer_filename in plan:
             if buffer_dict_key not in global_modified_buffers:
                 global_modified_buffers[buffer_dict_key] = []
             fix_id = f'{self.id}-texcoord_remap'
             if fix_id in global_modified_buffers[buffer_dict_key]: continue
             else: global_modified_buffers[buffer_dict_key].append(fix_id)
 
-            if buffer_dict_key not in ini.modified_buffers:
-                buffer = buffer_filepath.read_bytes()
-            else:
+            if buffer_dict_key in ini.modified_buffers:
                 buffer = ini.modified_buffers[buffer_dict_key]
+            else:
+                buffer = Path(buffer_dict_key).read_bytes()
 
-            vcount = len(buffer) // stride
+            vcount = len(buffer) // old_stride
             new_buffer = bytearray()
             for i in range(vcount):
                 for j, (old_chunk, new_chunk) in enumerate(zip(self.old_format, self.new_format)):
-
-                    if offsets[j] < stride and offsets[j+1] <= stride:
-
+                    if offsets[j] < old_stride and offsets[j+1] <= old_stride:
                         if old_chunk != new_chunk:
-                            # HardCode VColor Remap
                             if (j == 0 and old_chunk == '4B' and new_chunk == '4f'):
-                                new_buffer.extend(struct.pack('<4f', *[b/255 for b in struct.unpack_from('<4B', buffer, i*stride + 0)]))
+                                new_buffer.extend(struct.pack('<4f', *[b/255 for b in struct.unpack_from('<4B', buffer, i*old_stride + 0)]))
                             elif (j == 0 and old_chunk == '4f' and new_chunk == '4B'):
-                                new_buffer.extend(struct.pack('<4B', *[max(0, min(255, int(b * 255))) if b == b else 0 for b in struct.unpack_from('<4f', buffer, i*stride + 0)]))
-
-                            # General Element Remap
+                                new_buffer.extend(struct.pack('<4B', *[max(0, min(255, int(b * 255))) if b == b else 0 for b in struct.unpack_from('<4f', buffer, i*old_stride + 0)]))
                             else:
-                                new_buffer.extend(struct.pack(f'<{new_chunk}', *struct.unpack_from(f'<{old_chunk}', buffer, i*stride+offsets[j])))
-
-                        # No Element Remap Needed
+                                new_buffer.extend(struct.pack(f'<{new_chunk}', *struct.unpack_from(f'<{old_chunk}', buffer, i*old_stride+offsets[j])))
                         else:
-                            new_buffer.extend(buffer[i*stride + offsets[j]: i*stride + offsets[j+1]])
-
-                    # Mod texcoord vertex data does not saturate the expected old stride
-                    else: # cope
+                            new_buffer.extend(buffer[i*old_stride + offsets[j]: i*old_stride + offsets[j+1]])
+                    else:
                         new_buffer.extend(struct.pack(f'<{new_chunk}', *([0] * int(new_chunk[0]))))
-            
-            ini.modified_buffers[buffer_dict_key] = new_buffer    
+
+            ini.modified_buffers[buffer_dict_key] = new_buffer
 
         return ExecutionResult(
             touched=True
         )
 
-
-# Deprecated. Use generalized remap_texcoord instead
 @dataclass
 class zzz_12_shrink_texcoord_color():
     id: str
@@ -1095,14 +1052,10 @@ class zzz_12_shrink_texcoord_color():
         hash = default_args.hash
         tabs = default_args.tabs        
 
-        # Need to find all Texcoord Resources used by this hash directly
-        # through TextureOverrides or run through Commandlists... 
         pattern = get_section_hash_pattern(hash)
         section_match = pattern.search(ini.content)
         resources = process_commandlist(ini.content, section_match.group(1), 'vb1')
 
-        # - Match Resource sections to find filenames of buffers 
-        # - Update stride value of resources early instead of iterating again later
         buffer_filenames = set()
         line_pattern = re.compile(r'^\s*(filename|stride)\s*=\s*(.*)\s*$', flags=re.IGNORECASE)
         for resource in resources:
@@ -1115,19 +1068,14 @@ class zzz_12_shrink_texcoord_color():
                 line_match = line_pattern.match(line)
                 if not line_match:
                     modified_resource_section.append(line)
-
-                # Capture buffer filename
                 elif line_match.group(1) == 'filename':
                     modified_resource_section.append(line)
                     buffer_filenames.add(line_match.group(2))
-
-                # Update stride value of resource in ini
                 elif line_match.group(1) == 'stride':
                     stride = int(line_match.group(2))
                     modified_resource_section.append('stride = {}'.format(stride - 12))
                     modified_resource_section.append(';'+line)
 
-            # Update ini
             modified_resource_section = '\n'.join(modified_resource_section)
             i, j = resource_section_match.span(1)
             ini.content = ini.content[:i] + modified_resource_section + ini.content[j:]
@@ -1151,7 +1099,6 @@ class zzz_12_shrink_texcoord_color():
             vcount = len(buffer) // stride
             new_buffer = bytearray()
             for i in range(vcount):
-                # print(*[ int((f*255)) for f in struct.unpack_from('<4f', buffer, i*stride + 0)])
                 new_buffer.extend(struct.pack(
                         '<4B',
                         *[
@@ -1176,14 +1123,10 @@ class update_buffer_blend_indices():
     def execute(self, default_args: DefaultArgs):
         ini  = default_args.ini
 
-        # Need to find all Texcoord Resources used by this hash directly
-        # through TextureOverrides or run through Commandlists... 
         pattern = get_section_hash_pattern(self.hash)
         section_match = pattern.search(ini.content)
         resources = process_commandlist(ini.content, section_match.group(1), 'vb2')
 
-        # - Match Resource sections to find filenames of buffers 
-        # - Update stride value of resources early instead of iterating again later
         buffer_filenames = set()
         line_pattern = re.compile(r'^\s*(filename|stride)\s*=\s*(.*)\s*$', flags=re.IGNORECASE)
         for resource in resources:
@@ -1196,8 +1139,6 @@ class update_buffer_blend_indices():
                 line_match = line_pattern.match(line)
                 if not line_match:
                     modified_resource_section.append(line)
-
-                # Capture buffer filename
                 elif line_match.group(1) == 'filename':
                     modified_resource_section.append(line)
                     buffer_filenames.add(line_match.group(2))
@@ -1240,17 +1181,13 @@ def load_character_modules():
     import sys
     from pathlib import Path
     
-    # Determine the base path (handles both script and PyInstaller executable)
     if getattr(sys, 'frozen', False):
-        # Running as compiled executable
         base_path = Path(sys._MEIPASS) / 'Assets'
     else:
-        # Running as script
         base_path = Path(__file__).parent / 'Assets'
     
     character_data_path = base_path / 'PlayerCharacterPYData'
     
-    # Prepare command classes to pass to character modules
     command_classes = {
         'log': log,
         'update_hash': update_hash,
@@ -1267,17 +1204,13 @@ def load_character_modules():
         'zzz_13_remap_texcoord': zzz_13_remap_texcoord,
         'zzz_12_shrink_texcoord_color': zzz_12_shrink_texcoord_color,
         'update_buffer_blend_indices': update_buffer_blend_indices,
-        # 'jane_blend_auto_scan': jane_blend_auto_scan,
-        # 'dialyn_blend_auto_scan': dialyn_blend_auto_scan,
     }
     
     merged_commands = {}
     
-    # Add PlayerCharacterPYData to Python path
     sys.path.insert(0, str(character_data_path.parent))
     
     try:
-        # Get all .py files in the directory (excluding __init__.py)
         character_files = [f for f in character_data_path.glob('*.py') 
                           if f.name != '__init__.py']
         
@@ -1286,19 +1219,15 @@ def load_character_modules():
         for char_file in sorted(character_files):
             char_name = char_file.stem
             try:
-                # Import the character module
                 module = importlib.import_module(f'PlayerCharacterPYData.{char_name}')
                 
-                # Get hash commands from the module
                 if hasattr(module, 'get_hash_commands'):
                     char_commands = module.get_hash_commands(**command_classes)
                     
-                    # Check for hash collisions
                     collisions = set(merged_commands.keys()) & set(char_commands.keys())
                     if collisions:
                         print(f'  Warning: {char_name} has hash collisions: {collisions}')
                     
-                    # Merge commands
                     merged_commands.update(char_commands)
                     print(f'  [V] Loaded {char_name}: {len(char_commands)} hashes')
                 else:
@@ -1310,13 +1239,11 @@ def load_character_modules():
         print(f'Total hashes loaded: {len(merged_commands)}\n')
         
     finally:
-        # Clean up sys.path
         sys.path.remove(str(character_data_path.parent))
     
     return merged_commands
 
 
-# Load all character data dynamically
 try:
     hash_commands = load_character_modules()
 except Exception as e:
@@ -1328,9 +1255,9 @@ except Exception as e:
     input('\nPress "Enter" to quit...\n')
     raise SystemExit(1)
 
+
 # MARK: Regex
-# Using VERBOSE flag to ignore whitespace
-# https://docs.python.org/3/library/re.html#re.VERBOSE
+@functools.lru_cache(maxsize=None)
 def get_section_hash_pattern(hash) -> re.Pattern:
     return re.compile(
         r'''
@@ -1351,6 +1278,7 @@ def get_section_hash_pattern(hash) -> re.Pattern:
     )
 
 
+@functools.lru_cache(maxsize=None)
 def get_section_title_pattern(title) -> re.Pattern:
     return re.compile(
         r'''
