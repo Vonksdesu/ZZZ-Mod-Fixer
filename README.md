@@ -10,6 +10,7 @@ This is a Python-based tool designed to update and fix character skin mod hash I
 ## 📑 Table of Contents
  
 - [About The Project](#-about-the-project)
+- [Limitations & Important Notices](#-limitations--important-notices)
 - [Requirements](#-requirements)
 - [How to Use](%EF%B8%8F-how-to-use)
 - [Notice for Users of the Original ZZZ-Mod-Fixer](%EF%B8%8F-notice-for-users-of-the-original-zzz-mod-fixer)
@@ -27,13 +28,22 @@ This project is a community-driven continuation of the original **ZZZ-Mod-Fixer*
  
 Since the original creator is no longer releasing updates, I have taken the initiative to independently maintain the program and keep it updated for newer game versions of *Zenless Zone Zero*.
  
-### 🚀 Core Features & Improvements
+### 🚀 Improvements Over the Original Tool
  
 * **Continuous Hash Updates**: The character hash database is regularly updated to support newer game versions. To see which exact game version is currently supported, please check the [Releases](../../releases) page (where all version-specific updates are posted).
 * **Backup File Conflict Fix**: In the original version, updated `.ini` mod files often conflicted with the backup (original) `.ini` files when left in the same folder. I have modified the code to automatically move the old/backup `.ini` files to a separate folder, preventing any conflicts and keeping your mod directory clean.
 * **CommandList Injection Fix**: Fixed the `run = CommandListSkinTexture` command injection bug and added detection for newer `CommandList` commands such as `run = CommandList\ZZMI\SetTextures` and `run = CommandList\RabbitFX\SetTextures`.
 *Note: This tool is exclusively designed to fix and update character hashes skin mods. It is not intended for other types of mods or fixing any complex broken mods.*
  
+---
+ 
+## 🚧 Limitations & Important Notices
+ 
+Please read the following exclusions and notices before using this tool:
+ 
+* **Not a Fix for Every Problem**: This tool does not fix mod problems that are too complex for certain characters or specific mods. Those cases still require a manual fixing approach.
+* **Resolution Support**: Full support is only available for the `1024p` and `2048p` resolutions, from game version 2.2 up to 3.2 (current). Anything below that is less complete and relies only on the hashes from the previous creator (Petrascyll), so some very old mods may not be fixable.
+* **Do Not Update Character Mods That Are Still Safe**: Do not update the hashes of character mods that are still working fine, because this can cause conflicts. Fill the main `Mods` folder only with the specific character mods that are actually broken. After you have used the tool, restore the settings to how they were and move all of your mods back into the `Mods` folder as usual.
 ---
  
 ## ✅ Requirements
@@ -46,11 +56,35 @@ Before using this tool, make sure you have the following installed:
  
 ## 🛠️ How to Use
  
+Since the **Revamps 2.0.0** update, the tool has moved from a CLI to an integrated GUI. The GUI tutorial below is the current one, while the old CLI tutorial is kept further down for reference only and is marked as obsolete.
+ 
+### 🖥️ GUI Version (Current)
+ 
 1. **Download**: Download the latest `zzz-mod-fixer-v3.2.exe` from the [Releases](../../releases) page.
-2. **Placement**: Place the `.exe` file **directly** inside the `Mods` folder within your **XXMI Launcher** installation directory.
-   > ⚠️ **Important:** Do *not* create a new folder for the `.exe` inside the `Mods` folder, as the program may not work properly.
-3. **Run**: Run the program and wait for the process to complete.
-4. **Launch**: Once the process is finished, open your **XXMI Launcher** and launch *Zenless Zone Zero*.
+2. **Run**: Run the `.exe` directly from any directory. You do **not** need to place it inside the `Mods` folder, because the main `Mods` directory is selected from within the application itself.
+3. **Select the Mods Directory**: Inside the application, choose the main `Mods` folder within your **XXMI Launcher** installation directory.
+4. **Choose Your Backup Option**: Decide whether the changes should be applied with or without a folder backup.
+5. **Start the Process**: Run the fix and wait for the process to complete.
+6. **Launch**: Once the process is finished, open your **XXMI Launcher** and launch *Zenless Zone Zero*.
+#### Other Features in the GUI
+ 
+* **Rolling Back**: Reverts mods that ended up broken after being fixed (available since version 2.1.0, with a guide inside the application).
+* **Check Update**: Checks whether a newer version of the ZZZ Mod Fixer tool is available (available since version 2.1.0).
+* **Jane Remapper & Dialyn Remapper**: Two additional tools alongside the ZZZ Mod Fixer.
+* **Basic Guide**: A basic usage guide is built into the application.
+> [!NOTE]
+> Each release on the [Releases](../../releases) page also describes how to run that specific version, so check it if something looks different from this guide.
+ 
+### ~~CLI Version~~ (Obsolete)
+ 
+> [!WARNING]
+> The CLI tutorial below is **obsolete** and no longer relevant, since everything moved to the GUI in version 2.0.0. It is kept here for reference only.
+ 
+1. ~~**Download**: Download the latest `zzz-mod-fixer-v3.2.exe` from the [Releases](../../releases) page.~~
+2. ~~**Placement**: Place the `.exe` file **directly** inside the `Mods` folder within your **XXMI Launcher** installation directory.~~
+   > ~~⚠️ **Important:** Do *not* create a new folder for the `.exe` inside the `Mods` folder, as the program may not work properly.~~
+3. ~~**Run**: Run the program and wait for the process to complete.~~
+4. ~~**Launch**: Once the process is finished, open your **XXMI Launcher** and launch *Zenless Zone Zero*.~~
 ---
  
 ## ⚠️ Notice for Users of the Original ZZZ-Mod-Fixer
@@ -72,7 +106,8 @@ This is the most recommended method to prevent any hidden conflicts and ensure t
  
 1. **Delete all mod folders** inside your main `Mods` directory.
 2. Replace them with **fresh, untouched mod files** (use backups that have *never* been modified or processed by Petrascyll's original program).
-3. Place and run my `zzz-mod-fixer-v3.2.exe` inside the `Mods` folder to automatically update them.
+3. Run my `zzz-mod-fixer-v3.2.exe`, select the main `Mods` folder inside the application, and let it automatically update them (see [How to Use](%EF%B8%8F-how-to-use)).
+   * ~~Place and run my `zzz-mod-fixer-v3.2.exe` inside the `Mods` folder to automatically update them.~~ **(CLI method, obsolete)**
 4. Launch the game via **XXMI Launcher**.
 ---
  
