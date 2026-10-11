@@ -106,7 +106,7 @@ This is the most recommended method to prevent any hidden conflicts and ensure t
  
 1. **Delete all mod folders** inside your main `Mods` directory.
 2. Replace them with **fresh, untouched mod files** (use backups that have *never* been modified or processed by Petrascyll's original program).
-3. Run my `zzz-mod-fixer-v3.2.exe`, select the main `Mods` folder inside the application, and let it automatically update them (see [How to Use](%EF%B8%8F-how-to-use)).
+3. Run my `zzz-mod-fixer-v3.2.exe`, select the main `Mods` folder inside the application, and let it automatically update them (see [How to Use](#%EF%B8%8F-how-to-use)).
    * ~~Place and run my `zzz-mod-fixer-v3.2.exe` inside the `Mods` folder to automatically update them.~~ **(CLI method, obsolete)**
 4. Launch the game via **XXMI Launcher**.
 ---
