@@ -12,14 +12,14 @@ This is a Python-based tool designed to update and fix character skin mod hash I
 - [About The Project](#-about-the-project)
 - [Limitations & Important Notices](#-limitations--important-notices)
 - [Requirements](#-requirements)
-- [How to Use](%EF%B8%8F-how-to-use)
-- [Notice for Users of the Original ZZZ-Mod-Fixer](%EF%B8%8F-notice-for-users-of-the-original-zzz-mod-fixer)
+- [How to Use](#%EF%B8%8F-how-to-use)
+- [Notice for Users of the Original ZZZ-Mod-Fixer](#%EF%B8%8F-notice-for-users-of-the-original-zzz-mod-fixer)
 - [Windows Security Issues](#%EF%B8%8F-windows-security-issues)
 - [Troubleshooting & FAQs](#-troubleshooting--faqs)
 - [Revamps 2.0.0](#-revamps-200)
 - [Project Origins & Credits](#%EF%B8%8F-project-origins--credits)
 - [Character Hash Source](#-character-hash-source)
-- [Disclaimer](%EF%B8%8F-disclaimer)
+- [Disclaimer](#%EF%B8%8F-disclaimer)
 ---
  
 ## 🔎 About The Project
