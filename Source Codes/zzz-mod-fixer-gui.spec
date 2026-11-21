@@ -60,7 +60,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='zzz-mod-fixer-v3.2',
+    name='zzz-mod-fixer-v3.3',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

@@ -7,4 +7,8 @@ Lib/
 Scripts/
 *.cfg
 
-
+# Output gerbang/uji: dibuat ulang tiap run, bukan sumber
+AIWorks/_cek_semua/
+AIWorks/_merah/_kerja/
+AIWorks/_stage32/
+AIWorks/_audit_engine/*/

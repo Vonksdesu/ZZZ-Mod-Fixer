@@ -27,7 +27,7 @@ else:
 
 _ICON_CACHE_DIR = _BASE_DIR / "Assets" / "Icons"
 
-APP_VERSION     = "v2.2.0"
+APP_VERSION     = "v2.3.0"
 _GITHUB_REPO    = "Vonksdesu/ZZZ-Mod-Fixer"
 _GITHUB_API_URL = f"https://api.github.com/repos/{_GITHUB_REPO}/releases/latest"
 _GITHUB_REL_URL = f"https://github.com/{_GITHUB_REPO}/releases/latest"
