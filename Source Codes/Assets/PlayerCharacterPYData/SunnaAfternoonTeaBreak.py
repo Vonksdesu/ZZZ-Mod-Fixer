@@ -1,7 +1,7 @@
 ﻿"""
 SunnaAfternoonTeaBreak Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.6 - 3.2
+Game Version: 2.6 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns SunnaAfternoonTeaBreak's hash commands dictionary.
@@ -25,7 +26,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('a6d82ba5',)),
         ],
         'a6d82ba5': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Hair IB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Hair IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '22c82346': [
@@ -34,7 +35,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('74cc56df',)),
         ],
         '74cc56df': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Hair Draw VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Hair Draw VB Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
         ],
         '327644ee': [
@@ -43,7 +44,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('4b93d8eb',)),
         ],
         '4b93d8eb': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Hair Position VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Hair Position VB Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
         ],
         '5e70dde6': [
@@ -52,7 +53,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('b9030f86',)),
         ],
         'b9030f86': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Hair Texcoord VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
         ],
         '79de92c7': [
@@ -61,51 +62,51 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('4a795f2a',)),
         ],
         '4a795f2a': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Hair Blend VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Hair Blend VB Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
         ],
         'e5acd978': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA Diffuse 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('8de1219d', 'SunnaAfternoonTeaBreak.HairA.Diffuse.1024')),
         ],
         '8de1219d': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA Diffuse 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('e5acd978', 'SunnaAfternoonTeaBreak.HairA.Diffuse.2048')),
         ],
         '87ce81a5': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA LightMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('9795e08f', 'SunnaAfternoonTeaBreak.HairA.LightMap.1024')),
         ],
         '9795e08f': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA LightMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('87ce81a5', 'SunnaAfternoonTeaBreak.HairA.LightMap.2048')),
         ],
         '5ae5a95b': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA MaterialMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('f240844c', 'SunnaAfternoonTeaBreak.HairA.MaterialMap.1024')),
         ],
         'f240844c': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA MaterialMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('5ae5a95b', 'SunnaAfternoonTeaBreak.HairA.MaterialMap.2048')),
         ],
         '2fcfee64': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB Diffuse 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('e85201e7', 'SunnaAfternoonTeaBreak.HairB.Diffuse.1024')),
         ],
         'e85201e7': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB Diffuse 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('2fcfee64', 'SunnaAfternoonTeaBreak.HairB.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA, HairB, BodyA, WeaponBackpackCharmGripA and PaopaoA NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA, HairB, BodyA, WeaponBackpackCharmGripA and PaopaoA NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
@@ -117,7 +118,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'SunnaAfternoonTeaBreak.PaopaoA.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairA, HairB, BodyA, WeaponBackpackCharmGripA and PaopaoA NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairA, HairB, BodyA, WeaponBackpackCharmGripA and PaopaoA NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
@@ -129,39 +130,39 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('ebac056e', 'SunnaAfternoonTeaBreak.PaopaoA.NormalMap.2048')),
         ],
         '8cd786f7': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB LightMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB LightMap 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('a2b36369', 'SunnaAfternoonTeaBreak.HairB.LightMap.1024')),
         ],
         'a2b36369': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB LightMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB LightMap 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('8cd786f7', 'SunnaAfternoonTeaBreak.HairB.LightMap.2048')),
         ],
         '3f11dfd9': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB MaterialMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('ab3c12c0', 'SunnaAfternoonTeaBreak.HairB.MaterialMap.1024')),
         ],
         'ab3c12c0': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak HairB MaterialMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak HairB MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('a6d82ba5', 'SunnaAfternoonTeaBreak.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('3f11dfd9', 'SunnaAfternoonTeaBreak.HairB.MaterialMap.2048')),
         ],
 
         # ==================== Hair Shadow Component ====================
         '4803b5d7': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Hair Shadow IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
 
         # ==================== Body Component ====================
         'ee17c9a2': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Body IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Body IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '7353a665': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Body Draw VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Body Draw VB Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
         ],
         'c77b3235': [
@@ -170,7 +171,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('25cf6bf7',)),
         ],
         '25cf6bf7': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Body Position VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Body Position VB Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
         ],
         '0c6b95ca': [
@@ -179,55 +180,55 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('7a31eb8b',)),
         ],
         '7a31eb8b': [
-            (log,                             ('2.7 - 3.2: SunnaAfternoonTeaBreak Body Texcoord VB Hash',)),
+            (log,                             ('2.7 - 3.3: SunnaAfternoonTeaBreak Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
         ],
         '9b65412a': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Body Blend VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Body Blend VB Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
         ],
         'db757608': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA Diffuse 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('5715ebbe', 'SunnaAfternoonTeaBreak.BodyA.Diffuse.1024')),
         ],
         '5715ebbe': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA Diffuse 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('db757608', 'SunnaAfternoonTeaBreak.BodyA.Diffuse.2048')),
         ],
         'c9724602': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA LightMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('335f4f3e', 'SunnaAfternoonTeaBreak.BodyA.LightMap.1024')),
         ],
         '335f4f3e': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA LightMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('c9724602', 'SunnaAfternoonTeaBreak.BodyA.LightMap.2048')),
         ],
         '719036d1': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA MaterialMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('68807c0b', 'SunnaAfternoonTeaBreak.BodyA.MaterialMap.1024')),
         ],
         '68807c0b': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak BodyA MaterialMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak BodyA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('ee17c9a2', 'SunnaAfternoonTeaBreak.Body.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('719036d1', 'SunnaAfternoonTeaBreak.BodyA.MaterialMap.2048')),
         ],
 
         # ==================== Eyebrow Component ====================
         '30ea5791': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Eyebrow IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Eyebrow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '9f0ab8cd': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Eyebrow Draw VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Eyebrow Draw VB Hash',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         'a5182b8a': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Eyebrow Position VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Eyebrow Position VB Hash',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         'e3cc1981': [
@@ -236,24 +237,24 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('fd41220d',)),
         ],
         'fd41220d': [
-            (log,                             ('3.2: SunnaAfternoonTeaBreak Eyebrow Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: SunnaAfternoonTeaBreak Eyebrow Texcoord VB Hash',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         'f5daa764': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Eyebrow Blend VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Eyebrow Blend VB Hash',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         'c9b5c6ce': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak EyebrowA and FaceA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak EyebrowA and FaceA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('1ef66a60', 'SunnaAfternoonTeaBreak.EyebrowA.Diffuse.1024')),
             (multiply_section_if_missing,     ('1ef66a60', 'SunnaAfternoonTeaBreak.FaceA.Diffuse.1024')),
         ],
         '1ef66a60': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak EyebrowA and FaceA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak EyebrowA and FaceA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('30ea5791', 'SunnaAfternoonTeaBreak.Eyebrow.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('c9b5c6ce', 'SunnaAfternoonTeaBreak.EyebrowA.Diffuse.2048')),
@@ -262,15 +263,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Face Component ====================
         '1a2c8573': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Face IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Face IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '9679c257': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Face Draw VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Face Draw VB Hash',)),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
         ],
         'ac6b5110': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Face Position VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Face Position VB Hash',)),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
         ],
         '506dc9e1': [
@@ -279,116 +280,116 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('f5ce8320',)),
         ],
         'f5ce8320': [
-            (log,                             ('3.2: SunnaAfternoonTeaBreak Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: SunnaAfternoonTeaBreak Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
-            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
+            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'), '21299f88')),
         ],
         '21299f88': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Face Blend VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Face Blend VB Hash',)),
             (add_section_if_missing,          ('1a2c8573', 'SunnaAfternoonTeaBreak.Face.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== WeaponBackpackCharmGrip Component ====================
         '337a62c1': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '953975c0': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Draw VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Draw VB Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
         ],
         'a28ba31c': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Position VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Position VB Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
         ],
         'b642db41': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Texcoord VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Texcoord VB Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
         ],
         '16e2d8ea': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Blend VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGrip Blend VB Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
         ],
         'ad73df94': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA Diffuse 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('37f00c45', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.Diffuse.1024')),
         ],
         '37f00c45': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA Diffuse 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('ad73df94', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.Diffuse.2048')),
         ],
         '39dac70b': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA LightMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('9368a6f9', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.LightMap.1024')),
         ],
         '9368a6f9': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA LightMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('39dac70b', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.LightMap.2048')),
         ],
         '95070f7f': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA MaterialMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('508c297c', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.MaterialMap.1024')),
         ],
         '508c297c': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA MaterialMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak WeaponBackpackCharmGripA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('337a62c1', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGrip.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('95070f7f', 'SunnaAfternoonTeaBreak.WeaponBackpackCharmGripA.MaterialMap.2048')),
         ],
 
         # ==================== Paopao Component ====================
         '07a82c9c': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Paopao IB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Paopao IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'ffe207d5': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Paopao Draw VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Paopao Draw VB Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
         ],
         '1a0cad46': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Paopao Position VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Paopao Position VB Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
         ],
         'df0f6142': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Paopao Texcoord VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Paopao Texcoord VB Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
         ],
         'd4e13802': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak Paopao Blend VB Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak Paopao Blend VB Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
         ],
         '7d8ac131': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA Diffuse 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('be5cd451', 'SunnaAfternoonTeaBreak.PaopaoA.Diffuse.1024')),
         ],
         'be5cd451': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA Diffuse 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('7d8ac131', 'SunnaAfternoonTeaBreak.PaopaoA.Diffuse.2048')),
         ],
         '5c5b6aad': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA LightMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('945afd67', 'SunnaAfternoonTeaBreak.PaopaoA.LightMap.1024')),
         ],
         '945afd67': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA LightMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('5c5b6aad', 'SunnaAfternoonTeaBreak.PaopaoA.LightMap.2048')),
         ],
         '3c4378db': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA MaterialMap 2048p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('e9783f84', 'SunnaAfternoonTeaBreak.PaopaoA.MaterialMap.1024')),
         ],
         'e9783f84': [
-            (log,                             ('2.6 - 3.2: SunnaAfternoonTeaBreak PaopaoA MaterialMap 1024p Hash',)),
+            (log,                             ('2.6 - 3.3: SunnaAfternoonTeaBreak PaopaoA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('07a82c9c', 'SunnaAfternoonTeaBreak.Paopao.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('3c4378db', 'SunnaAfternoonTeaBreak.PaopaoA.MaterialMap.2048')),
         ],
@@ -398,5 +399,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'SunnaAfternoonTeaBreak',
-    'game_versions': ['2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

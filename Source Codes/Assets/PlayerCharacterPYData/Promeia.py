@@ -1,7 +1,7 @@
 ﻿"""
 Promeia Character Hash Commands
 ZZZ Mod Fixer v2.8
-Game Version: 2.8 - 3.2
+Game Version: 2.8 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Promeia's hash commands dictionary.
@@ -20,7 +21,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Component ====================
         '31178971': [
-            (log,                             ('2.8 - 3.2: Promeia Hair IB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Hair IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '6cca89ab': [
@@ -28,7 +29,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('31178971',)),
         ],
         '2d4c7c18': [
-            (log,                             ('2.8 - 3.2: Promeia Hair Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Hair Draw VB Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
         ],
         '35096cb6': [
@@ -36,7 +37,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('681aceaa',)),
         ],
         '681aceaa': [
-            (log,                             ('2.8 - 3.2: Promeia Hair Position VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Hair Position VB Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
         ],
         '9c0aad96': [
@@ -44,7 +45,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('84d40d91',)),
         ],
         '84d40d91': [
-            (log,                             ('2.8 - 3.2: Promeia Hair Texcoord VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
         ],
         '5a263750': [
@@ -52,21 +53,21 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('3d4a4881',)),
         ],
         '3d4a4881': [
-            (log,                             ('2.8 - 3.2: Promeia Hair Blend VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Hair Blend VB Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
         ],
         'c96de436': [
-            (log,                             ('2.8 - 3.2: Promeia HairA Diffuse 2048p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('a0add414', 'Promeia.HairA.Diffuse.1024')),
         ],
         'a0add414': [
-            (log,                             ('2.8 - 3.2: Promeia HairA Diffuse 1024p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('c96de436', 'Promeia.HairA.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.8 - 3.2: Promeia HairA, Body(Pinioned)A, Body(Normal)A, ClothesA, LegA and WeaponA NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA, Body(Pinioned)A, Body(Normal)A, ClothesA, LegA and WeaponA NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
@@ -85,7 +86,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'Promeia.WeaponA.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.8 - 3.2: Promeia HairA, Body(Pinioned)A, Body(Normal)A, ClothesA, LegA and WeaponA NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA, Body(Pinioned)A, Body(Normal)A, ClothesA, LegA and WeaponA NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
@@ -104,29 +105,29 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('ebac056e', 'Promeia.WeaponA.NormalMap.2048')),
         ],
         'e34356a6': [
-            (log,                             ('2.8 - 3.2: Promeia HairA LightMap 2048p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('5c509f54', 'Promeia.HairA.LightMap.1024')),
         ],
         '5c509f54': [
-            (log,                             ('2.8 - 3.2: Promeia HairA LightMap 1024p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('e34356a6', 'Promeia.HairA.LightMap.2048')),
         ],
         '6bed1450': [
-            (log,                             ('2.8 - 3.2: Promeia HairA MaterialMap 2048p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('1f96c5d7', 'Promeia.HairA.MaterialMap.1024')),
         ],
         '1f96c5d7': [
-            (log,                             ('2.8 - 3.2: Promeia HairA MaterialMap 1024p Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('31178971', 'Promeia.Hair.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('6bed1450', 'Promeia.HairA.MaterialMap.2048')),
         ],
 
         # ==================== HairShadow Component ====================
         'ff223b2c': [
-            (log,                             ('2.8 - 3.2: Promeia HairShadow IB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia HairShadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'de6eb63b': [
@@ -137,7 +138,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Body(Pinioned) Component ====================
         'b386901d': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Pinioned) IB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Pinioned) IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '36e794ea': [
@@ -186,23 +187,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('112582ea',)),
         ],
         'dd86f5ae': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Pinioned) Draw VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Pinioned) Draw VB Hash',)),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
         ],
         '68e2baef': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Pinioned) Position VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Pinioned) Position VB Hash',)),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
         ],
         '6fe5f8c1': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Pinioned) Texcoord VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Pinioned) Texcoord VB Hash',)),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
         ],
         '112582ea': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Pinioned) Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Pinioned) Blend VB Hash',)),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
         ],
         'ae109401': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -214,7 +215,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('7d2d3a9e', 'Promeia.LegA.Diffuse.1024')),
         ],
         '7d2d3a9e': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -226,7 +227,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('ae109401', 'Promeia.LegA.Diffuse.2048')),
         ],
         '3864f20c': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -238,7 +239,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('70ca6de8', 'Promeia.LegA.LightMap.1024')),
         ],
         '70ca6de8': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -250,7 +251,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('3864f20c', 'Promeia.LegA.LightMap.2048')),
         ],
         'd57df6aa': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -262,7 +263,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('af976ad8', 'Promeia.LegA.MaterialMap.1024')),
         ],
         'af976ad8': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Pinioned)A, Body(Normal)A and LegA MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Pinioned)A, Body(Normal)A and LegA MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('36e794ea', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('b386901d', 'Promeia.Body(Pinioned).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
@@ -276,7 +277,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Body(Normal) Component ====================
         '10c77d62': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Normal) IB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Normal) IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '62a6b4bd': [
@@ -289,7 +290,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('62a6b4bd',)),
         ],
         '9cce6ba2': [
-            (log,                             ('2.8 - 3.2: Promeia Body(Normal) Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Body(Normal) Draw VB Hash',)),
             (add_section_if_missing,          ('62a6b4bd', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('10c77d62', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
         ],
@@ -320,22 +321,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('ee35cc06',)),
         ],
         '2dbfe8c9': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Normal) Position VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Normal) Position VB Hash',)),
             (add_section_if_missing,          ('10c77d62', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
         ],
         '1fc95f5b': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Normal) Texcoord VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Normal) Texcoord VB Hash',)),
             (add_section_if_missing,          ('10c77d62', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
         ],
         'ee35cc06': [
-            (log,                             ('3.0 - 3.2: Promeia Body(Normal) Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Body(Normal) Blend VB Hash',)),
             (add_section_if_missing,          ('10c77d62', 'Promeia.Body(Normal).IB', 'match_priority = 0\n')),
         ],
         # Body(Normal) shares its NormalMap hashes with Hair; see that Component above.
 
         # ==================== Clothes Component ====================
         '0ae14c24': [
-            (log,                             ('3.0 - 3.2: Promeia Clothes IB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Clothes IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '93f1f568': [
@@ -348,7 +349,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('93f1f568',)),
         ],
         '947f29ae': [
-            (log,                             ('2.8 - 3.2: Promeia Clothes Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Clothes Draw VB Hash',)),
             (add_section_if_missing,          ('93f1f568', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
         ],
@@ -383,15 +384,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('4b0d6867',)),
         ],
         'f6cc27b6': [
-            (log,                             ('3.0 - 3.2: Promeia Clothes Position VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Clothes Position VB Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
         ],
         'bf00cc95': [
-            (log,                             ('3.0 - 3.2: Promeia Clothes Texcoord VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Clothes Texcoord VB Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
         ],
         '4b0d6867': [
-            (log,                             ('3.0 - 3.2: Promeia Clothes Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Clothes Blend VB Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
         ],
         'b9367016': [
@@ -399,7 +400,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('e1492a53',)),
         ],
         'e1492a53': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA Diffuse 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('47d294f4', '406b1373'), 'Promeia.ClothesA.Diffuse.1024')),
         ],
@@ -408,7 +409,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('47d294f4',)),
         ],
         '47d294f4': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA Diffuse 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('e1492a53', 'b9367016'), 'Promeia.ClothesA.Diffuse.2048')),
         ],
@@ -417,7 +418,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('9bf7f5cc',)),
         ],
         '9bf7f5cc': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA LightMap 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('562616d5', '044d2d39'), 'Promeia.ClothesA.LightMap.1024')),
         ],
@@ -426,7 +427,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('562616d5',)),
         ],
         '562616d5': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA LightMap 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('9bf7f5cc', 'd743acd0'), 'Promeia.ClothesA.LightMap.2048')),
         ],
@@ -435,7 +436,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('d37b40a9',)),
         ],
         'd37b40a9': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA MaterialMap 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('73aaae54', '01a5ba27'), 'Promeia.ClothesA.MaterialMap.1024')),
         ],
@@ -444,7 +445,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('73aaae54',)),
         ],
         '73aaae54': [
-            (log,                             ('3.0 - 3.2: Promeia ClothesA MaterialMap 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia ClothesA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('0ae14c24', 'Promeia.Clothes.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('d37b40a9', '31d7cbad'), 'Promeia.ClothesA.MaterialMap.2048')),
         ],
@@ -452,7 +453,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Leg Component ====================
         'ec003379': [
-            (log,                             ('3.0 - 3.2: Promeia Leg IB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Leg IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'fd054d1d': [
@@ -465,7 +466,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('fd054d1d',)),
         ],
         'dfb01010': [
-            (log,                             ('2.8 - 3.2: Promeia Leg Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Leg Draw VB Hash',)),
             (add_section_if_missing,          ('fd054d1d', 'Promeia.Leg.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('ec003379', 'Promeia.Leg.IB', 'match_priority = 0\n')),
         ],
@@ -500,22 +501,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('65bba179',)),
         ],
         '4c1d0a70': [
-            (log,                             ('3.0 - 3.2: Promeia Leg Position VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Leg Position VB Hash',)),
             (add_section_if_missing,          ('ec003379', 'Promeia.Leg.IB', 'match_priority = 0\n')),
         ],
         '03d6f933': [
-            (log,                             ('3.0 - 3.2: Promeia Leg Texcoord VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Leg Texcoord VB Hash',)),
             (add_section_if_missing,          ('ec003379', 'Promeia.Leg.IB', 'match_priority = 0\n')),
         ],
         '65bba179': [
-            (log,                             ('3.0 - 3.2: Promeia Leg Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia Leg Blend VB Hash',)),
             (add_section_if_missing,          ('ec003379', 'Promeia.Leg.IB', 'match_priority = 0\n')),
         ],
         # Leg shares its NormalMap, Diffuse, LightMap and MaterialMap hashes with Body(Pinioned) and Body(Normal); see those Components above.
 
         # ==================== Eyebrow Component ====================
         'e032287a': [
-            (log,                             ('2.8 - 3.2: Promeia Eyebrow IB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Eyebrow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'cb9d17fc': [
@@ -523,11 +524,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('e032287a',)),
         ],
         'a1d5b256': [
-            (log,                             ('2.8 - 3.2: Promeia Eyebrow Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Eyebrow Draw VB Hash',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         '9bc72111': [
-            (log,                             ('2.8 - 3.2: Promeia Eyebrow Position VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Eyebrow Position VB Hash',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         '3a00aa76': [
@@ -540,24 +541,24 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('644e5029',)),
         ],
         '644e5029': [
-            (log,                             ('3.2: Promeia Eyebrow Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Promeia Eyebrow Texcoord VB Hash',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         '42594132': [
-            (log,                             ('2.8 - 3.2: Promeia Eyebrow Blend VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Eyebrow Blend VB Hash',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
         ],
         '9b293811': [
-            (log,                             ('2.8 - 3.2: Promeia EyebrowA and FaceA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia EyebrowA and FaceA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('328fa0cf', 'Promeia.EyebrowA.Diffuse.1024')),
             (multiply_section_if_missing,     ('328fa0cf', 'Promeia.FaceA.Diffuse.1024')),
         ],
         '328fa0cf': [
-            (log,                             ('2.8 - 3.2: Promeia EyebrowA and FaceA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.8 - 3.3: Promeia EyebrowA and FaceA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('e032287a', 'Promeia.Eyebrow.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('9b293811', 'Promeia.EyebrowA.Diffuse.2048')),
@@ -566,7 +567,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Face Component ====================
         'ef3c4506': [
-            (log,                             ('2.8 - 3.2: Promeia Face IB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Face IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '5ea47a32': [
@@ -574,11 +575,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('ef3c4506',)),
         ],
         '32a38de6': [
-            (log,                             ('2.8 - 3.2: Promeia Face Draw VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Face Draw VB Hash',)),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
         ],
         '08b11ea1': [
-            (log,                             ('2.8 - 3.2: Promeia Face Position VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Face Position VB Hash',)),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
         ],
         'b7a6479f': [
@@ -591,24 +592,24 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('6ca475b9',)),
         ],
         '6ca475b9': [
-            (log,                             ('3.2: Promeia Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Promeia Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
-            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
+            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'), 'bf5b785d')),
         ],
         '5ff41c34': [
             (log,                             ('2.8 -> 2.81: Promeia Face Blend Hash',)),
             (update_hash,                     ('bf5b785d',)),
         ],
         'bf5b785d': [
-            (log,                             ('2.8 - 3.2: Promeia Face Blend VB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Face Blend VB Hash',)),
             (add_section_if_missing,          ('ef3c4506', 'Promeia.Face.IB', 'match_priority = 0\n')),
         ],
         # Face has three object groups with identical textures and shares its Diffuse hashes with Eyebrow; see that Component above.
 
         # ==================== Weapon Component ====================
         '8995db58': [
-            (log,                             ('2.8 - 3.2: Promeia Weapon IB Hash',)),
+            (log,                             ('2.8 - 3.3: Promeia Weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '947ceb88': [
@@ -662,7 +663,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('328135c5',)),
         ],
         '328135c5': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA Diffuse 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('7750fc88', '138bcaa1'), 'Promeia.WeaponA.Diffuse.1024')),
         ],
@@ -671,7 +672,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('7750fc88',)),
         ],
         '7750fc88': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA Diffuse 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('328135c5', 'd1399215'), 'Promeia.WeaponA.Diffuse.2048')),
         ],
@@ -680,7 +681,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('82f4146a',)),
         ],
         '82f4146a': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA LightMap 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('a1988612', '5e59380e'), 'Promeia.WeaponA.LightMap.1024')),
         ],
@@ -689,7 +690,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('a1988612',)),
         ],
         'a1988612': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA LightMap 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('82f4146a', '369f0efd'), 'Promeia.WeaponA.LightMap.2048')),
         ],
@@ -698,7 +699,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('d672b87c',)),
         ],
         'd672b87c': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA MaterialMap 2048p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('7559d574', '09271c02'), 'Promeia.WeaponA.MaterialMap.1024')),
         ],
@@ -707,7 +708,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('7559d574',)),
         ],
         '7559d574': [
-            (log,                             ('3.0 - 3.2: Promeia WeaponA MaterialMap 1024p Hash',)),
+            (log,                             ('3.0 - 3.3: Promeia WeaponA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('8995db58', 'Promeia.Weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('d672b87c', 'a179a69c'), 'Promeia.WeaponA.MaterialMap.2048')),
         ],
@@ -719,5 +720,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Promeia',
-    'game_versions': ['2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.8', '3.0', '3.1', '3.2', '3.3'],
 }

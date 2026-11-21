@@ -1,4 +1,4 @@
-"""
+﻿"""
 YeShunguangSword Character Hash Commands
 ZZZ Mod Fixer v2.5
 Auto-generated from zzz-mod-fixer_2.5a_WIP.py
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns YeShunguangSword's hash commands dictionary.

@@ -1,7 +1,13 @@
-"""
+﻿"""
 ManatoWhiteHeartSilhouette Character Hash Commands
 ZZZ Mod Fixer v2.5
 Auto-generated from hash.json data
+
+The 7 entries that duplicated Manato's own hashes (de57398c, f4c1c6d9, c0425328,
+fe66c6d2, f987f156, 6d1343ec, ebac056e) were removed on 2026-11-20. This module is
+loaded after Manato.py, so those entries shadowed Manato's complete command lists
+with partial 2.5-only ones (lost the weapon IB anchor and the 1024p multiplies).
+The hashes kept below have no entry in the hash database or in the transition logs.
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +16,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns ManatoWhiteHeartSilhouette's hash commands dictionary.
@@ -17,10 +24,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
     All command classes are passed as parameters to avoid circular imports.
     """
     return {
-# === Hair Component ===
-'de57398c': [(log, ('2.5: ManatoWhiteHeartSilhouette Hair IB Hash',)), (add_ib_check_if_missing,)],
-
-# Hair Textures (shared with LowerBody)
+# === Hair Textures (shared with LowerBody) ===
 'c11e3a48': [
         (log,                           ('2.5: ManatoWhiteHeartSilhouette Hair, LowerBody Diffuse Hash',)),
         (add_section_if_missing,        ('de57398c', 'ManatoWhiteHeartSilhouette.Hair.IB', 'match_priority = 0\n')),
@@ -37,10 +41,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (add_section_if_missing,        ('c0425328', 'ManatoWhiteHeartSilhouette.LowerBody.IB', 'match_priority = 0\n')),
     ],
 
-# === UpperBody Component ===
-'f4c1c6d9': [(log, ('2.5: ManatoWhiteHeartSilhouette UpperBody IB Hash',)), (add_ib_check_if_missing,)],
-
-# UpperBody Textures (shared with Accessories)
+# === UpperBody Textures (shared with Accessories) ===
 'efd9e33e': [
         (log,                           ('2.5: ManatoWhiteHeartSilhouette UpperBody, Accessories Diffuse Hash',)),
         (add_section_if_missing,        ('f4c1c6d9', 'ManatoWhiteHeartSilhouette.UpperBody.IB', 'match_priority = 0\n')),
@@ -55,30 +56,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         (log,                           ('2.5: ManatoWhiteHeartSilhouette UpperBody, Accessories MaterialMap Hash',)),
         (add_section_if_missing,        ('f4c1c6d9', 'ManatoWhiteHeartSilhouette.UpperBody.IB', 'match_priority = 0\n')),
         (add_section_if_missing,        ('fe66c6d2', 'ManatoWhiteHeartSilhouette.Accessories.IB', 'match_priority = 0\n')),
-    ],
-
-# === LowerBody Component ===
-'c0425328': [(log, ('2.5: ManatoWhiteHeartSilhouette LowerBody IB Hash',)), (add_ib_check_if_missing,)],
-
-# === Accessories Component ===
-'fe66c6d2': [(log, ('2.5: ManatoWhiteHeartSilhouette Accessories IB Hash',)), (add_ib_check_if_missing,)],
-
-# === Shared NormalMap ===
-'ebac056e': [
-        (log,                           ('2.5: ManatoWhiteHeartSilhouette Shared NormalMap Hash',)),
-        (add_section_if_missing,        ('de57398c', 'ManatoWhiteHeartSilhouette.Hair.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('f4c1c6d9', 'ManatoWhiteHeartSilhouette.UpperBody.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('c0425328', 'ManatoWhiteHeartSilhouette.LowerBody.IB', 'match_priority = 0\n')),
-        (add_section_if_missing,        ('fe66c6d2', 'ManatoWhiteHeartSilhouette.Accessories.IB', 'match_priority = 0\n')),
-    ],
-
-# === Face Component ===
-'f987f156': [(log, ('2.5: ManatoWhiteHeartSilhouette Face IB Hash',)), (add_ib_check_if_missing,)],
-
-# Face Textures
-'6d1343ec': [
-        (log,                           ('2.5: ManatoWhiteHeartSilhouette Face Diffuse Hash',)),
-        (add_section_if_missing,        ('f987f156', 'ManatoWhiteHeartSilhouette.Face.IB', 'match_priority = 0\n')),
     ],
     }
 

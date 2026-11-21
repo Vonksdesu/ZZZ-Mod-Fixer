@@ -1,7 +1,7 @@
 ﻿"""
 Alice Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Alice's hash commands dictionary.
@@ -24,19 +25,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         'd515e182': [
-            (log,                             ('2.2: Alice Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Draw VB Hash',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
         ],
         'ad686c31': [
-            (log,                             ('2.2: Alice Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Position VB Hash',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
         ],
         'b86d14b0': [
-            (log,                             ('2.2: Alice Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
         ],
         'cf1202fd': [
-            (log,                             ('2.2: Alice Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Blend VB Hash',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
         ],
         '705caac9': [
@@ -54,7 +55,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('705caac9', 'Alice.LegsA.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.2: Alice HairA, BodyA, LegsA, BackAccA, sword and handguardPlate NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice HairA, BodyA, LegsA, BackAccA, sword and handguardPlate NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
@@ -69,7 +70,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'Alice.handguardPlate.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2: Alice HairA, BodyA, LegsA, BackAccA, sword and handguardPlate NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice HairA, BodyA, LegsA, BackAccA, sword and handguardPlate NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('d131acb1', 'Alice.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
@@ -114,23 +115,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         'ebbe2894': [
-            (log,                             ('2.2: Alice Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'd482d732': [
-            (log,                             ('2.2: Alice Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('ebbe2894', 'Alice.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'a3fb836a': [
-            (log,                             ('2.2: Alice Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('ebbe2894', 'Alice.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '85fb0c65': [
-            (log,                             ('2.2: Alice Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('ebbe2894', 'Alice.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '14c96dd0': [
-            (log,                             ('2.2: Alice Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('ebbe2894', 'Alice.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
@@ -140,19 +141,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '7a318f3d': [
-            (log,                             ('2.2: Alice Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Body Draw VB Hash',)),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
         ],
         '37a05757': [
-            (log,                             ('2.2: Alice Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Body Position VB Hash',)),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
         ],
         '9ad7d70c': [
-            (log,                             ('2.2: Alice Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
         ],
         '15935e48': [
-            (log,                             ('2.2: Alice Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Body Blend VB Hash',)),
             (add_section_if_missing,          ('8a512b21', 'Alice.Body.IB', 'match_priority = 0\n')),
         ],
         '269185ed': [
@@ -192,71 +193,71 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '3e4c0174': [
-            (log,                             ('2.2: Alice Legs Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Legs Draw VB Hash',)),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
         ],
         'c1aaa893': [
-            (log,                             ('2.2: Alice Legs Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Legs Position VB Hash',)),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
         ],
         '2821afc9': [
-            (log,                             ('2.2: Alice Legs Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Legs Texcoord VB Hash',)),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
         ],
         'a1b46da2': [
-            (log,                             ('2.2: Alice Legs Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Legs Blend VB Hash',)),
             (add_section_if_missing,          ('625c2692', 'Alice.Legs.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== BeltAcc Component ====================
         '993d2ddd': [
-            (log,                             ('2.2: Alice BeltAcc IB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BeltAcc IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'c2b0bfbd': [
-            (log,                             ('2.2: Alice BeltAcc Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BeltAcc Draw VB Hash',)),
             (add_section_if_missing,          ('993d2ddd', 'Alice.BeltAcc.IB', 'match_priority = 0\n')),
         ],
         'd0867379': [
-            (log,                             ('2.2: Alice BeltAcc Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BeltAcc Position VB Hash',)),
             (add_section_if_missing,          ('993d2ddd', 'Alice.BeltAcc.IB', 'match_priority = 0\n')),
         ],
         'd72a4315': [
-            (log,                             ('2.2: Alice BeltAcc Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BeltAcc Texcoord VB Hash',)),
             (add_section_if_missing,          ('993d2ddd', 'Alice.BeltAcc.IB', 'match_priority = 0\n')),
         ],
         '73b54620': [
-            (log,                             ('2.2: Alice BeltAcc Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BeltAcc Blend VB Hash',)),
             (add_section_if_missing,          ('993d2ddd', 'Alice.BeltAcc.IB', 'match_priority = 0\n')),
         ],
         'bf0e4dab': [
-            (log,                             ('2.2: Alice BeltAcc Diffuse 1024p & 2048p Hash',)),
+            (log,                             ('2.2 - 3.0: Alice BeltAcc Diffuse 1024p & 2048p Hash',)),
             (add_section_if_missing,          ('993d2ddd', 'Alice.BeltAcc.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== BackAcc Component ====================
         'bd2277ef': [
-            (log,                             ('2.2: Alice BackAcc IB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BackAcc IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '03090c30': [
-            (log,                             ('2.2: Alice BackAcc Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BackAcc Draw VB Hash',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
         ],
         '23712d3d': [
-            (log,                             ('2.2: Alice BackAcc Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BackAcc Position VB Hash',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
         ],
         '1c272241': [
-            (log,                             ('2.2: Alice BackAcc Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BackAcc Texcoord VB Hash',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
         ],
         '37717c75': [
-            (log,                             ('2.2: Alice BackAcc Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice BackAcc Blend VB Hash',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
         ],
         '79cbbcc4': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -265,7 +266,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('228bdc7c', 'Alice.handguardPlate.Diffuse.1024')),
         ],
         'a226ce08': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -274,7 +275,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('980c7ed0', 'Alice.handguardPlate.LightMap.1024')),
         ],
         '9ada942b': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -283,7 +284,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('072eabe7', 'Alice.handguardPlate.MaterialMap.1024')),
         ],
         '228bdc7c': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -292,7 +293,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('79cbbcc4', 'Alice.handguardPlate.Diffuse.2048')),
         ],
         '980c7ed0': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -301,7 +302,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('a226ce08', 'Alice.handguardPlate.LightMap.2048')),
         ],
         '072eabe7': [
-            (log,                             ('2.2: Alice BackAccA, sword and handguardPlate MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Alice BackAccA, sword and handguardPlate MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('bd2277ef', 'Alice.BackAcc.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
@@ -316,26 +317,26 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '70088a4a': [
-            (log,                             ('2.2: Alice Face Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Face Draw VB Hash',)),
             (add_section_if_missing,          ('b078ff22', 'Alice.Face.IB', 'match_priority = 0\n')),
         ],
         '4a1a190d': [
-            (log,                             ('2.2: Alice Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Face Position VB Hash',)),
             (add_section_if_missing,          ('b078ff22', 'Alice.Face.IB', 'match_priority = 0\n')),
         ],
         '7c9dbd4a': [
-            (log,                             ('2.2: Alice Face Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.1: Alice Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('b078ff22', 'Alice.Face.IB', 'match_priority = 0\n')),
             (update_hash,                     ('0749a6d7',)),
         ],
         '0749a6d7': [
-            (log,                             ('3.2: Alice Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Alice Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('b078ff22', 'Alice.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
-            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
+            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'), '2326355e')),
         ],
         '2326355e': [
-            (log,                             ('2.2: Alice Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice Face Blend VB Hash',)),
             (add_section_if_missing,          ('b078ff22', 'Alice.Face.IB', 'match_priority = 0\n')),
         ],
         '9f3e582c': [
@@ -351,45 +352,45 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Sword Component ====================
         '30205a68': [
-            (log,                             ('2.2: Alice sword IB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice sword IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'f26a8aac': [
-            (log,                             ('2.2: Alice sword Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice sword Draw VB Hash',)),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
         ],
         '47a48c42': [
-            (log,                             ('2.2: Alice sword Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice sword Position VB Hash',)),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
         ],
         '7b3126b6': [
-            (log,                             ('2.2: Alice sword Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice sword Texcoord VB Hash',)),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
         ],
         'bb487b00': [
-            (log,                             ('2.2: Alice sword Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice sword Blend VB Hash',)),
             (add_section_if_missing,          ('30205a68', 'Alice.sword.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== handguardPlate Component ====================
         '323b1a95': [
-            (log,                             ('2.2: Alice handguardPlate IB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice handguardPlate IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '0a06059e': [
-            (log,                             ('2.2: Alice handguardPlate Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice handguardPlate Draw VB Hash',)),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
         ],
         'bd544be3': [
-            (log,                             ('2.2: Alice handguardPlate Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice handguardPlate Position VB Hash',)),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
         ],
         '9a136061': [
-            (log,                             ('2.2: Alice handguardPlate Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice handguardPlate Texcoord VB Hash',)),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
         ],
         'aac53ae5': [
-            (log,                             ('2.2: Alice handguardPlate Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Alice handguardPlate Blend VB Hash',)),
             (add_section_if_missing,          ('323b1a95', 'Alice.handguardPlate.IB', 'match_priority = 0\n')),
         ],
     }
@@ -397,5 +398,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Alice',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

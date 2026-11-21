@@ -1,7 +1,7 @@
 ﻿"""
 Anby Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Anby's hash commands dictionary.
@@ -24,11 +25,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '91ffb01c': [
-            (log,                             ('2.2: Anby Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Draw VB Hash',)),
             (add_section_if_missing,          ('5c0240db', 'Anby.Hair.IB', 'match_priority = 0\n')),
         ],
         '9af848eb': [
-            (log,                             ('2.2: Anby Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Position VB Hash',)),
             (add_section_if_missing,          ('5c0240db', 'Anby.Hair.IB', 'match_priority = 0\n')),
         ],
         '39538886': [
@@ -38,11 +39,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (zzz_12_shrink_texcoord_color,    ('1.2',)),
         ],
         '496a781d': [
-            (log,                             ('2.2: Anby Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('5c0240db', 'Anby.Hair.IB', 'match_priority = 0\n')),
         ],
         '313933a0': [
-            (log,                             ('2.2: Anby Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Blend VB Hash',)),
             (add_section_if_missing,          ('5c0240db', 'Anby.Hair.IB', 'match_priority = 0\n')),
         ],
         '6ea0023c': [
@@ -116,23 +117,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         '6f5e7cdb': [
-            (log,                             ('2.2: Anby Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'f6ed0e7b': [
-            (log,                             ('2.2: Anby Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('6f5e7cdb', 'Anby.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'd431dddb': [
-            (log,                             ('2.2: Anby Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('6f5e7cdb', 'Anby.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'b62ac7fe': [
-            (log,                             ('2.2: Anby Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('6f5e7cdb', 'Anby.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '64fc015c': [
-            (log,                             ('2.2: Anby Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('6f5e7cdb', 'Anby.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
@@ -142,19 +143,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '45b2509c': [
-            (log,                             ('2.2: Anby Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Body Draw VB Hash',)),
             (add_section_if_missing,          ('4816de84', 'Anby.Body.IB', 'match_priority = 0\n')),
         ],
         '1c9533eb': [
-            (log,                             ('2.2: Anby Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Body Position VB Hash',)),
             (add_section_if_missing,          ('4816de84', 'Anby.Body.IB', 'match_priority = 0\n')),
         ],
         'a33e8b5e': [
-            (log,                             ('2.2: Anby Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('4816de84', 'Anby.Body.IB', 'match_priority = 0\n')),
         ],
         '137cbdbe': [
-            (log,                             ('2.2: Anby Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Body Blend VB Hash',)),
             (add_section_if_missing,          ('4816de84', 'Anby.Body.IB', 'match_priority = 0\n')),
         ],
         'b37c3b4e': [
@@ -214,22 +215,22 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('f818271a',)),
         ],
         'f818271a': [
-            (log,                             ('2.2: Anby Face Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.1: Anby Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('19df8e84', 'Anby.Face.IB', 'match_priority = 0\n')),
             (update_hash,                     ('3e7815b5',)),
         ],
         '3e7815b5': [
-            (log,                             ('3.2: Anby Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Anby Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('19df8e84', 'Anby.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         '9f6aa443': [
-            (log,                             ('2.2: Anby Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('19df8e84', 'Anby.Face.IB', 'match_priority = 0\n')),
         ],
         '9680d55d': [
-            (log,                             ('2.2: Anby Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby Face Blend VB Hash',)),
             (add_section_if_missing,          ('19df8e84', 'Anby.Face.IB', 'match_priority = 0\n')),
         ],
         '2a23f612': [
@@ -257,57 +258,57 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 刀鞘 Component ====================
         '92209737': [
-            (log,                             ('2.2: Anby weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '1500b06e': [
-            (log,                             ('2.2: Anby weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         '332be630': [
-            (log,                             ('2.2: Anby weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Position VB Hash',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         'cec4d67b': [
-            (log,                             ('2.2: Anby weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         'dd507f00': [
-            (log,                             ('2.2: Anby weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Blend VB Hash',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         'd487eaac': [
-            (log,                             ('2.2: Anby weapon Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('85d97523', 'Anby.WeaponA.Diffuse.1024')),
         ],
         '85d97523': [
-            (log,                             ('2.2: Anby weapon Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('d487eaac', 'Anby.WeaponA.Diffuse.2048')),
         ],
         '3de2dae5': [
-            (log,                             ('2.2: Anby weapon LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('a5e8de50', 'Anby.WeaponA.LightMap.1024')),
         ],
         'a5e8de50': [
-            (log,                             ('2.2: Anby weapon LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('3de2dae5', 'Anby.WeaponA.LightMap.2048')),
         ],
         '62f1b72e': [
-            (log,                             ('2.2: Anby weapon MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('d4ddc318', 'Anby.WeaponA.MaterialMap.1024')),
         ],
         'd4ddc318': [
-            (log,                             ('2.2: Anby weapon MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Anby weapon MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('92209737', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('62f1b72e', 'Anby.WeaponA.MaterialMap.2048')),
@@ -315,23 +316,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 刀 Component ====================
         '5bb510c6': [
-            (log,                             ('2.2: Anby weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'baf7ad46': [
-            (log,                             ('2.2: Anby weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         '47da5929': [
-            (log,                             ('2.2: Anby weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Position VB Hash',)),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         '58ec8ffb': [
-            (log,                             ('2.2: Anby weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
         '0385188d': [
-            (log,                             ('2.2: Anby weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anby weapon Blend VB Hash',)),
             (add_section_if_missing,          ('5bb510c6', 'Anby.weapon.IB', 'match_priority = 0\n')),
         ],
     }
@@ -339,5 +340,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Anby',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

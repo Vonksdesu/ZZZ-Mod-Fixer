@@ -1,7 +1,7 @@
 ﻿"""
 Lucy Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Lucy's hash commands dictionary.
@@ -20,7 +21,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Component ====================
         '69ad9d08': [
-            (log,                             ('2.2 - 3.2: Lucy Hair IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '198e99d7': [
@@ -32,15 +33,15 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             }),
         ],
         '5661afc3': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Draw VB Hash',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
         ],
         '6c733c84': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Position VB Hash',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
         ],
         'c8810832': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
         ],
         '751e21a5': [
@@ -48,7 +49,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('c8810832',)),
         ],
         'a37c7537': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Blend VB Hash',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
         ],
         '5315f036': [
@@ -56,7 +57,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('a37c7537',)),
         ],
         '0fa60fe1': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -65,7 +66,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     (('753baa45', 'b50eb71c'), 'Lucy.BeltA.Diffuse.1024')),
         ],
         '753baa45': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -82,7 +83,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('753baa45',)),
         ],
         '1a3b30ba': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -91,7 +92,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('810c0878', 'Lucy.BeltA.LightMap.1024')),
         ],
         '810c0878': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -100,7 +101,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('1a3b30ba', 'Lucy.BeltA.LightMap.2048')),
         ],
         '068aba7f': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -109,7 +110,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     (('368f931c', 'd1241cfc'), 'Lucy.BeltA.MaterialMap.1024')),
         ],
         '368f931c': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, SnoutA and BeltA MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, SnoutA and BeltA MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
@@ -126,7 +127,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('368f931c',)),
         ],
         'ebac056e': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, BodyA, HelmetA, SnoutA, BeltA, RedClothA, weapon and Little PigA NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, BodyA, HelmetA, SnoutA, BeltA, RedClothA, weapon and Little PigA NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
@@ -145,7 +146,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'Lucy.Little PigA.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2 - 3.2: Lucy HairA, BodyA, HelmetA, SnoutA, BeltA, RedClothA, weapon and Little PigA NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy HairA, BodyA, HelmetA, SnoutA, BeltA, RedClothA, weapon and Little PigA NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('69ad9d08', 'Lucy.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
@@ -190,29 +191,29 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         'ae17c1f9': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'dac5a216': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('ae17c1f9', 'Lucy.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '04fcc509': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('ae17c1f9', 'Lucy.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '2fbb8fa1': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('ae17c1f9', 'Lucy.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '5e691bac': [
-            (log,                             ('2.2 - 3.2: Lucy Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('ae17c1f9', 'Lucy.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== Body Component ====================
         'be5f4c7d': [
-            (log,                             ('2.2 - 3.2: Lucy Body IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Body IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'e0ad50ed': [
@@ -220,11 +221,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('be5f4c7d',)),
         ],
         'da79199a': [
-            (log,                             ('2.2 - 3.2: Lucy Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Body Draw VB Hash',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
         ],
         '246b93e2': [
-            (log,                             ('2.2 - 3.2: Lucy Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Body Position VB Hash',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
         ],
         '5da9dafc': [
@@ -232,7 +233,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('246b93e2',)),
         ],
         'f60dbb9e': [
-            (log,                             ('2.2 - 3.2: Lucy Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
         ],
         '00f11ea6': [
@@ -240,7 +241,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('f60dbb9e',)),
         ],
         '66948a0f': [
-            (log,                             ('2.2 - 3.2: Lucy Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Body Blend VB Hash',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
         ],
         'b94b02e8': [
@@ -248,42 +249,42 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('66948a0f',)),
         ],
         '474c7aa2': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('f810e7ac', 'Lucy.BodyA.Diffuse.1024')),
             (multiply_section_if_missing,     ('f810e7ac', 'Lucy.RedClothA.Diffuse.1024')),
         ],
         'f810e7ac': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('474c7aa2', 'Lucy.BodyA.Diffuse.2048')),
             (multiply_section_if_missing,     ('474c7aa2', 'Lucy.RedClothA.Diffuse.2048')),
         ],
         '855d9fa3': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('e89f7814', 'Lucy.BodyA.LightMap.1024')),
             (multiply_section_if_missing,     ('e89f7814', 'Lucy.RedClothA.LightMap.1024')),
         ],
         'e89f7814': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('855d9fa3', 'Lucy.BodyA.LightMap.2048')),
             (multiply_section_if_missing,     ('855d9fa3', 'Lucy.RedClothA.LightMap.2048')),
         ],
         '1fd24fd8': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('86ca6cfd', 'Lucy.BodyA.MaterialMap.1024')),
             (multiply_section_if_missing,     ('86ca6cfd', 'Lucy.RedClothA.MaterialMap.1024')),
         ],
         '86ca6cfd': [
-            (log,                             ('2.2 - 3.2: Lucy BodyA and RedClothA MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lucy BodyA and RedClothA MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('be5f4c7d', 'Lucy.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('1fd24fd8', 'Lucy.BodyA.MaterialMap.2048')),
@@ -293,52 +294,52 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Helmet Component ====================
         'a0ed04de': [
-            (log,                             ('2.2 - 3.2: Lucy Helmet IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Helmet IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '66cc3370': [
-            (log,                             ('2.2 - 3.2: Lucy Helmet Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Helmet Draw VB Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
         ],
         '637e5139': [
-            (log,                             ('2.2 - 3.2: Lucy Helmet Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Helmet Position VB Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
         ],
         '0d4e37c6': [
-            (log,                             ('2.2 - 3.2: Lucy Helmet Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Helmet Texcoord VB Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
         ],
         '31f19e78': [
-            (log,                             ('2.2 - 3.2: Lucy Helmet Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Helmet Blend VB Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
         ],
         'a0be0ed3': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('919ab7e5', 'Lucy.HelmetA.Diffuse.1024')),
         ],
         '919ab7e5': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('a0be0ed3', 'Lucy.HelmetA.Diffuse.2048')),
         ],
         '8d9a16c7': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA LightMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('6a8fca92', 'Lucy.HelmetA.LightMap.1024')),
         ],
         '6a8fca92': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('8d9a16c7', 'Lucy.HelmetA.LightMap.2048')),
         ],
         '0a99d9d5': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA MaterialMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('2243086f', '4227db77'), 'Lucy.HelmetA.MaterialMap.1024')),
         ],
         '2243086f': [
-            (log,                             ('2.2 - 3.2: Lucy HelmetA MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy HelmetA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('a0ed04de', 'Lucy.Helmet.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('0a99d9d5', 'b3013a33'), 'Lucy.HelmetA.MaterialMap.2048')),
         ],
@@ -348,82 +349,82 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         ],
         '4227db77': [
             (log,                             ('1.0 -> 2.5: Lucy HelmetA MaterialMap 1024p Hash',)),
-            (update_hash,                     ('0a99d9d5',)),
+            (update_hash,                     ('2243086f',)),
         ],
         # Helmet shares its NormalMap hashes with Hair; see that Component above.
 
         # ==================== Snout Component ====================
         '272dd7f6': [
-            (log,                             ('2.2 - 3.2: Lucy Snout IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Snout IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '9328313b': [
-            (log,                             ('2.2 - 3.2: Lucy Snout Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Snout Draw VB Hash',)),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
         ],
         '5fb8059e': [
-            (log,                             ('2.2 - 3.2: Lucy Snout Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Snout Position VB Hash',)),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
         ],
         '856c6618': [
-            (log,                             ('2.2 - 3.2: Lucy Snout Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Snout Texcoord VB Hash',)),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
         ],
         'b4cf5b8d': [
-            (log,                             ('2.2 - 3.2: Lucy Snout Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Snout Blend VB Hash',)),
             (add_section_if_missing,          ('272dd7f6', 'Lucy.Snout.IB', 'match_priority = 0\n')),
         ],
         # Snout shares its Diffuse, LightMap, MaterialMap and NormalMap hashes with Hair; see that Component above.
 
         # ==================== Belt Component ====================
         '9b6370f6': [
-            (log,                             ('2.2 - 3.2: Lucy Belt IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Belt IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '7e98735e': [
-            (log,                             ('2.2 - 3.2: Lucy Belt Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Belt Draw VB Hash',)),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
         ],
         '90e47227': [
-            (log,                             ('2.2 - 3.2: Lucy Belt Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Belt Position VB Hash',)),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
         ],
         '170cc13e': [
-            (log,                             ('2.2 - 3.2: Lucy Belt Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Belt Texcoord VB Hash',)),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
         ],
         '9759ce48': [
-            (log,                             ('2.2 - 3.2: Lucy Belt Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Belt Blend VB Hash',)),
             (add_section_if_missing,          ('9b6370f6', 'Lucy.Belt.IB', 'match_priority = 0\n')),
         ],
         # Belt shares its Diffuse, LightMap, MaterialMap and NormalMap hashes with Hair; see that Component above.
 
         # ==================== RedCloth Component ====================
         '1fe6e084': [
-            (log,                             ('2.2 - 3.2: Lucy RedCloth IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy RedCloth IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'fa7b1c96': [
-            (log,                             ('2.2 - 3.2: Lucy RedCloth Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy RedCloth Draw VB Hash',)),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
         ],
         '2f5719df': [
-            (log,                             ('2.2 - 3.2: Lucy RedCloth Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy RedCloth Position VB Hash',)),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
         ],
         'c789d6f4': [
-            (log,                             ('2.2 - 3.2: Lucy RedCloth Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy RedCloth Texcoord VB Hash',)),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
         ],
         '55decc93': [
-            (log,                             ('2.2 - 3.2: Lucy RedCloth Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy RedCloth Blend VB Hash',)),
             (add_section_if_missing,          ('1fe6e084', 'Lucy.RedCloth.IB', 'match_priority = 0\n')),
         ],
         # RedCloth shares its Diffuse, LightMap and MaterialMap hashes with Body, and its NormalMap hashes with Hair; see those Components above.
 
         # ==================== Face Component ====================
         'df3e3965': [
-            (log,                             ('2.2 - 3.2: Lucy Face IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Face IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'fca15ccb': [
@@ -431,11 +432,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('df3e3965',)),
         ],
         '2db957ac': [
-            (log,                             ('2.2 - 3.2: Lucy Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
         ],
         '17abc4eb': [
-            (log,                             ('2.2 - 3.2: Lucy Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Face Position VB Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
         ],
         '1ca0ae1a': [
@@ -444,7 +445,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('e78a4ee2',)),
         ],
         'e78a4ee2': [
-            (log,                             ('3.1: Lucy Face Texcoord VB Hash',)),
+            (log,                             ('3.1 - 3.3: Lucy Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
         ],
         '6275f052': [
@@ -452,7 +453,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('1ca0ae1a',)),
         ],
         'a2054778': [
-            (log,                             ('2.2 - 3.2: Lucy Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Face Blend VB Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
         ],
         '80efa5cb': [
@@ -460,12 +461,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('a2054778',)),
         ],
         '4e2d5baa': [
-            (log,                             ('2.2 - 3.2: Lucy FaceA Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy FaceA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('2578d35b', '483b418a'), 'Lucy.FaceA.Diffuse.1024')),
         ],
         '2578d35b': [
-            (log,                             ('2.2 - 3.2: Lucy FaceA Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy FaceA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('df3e3965', 'Lucy.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('4e2d5baa', '2a6df536'), 'Lucy.FaceA.Diffuse.2048')),
         ],
@@ -481,52 +482,52 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon Component ====================
         'cff7ddad': [
-            (log,                             ('2.2 - 3.2: Lucy weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'e5672032': [
-            (log,                             ('2.2 - 3.2: Lucy weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
         ],
         '92a82477': [
-            (log,                             ('2.2 - 3.2: Lucy weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon Position VB Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
         ],
         'c5b8f21d': [
-            (log,                             ('2.2 - 3.2: Lucy weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
         ],
         '6f2d0bd2': [
-            (log,                             ('2.2 - 3.2: Lucy weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon Blend VB Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
         ],
         'a580ad12': [
-            (log,                             ('2.2 - 3.2: Lucy weapon Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('922bd542', 'Lucy.weapon.Diffuse.1024')),
         ],
         '922bd542': [
-            (log,                             ('2.2 - 3.2: Lucy weapon Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('a580ad12', 'Lucy.weapon.Diffuse.2048')),
         ],
         'b4f4dfdc': [
-            (log,                             ('2.2 - 3.2: Lucy weapon LightMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon LightMap 2048p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('795a7681', 'Lucy.weapon.LightMap.1024')),
         ],
         '795a7681': [
-            (log,                             ('2.2 - 3.2: Lucy weapon LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon LightMap 1024p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('b4f4dfdc', 'Lucy.weapon.LightMap.2048')),
         ],
         '7e203979': [
-            (log,                             ('2.2 - 3.2: Lucy weapon MaterialMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('18709331', 'Lucy.weapon.MaterialMap.1024')),
         ],
         '18709331': [
-            (log,                             ('2.2 - 3.2: Lucy weapon MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy weapon MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('cff7ddad', 'Lucy.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('7e203979', 'Lucy.weapon.MaterialMap.2048')),
         ],
@@ -534,59 +535,59 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Little Pig Component ====================
         'e47150d9': [
-            (log,                             ('2.2 - 3.2: Lucy Little Pig IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little Pig IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '36c6660d': [
-            (log,                             ('2.2 - 3.2: Lucy Little Pig Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little Pig Draw VB Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
         ],
         '9429b8ba': [
-            (log,                             ('2.2 - 3.2: Lucy Little Pig Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little Pig Position VB Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
         ],
         'b0e5b7b3': [
-            (log,                             ('2.2 - 3.2: Lucy Little Pig Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little Pig Texcoord VB Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
         ],
         'e5774525': [
-            (log,                             ('2.2 - 3.2: Lucy Little Pig Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little Pig Blend VB Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
         ],
         '30bf583f': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('2514c4b7', 'Lucy.Little PigA.Diffuse.1024')),
         ],
         '2514c4b7': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('30bf583f', 'Lucy.Little PigA.Diffuse.2048')),
         ],
         '13c237a3': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA LightMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('04c652ba', 'Lucy.Little PigA.LightMap.1024')),
         ],
         '04c652ba': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('13c237a3', 'Lucy.Little PigA.LightMap.2048')),
         ],
         '84d36706': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA MaterialMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('62833532', 'Lucy.Little PigA.MaterialMap.1024')),
         ],
         '62833532': [
-            (log,                             ('2.2 - 3.2: Lucy Little PigA MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lucy Little PigA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('e47150d9', 'Lucy.Little Pig.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('84d36706', 'Lucy.Little PigA.MaterialMap.2048')),
         ],
         # Little Pig shares its NormalMap hashes with Hair; see that Component above.
 
         # Legacy HairWallpaper hash (component not in DB 2.2 - 3.1); the orphan update_hash to
-        # ghost target 39cfd24c is pre-existing (Bagian 8) and deliberately preserved as-is.
+        # ghost target 39cfd24c is pre-existing (Section 8) and deliberately preserved as-is.
         '9b4dfd86': [
             (log,                             ('1.3 -> 2.0: Lucy HairWallpaper Position Hash',)),
             (update_hash,                     ('39cfd24c',)),
@@ -597,5 +598,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Lucy',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

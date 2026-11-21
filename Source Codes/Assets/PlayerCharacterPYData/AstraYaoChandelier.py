@@ -1,7 +1,7 @@
 ﻿"""
 AstraYaoChandelier Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns AstraYaoChandelier's hash commands dictionary.
@@ -24,11 +25,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         'd3c951b9': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Draw VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
         ],
         'ee3c305a': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Position VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
         ],
         '8ba0b335': [
@@ -36,7 +37,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
         ],
         'c3c08f85': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Blend VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
         ],
         'e634238a': [
@@ -50,7 +51,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('e634238a', 'AstraYaoChandelier.HairA.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.2: AstraYaoChandelier HairA, BodyA and weapon NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier HairA, BodyA and weapon NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
@@ -61,7 +62,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'AstraYaoChandelier.WeaponB.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2: AstraYaoChandelier HairA, BodyA and weapon NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier HairA, BodyA and weapon NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYaoChandelier.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
@@ -94,23 +95,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         '93d55a49': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '5e1e12aa': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYaoChandelier.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'a378328a': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYaoChandelier.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'c4456161': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYaoChandelier.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '81ef699b': [
-            (log,                             ('2.2: AstraYaoChandelier Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYaoChandelier.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
@@ -120,19 +121,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '645d075e': [
-            (log,                             ('2.2: AstraYaoChandelier Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Body Draw VB Hash',)),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
         ],
         '43f58537': [
-            (log,                             ('2.2: AstraYaoChandelier Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Body Position VB Hash',)),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
         ],
         'f1e37ebf': [
-            (log,                             ('2.2: AstraYaoChandelier Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
         ],
         'b72fadfc': [
-            (log,                             ('2.2: AstraYaoChandelier Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Body Blend VB Hash',)),
             (add_section_if_missing,          ('02d8a2cb', 'AstraYaoChandelier.Body.IB', 'match_priority = 0\n')),
         ],
         '7301ca3a': [
@@ -196,26 +197,26 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '5c578f85': [
-            (log,                             ('2.2: AstraYaoChandelier Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYaoChandelier.Face.IB', 'match_priority = 0\n')),
         ],
         '66451cc2': [
-            (log,                             ('2.2: AstraYaoChandelier Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Face Position VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYaoChandelier.Face.IB', 'match_priority = 0\n')),
         ],
         'ffac76ac': [
-            (log,                             ('2.2: AstraYaoChandelier Face Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.1: AstraYaoChandelier Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYaoChandelier.Face.IB', 'match_priority = 0\n')),
             (update_hash,                     ('01b43c04',)),
         ],
         '01b43c04': [
-            (log,                             ('3.2: AstraYaoChandelier Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: AstraYaoChandelier Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYaoChandelier.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         '7e05c11a': [
-            (log,                             ('2.2: AstraYaoChandelier Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier Face Blend VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYaoChandelier.Face.IB', 'match_priority = 0\n')),
         ],
         'c41341b2': [
@@ -231,62 +232,62 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 本体 Component ====================
         '702b018e': [
-            (log,                             ('2.2: AstraYaoChandelier weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'ca16b939': [
-            (log,                             ('2.2: AstraYaoChandelier weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         '9879faf3': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Position VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         'b3e27d5f': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         '4a4fb44e': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Blend VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         'b5a20274': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('d652aa31', 'AstraYaoChandelier.WeaponA.Diffuse.1024')),
             (multiply_section_if_missing,     ('d652aa31', 'AstraYaoChandelier.WeaponB.Diffuse.1024')),
         ],
         'd652aa31': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('b5a20274', 'AstraYaoChandelier.WeaponA.Diffuse.2048')),
             (multiply_section_if_missing,     ('b5a20274', 'AstraYaoChandelier.WeaponB.Diffuse.2048')),
         ],
         '57c44e60': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('91c63955', 'AstraYaoChandelier.WeaponA.LightMap.1024')),
             (multiply_section_if_missing,     ('91c63955', 'AstraYaoChandelier.WeaponB.LightMap.1024')),
         ],
         '91c63955': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('57c44e60', 'AstraYaoChandelier.WeaponA.LightMap.2048')),
             (multiply_section_if_missing,     ('57c44e60', 'AstraYaoChandelier.WeaponB.LightMap.2048')),
         ],
         'fdb82c44': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('98e011bc', 'AstraYaoChandelier.WeaponA.MaterialMap.1024')),
             (multiply_section_if_missing,     ('98e011bc', 'AstraYaoChandelier.WeaponB.MaterialMap.1024')),
         ],
         '98e011bc': [
-            (log,                             ('2.2: AstraYaoChandelier WeaponA and WeaponB MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier WeaponA and WeaponB MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('fdb82c44', 'AstraYaoChandelier.WeaponA.MaterialMap.2048')),
@@ -295,23 +296,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 唱片 Component ====================
         'f4f5348d': [
-            (log,                             ('2.2: AstraYaoChandelier weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '7ed93255': [
-            (log,                             ('2.2: AstraYaoChandelier weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         'b8a9ba2e': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Position VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         'd6d5743e': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
         'cb9405e1': [
-            (log,                             ('2.2: AstraYaoChandelier weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYaoChandelier weapon Blend VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYaoChandelier.weapon.IB', 'match_priority = 0\n')),
         ],
     }
@@ -319,5 +320,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'AstraYaoChandelier',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

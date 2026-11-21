@@ -1,7 +1,7 @@
 ﻿"""
 BelleDelicateSunlight Outfit Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns BelleDelicateSunlight's hash commands dictionary.
@@ -20,19 +21,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Component ====================
         'aa9ffb85': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair IB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '992d149f': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair Draw VB Hash',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
         ],
         '71d2bf80': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair Position VB Hash',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
         ],
         'a5e62ece': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
         ],
         '39ac6700': [
@@ -40,11 +41,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('8f7ae834',)),
         ],
         '8f7ae834': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Hair Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Hair Blend VB Hash',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
         ],
         '1ce58567': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -53,7 +54,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('08f04d95', 'BelleDelicateSunlight.NeckB.Diffuse.1024')),
         ],
         '08f04d95': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -62,7 +63,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('1ce58567', 'BelleDelicateSunlight.NeckB.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear, Neck, Torso, Leg, Red Knot Rope, Orange green ribbon, Earrings1, Earrings2, Panda headgear, Cat Ear Accessories, Pink badge, Orange green badge and glasses NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear, Neck, Torso, Leg, Red Knot Rope, Orange green ribbon, Earrings1, Earrings2, Panda headgear, Cat Ear Accessories, Pink badge, Orange green badge and glasses NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -86,7 +87,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'BelleDelicateSunlight.LegA.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear, Neck, Torso and Leg NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear, Neck, Torso and Leg NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -101,7 +102,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('ebac056e', 'BelleDelicateSunlight.LegA.NormalMap.2048')),
         ],
         '7d562f53': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -110,7 +111,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('f44f330b', 'BelleDelicateSunlight.NeckB.LightMap.1024')),
         ],
         'f44f330b': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -119,7 +120,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('7d562f53', 'BelleDelicateSunlight.NeckB.LightMap.2048')),
         ],
         '34bdb036': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -128,7 +129,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('7542ef4b', 'BelleDelicateSunlight.NeckB.MaterialMap.1024')),
         ],
         '7542ef4b': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair, Headwear and Neck MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair, Headwear and Neck MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('aa9ffb85', 'BelleDelicateSunlight.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
@@ -139,25 +140,25 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         '403eace9': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
 
         # ==================== Headwear Component ====================
         '20d3a340': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Headwear IB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Headwear IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '2f828e6a': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Headwear Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Headwear Draw VB Hash',)),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
         ],
         '4dec8913': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Headwear Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Headwear Position VB Hash',)),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
         ],
         'cdd7fc8a': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Headwear Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Headwear Texcoord VB Hash',)),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
         ],
         'db7add33': [
@@ -165,50 +166,54 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('f18dd23f',)),
         ],
         'f18dd23f': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Headwear Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Headwear Blend VB Hash',)),
             (add_section_if_missing,          ('20d3a340', 'BelleDelicateSunlight.Headwear.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== Neck Component ====================
         '62ed56cc': [
             (log,                             ('2.5 - 2.8: BelleDelicateSunlight Neck IB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Neck IB Hash', '3.0 - 3.2')),
             (add_ib_check_if_missing,),
-            (update_hash,                     ('d0627e1f',)),
         ],
         'd0627e1f': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Neck IB Hash (Model Change)',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Neck IB Hash (Model Change)',)),
             (add_ib_check_if_missing,),
         ],
         '4c215c73': [
             (log,                             ('2.5 - 2.8: BelleDelicateSunlight Neck Draw VB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Neck Draw VB Hash', '3.0 - 3.2')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         'be75a4be': [
             (log,                             ('2.5 - 2.8: BelleDelicateSunlight Neck Position VB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Neck Position VB Hash', '3.0 - 3.2')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         'dd2b89aa': [
             (log,                             ('2.5 - 2.8: BelleDelicateSunlight Neck Texcoord VB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Neck Texcoord VB Hash', '3.0 - 3.2')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         '3bd79a0b': [
             (log,                             ('2.5 - 2.8: BelleDelicateSunlight Neck Blend VB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Neck Blend VB Hash', '3.0 - 3.2')),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         '3f594476': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Neck Draw VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Neck Draw VB Hash',)),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         'e2ee9309': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Neck Position VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Neck Position VB Hash',)),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         '2f7f6398': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Neck Texcoord VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Neck Texcoord VB Hash',)),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         '0a11b1d7': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Neck Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Neck Blend VB Hash',)),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
         ],
         'cac9fd5d': [
@@ -216,7 +221,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('da2bfe2f',)),
         ],
         'da2bfe2f': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -233,7 +238,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('fdf0b49e',)),
         ],
         'fdf0b49e': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck and Leg Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck and Leg Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -253,7 +258,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     (('da2bfe2f'), 'BelleDelicateSunlight.LegA.Diffuse.2048')),
         ],
         '74f2fae3': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -266,7 +271,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ((("93d94f22", "f8e4e93a")), 'BelleDelicateSunlight.LegA.LightMap.1024')),
         ],
         '93d94f22': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck and Leg LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck and Leg LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -286,7 +291,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     (('74f2fae3'), 'BelleDelicateSunlight.LegA.LightMap.2048')),
         ],
         '657402d0': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck, Leg, Red Knot Rope and Earrings1 MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -299,7 +304,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ((("b95c08fb", "93c5f5ff")), 'BelleDelicateSunlight.LegA.MaterialMap.1024')),
         ],
         'b95c08fb': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Torso, Neck and Leg MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Torso, Neck and Leg MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('62ed56cc', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('d0627e1f', 'BelleDelicateSunlight.Neck.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
@@ -321,39 +326,39 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Torso Component ====================
         '860e1558': [
-            (log,                             ('2.5: Updating BelleDelicateSunlight Torso IB to d509bdd4',)),
+            (log,                             ('2.2 - 2.4: Updating BelleDelicateSunlight Torso IB to d509bdd4',)),
             (update_hash,                     ('d509bdd4',)),
         ],
         'd509bdd4': [
-            (log,                             ('2.5 - 3.2: BelleDelicateSunlight Torso IB Hash',)),
+            (log,                             ('2.5 - 3.3: BelleDelicateSunlight Torso IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '02c9dc4b': [
-            (log,                             ('2.5: Updating BelleDelicateSunlight Torso draw_vb to 19e5f486',)),
+            (log,                             ('2.2 - 2.4: Updating BelleDelicateSunlight Torso draw_vb to 19e5f486',)),
             (update_hash,                     ('19e5f486',)),
         ],
         '19e5f486': [
-            (log,                             ('2.5 - 3.2: BelleDelicateSunlight Torso Draw VB Hash',)),
+            (log,                             ('2.5 - 3.3: BelleDelicateSunlight Torso Draw VB Hash',)),
             (add_section_if_missing,          ('d509bdd4', 'BelleDelicateSunlight.Torso.IB', 'match_priority = 0\n')),
         ],
         '0b3c5e7c': [
-            (log,                             ('2.5: Updating BelleDelicateSunlight Torso position_vb to 8a4e97cd',)),
+            (log,                             ('2.2 - 2.4: Updating BelleDelicateSunlight Torso position_vb to 8a4e97cd',)),
             (update_hash,                     ('8a4e97cd',)),
         ],
         '8a4e97cd': [
-            (log,                             ('2.5 - 3.2: BelleDelicateSunlight Torso Position VB Hash',)),
+            (log,                             ('2.5 - 3.3: BelleDelicateSunlight Torso Position VB Hash',)),
             (add_section_if_missing,          ('d509bdd4', 'BelleDelicateSunlight.Torso.IB', 'match_priority = 0\n')),
         ],
         '862dc27a': [
-            (log,                             ('2.5: Updating BelleDelicateSunlight Torso texcoord_vb to d761e076',)),
+            (log,                             ('2.2 - 2.4: Updating BelleDelicateSunlight Torso texcoord_vb to d761e076',)),
             (update_hash,                     ('d761e076',)),
         ],
         'd761e076': [
-            (log,                             ('2.5 - 3.2: BelleDelicateSunlight Torso Texcoord VB Hash',)),
+            (log,                             ('2.5 - 3.3: BelleDelicateSunlight Torso Texcoord VB Hash',)),
             (add_section_if_missing,          ('d509bdd4', 'BelleDelicateSunlight.Torso.IB', 'match_priority = 0\n')),
         ],
         '01b0c8b6': [
-            (log,                             ('2.5: Updating BelleDelicateSunlight Torso blend_vb to f3dedb50',)),
+            (log,                             ('2.2 - 2.4: Updating BelleDelicateSunlight Torso blend_vb to f3dedb50',)),
             (update_hash,                     ('f3dedb50',)),
         ],
         'f3dedb50': [
@@ -361,25 +366,25 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('4d74d5e9',)),
         ],
         '4d74d5e9': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Torso Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Torso Blend VB Hash',)),
             (add_section_if_missing,          ('d509bdd4', 'BelleDelicateSunlight.Torso.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== Leg Component ====================
         'bcc9e4e1': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Leg IB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Leg IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '720d6a16': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Leg Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Leg Draw VB Hash',)),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
         ],
         '42b88f48': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Leg Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Leg Position VB Hash',)),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
         ],
         '82d0aadd': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Leg Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Leg Texcoord VB Hash',)),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
         ],
         'f53b2eba': [
@@ -387,47 +392,59 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('922a7db6',)),
         ],
         '922a7db6': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Leg Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Leg Blend VB Hash',)),
             (add_section_if_missing,          ('bcc9e4e1', 'BelleDelicateSunlight.Leg.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== Face Component ====================
         '9a9780a7': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Face IB Hash (Shared with Belle)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Face IB Hash (Shared with Belle)',)),
             (add_ib_check_if_missing,),
         ],
         '04abceb5': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Face Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Face Draw VB Hash',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
         ],
         '3eb95df2': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Face Position VB Hash',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
         ],
         'ccc76aea': [
             (log,                             ('2.2 - 2.5: BelleDelicateSunlight Face Texcoord VB Hash',)),
+            (skip_unfixable_update,           ('BelleDelicateSunlight Face Texcoord VB Hash', '2.6 - 3.2')),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
-            (update_hash,                     ('bcfc3326',)),
         ],
         'bcfc3326': [
             (log,                             ('2.6 - 2.7: BelleDelicateSunlight Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
+            (update_hash,                     ('228f5a8b',)),
+        ],
+        'd3000b22': [
+            (log,                             ('3.0: BelleDelicateSunlight Face Texcoord VB Hash',)),
+            (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
+            (update_hash,                     ('228f5a8b',)),
+        ],
+        '228f5a8b': [
+            (log,                             ('3.1 - 3.3: BelleDelicateSunlight Face Texcoord VB Hash',)),
+            (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
+            (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
+            (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'), '359e4502')),
         ],
         '0c9a075b': [
             (log,                             ('2.5 -> 3.0: BelleDelicateSunlight Face Blend Hash',)),
             (update_hash,                     ('359e4502',)),
         ],
         '359e4502': [
-            (log,                             ('3.0 - 3.2: BelleDelicateSunlight Face Blend VB Hash',)),
+            (log,                             ('3.0 - 3.3: BelleDelicateSunlight Face Blend VB Hash',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
         ],
         '75ec3614': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Face Diffuse 2048p Hash (Shared with Belle)',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Face Diffuse 2048p Hash (Shared with Belle)',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('77eef7e8', 'BelleDelicateSunlight.FaceA.Diffuse.1024')),
         ],
         '77eef7e8': [
-            (log,                             ('2.2 - 3.2: BelleDelicateSunlight Face Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: BelleDelicateSunlight Face Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('9a9780a7', 'BelleDelicateSunlight.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('75ec3614', 'BelleDelicateSunlight.FaceA.Diffuse.2048')),
         ],
@@ -797,6 +814,6 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'BelleDelicateSunlight',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }
 

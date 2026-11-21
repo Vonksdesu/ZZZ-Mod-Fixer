@@ -1,7 +1,7 @@
 ﻿"""
 AstraYao Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns AstraYao's hash commands dictionary.
@@ -24,11 +25,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         'ee3c305a': [
-            (log,                             ('2.2: AstraYao Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Position VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
         ],
         'c3c08f85': [
-            (log,                             ('2.2: AstraYao Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Blend VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
         ],
         'f8b92870': [
@@ -40,11 +41,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
         ],
         'd3c951b9': [
-            (log,                             ('2.2: AstraYao Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Draw VB Hash',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
         ],
         'ebac056e': [
-            (log,                             ('2.2: AstraYao HairA, TorsoA, LegsA and weapon NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao HairA, TorsoA, LegsA and weapon NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
@@ -59,7 +60,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('798adba3', 'AstraYao.WeaponC.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2: AstraYao HairA, TorsoA, LegsA and weapon NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao HairA, TorsoA, LegsA and weapon NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('53cdac6c', 'AstraYao.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
@@ -158,23 +159,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         '93d55a49': [
-            (log,                             ('2.2: AstraYao Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '5e1e12aa': [
-            (log,                             ('2.2: AstraYao Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYao.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'a378328a': [
-            (log,                             ('2.2: AstraYao Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYao.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'c4456161': [
-            (log,                             ('2.2: AstraYao Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYao.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '81ef699b': [
-            (log,                             ('2.2: AstraYao Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('93d55a49', 'AstraYao.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
@@ -184,7 +185,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '9b17301d': [
-            (log,                             ('2.2: AstraYao Torso Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Torso Position VB Hash',)),
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
         ],
         '3cd13d03': [
@@ -196,11 +197,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
         ],
         '240d8c83': [
-            (log,                             ('2.2: AstraYao Torso Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Torso Texcoord VB Hash',)),
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
         ],
         '13a07361': [
-            (log,                             ('2.2: AstraYao Torso Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Torso Draw VB Hash',)),
             (add_section_if_missing,          ('7a110804', 'AstraYao.Torso.IB', 'match_priority = 0\n')),
         ],
         'd7f1c157': [
@@ -240,11 +241,11 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '97cef448': [
-            (log,                             ('2.2: AstraYao Legs Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Legs Position VB Hash',)),
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
         ],
         'bc4d6455': [
-            (log,                             ('2.2: AstraYao Legs Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Legs Blend VB Hash',)),
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
         ],
         'da86a32e': [
@@ -256,7 +257,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
         ],
         '8a8dbdc5': [
-            (log,                             ('2.2: AstraYao Legs Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Legs Draw VB Hash',)),
             (add_section_if_missing,          ('92f33156', 'AstraYao.Legs.IB', 'match_priority = 0\n')),
         ],
 
@@ -266,26 +267,26 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '66451cc2': [
-            (log,                             ('2.2: AstraYao Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Face Position VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYao.Face.IB', 'match_priority = 0\n')),
         ],
         'ffac76ac': [
-            (log,                             ('2.2: AstraYao Face Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.1: AstraYao Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYao.Face.IB', 'match_priority = 0\n')),
             (update_hash,                     ('01b43c04',)),
         ],
         '01b43c04': [
-            (log,                             ('3.2: AstraYao Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: AstraYao Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYao.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         '7e05c11a': [
-            (log,                             ('2.2: AstraYao Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Face Blend VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYao.Face.IB', 'match_priority = 0\n')),
         ],
         '5c578f85': [
-            (log,                             ('2.2: AstraYao Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('51831437', 'AstraYao.Face.IB', 'match_priority = 0\n')),
         ],
         '3a8d0dfc': [
@@ -309,62 +310,62 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 本体 Component ====================
         '702b018e': [
-            (log,                             ('2.2: AstraYao weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '9879faf3': [
-            (log,                             ('2.2: AstraYao weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Position VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         'b3e27d5f': [
-            (log,                             ('2.2: AstraYao weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '4a4fb44e': [
-            (log,                             ('2.2: AstraYao weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Blend VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         'ca16b939': [
-            (log,                             ('2.2: AstraYao weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         'b5a20274': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('d652aa31', 'AstraYao.WeaponA.Diffuse.1024')),
             (multiply_section_if_missing,     ('d652aa31', 'AstraYao.WeaponB.Diffuse.1024')),
         ],
         '57c44e60': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('91c63955', 'AstraYao.WeaponA.LightMap.1024')),
             (multiply_section_if_missing,     ('91c63955', 'AstraYao.WeaponB.LightMap.1024')),
         ],
         'fdb82c44': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('98e011bc', 'AstraYao.WeaponA.MaterialMap.1024')),
             (multiply_section_if_missing,     ('98e011bc', 'AstraYao.WeaponB.MaterialMap.1024')),
         ],
         'd652aa31': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('b5a20274', 'AstraYao.WeaponA.Diffuse.2048')),
             (multiply_section_if_missing,     ('b5a20274', 'AstraYao.WeaponB.Diffuse.2048')),
         ],
         '91c63955': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('57c44e60', 'AstraYao.WeaponA.LightMap.2048')),
             (multiply_section_if_missing,     ('57c44e60', 'AstraYao.WeaponB.LightMap.2048')),
         ],
         '98e011bc': [
-            (log,                             ('2.2: AstraYao WeaponA and WeaponB MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponA and WeaponB MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('702b018e', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('fdb82c44', 'AstraYao.WeaponA.MaterialMap.2048')),
@@ -373,49 +374,49 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon - 唱片 Component ====================
         'f4f5348d': [
-            (log,                             ('2.2: AstraYao weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'b8a9ba2e': [
-            (log,                             ('2.2: AstraYao weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Position VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         'd6d5743e': [
-            (log,                             ('2.2: AstraYao weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         'cb9405e1': [
-            (log,                             ('2.2: AstraYao weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Blend VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '7ed93255': [
-            (log,                             ('2.2: AstraYao weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('f4f5348d', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
 
         # ==================== Weapon - 唱片-技能唱歌状态 Component ====================
         '9bb42122': [
-            (log,                             ('2.2: AstraYao weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'ced4a85d': [
-            (log,                             ('2.2: AstraYao weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Position VB Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '401e9639': [
-            (log,                             ('2.2: AstraYao weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '8a2319f4': [
-            (log,                             ('2.2: AstraYao weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon Blend VB Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '6c67049b': [
-            (log,                             ('2.2: AstraYao weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
         ],
         '7503323d': [
-            (log,                             ('2.2: AstraYao WeaponC Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponC Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('9a9e8842', 'AstraYao.WeaponC.Diffuse.1024')),
         ],
@@ -438,17 +439,17 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('fc68cf7d', 'AstraYao.WeaponC.MaterialMap.1024')),
         ],
         '9a9e8842': [
-            (log,                             ('2.2: AstraYao WeaponC Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponC Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('7503323d', 'AstraYao.WeaponC.Diffuse.2048')),
         ],
         '364023c4': [
-            (log,                             ('2.2: AstraYao WeaponC LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponC LightMap 1024p Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('7e5fe2c6', 'AstraYao.WeaponC.LightMap.2048')),
         ],
         'fc68cf7d': [
-            (log,                             ('2.2: AstraYao WeaponC MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: AstraYao WeaponC MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('9bb42122', 'AstraYao.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('87687182', 'AstraYao.WeaponC.MaterialMap.2048')),
         ],
@@ -457,5 +458,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'AstraYao',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

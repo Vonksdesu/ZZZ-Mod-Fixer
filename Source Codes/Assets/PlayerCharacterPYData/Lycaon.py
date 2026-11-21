@@ -1,7 +1,7 @@
 ﻿"""
 Lycaon Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Lycaon's hash commands dictionary.
@@ -20,7 +21,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Component ====================
         '060bc1ad': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '395572dc': [
@@ -28,37 +29,37 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('b092c043',)),
         ],
         'cc59d8d6': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Draw VB Hash',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
         ],
         '31eda4d5': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Position VB Hash',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
         ],
         'b092c043': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
         ],
         '3ab9a7a4': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Blend VB Hash',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
         ],
         '61aaace5': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('3bd1b7e6', 'Lycaon.HairA.Diffuse.1024')),
             (multiply_section_if_missing,     ('3bd1b7e6', 'Lycaon.MaskA.Diffuse.1024')),
         ],
         '3bd1b7e6': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('61aaace5', 'Lycaon.HairA.Diffuse.2048')),
             (multiply_section_if_missing,     ('61aaace5', 'Lycaon.MaskA.Diffuse.2048')),
         ],
         'ebac056e': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA, BodyA, Pocket watchA, LegsA and MaskA NormalMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA, BodyA, Pocket watchA, LegsA and MaskA NormalMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
@@ -71,7 +72,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     (('798adba3', '71925b2f', '5db3d704'), 'Lycaon.MaskA.NormalMap.1024')),
         ],
         '798adba3': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA, BodyA, Pocket watchA, LegsA and MaskA NormalMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA, BodyA, Pocket watchA, LegsA and MaskA NormalMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
@@ -118,14 +119,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         'f7daa6d9': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('7c129f48', 'ea10b0bb', '4d878953', '4d4e8986'), 'Lycaon.HairA.LightMap.1024')),
             (multiply_section_if_missing,     (('7c129f48', 'ea10b0bb', '4d878953', '4d4e8986'), 'Lycaon.MaskA.LightMap.1024')),
         ],
         '7c129f48': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('f7daa6d9', '04d061fe', '3d6eb388'), 'Lycaon.HairA.LightMap.2048')),
@@ -145,7 +146,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         ],
         '4d878953': [
             (log,                             ('1.4 -> 2.5: Lycaon HairA, MaskA LightMap 1024p Hash',)),
-            (update_hash,                     ('ea10b0bb',)),
+            (update_hash,                     ('7c129f48',)),
         ],
         'ea10b0bb': [
             (log,                             ('2.5: Lycaon HairA, MaskA LightMap 1024p Hash',)),
@@ -153,14 +154,14 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         '02bfcc69': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('ba0f8320', 'Lycaon.HairA.MaterialMap.1024')),
             (multiply_section_if_missing,     ('ba0f8320', 'Lycaon.MaskA.MaterialMap.1024')),
         ],
         'ba0f8320': [
-            (log,                             ('2.2 - 3.2: Lycaon HairA and MaskA MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon HairA and MaskA MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('060bc1ad', 'Lycaon.Hair.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('02bfcc69', 'Lycaon.HairA.MaterialMap.2048')),
@@ -171,30 +172,30 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         'd4e17891': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '57b9efa5': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('d4e17891', 'Lycaon.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         'a80a83ac': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('d4e17891', 'Lycaon.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '9efb6f38': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('d4e17891', 'Lycaon.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '2e258296': [
-            (log,                             ('2.2 - 3.2: Lycaon Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('d4e17891', 'Lycaon.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         # Hair Shadow has no texture hashes in the database.
 
         # ==================== Body Component ====================
         '6749b6e7': [
-            (log,                             ('2.2 - 3.2: Lycaon Body IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Body IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '25196b7a': [
@@ -202,7 +203,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('6749b6e7',)),
         ],
         '25418598': [
-            (log,                             ('2.2 - 3.2: Lycaon Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Body Draw VB Hash',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
         ],
         '2a340ed5': [
@@ -210,7 +211,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('25418598',)),
         ],
         '8c7775ae': [
-            (log,                             ('2.2 - 3.2: Lycaon Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Body Position VB Hash',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
         ],
         'b68056b4': [
@@ -224,7 +225,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             )),
         ],
         'b950fda5': [
-            (log,                             ('2.2 - 3.2: Lycaon Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
         ],
         '949e688a': [
@@ -232,7 +233,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('b950fda5',)),
         ],
         'f2d1a929': [
-            (log,                             ('2.2 - 3.2: Lycaon Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Body Blend VB Hash',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
         ],
         'a485180e': [
@@ -261,28 +262,28 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('7a22ad61',)),
         ],
         '4cb6928e': [
-            (log,                             ('2.5 - 3.2: Lycaon BodyA and Pocket watchA Diffuse 2048p Hash (shared)',)),
+            (log,                             ('2.5 - 3.3: Lycaon BodyA and Pocket watchA Diffuse 2048p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('7a22ad61', '82ad0c28'), 'Lycaon.BodyA.Diffuse.1024')),
             (multiply_section_if_missing,     (('7a22ad61', '82ad0c28'), 'Lycaon.Pocket watchA.Diffuse.1024')),
         ],
         '7a22ad61': [
-            (log,                             ('2.5 - 3.2: Lycaon BodyA and Pocket watchA Diffuse 1024p Hash (shared)',)),
+            (log,                             ('2.5 - 3.3: Lycaon BodyA and Pocket watchA Diffuse 1024p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('4cb6928e', '7169ec86'), 'Lycaon.BodyA.Diffuse.2048')),
             (multiply_section_if_missing,     (('4cb6928e', '7169ec86'), 'Lycaon.Pocket watchA.Diffuse.2048')),
         ],
         'fbf5a9b5': [
-            (log,                             ('2.2 - 3.2: Lycaon BodyA and Pocket watchA LightMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon BodyA and Pocket watchA LightMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('391855b7', 'c5635a53', '122c655e', '7ea75154'), 'Lycaon.BodyA.LightMap.1024')),
             (multiply_section_if_missing,     (('391855b7', 'c5635a53', '122c655e', '7ea75154'), 'Lycaon.Pocket watchA.LightMap.1024')),
         ],
         '391855b7': [
-            (log,                             ('2.2 - 3.2: Lycaon BodyA and Pocket watchA LightMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon BodyA and Pocket watchA LightMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('fbf5a9b5', '814db5bf', '565aa8be'), 'Lycaon.BodyA.LightMap.2048')),
@@ -302,21 +303,21 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         ],
         '122c655e': [
             (log,                             ('1.4 -> 2.5: Lycaon BodyA LightMap 1024p Hash',)),
-            (update_hash,                     ('c5635a53',)),
+            (update_hash,                     ('391855b7',)),
         ],
         'c5635a53': [
             (log,                             ('2.5: Lycaon BodyA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
         ],
         '5a321eae': [
-            (log,                             ('2.2 - 3.2: Lycaon BodyA and Pocket watchA MaterialMap 2048p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon BodyA and Pocket watchA MaterialMap 2048p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('7cca7d7e', 'Lycaon.BodyA.MaterialMap.1024')),
             (multiply_section_if_missing,     ('7cca7d7e', 'Lycaon.Pocket watchA.MaterialMap.1024')),
         ],
         '7cca7d7e': [
-            (log,                             ('2.2 - 3.2: Lycaon BodyA and Pocket watchA MaterialMap 1024p Hash (shared)',)),
+            (log,                             ('2.2 - 3.3: Lycaon BodyA and Pocket watchA MaterialMap 1024p Hash (shared)',)),
             (add_section_if_missing,          ('6749b6e7', 'Lycaon.Body.IB', 'match_priority = 0\n')),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('5a321eae', 'Lycaon.BodyA.MaterialMap.2048')),
@@ -327,65 +328,65 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Pocket watch Component ====================
         'c28ea8d7': [
-            (log,                             ('2.2 - 3.2: Lycaon Pocket watch IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Pocket watch IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'a68f96bb': [
-            (log,                             ('2.2 - 3.2: Lycaon Pocket watch Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Pocket watch Draw VB Hash',)),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
         ],
         '5fbc1146': [
-            (log,                             ('2.2 - 3.2: Lycaon Pocket watch Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Pocket watch Position VB Hash',)),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
         ],
         'c6926d98': [
-            (log,                             ('2.2 - 3.2: Lycaon Pocket watch Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Pocket watch Texcoord VB Hash',)),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
         ],
         '3107902a': [
-            (log,                             ('2.2 - 3.2: Lycaon Pocket watch Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Pocket watch Blend VB Hash',)),
             (add_section_if_missing,          ('c28ea8d7', 'Lycaon.Pocket watch.IB', 'match_priority = 0\n')),
         ],
         # Pocket watch shares its Diffuse, LightMap, MaterialMap and NormalMap hashes with Body and Hair; see those Components above.
 
         # ==================== Legs Component ====================
         '22a1347b': [
-            (log,                             ('2.2 - 3.2: Lycaon Legs IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Legs IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '916a8726': [
-            (log,                             ('2.2 - 3.2: Lycaon Legs Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Legs Draw VB Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
         ],
         '30ba2096': [
-            (log,                             ('2.2 - 3.2: Lycaon Legs Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Legs Position VB Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
         ],
         'ab4b6359': [
-            (log,                             ('2.2 - 3.2: Lycaon Legs Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Legs Texcoord VB Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
         ],
         '7d08bead': [
-            (log,                             ('2.2 - 3.2: Lycaon Legs Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Legs Blend VB Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
         ],
         'd947066b': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('89bd4d58', 'Lycaon.LegsA.Diffuse.1024')),
         ],
         '89bd4d58': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('d947066b', 'Lycaon.LegsA.Diffuse.2048')),
         ],
         '57b175c5': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA LightMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA LightMap 2048p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('9bcd5f77', '9b0df25b', '3dfdab95'), 'Lycaon.LegsA.LightMap.1024')),
         ],
         '9bcd5f77': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('57b175c5', '072e6786'), 'Lycaon.LegsA.LightMap.2048')),
         ],
@@ -395,19 +396,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         ],
         '3dfdab95': [
             (log,                             ('1.0 -> 2.5: Lycaon LegsA LightMap 1024p Hash',)),
-            (update_hash,                     ('9b0df25b',)),
+            (update_hash,                     ('9bcd5f77',)),
         ],
         '9b0df25b': [
             (log,                             ('2.5: Lycaon LegsA LightMap 1024p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
         ],
         '4b18f890': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA MaterialMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('b4e95c1d', '1de27b3a', '288e7fbd'), 'Lycaon.LegsA.MaterialMap.1024')),
         ],
         'b4e95c1d': [
-            (log,                             ('2.2 - 3.2: Lycaon LegsA MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon LegsA MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('22a1347b', 'Lycaon.Legs.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('4b18f890', '4a4ea6dc'), 'Lycaon.LegsA.MaterialMap.2048')),
         ],
@@ -417,7 +418,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
         ],
         '288e7fbd': [
             (log,                             ('1.0 -> 2.5: Lycaon LegsA MaterialMap 1024p Hash',)),
-            (update_hash,                     ('1de27b3a',)),
+            (update_hash,                     ('b4e95c1d',)),
         ],
         '1de27b3a': [
             (log,                             ('2.5: Lycaon LegsA MaterialMap 1024p Hash',)),
@@ -427,30 +428,30 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Mask Component ====================
         '5e710f36': [
-            (log,                             ('2.2 - 3.2: Lycaon Mask IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Mask IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'a11680ef': [
-            (log,                             ('2.2 - 3.2: Lycaon Mask Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Mask Draw VB Hash',)),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         'ffbc21b0': [
-            (log,                             ('2.2 - 3.2: Lycaon Mask Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Mask Position VB Hash',)),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         '911a4bae': [
-            (log,                             ('2.2 - 3.2: Lycaon Mask Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Mask Texcoord VB Hash',)),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         '8a7db58c': [
-            (log,                             ('2.2 - 3.2: Lycaon Mask Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Mask Blend VB Hash',)),
             (add_section_if_missing,          ('5e710f36', 'Lycaon.Mask.IB', 'match_priority = 0\n')),
         ],
         # Mask shares its Diffuse, LightMap, MaterialMap and NormalMap hashes with Hair; see that Component above.
 
         # ==================== Face Component ====================
         '6ffdfccb': [
-            (log,                             ('2.2 - 3.2: Lycaon Face IB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Face IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '7341e07b': [
@@ -458,7 +459,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('6ffdfccb',)),
         ],
         '44277f65': [
-            (log,                             ('2.2 - 3.2: Lycaon Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
         ],
         '7074f97e': [
@@ -466,7 +467,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('44277f65',)),
         ],
         '7e35ec22': [
-            (log,                             ('2.2 - 3.2: Lycaon Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Face Position VB Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
         ],
         '4a666a39': [
@@ -479,7 +480,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('b50b51c0',)),
         ],
         'b50b51c0': [
-            (log,                             ('3.2: Lycaon Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Lycaon Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
@@ -493,7 +494,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('b1edaf35',)),
         ],
         'e2d4c532': [
-            (log,                             ('2.2 - 3.2: Lycaon Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon Face Blend VB Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
         ],
         'c862a611': [
@@ -501,12 +502,12 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (update_hash,                     ('e2d4c532',)),
         ],
         '7077ebb1': [
-            (log,                             ('2.2 - 3.2: Lycaon FaceA Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon FaceA Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('2cc208a7', '4f098897'), 'Lycaon.FaceA.Diffuse.1024')),
         ],
         '2cc208a7': [
-            (log,                             ('2.2 - 3.2: Lycaon FaceA Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Lycaon FaceA Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('6ffdfccb', 'Lycaon.Face.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     (('7077ebb1', 'd14f3284'), 'Lycaon.FaceA.Diffuse.2048')),
         ],
@@ -525,5 +526,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Lycaon',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

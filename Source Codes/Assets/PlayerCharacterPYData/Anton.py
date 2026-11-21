@@ -1,7 +1,7 @@
 ﻿"""
 Anton Character Hash Commands
 ZZZ Mod Fixer v2.5
-Game Version: 2.2 - 3.2
+Game Version: 2.2 - 3.3
 """
 
 def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
@@ -10,6 +10,7 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
                       multiply_section_if_missing, add_ib_check_if_missing,
                       add_section_if_missing, zzz_13_remap_texcoord,
                       zzz_12_shrink_texcoord_color, update_buffer_blend_indices,
+                      skip_unfixable_update, check_indexed_sections,
                       **kwargs):
     """
     Returns Anton's hash commands dictionary.
@@ -24,19 +25,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         'd46d8476': [
-            (log,                             ('2.2: Anton Hair Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Draw VB Hash',)),
             (add_section_if_missing,          ('6b95c80d', 'Anton.Hair.IB', 'match_priority = 0\n')),
         ],
         '8ab64867': [
-            (log,                             ('2.2: Anton Hair Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Position VB Hash',)),
             (add_section_if_missing,          ('6b95c80d', 'Anton.Hair.IB', 'match_priority = 0\n')),
         ],
         'bab585ea': [
-            (log,                             ('2.2: Anton Hair Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Texcoord VB Hash',)),
             (add_section_if_missing,          ('6b95c80d', 'Anton.Hair.IB', 'match_priority = 0\n')),
         ],
         '884e7cc3': [
-            (log,                             ('2.2: Anton Hair Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Blend VB Hash',)),
             (add_section_if_missing,          ('6b95c80d', 'Anton.Hair.IB', 'match_priority = 0\n')),
         ],
         '571aa398': [
@@ -121,23 +122,23 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Hair Shadow Component ====================
         '0112ffd6': [
-            (log,                             ('2.2: Anton Hair Shadow IB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Shadow IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         '52fa44ae': [
-            (log,                             ('2.2: Anton Hair Shadow Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Shadow Draw VB Hash',)),
             (add_section_if_missing,          ('0112ffd6', 'Anton.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '558ab813': [
-            (log,                             ('2.2: Anton Hair Shadow Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Shadow Position VB Hash',)),
             (add_section_if_missing,          ('0112ffd6', 'Anton.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '1f1b89ae': [
-            (log,                             ('2.2: Anton Hair Shadow Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Shadow Texcoord VB Hash',)),
             (add_section_if_missing,          ('0112ffd6', 'Anton.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
         '8d0bcd2b': [
-            (log,                             ('2.2: Anton Hair Shadow Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Hair Shadow Blend VB Hash',)),
             (add_section_if_missing,          ('0112ffd6', 'Anton.Hair Shadow.IB', 'match_priority = 0\n')),
         ],
 
@@ -147,19 +148,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '9f262894': [
-            (log,                             ('2.2: Anton Body Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Body Draw VB Hash',)),
             (add_section_if_missing,          ('653fb27c', 'Anton.Body.IB', 'match_priority = 0\n')),
         ],
         '339b1975': [
-            (log,                             ('2.2: Anton Body Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Body Position VB Hash',)),
             (add_section_if_missing,          ('653fb27c', 'Anton.Body.IB', 'match_priority = 0\n')),
         ],
         '66217473': [
-            (log,                             ('2.2: Anton Body Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Body Texcoord VB Hash',)),
             (add_section_if_missing,          ('653fb27c', 'Anton.Body.IB', 'match_priority = 0\n')),
         ],
         '76bc385f': [
-            (log,                             ('2.2: Anton Body Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Body Blend VB Hash',)),
             (add_section_if_missing,          ('653fb27c', 'Anton.Body.IB', 'match_priority = 0\n')),
         ],
         '00abcf22': [
@@ -215,19 +216,19 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         '112ccbbd': [
-            (log,                             ('2.2: Anton Jacket Draw VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Jacket Draw VB Hash',)),
             (add_section_if_missing,          ('a21fcee4', 'Anton.Jacket.IB', 'match_priority = 0\n')),
         ],
         '9f0a8d2e': [
-            (log,                             ('2.2: Anton Jacket Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Jacket Position VB Hash',)),
             (add_section_if_missing,          ('a21fcee4', 'Anton.Jacket.IB', 'match_priority = 0\n')),
         ],
         '1727e9e4': [
-            (log,                             ('2.2: Anton Jacket Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Jacket Texcoord VB Hash',)),
             (add_section_if_missing,          ('a21fcee4', 'Anton.Jacket.IB', 'match_priority = 0\n')),
         ],
         '3edd7ceb': [
-            (log,                             ('2.2: Anton Jacket Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Jacket Blend VB Hash',)),
             (add_section_if_missing,          ('a21fcee4', 'Anton.Jacket.IB', 'match_priority = 0\n')),
         ],
         'd4b15508': [
@@ -275,26 +276,26 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (add_ib_check_if_missing,),
         ],
         'f7cda875': [
-            (log,                             ('2.2: Anton Face VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Face VertexLimit VB Hash',)),
             (add_section_if_missing,          ('a0201907', 'Anton.Face.IB', 'match_priority = 0\n')),
         ],
         'cddf3b32': [
-            (log,                             ('2.2: Anton Face Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Face Position VB Hash',)),
             (add_section_if_missing,          ('a0201907', 'Anton.Face.IB', 'match_priority = 0\n')),
         ],
         '144828a7': [
-            (log,                             ('2.2: Anton Face Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.1: Anton Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('a0201907', 'Anton.Face.IB', 'match_priority = 0\n')),
             (update_hash,                     ('558c7001',)),
         ],
         '558c7001': [
-            (log,                             ('3.2: Anton Face Texcoord VB Hash',)),
+            (log,                             ('3.2 - 3.3: Anton Face Texcoord VB Hash',)),
             (add_section_if_missing,          ('a0201907', 'Anton.Face.IB', 'match_priority = 0\n')),
             (log,                             ('+ Remapping face texcoord buffer from stride 36 to 48',)),
             (zzz_13_remap_texcoord,           ('3.2_face', ('4B', '2f', '2f', '2f', '2f'), ('4f', '2f', '2f', '2f', '2f'))),
         ],
         'ec9763c1': [
-            (log,                             ('2.2: Anton Face Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton Face Blend VB Hash',)),
             (add_section_if_missing,          ('a0201907', 'Anton.Face.IB', 'match_priority = 0\n')),
         ],
         '842119d6': [
@@ -320,32 +321,32 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 
         # ==================== Weapon Component ====================
         'a21ac290': [
-            (log,                             ('2.2: Anton weapon IB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon IB Hash',)),
             (add_ib_check_if_missing,),
         ],
         'fa346a40': [
-            (log,                             ('2.2: Anton weapon VertexLimit VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon VertexLimit VB Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
         ],
         '193b9ea3': [
-            (log,                             ('2.2: Anton weapon Position VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon Position VB Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
         ],
         '65b52652': [
-            (log,                             ('2.2: Anton weapon Texcoord VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon Texcoord VB Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
         ],
         '2906a23f': [
-            (log,                             ('2.2: Anton weapon Blend VB Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon Blend VB Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
         ],
         'dc3a9ef1': [
-            (log,                             ('2.2: Anton weapon Diffuse 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon Diffuse 2048p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('66f89e6e', 'Anton.WeaponA.Diffuse.1024')),
         ],
         '66f89e6e': [
-            (log,                             ('2.2: Anton weapon Diffuse 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon Diffuse 1024p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('dc3a9ef1', 'Anton.WeaponA.Diffuse.2048')),
         ],
@@ -361,27 +362,27 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
             (multiply_section_if_missing,     ('ffdc1ea7', 'Anton.WeaponA.NormalMap.1024')),
         ],
         'ffdc1ea7': [
-            (log,                             ('2.2: Anton weapon NormalMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon NormalMap 1024p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('798adba3', 'Anton.WeaponA.NormalMap.2048')),
         ],
         'cf503557': [
-            (log,                             ('2.2: Anton weapon LightMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon LightMap 2048p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('3eba6997', 'Anton.WeaponA.LightMap.1024')),
         ],
         '3eba6997': [
-            (log,                             ('2.2: Anton weapon LightMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon LightMap 1024p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('cf503557', 'Anton.WeaponA.LightMap.2048')),
         ],
         'bd257544': [
-            (log,                             ('2.2: Anton weapon MaterialMap 2048p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon MaterialMap 2048p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('f9971d30', 'Anton.WeaponA.MaterialMap.1024')),
         ],
         'f9971d30': [
-            (log,                             ('2.2: Anton weapon MaterialMap 1024p Hash',)),
+            (log,                             ('2.2 - 3.3: Anton weapon MaterialMap 1024p Hash',)),
             (add_section_if_missing,          ('a21ac290', 'Anton.weapon.IB', 'match_priority = 0\n')),
             (multiply_section_if_missing,     ('bd257544', 'Anton.WeaponA.MaterialMap.2048')),
         ],
@@ -390,5 +391,5 @@ def get_hash_commands(log, update_hash, comment_sections, comment_commandlists,
 # Character metadata
 CHARACTER_INFO = {
     'name': 'Anton',
-    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2'],
+    'game_versions': ['2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '3.0', '3.1', '3.2', '3.3'],
 }

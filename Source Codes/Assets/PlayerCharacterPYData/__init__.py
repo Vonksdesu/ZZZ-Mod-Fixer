@@ -6,7 +6,7 @@ This package contains individual character modules, each with their own
 hash commands dictionary.
 """
 
-__version__ = '3.2'
+__version__ = '3.3'
 
 CHARACTERS = [
     'Alice',
@@ -62,6 +62,9 @@ CHARACTERS = [
     'Orphie',
     'PanYinhu',
     'PanYinhuCulinaryJewel',
+    'Pheonix',
+    'PheonixDaydreamComplex',
+    'PheonixTheIllnessCalledLife',
     'Piper',
     'Promeia',
     'Pulchra',
@@ -74,6 +77,7 @@ CHARACTERS = [
     'Roxy',
     'Seed',
     'Seth',
+    'Severian',
     'Sigrid',
     'SigridMajesticWavechaser',
     'Soldier0',
