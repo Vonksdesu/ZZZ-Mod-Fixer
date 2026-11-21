@@ -42,7 +42,7 @@ Since the original creator is no longer releasing updates, I have taken the init
 Please read the following exclusions and notices before using this tool:
  
 * **Not a Fix for Every Problem**: This tool does not fix mod problems that are too complex for certain characters or specific mods. Those cases still require a manual fixing approach.
-* **Resolution Support**: Full support is only available for the `1024p` and `2048p` resolutions, from game version 2.2 up to 3.2 (current). Anything below that is less complete and relies only on the hashes from the previous creator (Petrascyll), so some very old mods may not be fixable.
+* **Resolution Support**: Full support is only available for the `1024p` and `2048p` resolutions, from game version 2.2 up to 3.3 (current). Anything below that is less complete and relies only on the hashes from the previous creator (Petrascyll), so some very old mods may not be fixable.
 * **Do Not Update Character Mods That Are Still Safe**: Do not update the hashes of character mods that are still working fine, because this can cause conflicts. Fill the main `Mods` folder only with the specific character mods that are actually broken. After you have used the tool, restore the settings to how they were and move all of your mods back into the `Mods` folder as usual.
 ---
  
@@ -60,7 +60,7 @@ Since the **Revamps 2.0.0** update, the tool has moved from a CLI to an integrat
  
 ### 🖥️ GUI Version (Current)
  
-1. **Download**: Download the latest `zzz-mod-fixer-v3.2.exe` from the [Releases](../../releases) page.
+1. **Download**: Download the latest `zzz-mod-fixer-v3.3.exe` from the [Releases](../../releases) page.
 2. **Run**: Run the `.exe` directly from any directory. You do **not** need to place it inside the `Mods` folder, because the main `Mods` directory is selected from within the application itself.
 3. **Select the Mods Directory**: Inside the application, choose the main `Mods` folder within your **XXMI Launcher** installation directory.
 4. **Choose Your Backup Option**: Decide whether the changes should be applied with or without a folder backup.
@@ -106,7 +106,7 @@ This is the most recommended method to prevent any hidden conflicts and ensure t
  
 1. **Delete all mod folders** inside your main `Mods` directory.
 2. Replace them with **fresh, untouched mod files** (use backups that have *never* been modified or processed by Petrascyll's original program).
-3. Run my `zzz-mod-fixer-v3.2.exe`, select the main `Mods` folder inside the application, and let it automatically update them (see [How to Use](#%EF%B8%8F-how-to-use)).
+3. Run my `zzz-mod-fixer-v3.3.exe`, select the main `Mods` folder inside the application, and let it automatically update them (see [How to Use](#%EF%B8%8F-how-to-use)).
    * ~~Place and run my `zzz-mod-fixer-v3.2.exe` inside the `Mods` folder to automatically update them.~~ **(CLI method, obsolete)**
 4. Launch the game via **XXMI Launcher**.
 ---
